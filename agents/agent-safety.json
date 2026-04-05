@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "project": "Future Systems Lab",
+  "rules": {
+    "delete_protection": {
+      "enabled": true,
+      "applies_to": [
+        "files",
+        "database_records",
+        "contracts",
+        "services",
+        "directories"
+      ],
+      "action": "block",
+      "require_approval": "dr_meg",
+      "message": "DELETE operation blocked. Requires Dr. Meg approval before execution."
+    },
+    "structural_change_protection": {
+      "enabled": true,
+      "triggers": [
+        "schema migration",
+        "contract redeployment",
+        "service restructure",
+        "monorepo reorganization",
+        "breaking API change",
+        "port reassignment",
+        "nginx reconfiguration",
+        "systemd service removal"
+      ],
+      "action": "convene_vote",
+      "vote_threshold": "majority",
+      "agents": [
+        "audit",
+        "system_architect",
+        "backend",
+        "frontend",
+        "smart_contract",
+        "database",
+        "compliance",
+        "security",
+        "testing",
+        "documentation",
+        "approval_gate",
+        "hypnoneuro",
+        "game_architect",
+        "natpsy_advisor",
+        "orthomolecular_specialist"
+      ],
+      "escalate_to_architect": true,
+      "require_approval": "dr_meg"
+    },
+    "architect_agent": {
+      "auto_convene_on": [
+        "vote_triggered",
+        "breaking_change_detected",
+        "multi_system_impact"
+      ],
+      "delivers": "summary_with_recommendation",
+      "summary_sent_to": "telegram",
+      "execution_blocked_until": "dr_meg_approves"
+    }
+  },
+  "safe_operations": [
+    "read",
+    "list",
+    "status",
+    "log",
+    "test",
+    "build",
+    "generate",
+    "deploy_new"
+  ]
+}

@@ -1,0 +1,164 @@
+name: Weekly Security Scan
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6:00 UTC
+  workflow_dispatch:       # Manual trigger
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout governance repo
+        uses: actions/checkout@v4
+
+      - name: Checkout HypnoNeuro
+        uses: actions/checkout@v4
+        with:
+          repository: Future-Systems-Lab/HypnoNeuro
+          path: hypnoneuro
+
+      - name: Checkout fsl-web
+        uses: actions/checkout@v4
+        with:
+          repository: Future-Systems-Lab/fsl-web
+          path: fsl-web
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run npm audit — HypnoNeuro games
+        id: audit_hypnoneuro
+        continue-on-error: true
+        run: |
+          cd hypnoneuro/build/frontend
+          npm install --package-lock-only 2>/dev/null
+          echo "## HypnoNeuro Frontend" > /tmp/audit_hypnoneuro.md
+          echo '```' >> /tmp/audit_hypnoneuro.md
+          npm audit --production 2>&1 | tail -30 >> /tmp/audit_hypnoneuro.md
+          echo '```' >> /tmp/audit_hypnoneuro.md
+
+      - name: Run npm audit — EncryptHealth
+        id: audit_encrypthealth
+        continue-on-error: true
+        run: |
+          cd hypnoneuro/encrypthealth/frontend
+          npm install --package-lock-only 2>/dev/null
+          echo "## EncryptHealth Frontend" > /tmp/audit_encrypthealth.md
+          echo '```' >> /tmp/audit_encrypthealth.md
+          npm audit --production 2>&1 | tail -30 >> /tmp/audit_encrypthealth.md
+          echo '```' >> /tmp/audit_encrypthealth.md
+
+      - name: Run npm audit — FSL Web
+        id: audit_fslweb
+        continue-on-error: true
+        run: |
+          cd fsl-web
+          npm install --package-lock-only 2>/dev/null
+          echo "## FSL Web" > /tmp/audit_fslweb.md
+          echo '```' >> /tmp/audit_fslweb.md
+          npm audit --production 2>&1 | tail -30 >> /tmp/audit_fslweb.md
+          echo '```' >> /tmp/audit_fslweb.md
+
+      - name: FSL Lexicon scan
+        continue-on-error: true
+        run: |
+          echo "## Lexicon Violations" > /tmp/lexicon.md
+          echo "" >> /tmp/lexicon.md
+          echo "Scanning for non-sovereign language..." >> /tmp/lexicon.md
+          echo '```' >> /tmp/lexicon.md
+          grep -rn --include='*.tsx' --include='*.jsx' --include='*.ts' --include='*.js' \
+            -w 'patient\|diagnosis\|treatment\|disorder\|medication\|prescription' \
+            --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=dist \
+            hypnoneuro/build/frontend/src hypnoneuro/encrypthealth/frontend/app \
+            hypnoneuro/encrypthealth/frontend/components fsl-web/app \
+            2>/dev/null | head -50 >> /tmp/lexicon.md || echo "No violations found" >> /tmp/lexicon.md
+          echo '```' >> /tmp/lexicon.md
+
+      - name: Hardcoded secrets scan
+        continue-on-error: true
+        run: |
+          echo "## Secrets Scan" > /tmp/secrets.md
+          echo "" >> /tmp/secrets.md
+          echo '```' >> /tmp/secrets.md
+          grep -rn --include='*.tsx' --include='*.jsx' --include='*.ts' --include='*.js' \
+            -E '(sk-ant-|sk-or-v1-|PRIVATE_KEY|api_key|secret_key)' \
+            --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=dist \
+            hypnoneuro/ fsl-web/ \
+            2>/dev/null | head -20 >> /tmp/secrets.md || echo "No hardcoded secrets found" >> /tmp/secrets.md
+          echo '```' >> /tmp/secrets.md
+
+      - name: HTTP endpoint scan
+        continue-on-error: true
+        run: |
+          echo "## HTTP (non-HTTPS) API Calls" > /tmp/http.md
+          echo "" >> /tmp/http.md
+          echo '```' >> /tmp/http.md
+          grep -rn 'http://74\.208\.202\.239' \
+            --include='*.tsx' --include='*.jsx' --include='*.ts' --include='*.js' \
+            --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=dist \
+            hypnoneuro/ fsl-web/ \
+            2>/dev/null | head -20 >> /tmp/http.md || echo "No HTTP references found — all HTTPS" >> /tmp/http.md
+          echo '```' >> /tmp/http.md
+
+      - name: Generate report
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          REPORT="security/WEEKLY_SCAN_${DATE}.md"
+
+          cat > "$REPORT" << HEADER
+          # FSL Weekly Security Scan — ${DATE}
+
+          **Automated scan by GitHub Actions**
+
+          HEADER
+
+          cat /tmp/audit_hypnoneuro.md >> "$REPORT"
+          echo "" >> "$REPORT"
+          cat /tmp/audit_encrypthealth.md >> "$REPORT"
+          echo "" >> "$REPORT"
+          cat /tmp/audit_fslweb.md >> "$REPORT"
+          echo "" >> "$REPORT"
+          cat /tmp/lexicon.md >> "$REPORT"
+          echo "" >> "$REPORT"
+          cat /tmp/secrets.md >> "$REPORT"
+          echo "" >> "$REPORT"
+          cat /tmp/http.md >> "$REPORT"
+
+          echo "Report generated: $REPORT"
+
+      - name: Commit report
+        run: |
+          git config user.name "FSL Security Bot"
+          git config user.email "security@futuresystemslab.io"
+          git add security/
+          git diff --cached --quiet || git commit -m "security: weekly scan $(date +%Y-%m-%d)"
+          git push
+
+      - name: Create issue on findings
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const date = new Date().toISOString().split('T')[0];
+            const files = fs.readdirSync('security').filter(f => f.includes(date));
+            if (files.length === 0) return;
+            const report = fs.readFileSync(`security/${files[0]}`, 'utf8');
+            const hasFindings = report.includes('high') || report.includes('critical') ||
+                                report.includes('Violations') && !report.includes('No violations');
+            if (hasFindings) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Security Scan Findings — ${date}`,
+                body: `Weekly security scan found items requiring review.\n\nSee \`security/WEEKLY_SCAN_${date}.md\` for full report.`,
+                labels: ['security', 'automated']
+              });
+            }
