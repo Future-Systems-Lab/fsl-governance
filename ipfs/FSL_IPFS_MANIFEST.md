@@ -64,3 +64,17 @@
 | HypnoNeuro | bafkreiandgxutlydumi4ssf7fohph23yp5ddrpa4xlwnb3jf2jblc5ngdu | https://gateway.lighthouse.storage/ipfs/bafkreiandgxutlydumi4ssf7fohph23yp5ddrpa4xlwnb3jf2jblc5ngdu |
 | SovereignLedger | bafkreidndcipw27q543zc3ffhwlnfxkiufqfb2h3t4zqmxct5swkjajtde | https://gateway.lighthouse.storage/ipfs/bafkreidndcipw27q543zc3ffhwlnfxkiufqfb2h3t4zqmxct5swkjajtde |
 | NeuroBalance | bafkreidqxgtxom6vtmzv7tx7bmui6pzuemzifsd77mwm7q3u2afbili45a | https://gateway.lighthouse.storage/ipfs/bafkreidqxgtxom6vtmzv7tx7bmui6pzuemzifsd77mwm7q3u2afbili45a |
+
+## Database Backups — Pinata IPFS
+
+| Backup | CID | Date | Size | Gateway |
+|--------|-----|------|------|---------|
+| encrypthealth_backup_20260405.sql.gz | QmWyjDuRJksNcf2jGsQxn2yiiPLMumFeADdofuMJPQeH5D | 2026-04-05 | 42 KB | https://gateway.pinata.cloud/ipfs/QmWyjDuRJksNcf2jGsQxn2yiiPLMumFeADdofuMJPQeH5D |
+| fsl_full_backup_20260406.sql.gz | QmW2NJTnV72rditWLkwUYmtRYt3VgsEQwAfTnfrcGNY8RK | 2026-04-06 | 45 KB | https://gateway.pinata.cloud/ipfs/QmW2NJTnV72rditWLkwUYmtRYt3VgsEQwAfTnfrcGNY8RK |
+
+## Infrastructure Configs — Pinata IPFS
+
+| Config | CID | Date | Size | Gateway |
+|--------|-----|------|------|---------|
+| nginx_config_20260406.conf | QmZ3qhNxjCHaUf7BeBJwocqDcgV2h1FriCRw7FddjLiJYZ | 2026-04-06 | 2 KB | https://gateway.pinata.cloud/ipfs/QmZ3qhNxjCHaUf7BeBJwocqDcgV2h1FriCRw7FddjLiJYZ |
+| pm2_dump_20260406.json | QmT8zJQrAjXUhh9RjfdCiF9tTQWY4tk3Wg1UCQB2rbvStR | 2026-04-06 | 19 KB | https://gateway.pinata.cloud/ipfs/QmT8zJQrAjXUhh9RjfdCiF9tTQWY4tk3Wg1UCQB2rbvStR |
