@@ -4,7 +4,7 @@
 
 **Record Title:** First Completely Decentralized Sovereign Mental Wellness and Naturopathic Discovery Ecosystem
 
-**Claimant:** Dr. Meg Montanez-Davenport, D.N.Psy., BCHN, CBHP
+**Claimant:** Dr. Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP
 **Organization:** Future Systems Lab (FSL)
 **Date of Establishment:** April 10, 2026
 **Location:** United States (North Carolina)
@@ -79,7 +79,7 @@ FSL is the first to achieve complete decentralization across authentication, pay
 | Evidence | Address / CID | Network |
 |----------|--------------|---------|
 | AlchemistForge Contract | `0xE092336F8f5082e57CcBb341A110C20ad186A324` | Sepolia |
-| HypnoNeuroToken | `0x411426f8E735F7940B20491609F08817A805b198` | Sepolia |
+| HypnoNeuroToken | `0x1ae1e10929f008d1f9883ce574a318abd86084e2` | Sepolia |
 | EncryptHealthToken | `0xbDaeb1d05E02D2751Ad07121510b5f0C436E2CdC` | Sepolia |
 | MindMasteryNFT | `0xCb9EcB00574DB29976c7C54045d443666D5C7771` | Sepolia |
 | ClaimChainDAO | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` | Sepolia |
@@ -108,9 +108,9 @@ See EVIDENCE_PACKAGE.md for complete evidence documentation requirements.
 
 ## Claimant Biography
 
-Dr. Meg Montanez-Davenport holds a Doctorate in Naturopathic Psychology (D.N.Psy.), is a Board Certified Holistic Nutritionist (BCHN), Certified Behavioral Health Provider (CBHP), and is pursuing a Doctor of Engineering (DEng) at Arizona State University. She is the founder and CEO of Future Systems Lab, which serves as applied research for her doctoral engineering thesis on decentralized wellness infrastructure.
+Dr. Meg Montañez-Davenport holds a Doctorate in Naturopathic Psychology (D.N.Psy.), is a Board Certified Holistic Nutritionist (BCHN), Certified Blockchain Healthcare Professional (CBHP — Blockchain Council), and is pursuing a Doctor of Engineering (DEng) at Arizona State University. She is the founder and CEO of Future Systems Lab, which serves as applied research for her doctoral engineering thesis on decentralized wellness infrastructure.
 
-Dr. Montanez-Davenport was Participant #1 on AlchemistForge, recording the first Jungian shadow work transaction on the blockchain. She is also a founding practitioner (Sovereign Guide) on the platform and a licensed insurance producer (NC A&H, pending confirmation).
+Dr. Montañez-Davenport was Participant #1 on AlchemistForge, recording the first Jungian shadow work transaction on the blockchain. She is also a founding practitioner (Sovereign Guide) on the platform and a licensed insurance producer (NC A&H, pending confirmation).
 
 ---
 
