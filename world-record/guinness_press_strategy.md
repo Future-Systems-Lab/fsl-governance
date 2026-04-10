@@ -133,11 +133,11 @@ Articles already drafted and ready:
 | AMIA (health informatics) | Check 2026 CFP | On-chain health records vs centralized EHR |
 | ETHDenver / ETHGlobal | Rolling | Demo + talk |
 
-### 2.4 DUAL DOCTORAL PRESS MOMENT (July / October 2026 / 2027)
+### 2.4 DUAL DOCTORAL PRESS MOMENT (July 2026 / October 2026 / July 2028)
 
 Dr. Meg Montañez-Davenport will hold:
 - **D.N.Psy.** — Doctor of Naturopathic Psychology (conferred)
-- **D.Eng.** — Doctor of Engineering (Arizona State University, expected 2027)
+- **D.Eng.** — Doctor of Engineering (Arizona State University, starts October 2026, expected July 2028)
 
 This is believed to be the first person to hold both a naturopathic doctoral credential AND an engineering doctorate while actively operating a decentralized health tech platform.
 
@@ -146,10 +146,11 @@ This is believed to be the first person to hold both a naturopathic doctoral cre
 | Date | Milestone | Press Action |
 |------|-----------|-------------|
 | July 2026 | BS MIS graduation (CSU Global) | LinkedIn announcement, AOL mention as credential milestone |
-| October 2026 | DEng enrollment announcement | ASU PR pitch, LinkedIn article on applied research |
-| 2027 | DEng completion — D.Eng. conferred | **MAJOR PRESS MOMENT** — all channels |
+| October 2026 | DEng program begins (ASU) | ASU PR pitch, LinkedIn article: "FSL founder begins doctoral engineering program" |
+| 2027 | DEng midpoint — academic paper | Preprint publication, conference submission |
+| July 2028 | DEng completion — D.Eng. conferred | **MAJOR PRESS MOMENT** — all channels |
 
-**Press angles at DEng graduation (2027):**
+**Press angles at DEng graduation (July 2028):**
 1. **"The Doctor Who Built Her Own Platform"** — human interest angle for AOL, health tech press, local news
 2. **"Naturopathic Medicine Meets Engineering"** — academic press, ASU channels, DEng community, IEEE/ACM
 3. **"Dual Doctoral Founder Launches World's First Decentralized Wellness Ecosystem"** — tech press, Guinness radar piece, Cointelegraph/Decrypt

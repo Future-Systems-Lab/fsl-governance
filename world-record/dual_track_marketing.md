@@ -176,12 +176,13 @@ America Out Loud is a **health tech / health freedom / medical sovereignty publi
 | Date | Milestone | Press Action |
 |------|-----------|-------------|
 | July 2026 | BS MIS graduation (CSU Global) | LinkedIn announcement, AOL mention |
-| October 2026 | DEng enrollment milestone (ASU) | ASU PR pitch, LinkedIn article |
-| 2027 | DEng completion — D.Eng. conferred | MAJOR press moment (see below) |
+| October 2026 | DEng program begins (ASU) | ASU PR pitch, LinkedIn article |
+| 2027 | DEng midpoint — academic paper publication | Preprint + conference submission |
+| July 2028 | DEng completion — D.Eng. conferred | **MAJOR press moment** (see below) |
 
 ### Dual Doctoral Press Moment (2027)
 
-Upon DEng completion, Dr. Meg Montañez-Davenport will hold:
+Upon DEng completion (estimated July 2028), Dr. Meg Montañez-Davenport will hold:
 - **D.N.Psy.** — Doctor of Naturopathic Psychology
 - **D.Eng.** — Doctor of Engineering (Arizona State University)
 
