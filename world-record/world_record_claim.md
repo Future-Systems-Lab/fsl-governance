@@ -3,10 +3,12 @@
 ## Claim
 **"First completely decentralized mental wellness and naturopathic discovery ecosystem"**
 
-**Claimant:** Dr. Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP
+**Claimant:** Dr. Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP (D.Eng. expected 2027, ASU)
 **Organization:** Future Systems Lab (FSL)
 **Date of Claim:** 2026-04-10
 **Platform:** encrypthealth.io
+
+Claimant holds dual doctoral credentials (D.N.Psy. + D.Eng. in progress) — believed to be the first naturopathic doctor and engineer to build and operate a decentralized health tech platform.
 
 ---
 
