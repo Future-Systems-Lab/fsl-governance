@@ -108,7 +108,7 @@ See EVIDENCE_PACKAGE.md for complete evidence documentation requirements.
 
 ## Claimant Biography
 
-Dr. Meg Montañez-Davenport holds a Doctorate in Naturopathic Psychology (D.N.Psy.), is a Board Certified Holistic Nutritionist (BCHN), Certified Blockchain Healthcare Professional (CBHP — Blockchain Council), and begins the Doctor of Engineering (DEng) program at Arizona State University in October 2026. She is the founder and CEO of Future Systems Lab, which serves as applied research for her doctoral engineering thesis on decentralized wellness infrastructure.
+Dr. Meg Montañez-Davenport holds a Doctorate in Naturopathic Psychology (D.N.Psy.), is a Board Certified Holistic Nutritionist (BCHN), Certified Blockchain Healthcare Professional (CBHP — Blockchain Council), and begins the Doctor of Engineering (DEng) program at Arizona State University in January 2027 (spring semester, pending BS MIS conferment). She is the founder and CEO of Future Systems Lab, which serves as applied research for her doctoral engineering thesis on decentralized wellness infrastructure.
 
 Dr. Montañez-Davenport was Participant #1 on AlchemistForge, recording the first Jungian shadow work transaction on the blockchain. She is also a founding practitioner (Sovereign Guide) on the platform and a licensed insurance producer (NC A&H, pending confirmation).
 

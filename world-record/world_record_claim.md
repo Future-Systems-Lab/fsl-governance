@@ -3,7 +3,7 @@
 ## Claim
 **"First completely decentralized mental wellness and naturopathic discovery ecosystem"**
 
-**Claimant:** Dr. Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP (D.Eng. starts Oct 2026, expected July 2028, ASU)
+**Claimant:** Dr. Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP (D.Eng. starts January 2027 spring semester, expected ~2029, ASU)
 **Organization:** Future Systems Lab (FSL)
 **Date of Claim:** 2026-04-10
 **Platform:** encrypthealth.io
