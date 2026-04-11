@@ -109,6 +109,7 @@ The platform is already built and operational:
 | HypnoNeuroToken | `0x1ae1e10929f008d1f9883ce574a318abd86084e2` |
 | SovereignLedger | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` |
 | MindMasteryNFT | `0xCb9EcB00574DB29976c7C54045d443666D5C7771` |
+| XRPL Mainnet Wallet | `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` — activated Apr 11, 2026 (TX: 36A916...2E4C91) |
 
 ---
 

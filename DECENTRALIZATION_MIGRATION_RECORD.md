@@ -262,6 +262,7 @@ This migration is documented as applied research for the Arizona State Universit
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | April 11, 2026 | Initial document — complete migration record |
+| 1.1 | April 11, 2026 | XRPL mainnet wallet activated (15 XRP, TX: 36A916...2E4C91). FSL live on XRPL. |
 
 ---
 

@@ -28,6 +28,7 @@ Claimant holds dual doctoral credentials (D.N.Psy. + D.Eng. in progress) — bel
 ### Payments
 - [x] **Crypto-only payments** — No Stripe, no centralized fiat processor
 - [x] **ISO 20022-aligned assets** — XRP, XLM, HBAR, ALGO, ADA
+- [x] **XRPL mainnet wallet activated** — Apr 11, 2026 (TX: 36A916...2E4C91). FSL live on XRPL, ready to receive ISO 20022 payments
 - [x] **Onramper fiat onramp** — Card payments convert to crypto via Onramper aggregator (MoonPay, Transak, Banxa — best rate auto-selected), not custodial
 - [x] **Coinbase Pay secondary** — Alternative fiat onramp via Coinbase, no business signup needed
 - [x] **70/30/3 split model** — 70% Sovereign Guide, 30% FSL, 3% Benevolence Fund

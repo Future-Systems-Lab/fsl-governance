@@ -81,6 +81,7 @@ The platform scores 8.5/10 on a custom decentralization scoring framework (docum
 ---
 
 
+- XRPL mainnet wallet: `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` — activated Apr 11, 2026 (TX: 36A916...2E4C91)
 - Decentralization Migration Record: IPFS CID `QmdCYh3vV4aGFnft9DkxxDrKhc9BWac6E9YSbNBAndo2B4`
 
 ---
