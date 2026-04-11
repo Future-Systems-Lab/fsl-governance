@@ -1,4 +1,4 @@
-> **HOLD — Execute after ASU DEng acceptance and institutional email confirmed (January 2027)**
+> **HOLD — Execute after ASU DEng acceptance and institutional email confirmed (Spring/Summer 2027 upon acceptance)**
 
 # College Outreach Strategy — FSL
 

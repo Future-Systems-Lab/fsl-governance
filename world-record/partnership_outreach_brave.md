@@ -1,6 +1,6 @@
 # Partnership Outreach — Brave
 
-> **HOLD — Send after ASU DEng acceptance and institutional email confirmed (January 2027)**
+> **HOLD — Send after ASU DEng acceptance and institutional email confirmed (Spring/Summer 2027 upon acceptance)**
 
 ---
 

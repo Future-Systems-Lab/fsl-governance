@@ -133,11 +133,11 @@ Articles already drafted and ready:
 | AMIA (health informatics) | Check 2026 CFP | On-chain health records vs centralized EHR |
 | ETHDenver / ETHGlobal | Rolling | Demo + talk |
 
-### 2.4 DUAL DOCTORAL PRESS MOMENT (July 2026 / January 2027 / ~2029)
+### 2.4 DUAL DOCTORAL PRESS MOMENT (July 2026 / Fall 2027 / ~2029)
 
 Dr. Meg Montañez-Davenport will hold:
 - **D.N.Psy.** — Doctor of Naturopathic Psychology (conferred)
-- **D.Eng.** — Doctor of Engineering (Arizona State University, starts January 2027 spring semester, expected ~2029)
+- **D.Eng.** — Doctor of Engineering (Arizona State University, apply January 2027, enrollment Fall 2027 if accepted, expected ~2029)
 
 This is believed to be the first person to hold both a naturopathic doctoral credential AND an engineering doctorate while actively operating a decentralized health tech platform.
 
@@ -146,7 +146,9 @@ This is believed to be the first person to hold both a naturopathic doctoral cre
 | Date | Milestone | Press Action |
 |------|-----------|-------------|
 | July 2026 | BS MIS graduation (CSU Global) | LinkedIn announcement, AOL mention as credential milestone |
-| January 2027 | DEng program begins (ASU, spring semester) | ASU PR pitch, LinkedIn article: "FSL founder begins doctoral engineering program" |
+| January 2027 | DEng application submitted (ASU) | LinkedIn post: applying to ASU DEng with FSL as thesis |
+| Spring/Summer 2027 | DEng acceptance + ASU email | Execute all HOLD outreach, partnership pitches, grant submissions |
+| Fall 2027 | DEng enrollment begins | ASU PR pitch, LinkedIn article: "FSL founder begins doctoral engineering program" |
 | 2028 | DEng midpoint — academic paper | Preprint publication, conference submission |
 | ~2029 | DEng completion — D.Eng. conferred | **MAJOR PRESS MOMENT** — all channels |
 

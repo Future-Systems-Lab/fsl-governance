@@ -176,7 +176,7 @@ America Out Loud is a **health tech / health freedom / medical sovereignty publi
 | Date | Milestone | Press Action |
 |------|-----------|-------------|
 | July 2026 | BS MIS graduation (CSU Global) | LinkedIn announcement, AOL mention |
-| January 2027 | DEng program begins (ASU, spring semester) | ASU PR pitch, LinkedIn article |
+| January 2027 | DEng application submitted (ASU) | ASU PR pitch, LinkedIn article |
 | 2027 | DEng midpoint — academic paper publication | Preprint + conference submission |
 | ~2029 | DEng completion — D.Eng. conferred | **MAJOR press moment** (see below) |
 
