@@ -77,4 +77,9 @@ The 70/30/3 revenue split (70% Sovereign Guide, 30% FSL, 3% Benevolence Fund) is
 
 ---
 
+
+- Decentralization Migration Record: IPFS CID `QmdCYh3vV4aGFnft9DkxxDrKhc9BWac6E9YSbNBAndo2B4`
+
+---
+
 *Educational platform. Not medical advice.*

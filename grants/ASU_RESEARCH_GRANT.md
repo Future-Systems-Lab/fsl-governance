@@ -80,4 +80,9 @@ The platform scores 8.5/10 on a custom decentralization scoring framework (docum
 
 ---
 
+
+- Decentralization Migration Record: IPFS CID `QmdCYh3vV4aGFnft9DkxxDrKhc9BWac6E9YSbNBAndo2B4`
+
+---
+
 *Educational platform. Not medical advice.*

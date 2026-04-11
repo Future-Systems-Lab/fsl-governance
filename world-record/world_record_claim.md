@@ -39,6 +39,7 @@ Claimant holds dual doctoral credentials (D.N.Psy. + D.Eng. in progress) — bel
 - [x] **IPFS governance documents** — DATA_RETENTION.md pinned via Pinata (CID: Qmcu3Xb5eHxz2XG3jMy5oQHAmzKPzLH7DHQ5qeWq6THmVH)
 - [x] **hypnoneuro.crypto live on IPFS** — HypnoNeuro frontend pinned (CID: QmZp389KSgioqgSs9NYXWrFB9tFdBF2sWwBq1c2n7AQnJh), accessible via Brave browser natively — zero Vercel, zero Namecheap dependency
 - [x] **No centralized cloud dependency** — IPFS + Unstoppable Domains operational, Vercel as convenience layer only
+- [x] **Decentralization migration record** — Complete transparency document on IPFS (CID: QmdCYh3vV4aGFnft9DkxxDrKhc9BWac6E9YSbNBAndo2B4) documenting what IS and IS NOT decentralized with migration plans
 - [x] **Wallet-based identity** — No PII stored on-chain
 
 ### Platform Scope
