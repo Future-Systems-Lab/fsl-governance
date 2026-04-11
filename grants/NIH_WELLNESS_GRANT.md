@@ -1,3 +1,5 @@
+> **HOLD — Submit after ASU DEng acceptance and institutional email confirmed (January 2027)**
+
 # NIH NCCIH Grant Application — Future Systems Lab
 
 **Target:** NIH National Center for Complementary and Integrative Health (nccih.nih.gov/grants)

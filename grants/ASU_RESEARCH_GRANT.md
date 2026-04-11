@@ -1,3 +1,5 @@
+> **HOLD — Submit after ASU DEng acceptance and institutional email confirmed (January 2027)**
+
 # ASU DEng Research Grant Application — Future Systems Lab
 
 **Target:** ASU Ira A. Fulton Schools of Engineering — DEng Research Funding

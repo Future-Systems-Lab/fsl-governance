@@ -1,3 +1,5 @@
+> **HOLD — Execute after ASU DEng acceptance and institutional email confirmed (January 2027)**
+
 # College Outreach Strategy — FSL
 
 **Agent:** web3_marketing (#17)

@@ -1,3 +1,5 @@
+> **HOLD — Submit after ASU DEng acceptance and institutional email confirmed (January 2027)**
+
 # XRPL Foundation Grant Application — Future Systems Lab
 
 **Target:** XRPL Foundation Grants (xrpl.org/grants)
