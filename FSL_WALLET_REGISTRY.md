@@ -9,20 +9,20 @@
 
 | Wallet | Address | Network | Purpose | Status |
 |--------|---------|---------|---------|--------|
-| Dr. Meg Brave (EVM) | `0x739414BC271521Bea000A9aB2FbF79182124BCC3` | ETH Mainnet + Sepolia | Participant testing, personal wallet | Active, mining Sepolia ETH |
-| Deployer (EVM) | `0xf22cbF25deEeA36FFF828BAf73CCb049345eF248` | ETH Mainnet + Sepolia | Smart contract deployment, admin | $0 mainnet, active Sepolia |
-| FSL XRPL | `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` | XRPL Mainnet | XRP session payments | NOT ACTIVATED — needs 10 XRP reserve |
-| XRPL Testnet | `r992bUGu257HcnFvNiuxCo64v6brj9RdtK` | XRPL Testnet | Payment flow testing | Funded via faucet |
-| Keplr (Cosmos) | TBD | Cosmos / Akash | Future Akash compute payments | Created, no AKT |
+| Dr. Meg Brave (EVM) | `0x739414BC271521Bea000A9aB2FbF79182124BCC3` | ETH Mainnet + Sepolia | Participant testing | Mining Sepolia ETH |
+| Deployer (EVM) | `0xf22cbF25deEeA36FFF828BAf73CCb049345eF248` | ETH Mainnet + Sepolia | Contract deployment, admin | $0 mainnet, needs ETH |
+| FSL XRPL Mainnet | `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` | XRPL Mainnet | XRP session payments | NOT ACTIVATED — needs 10 XRP (~$14) |
+| XRPL Testnet | `r992bUGu257HcnFvNiuxCo64v6brj9RdtK` | XRPL Testnet | Payment flow testing | Funded, ready |
+| Keplr / Akash | `akash1p6w9szrp5pdgqv9gv02sunmg9p00v6zazatr4l` | Akash / Cosmos | Decentralized compute | $0, needs AKT |
+| Keplr / Cosmos Hub | `cosmos1p6w9szrp5pdgqv9gv02sunmg9p00v6za0xxyv9` | Cosmos Hub | ATOM holdings | $0 |
 
-## XRPL Mainnet Activation
+## Funding Needed Per Wallet
 
-The XRPL mainnet wallet (`rwR3etLJ...`) returns "Account not found" — it has never been funded. XRPL requires a 10 XRP reserve to activate an account.
-
-**To activate:**
-1. Send 10+ XRP to `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` from any exchange or wallet
-2. At current XRP price (~$1.36), this costs ~$14
-3. After activation, the address can receive session payments
+| Wallet | Amount | USD | Priority |
+|--------|--------|-----|----------|
+| XRPL Mainnet | 10 XRP | ~$14 | Cheapest — activates XRP payments |
+| Deployer (ETH) | 0.2 ETH | ~$450 | Mainnet contract deployment |
+| Keplr / Akash | ~50-80 AKT | ~$20-28 | Akash compute (3 months) |
 
 ## Smart Contract Addresses (Sepolia)
 
