@@ -1,3 +1,9 @@
+> **EXECUTE ONLY AFTER:**
+> 1. IP protection confirmed (USPTO trademark + copyright registration complete)
+> 2. AND ASU DEng acceptance + institutional email (Spring/Summer 2027)
+>
+> *Exception: Academic researchers only — whitepaper and research docs may be shared with verified academic contacts before this.*
+
 # Guinness + Press Strategy — Master Plan
 
 **Agent:** web3_marketing (#17)
