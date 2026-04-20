@@ -1,6 +1,6 @@
 # EIP-191 Consent Architecture for Sovereign Behavioral Health Data Governance: A Decentralized Implementation
 
-**Authors:** Meg Montanez-Davenport, D.N.Psy., CBHP, BCHN
+**Authors:** Meg Montañez-Davenport, D.N.Psy., CBHP, BCHN
 
 **Affiliation:** Future Systems Lab, NC, USA
 
@@ -107,12 +107,12 @@ This message serves simultaneously as informed consent and authentication challe
 - Verifies the recovered address matches the claimed address
 - Validates the consent message contains required phrases (educational disclaimer, sovereignty acknowledgment)
 - Issues a JSON Web Token (JWT) containing the verified address, role (participant or guide), and a 15-minute expiration
-- The JWT is delivered to the client as a secure cookie with appropriate expiration
+- The JWT is delivered to the client as a browser cookie with appropriate expiration and same-site protections
 
 ### 3.3 Middleware Verification Layer
 
 Every protected route passes through a server-side middleware layer that:
-1. Extracts the an HTTP-only session cookie from the request
+1. Extracts the session cookie from the request
 2. Verifies the JWT signature using a standard JWT verification library with the server's HS256 secret
 3. Checks token expiration
 4. Extracts the verified wallet address and role from the payload
@@ -328,6 +328,6 @@ The system is not without limitations — testnet deployment, single-practitione
 
 *Manuscript prepared for submission to Blockchain in Healthcare Today (BHTY). Pre-print version archived in FSL governance repository and IPFS.*
 
-*Conflicts of interest: The author is the founder and lead engineer of Future Systems Lab.*
+*Conflicts of interest: The author is the founder, sole architect, and lead engineer of Future Systems Lab.*
 
 *Data availability: All smart contracts are publicly verifiable on Ethereum Sepolia testnet. Source code is available at github.com/Future-Systems-Lab.*
