@@ -8,6 +8,15 @@
 
 ## Top 5 Recommended Venues (Ranked by Fit)
 
+### 0. Blockchain in Healthcare Today (BHTY) -- NEW FINDING
+- **Organization:** Independent (PubMed indexed, DOAJ)
+- **Fit:** 10/10 -- purpose-built journal for blockchain health research
+- **Format:** Open access, peer-reviewed
+- **Review timeline:** ~12 weeks
+- **Membership benefit:** None required -- open to all
+- **Why best fit:** THE journal for FSL's exact research. Has published papers on blockchain consent management, SSI health passports, and decentralized health data. PubMed indexed = strong academic credibility. Fastest path to a peer-reviewed publication.
+- **URL:** blockchainhealthcaretoday.com/index.php/journal/about/submissions
+
 ### 1. AMIA Annual Symposium — Conference Proceedings
 - **Organization:** American Medical Informatics Association
 - **Fit:** 9/10 — health informatics + consent architecture + data governance is core AMIA territory
@@ -89,6 +98,12 @@
 ---
 
 ## Recommended Publication Strategy
+
+### Phase 0: Immediate Journal Submission (Now)
+- Submit to **Blockchain in Healthcare Today** (BHTY)
+- Paper title: "EIP-191 Consent Architecture for Sovereign Behavioral Health Data Governance"
+- PubMed indexed, ~12 week review, open access
+- Can submit NOW without IRB (architectural/technical paper, no participant data)
 
 ### Phase 1: Conference Paper (Q3-Q4 2026)
 - Submit to **IEEE Blockchain 2026** or **AMIA Annual Symposium 2026**
