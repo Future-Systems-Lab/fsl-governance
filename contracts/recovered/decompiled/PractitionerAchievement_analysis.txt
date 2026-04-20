@@ -1,0 +1,12 @@
+# PractitionerAchievement — Decompiled Analysis
+# Address: 0xe23e39799a47af1c383464c958e7724eed36f987
+# Bytecode size: 214 bytes
+
+# Detected function selectors:
+#   0x893d20e8 -> getOwner()
+
+# Raw bytecode:
+# 0x600436106039576000357c0100000000000000000000000000000000000000000000000000000000900480630c08bf88146045578063893d20e814606b575b005b348015605057600080fd5b5060576089565b60405190815260200160405180910390...
+
+# NOTE: Very small contract (214 bytes).
+# Likely a minimal proxy, placeholder, or simple storage contract.
