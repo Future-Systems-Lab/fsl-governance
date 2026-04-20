@@ -146,7 +146,7 @@ Decentralization is not binary. It is a spectrum, and claiming "fully decentrali
 - SovereignLedger — session records
 - AlchemistForge — shadow work
 - BenevolenceFund — community access fund
-- ClaimChainDAO — governance
+- SovereignLedgerDAO — governance
 - EncryptHealthVault — data access control
 
 **Migration plan:** EIN → Coinbase Commerce → accumulate ETH → professional security audit → mainnet deployment

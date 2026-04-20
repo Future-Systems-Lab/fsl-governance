@@ -82,7 +82,7 @@ FSL is the first to achieve complete decentralization across authentication, pay
 | HypnoNeuroToken | `0x1ae1e10929f008d1f9883ce574a318abd86084e2` | Sepolia |
 | EncryptHealthToken | `0xbDaeb1d05E02D2751Ad07121510b5f0C436E2CdC` | Sepolia |
 | MindMasteryNFT | `0xCb9EcB00574DB29976c7C54045d443666D5C7771` | Sepolia |
-| ClaimChainDAO | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` | Sepolia |
+| SovereignLedgerDAO | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` | Sepolia |
 | DATA_RETENTION.md | `Qmcu3Xb5eHxz2XG3jMy5oQHAmzKPzLH7DHQ5qeWq6THmVH` | IPFS |
 
 ### Live Platform URLs

@@ -20,7 +20,7 @@ Claimant holds dual doctoral credentials (D.N.Psy. + D.Eng. in progress) — bel
 - [x] **JWT via cryptographic signature** — Session auth via ethers.verifyMessage, not password-based
 
 ### On-Chain Infrastructure
-- [x] **8 smart contracts on Sepolia** — HypnoNeuroToken, EncryptHealthToken, MindMasteryNFT, ClaimChainDAO, AlchemistForge, BenevolenceFund, SovereignLedger, EncryptHealthVault
+- [x] **8 smart contracts on Sepolia** — HypnoNeuroToken, EncryptHealthToken, MindMasteryNFT, SovereignLedgerDAO, AlchemistForge, BenevolenceFund, SovereignLedger, EncryptHealthVault
 - [x] **On-chain session records (SovereignLedger)** — Wellness sessions recorded immutably on-chain
 - [x] **AlchemistForge** — First Jungian shadow work tool on blockchain. Identify → Transmute → Celebrate
 - [x] **Participant #1 verified** — Dr. Meg's shadow work recorded and celebrated on Sepolia

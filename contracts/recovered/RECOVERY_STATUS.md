@@ -11,7 +11,7 @@
 
 | Contract | Address | Status |
 |----------|---------|--------|
-| SovereignLedger | 0xf32979200768e8726d5EC5E5AB0CA7407d64A94e | Not verified on Blockscout. No .sol in ClaimChain repo or git history. Deployment artifacts lost. |
+| SovereignLedger | 0xf32979200768e8726d5EC5E5AB0CA7407d64A94e | Not verified on Blockscout. No .sol in SovereignLedger repo or git history. Deployment artifacts lost. |
 | BenevolenceFund | 0xbe710a0a5a80dfa3ca7dfadc959176d545b18271 | Not verified on Blockscout. No local source found anywhere. |
 | PractitionerAchievement | 0xe23e39799a47af1c383464c958e7724eed36f987 | Not verified on Blockscout. No local source found. |
 | ParticipantAchievement | 0x406c30894a14b53a6b5700025c06dd0697586fc6 | Not verified on Blockscout. No local source found. |

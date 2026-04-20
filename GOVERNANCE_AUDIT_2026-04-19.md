@@ -73,7 +73,7 @@ Full ecosystem audit across security, smart contracts, compliance, and infrastru
 | Banned Word | Instances | Files | Priority |
 |-------------|-----------|-------|----------|
 | "patient" (affirmative use) | 15+ | KnowledgeBase.jsx, HelpCenter.jsx, OperatorRegister.jsx, GameSelection.jsx, BookingConfirmation.jsx, IntakeDashboard.jsx | CRITICAL |
-| "ClaimChain" (should be SovereignLedger) | 15+ | ConsentManager.jsx, OperatorPage.jsx, ProviderOnboard.jsx, HelpCenter.jsx, GameSelection.jsx, SubscriptionGate.jsx, KnowledgeBase.jsx | CRITICAL |
+| "SovereignLedger" (should be SovereignLedger) | 15+ | ConsentManager.jsx, OperatorPage.jsx, ProviderOnboard.jsx, HelpCenter.jsx, GameSelection.jsx, SubscriptionGate.jsx, KnowledgeBase.jsx | CRITICAL |
 | "Provider/Providers" (should be Sovereign Guides) | 4 | NutritionProtocol.jsx, BookingConfirmation.jsx, KnowledgeBase.jsx, AllergyTracker.jsx | HIGH |
 
 ### EncryptHealth Frontend — Mostly Clean
@@ -114,7 +114,7 @@ Full ecosystem audit across security, smart contracts, compliance, and infrastru
 | 4 | Recover or redeploy 5 contracts with missing source code | 4-8 hours |
 | 5 | Cap EHT token supply or add governance before mainnet | 2 hours |
 | 6 | Fix HypnoNeuro lexicon violations — "patient" in 7 files | 2 hours |
-| 7 | Replace "ClaimChain" with "SovereignLedger" in HypnoNeuro (7 files) | 1 hour |
+| 7 | Replace "SovereignLedger" with "SovereignLedger" in HypnoNeuro (7 files) | 1 hour |
 
 ### High — Fix Before Users
 

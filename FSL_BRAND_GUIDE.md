@@ -11,7 +11,7 @@
 | Wellness support | Diagnosis |
 | Sovereign health | Medical care |
 | Sovereign Guide | Provider (in UI text) |
-| SovereignLedger | ClaimChain |
+| SovereignLedger | ClaimChain (retired brand name) |
 | Sovereign wellness | Clinical care |
 
 ### Rules

@@ -17,7 +17,7 @@
 | HypnoNeuroToken | `0x411426f8E735F7940B20491609F08817A805b198` | https://eth-sepolia.blockscout.com/address/0x411426f8E735F7940B20491609F08817A805b198 |
 | EncryptHealthToken | `0xbDaeb1d05E02D2751Ad07121510b5f0C436E2CdC` | https://eth-sepolia.blockscout.com/address/0xbDaeb1d05E02D2751Ad07121510b5f0C436E2CdC |
 | MindMasteryNFT | `0xCb9EcB00574DB29976c7C54045d443666D5C7771` | https://eth-sepolia.blockscout.com/address/0xCb9EcB00574DB29976c7C54045d443666D5C7771 |
-| ClaimChainDAO | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` | https://eth-sepolia.blockscout.com/address/0xf32979200768e8726d5EC5E5AB0CA7407d64A94e |
+| SovereignLedgerDAO | `0xf32979200768e8726d5EC5E5AB0CA7407d64A94e` | https://eth-sepolia.blockscout.com/address/0xf32979200768e8726d5EC5E5AB0CA7407d64A94e |
 | AlchemistForge | `0xE092336F8f5082e57CcBb341A110C20ad186A324` | https://eth-sepolia.blockscout.com/address/0xE092336F8f5082e57CcBb341A110C20ad186A324 |
 | BenevolenceFund | `0xbe710a0a5a80dfa3ca7dfadc959176d545b18271` | https://eth-sepolia.blockscout.com/address/0xbe710a0a5a80dfa3ca7dfadc959176d545b18271 |
 | SovereignLedger | (verify address from deployment records) | Sepolia |
