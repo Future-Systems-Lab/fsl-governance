@@ -165,3 +165,71 @@ The FSL ecosystem is live, functional, and serving users across 5 platforms with
 ---
 
 *Audit conducted 2026-04-21 by FSL Agent Council. Investigation only — no fixes applied.*
+
+
+---
+
+## Addendum: Agent Deep-Dive Findings
+
+### New Findings from Categories 1-3 Agent
+
+| Finding | Severity | Details |
+|---------|----------|---------|
+| Pre-mainnet gates: 2 of 13 complete | HIGH | Only CORS audit + PostgreSQL localhost verified. 11 gates still open. |
+| IPFS decentralization 1/5 | MEDIUM | Only HypnoNeuro has a live CID. Other 4 platforms pending. |
+| Fiat payment is a stub | HIGH | "Card" option creates booking with fake tx hash then redirects to /sovereign-upgrade. No actual card processor. |
+| Hardcoded ETH price (rate/1800) in BookSession | MEDIUM | Will diverge from market — needs price oracle |
+| Silent error swallowing in dashboard | MEDIUM | Trial status and data fetch failures show empty UI, no error message |
+| BookSession handleCard creates phantom bookings | MEDIUM | Books with "pending-card" before payment completes |
+| .pw domains DO redirect to .io | `🟢` | Confirmed 301 redirects working (correcting earlier report) |
+
+### New Findings from Categories 4-6 Agent
+
+| Finding | Severity | Details |
+|---------|----------|---------|
+| /api/trial and /api/subscription are public routes | MEDIUM | Could be abused to create unlimited trials without auth |
+| Rate limit 1000 req/min is generous | LOW | Sensitive endpoints (mint, consent) need stricter per-route limits |
+| localhost still in CORS whitelist | LOW | Should be gated behind NODE_ENV for production |
+| All backups on same VPS | MEDIUM | No off-site replication — disk failure loses everything |
+| No standalone Privacy Policy page | HIGH | Required for health/wellness platform before launch |
+
+### New Findings from Categories 7-10 Agent
+
+| Finding | Severity | Details |
+|---------|----------|---------|
+| 14+ Transak references still in code | MEDIUM | app/terms, app/agreement, provider demo pages — should be Onramper |
+| AlchemistForge missing favicon | LOW | Returns 404 at alchemistforge.io/favicon.ico |
+| AlchemistForge doesn't use #00D9FF brand color | LOW | Standalone site uses different color palette |
+| 5 "coming soon" markers visible to users | LOW | Provider dashboard, landing page, orthomolecular page |
+| Supplement Protocols module referenced but not built | LOW | Orthomolecular page card says "Building now" |
+
+### Updated Priority List (Post-Agent Findings)
+
+**Critical (blocks launch):**
+1. Privacy Policy page — standalone, attorney-reviewable
+2. Terms of Service — attorney review
+3. Formal third-party security audit
+4. Deploy v2 contracts to Sepolia
+5. EHT token supply cap
+6. Off-site backup replication (S3 or rsync)
+
+**High (fix before users):**
+7. End-to-end payment flow (remove phantom booking logic)
+8. Replace Transak references with Onramper (14+ instances)
+9. Move Onramper key to env variable
+10. Protect /api/trial and /api/subscription routes
+11. Add ETH price oracle to BookSession
+12. Add error states to dashboard data fetches
+
+**Medium (quality of life):**
+13. Complete Gitea mirror (5 missing repos)
+14. XRPL cryptographic verification
+15. JWT secret rotation
+16. Per-route rate limiting on sensitive endpoints
+17. Remove localhost from CORS in production
+18. IPFS deployment for remaining 4 platforms
+19. AlchemistForge favicon + brand color consistency
+
+---
+
+*Agent deep-dive completed 2026-04-21. Three agents ran in parallel covering all 10 categories.*
