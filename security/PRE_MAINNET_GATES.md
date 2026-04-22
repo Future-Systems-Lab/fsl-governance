@@ -15,8 +15,8 @@ All items below must be completed and signed off before any FSL contract is depl
 
 ## Infrastructure
 - [x] CORS allowlist audited — no rotating or unknown hostnames (completed April 6, 2026)
-- [ ] Cloudflare named tunnel (stable hostname) replacing quick tunnel
-- [ ] Fail2ban confirmed active on all exposed services
+- [x] Cloudflare named tunnel — api.futuresystemslab.io + git.futuresystemslab.io live (completed April 18, 2026)
+- [x] Fail2ban confirmed active — sshd jail, 3 retries, 24h ban, 77 IPs currently banned (verified April 21, 2026)
 - [x] PostgreSQL not publicly accessible (confirmed localhost-only)
 
 ## Commercial
