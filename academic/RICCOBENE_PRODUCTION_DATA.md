@@ -12,3 +12,5 @@ Source: Riccobene Associates Durham Executive Summary reports (PlanetDDS-generat
 2024 annualized: $624,640.64
 Cumulative growth 2021 → 2024 annualized: +64.1%
 Continuous YoY growth confirmed across all four years.
+
+**Note:** The production-share compensation model was implemented in 2019 (pre-pandemic). Riccobene migrated practice management software in 2020, so standardized documented figures in PlanetDDS format begin 2021. Pre-migration data from the model's 2019 launch is not retrievable in standardized format.
