@@ -32,3 +32,7 @@ XRPL endpoint tested directly — returns `status: success`, balance: 15.001117 
 ## Files Changed
 
 - `/opt/encrypthealth/monitor.js` — `checkXRPL()` function rewritten with proper error handling
+
+## Follow-Up — 2026-04-29
+
+The 15s timeout added in this fix surfaced a deeper issue: `xrplcluster.com` is inherently slow (~8s response time) and frequently exceeds the timeout. See `XRPL_TIMEOUT_FIX_2026-04-29.md` for the follow-up fix switching to Ripple's `s2.ripple.com:51234` as primary endpoint with a 3-endpoint fallback chain.
