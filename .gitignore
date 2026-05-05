@@ -1,1 +1,11 @@
 .next/
+.env
+.env.local
+.env.production
+.env.*
+credentials.json
+secrets.json
+*.pem
+*.key
+node_modules/
+.DS_Store
