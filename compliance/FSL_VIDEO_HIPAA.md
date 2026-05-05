@@ -23,7 +23,6 @@ FSL uses Doxy.me for sovereign video wellness sessions. Doxy.me provides free HI
 | Practitioner | Doxy.me Room | Status |
 |-------------|-------------|--------|
 | Dr. Meg Montañez-Davenport | https://doxy.me/hypnosispsych | ✅ Active |
-| Dr. Gabriel Duncan | https://doxy.me/drduncandds | Pending setup |
 | Dr. Henry Ealy | https://doxy.me/drhenryealy | Pending setup |
 | Christina Veselak | https://doxy.me/christinavcn | Pending setup |
 
