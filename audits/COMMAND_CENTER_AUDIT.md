@@ -381,4 +381,28 @@ The IPFS-pinned FSL_METHODOLOGY document (CID: bafkreihzetzx74xgidpdt6belzhld345
 
 ---
 
+### 2026-04-29: Command Center Cleanup Tasks 1-7 -- RESOLVED
+
+**Task 1 (Account flag badge) RESOLVED:** Removed "Account flag pending resolution" amber badge from GitHub section header (line 631). Moved "GitHub account flag resolution" in Pending Items table from "Support ticket" to "Resolved".
+
+**Task 2 (NeuroBalance status) RESOLVED:** Changed NeuroBalance from "Live" to "Scaffolded" in the platform table. Updated "5 Live Platforms" stat to "4 deployed + 1 scaffolded".
+
+**Task 3 (Missing contract) RESOLVED:** Added NeuroBalanceConsent (0x21571805e57f792b66604b140a45D8C1b2E196b8) to contract table with note "(empty shell -- scaffolded)". Table now shows all 8 contracts matching the stat card.
+
+**Task 4 (DEPLOYED_CONTRACTS.md) RESOLVED:** Updated fsl-governance/contracts/DEPLOYED_CONTRACTS.md with all 8 current v2 addresses. Original v1 entries preserved in a "DEPRECATED" section marked "replaced by v2 on Apr 21, 2026".
+
+**Task 5 (Provider -> Sovereign Guide) RESOLVED:** Changed "Provider Tiers" heading to "Sovereign Guide Tiers" in the Licensing section. Database table names and repo names left unchanged per lexicon policy (routes/vars/DB unchanged).
+
+**Task 6 (Academic deduplication) RESOLVED:** Removed two duplicate Academic/Doctoral sections (unnumbered card after Platforms and Section 18 "Doctoral Engineering Capstone"). Retained Section 13 "Academic & Doctoral" as the single canonical section. Verified none were inside runbook sections.
+
+**Task 7 (Stale removed badges) RESOLVED:** Removed explicit "Privy removed", "wagmi removed", "Web3Modal removed", "Stripe removed", "Calendly removed", "MetaMask retired" badges from user-facing dashboard (v4 Status Update card and Auth Architecture section). Replaced with forward-looking descriptions ("Zero custodial SDKs", "Pure window.ethereum", etc.). Lexicon table in Council Protocol section intentionally left unchanged (internal reference). Phase 1 "Stripe removed" in Build Trajectory left unchanged (historical context).
+
+**TASK 8 DEFERRED:** IPFS Methodology Document reframe -- schedule dedicated session. Update tagline to 'Sovereignty by Design,' game count to 45, FSL framing to 'decentralized infrastructure with behavioral health as proving ground,' update contract addresses, then re-pin to IPFS.
+
+**Protected sections verified unchanged:** Emergency Restore (lines 218-298), modal-restore (line 172), pg_dump/psql commands, FSL_REBUILD_GUIDE IPFS row, VPS provisioning modals, Council Protocol lexicon table.
+
+Command Center commit: `2706360` pushed to fsl-command-center main.
+
+---
+
 *Resolution log updated 2026-04-29.*
