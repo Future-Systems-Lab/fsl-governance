@@ -141,3 +141,25 @@
 3. **Numbering gap**: Sections jump from 17.2 to 17.5, then to 18. No 17.3 or 17.4 exist.
 4. **Emergency Restore block is very prominent** (80 lines, gold border) but is primarily a runbook -- academic reviewers see server IPs and SSH commands before the ecosystem overview.
 5. **No clear section for Tokenomics**: HNT/EHT token economics are scattered across Smart Contracts (S04), Licensing & IP (S12), and games (S06).
+
+---
+
+## Resolution
+
+**Status:** RESOLVED
+**Date:** 2026-04-29
+**Commit:** `27684f1` on `fsl-command-center` main branch
+
+All structural issues identified in this analysis have been addressed:
+
+1. **Container wrapper bug** -- Sections 14-19 are now inside `<div class="container">`. All content is properly wrapped.
+2. **Duplicate `id="academic"`** -- Removed. Canonical section uses `id="academic-reviewer-note"`. Zero duplicate IDs remain.
+3. **Numbering gap (17.2, 17.5, 18, 19)** -- Replaced with clean 12 top-level sections numbered 01-12.
+4. **Emergency Restore prominence** -- Relocated from position 2 to position 10 (Runbooks section).
+5. **Doctoral info duplication (4 instances)** -- Consolidated into single Academic Reviewer Note at position 2.
+6. **Platform listing duplication** -- Card grid (S14) removed; table (S03) kept.
+7. **Outstanding + Pending duplication** -- Merged into single Pending Items section with Technical Debt and External Blockers sub-sections.
+8. **Domain status duplication** -- Single instance retained in Architecture section.
+9. **Navigation tabs** -- Updated to match new 12-section structure.
+
+Protected content (Emergency Restore, Council Protocol, modals) verified byte-identical after relocation.
