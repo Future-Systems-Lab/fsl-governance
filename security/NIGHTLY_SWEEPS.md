@@ -45,7 +45,38 @@ To add repos from a different Gitea user or external source, edit the fallback l
 GITEA_REPOS="fsl-governance HypnoNeuro fsl-command-center ..."
 ```
 
-## Excluding False Positives
+## Whitelist Management
+
+### Allowlist Configuration
+File: `/opt/encrypthealth/gitleaks-allowlist.toml`
+
+Central allowlist for suppressing known false positives and revoked secrets. Used by the sweep script's `--config` flag.
+
+### Known Findings File
+File: `/opt/encrypthealth/known-findings.txt`
+
+Tracks findings that have been reviewed and classified as non-actionable. The sweep script distinguishes NEW findings (alert) from KNOWN findings (suppress, log only).
+
+### Current Whitelisted Items
+
+| Item | Repo | Reason | Date | Verified By |
+|------|------|--------|------|-------------|
+| Hardhat default address 0x5FbDB231... | Orthomolecular-MVP | False positive — Hardhat dev default | 2026-05-05 | CC audit |
+| web3_marketing UI label | fsl-command-center | False positive — UI config key, not secret | 2026-05-05 | CC audit |
+| Revoked Telegram token in history | fsl-command-center | Token revoked 2026-05-05 via @BotFather | 2026-05-05 | Dr. Meg |
+
+### Adding New Whitelist Entries
+
+1. Verify the finding is genuinely a false positive or revoked secret
+2. Add entry to `/opt/encrypthealth/gitleaks-allowlist.toml` with comment:
+   ```toml
+   # Whitelisted [date] — [reason] — verified by [who] — ref: [audit doc]
+   ```
+3. Add repo key to `/opt/encrypthealth/known-findings.txt`
+4. Update this table
+5. Approval: Dr. Meg or CC security audit
+
+### Excluding Per-Repo False Positives
 
 Create a `.gitleaksignore` file in the repo root listing fingerprints to ignore:
 
@@ -57,6 +88,16 @@ af2b1bbdef23d1925e4b066caf669cd2707ab323:index.html:generic-api-key:713
 The fingerprint is printed in gitleaks JSON output for each finding.
 
 Alternatively, add inline comments: `// gitleaks:allow` on the line containing the false positive.
+
+## Alert Logic (v2)
+
+| Finding Type | Action |
+|-------------|--------|
+| NEW finding (not in known-findings.txt) | Immediate Telegram alert |
+| KNOWN finding (in known-findings.txt) | Suppressed, logged only |
+| Critical npm vuln (new) | Immediate Telegram alert |
+| .env permissions wrong | Immediate Telegram alert |
+| Unexpected public port (not whitelisted) | Immediate Telegram alert |
 
 ## Pre-Publication Policy
 
