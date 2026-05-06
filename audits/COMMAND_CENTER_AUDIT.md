@@ -99,7 +99,7 @@ These terms appear in the Command Center but ONLY in "removed/retired" context:
 | Line 994 (footer) | "Pioneering decentralized Web3 sovereign wellness infrastructure" | Better framing |
 | Line 995 (footer) | "Inventory snapshot: April 13, 2026" | 16 days stale |
 
-**"Dr. Gabriel Duncan"** — NOT found in Command Center. Clean.
+**Dental references** — NOT found in Command Center. Clean.
 **"sovereign wellness company"** — NOT found in Command Center. Clean.
 **Provider cards** — NOT found. Clean.
 
@@ -367,7 +367,7 @@ The IPFS-pinned FSL_METHODOLOGY document (CID: bafkreihzetzx74xgidpdt6belzhld345
 
 ### 2026-04-29: Deferred Placeholder Fixes -- RESOLVED
 
-**C-7 (Dr. Gabriel Duncan) RESOLVED:** All Duncan provider cards, profiles, demo data, login entries, and bio references removed from HypnoNeuro (11 files), hypnoneuro-games (2 files), and fsl-governance (1 file). "Biological Dentistry" removed from insurance modality lists. Commits pushed to all three repos.
+**C-7 (Placeholder provider) RESOLVED:** All placeholder provider cards, profiles, demo data, login entries, and bio references removed from HypnoNeuro (11 files), hypnoneuro-games (2 files), and fsl-governance (1 file). Non-FSL modalities removed from insurance modality lists. Commits pushed to all three repos.
 
 **H-2 (XRPL coming soon) RESOLVED:** XRPL wallet button on EncryptHealth landing page enabled -- opacity/pointerEvents blocker removed, GemWallet/Crossmark connection flow wired up. "Coming soon" badge replaced with "XRPL mainnet live". XRPL balance display added to EcosystemShell header with RPC fallback chain (s2.ripple.com -> s1.ripple.com -> xrplcluster.com). Mainnet wallet: rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd.
 

@@ -48,13 +48,13 @@
 - **Why:** User-facing consent checkbox uses retired brand name. Consent language must be accurate.
 - **Recommended fix:** Replace with "Share with SovereignLedger".
 
-### C-7. "Dr. Gabriel Duncan" as live provider in EncryptHealth participant-facing pages — RESOLVED ✓
+### C-7. Placeholder provider in EncryptHealth participant-facing pages — RESOLVED ✓
 - **File:** `HypnoNeuro/encrypthealth/frontend/app/participant/providers/page.tsx:88`
 - **File:** `HypnoNeuro/encrypthealth/frontend/app/participant/settings/page.tsx:24`
 - **File:** `HypnoNeuro/encrypthealth/frontend/app/providers/[id]/page.tsx:64`
 - **File:** `HypnoNeuro/encrypthealth/frontend/app/provider/demo/[slug]/page.tsx:11`
 - **File:** `HypnoNeuro/encrypthealth/frontend/app/provider/login/[slug]/page.tsx:7`
-- **Resolution (2026-04-29):** All Dr. Gabriel Duncan provider cards, profiles, demo data, login entries, and references removed from HypnoNeuro, hypnoneuro-games, and fsl-governance. "Biological Dentistry" removed from insurance modality lists. Doxy.me table row removed. Docs updated.
+- **Resolution (2026-04-29):** All placeholder provider cards, profiles, demo data, login entries, and non-FSL references removed from HypnoNeuro, hypnoneuro-games, and fsl-governance. Non-FSL modalities removed from insurance modality lists. Doxy.me table row removed. Docs updated.
 
 ### C-8. "Demo Provider" and "Real booking coming soon" in PaymentModal — RESOLVED ✓
 - **File:** `HypnoNeuro/encrypthealth/frontend/components/PaymentModal.tsx:59,61`

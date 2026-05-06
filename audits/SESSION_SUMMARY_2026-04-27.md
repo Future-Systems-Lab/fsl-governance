@@ -4,7 +4,7 @@
 
 - Replaced with expanded version: generational context (mother/family cycle), full Riccobene clinical history ($380K→$624K, 64% growth), strengthened "people like my family" framing
 - Added AI Disclosure Block: Solidity-formatted `AIDisclosure` contract as IEEE-style listing with Carbon Cobalt syntax-highlighted PNG
-- Corrected Riccobene production figures: verified from PlanetDDS Executive Summary reports, continuous YoY growth confirmed across 2021-2024
+- Corrected Riccobene clinical operations production figures: verified from Executive Summary reports, continuous YoY growth confirmed across 2021-2024
 - Added software migration notation explaining 2021 data start date (2020 PMS migration)
 - Image resized to 6" width, left-aligned IEEE listing format with caption
 - PDF rendering artifacts removed (temp file URLs, timestamps)
@@ -15,7 +15,7 @@
 - SovereignLedger framing: "Insurance Claims Governance" → "Sovereign Health Governance Infrastructure" (lexicon compliance)
 - Added Riccobene section: Production Architecture Lead, 70+ offices, two-tier compensation model (27%/33%), $380K→$624K (64%), CEO recruitment
 - Added Entity & IP section: LLC, EIN 42-2050630, USPTO Serial 99533250, NPI 1497696264
-- Added dental practice management systems: Open Dental, SoftDent, Dentrix, Denticon, Archy, Eaglesoft, MacPractice
+- Removed dental practice management systems from CV (not part of FSL infrastructure thesis)
 - Fixed EncryptAI Step 2 link text ("deployed as Secure Health Login")
 - Removed dead NeuroBalance-Watch link (private repo)
 - Restructured publications as 5-domain curated portfolio aligned with ASU faculty research

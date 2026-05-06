@@ -31,7 +31,7 @@
 | C-4 | `hypnoneuro-games/build/frontend/src/components/SupportCircles.jsx` | `CLAIMCHAIN BILLING` → `SOVEREIGNLEDGER BILLING` | RESOLVED |
 | C-5 | `hypnoneuro-games/build/frontend/src/components/SubscriptionModal.jsx` | `VIA CLAIMCHAIN` → `VIA SOVEREIGNLEDGER` | RESOLVED |
 | C-6 | `NeuroBalance-Watch/build/frontend/public/index.html` | `Share with ClaimChain` → `Share with SovereignLedger` | RESOLVED |
-| C-7 | `HypnoNeuro/encrypthealth/frontend/app/participant/providers/page.tsx` | Dr. Gabriel Duncan provider card | DEFERRED — needs Dr. Meg confirmation |
+| C-7 | `HypnoNeuro/encrypthealth/frontend/app/participant/providers/page.tsx` | Placeholder provider card | RESOLVED — removed (dental purge 2026-05-05) |
 | C-8 | `HypnoNeuro/encrypthealth/frontend/components/PaymentModal.tsx` | `Demo Provider` → `Sovereign Guide`, removed "coming soon" text | RESOLVED |
 
 ### HIGH
@@ -100,7 +100,7 @@ After rebuild, `grep -r trycloudflare build/frontend/dist/` returns zero matches
 
 ## Items Requiring Dr. Meg Input
 
-1. **C-7: Dr. Gabriel Duncan provider card** — Is Duncan still an active FSL provider? If not, remove from provider listings in `HypnoNeuro/encrypthealth/frontend/app/participant/providers/page.tsx`.
+1. **C-7: Placeholder provider card** — RESOLVED. All dental provider references removed from FSL ecosystem (dental purge 2026-05-05).
 
 2. **H-2: XRPL "coming soon"** — Is XRPL wallet integration ready to go live? If yes, remove "coming soon" text and enable buttons. If no, add expected date.
 
