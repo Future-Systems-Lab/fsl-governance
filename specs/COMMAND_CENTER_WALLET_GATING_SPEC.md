@@ -58,7 +58,7 @@ Identical to the EncryptHealth auth flow (documented in Command Center Section 7
 
 | Wallet | Role | Access |
 |--------|------|--------|
-| `0xf22cbF25deEeA36FFF828BAf73CCb049345eF248` | Dr. Meg (deployer) | Full admin -- all sections |
+| `0x739414BC271521Bea000A9aB2FbF79182124BCC3` | Dr. Meg (deployer) | Full admin -- all sections |
 
 ### Future Tiers (Phase 2+)
 
@@ -73,7 +73,7 @@ Tier assignment stored in a simple JSON config or Vercel environment variable (n
 
 ```json
 {
-  "0xf22cbF25deEeA36FFF828BAf73CCb049345eF248": "admin"
+  "0x739414BC271521Bea000A9aB2FbF79182124BCC3": "admin"
 }
 ```
 

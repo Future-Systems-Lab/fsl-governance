@@ -10,7 +10,8 @@
 | Wallet | Address | Network | Purpose | Status |
 |--------|---------|---------|---------|--------|
 | Dr. Meg Brave (EVM) | `0x739414BC271521Bea000A9aB2FbF79182124BCC3` | ETH Mainnet + Sepolia | Participant testing | Mining Sepolia ETH |
-| Deployer (EVM) | `0xf22cbF25deEeA36FFF828BAf73CCb049345eF248` | ETH Mainnet + Sepolia | Contract deployment, admin | $0 mainnet, needs ETH |
+| Deployer (EVM) — MetaMask, historical | `0xf22cbF25deEeA36FFF828BAf73CCb049345eF248` | Sepolia | v2 contract deployment (Apr 21, 2026). On-chain provenance — do not change. | Testnet only |
+| Operational (EVM) — Brave Wallet, current | `0x739414BC271521Bea000A9aB2FbF79182124BCC3` | ETH Mainnet + Sepolia | Active admin wallet, payment receiver, auth whitelist | Current operational wallet |
 | FSL XRPL Mainnet | `rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd` | XRPL Mainnet | XRP session payments | ACTIVE — 15 XRP (TX: 36A916...2E4C91, Apr 11 2026) |
 | XRPL Testnet | `r992bUGu257HcnFvNiuxCo64v6brj9RdtK` | XRPL Testnet | Payment flow testing | Funded, ready |
 | Keplr / Akash | `akash1p6w9szrp5pdgqv9gv02sunmg9p00v6zazatr4l` | Akash / Cosmos | Decentralized compute | $0, needs AKT |

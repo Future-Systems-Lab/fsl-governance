@@ -168,3 +168,9 @@ There is no cryptographic proof linking the two addresses cross-chain, but their
 ## Summary
 
 **No real funds are at material risk.** The EVM deployer has only ever been used on Sepolia testnet. The XRPL wallet holds approximately $7.50 worth of XRP. Key rotation is recommended as a hygiene measure before any mainnet deployment, but there is no emergency requiring immediate action.
+
+
+## Wallet Address Clarification (May 7, 2026)
+
+- **0xf22cbF25deEeA36FFF828BAf73CCb049345eF248** — MetaMask wallet that deployed v2 contracts on Apr 21, 2026. On-chain historical record. Do not change in deployment provenance.
+- **0x739414BC271521Bea000A9aB2FbF79182124BCC3** — Dr. Meg's current Brave Wallet. Active operational wallet for auth, payments, and admin access.
