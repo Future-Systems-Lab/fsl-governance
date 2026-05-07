@@ -1,0 +1,52 @@
+{
+  "lastUpdated": "2026-05-07",
+  "contracts": [
+    {"name": "AlchemistForge", "address": "0xE092336F8f5082e57CcBb341A110C20ad186A324", "purpose": "Shadow work transmutation attestation", "deployTx": "", "blockscout": "https://sepolia.etherscan.io/address/0xE092336F8f5082e57CcBb341A110C20ad186A324"},
+    {"name": "HypnoNeuro Token (HNT)", "address": "0x1ae1e10929f008d1f9883ce574a318abd86084e2", "purpose": "Earned engagement token", "blockscout": "https://sepolia.etherscan.io/address/0x1ae1e10929f008d1f9883ce574a318abd86084e2"},
+    {"name": "EHTv2", "address": "0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88", "purpose": "Capped supply token (144K)", "blockscout": "https://sepolia.etherscan.io/address/0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88"},
+    {"name": "SovereignLedger v2", "address": "0x4afA577fA914068451e0Aa97b61F23960f02aCc4", "purpose": "Consent governance", "blockscout": "https://sepolia.etherscan.io/address/0x4afA577fA914068451e0Aa97b61F23960f02aCc4"},
+    {"name": "BenevolenceFund v2", "address": "0x96E8006a1fBB693B55fFf6254B8BF19EC605251B", "purpose": "Session fee redistribution (50/30/20)", "blockscout": "https://sepolia.etherscan.io/address/0x96E8006a1fBB693B55fFf6254B8BF19EC605251B"},
+    {"name": "SovereignAchievement", "address": "0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D", "purpose": "ERC-1155 soulbound tier credentials", "blockscout": "https://sepolia.etherscan.io/address/0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D"},
+    {"name": "MindMasteryNFT", "address": "0xCb9EcB00574DB29976c7C54045d443666D5C7771", "purpose": "NFT credentialing", "blockscout": "https://sepolia.etherscan.io/address/0xCb9EcB00574DB29976c7C54045d443666D5C7771"},
+    {"name": "NeuroBalanceConsent", "address": "0x21571805e57f792b66604b140a45D8C1b2E196b8", "purpose": "Biosensor consent (scaffolded shell)", "blockscout": "https://sepolia.etherscan.io/address/0x21571805e57f792b66604b140a45D8C1b2E196b8"}
+  ],
+  "ossContributions": [
+    {"repo": "decentralized-identity/presentation-exchange", "pr": 486, "title": "Add OIDC4VP consent example", "status": "Open", "url": "https://github.com/decentralized-identity/presentation-exchange/pull/486"},
+    {"repo": "OpenZeppelin/openzeppelin-contracts", "pr": 6414, "title": "Clarify ReentrancyGuard documentation", "status": "Open", "url": "https://github.com/OpenZeppelin/openzeppelin-contracts/pull/6414"},
+    {"repo": "hyperledger/fabric", "pr": 5419, "title": "Add build and runtime environment notes", "status": "Open", "url": "https://github.com/hyperledger/fabric/pull/5419"},
+    {"repo": "ethereum/EIPs", "pr": 11409, "title": "Fix formatting in EIP document structure", "status": "Open", "url": "https://github.com/ethereum/EIPs/pull/11409"},
+    {"repo": "Uniswap/v3-core", "pr": 1077, "title": "Add invariant test note to pool math docs", "status": "Open", "url": "https://github.com/Uniswap/v3-core/pull/1077"},
+    {"repo": "balancer/balancer-v2-monorepo", "pr": 2648, "title": "Add pool math reference documentation", "status": "Open", "url": "https://github.com/balancer/balancer-v2-monorepo/pull/2648"},
+    {"repo": "bigchaindb/bigchaindb", "pr": 2763, "title": "Add Python quickstart documentation", "status": "Open", "url": "https://github.com/bigchaindb/bigchaindb/pull/2763"},
+    {"repo": "openmrs/openmrs-module-fhir2", "pr": 594, "title": "Add FHIR2 quickstart pointer for contributors", "status": "Closed", "url": "https://github.com/openmrs/openmrs-module-fhir2/pull/594"}
+  ],
+  "credentials": {
+    "degrees": ["D.N.Psy. (Naturopathic Psychology, orthomolecular focus)", "BS MIS (Colorado State University Global — confers July 2026, GPA 3.94)"],
+    "certifications": ["BCHN (Board Certified Holistic Nutritionist)", "CBHP (Certified Behavioral Health Practitioner)"],
+    "licenses": ["NPI 1497696264 (Naturopath, Taxonomy 175F00000X)"],
+    "entity": "Future Systems Lab LLC (Wyoming, EIN 42-2050630)",
+    "trademark": "USPTO Serial 99533250 (Class 42, Under Review)",
+    "mathPrereqs": ["Calculus I (Study.com)", "Calculus II (Study.com)", "Linear Algebra (Study.com)", "Statistics (Study.com)", "Python (Study.com)"]
+  },
+  "faculty": {
+    "primary": {"name": "Dr. Dragan Boscovic", "role": "Primary Advisor", "lab": "ASU Blockchain Research Laboratory", "alignment": "Independent build, deeper sovereignty model, completion of the academic lifecycle his lab started"},
+    "coAdvisors": [
+      {"name": "Dr. Gail-Joon Ahn", "role": "Co-Advisor", "lab": "SEFCOM / CTF", "alignment": "Zero Trust security architecture, identity management"},
+      {"name": "Dr. Hassan Ghasemzadeh", "role": "Co-Advisor", "lab": "EMIL Lab", "alignment": "AI-powered wearable sensors, behavioral health intervention"}
+    ]
+  },
+  "application": {
+    "program": "Doctor of Engineering (Engineering Management)",
+    "school": "Arizona State University, Ira A. Fulton Schools of Engineering",
+    "targetEnrollment": "Spring 2027",
+    "priorityDeadline": "October 1, 2026",
+    "framework": "Praxis-track applied engineering — the deployed system IS the research contribution"
+  },
+  "platforms": [
+    {"name": "HypnoNeuro", "status": "Operational", "url": "https://hypnoneuro.io", "description": "45 therapeutic games across L1 Hypnosis, L2 Orthomolecular, L3 Inner Child"},
+    {"name": "EncryptHealth", "status": "Operational", "url": "https://encrypthealth.io", "description": "Sovereign Guide portal with wallet-gated consent architecture"},
+    {"name": "SovereignLedger", "status": "Operational", "url": "https://sovereignledger.io", "description": "Session attestation infrastructure on Sepolia"},
+    {"name": "AlchemistForge", "status": "Operational", "url": "https://alchemistforge.io", "description": "Jungian shadow work smart contract with on-chain analytics"},
+    {"name": "NeuroBalance", "status": "Scaffolded", "description": "Biosensor integration layer — backend designed, not yet deployed"}
+  ]
+}

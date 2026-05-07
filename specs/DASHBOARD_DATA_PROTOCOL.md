@@ -18,6 +18,7 @@ Dashboard content is driven by JSON data files in `fsl-governance/dashboard-data
 | `completed-milestones.json` | Shipped work (append-only) | On each milestone completion |
 | `funding-strategy.json` | Funding sources, cost breakdown, grant status | When strategy changes |
 | `agent-roster.json` | 17-agent council composition and roles | When agents are added/modified |
+| `reviewer-data.json` | Academic reviewer portfolio: contracts, OSS PRs, credentials, faculty, platforms | When evidence changes |
 | `infrastructure-status.json` | (Future) Static infra config | Rarely |
 
 ### Live Data (fetched at request time, not from JSON)
