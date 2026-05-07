@@ -81,3 +81,16 @@ node_modules/
 - [ ] No hardcoded credentials in URLs
 - [ ] All real secrets found have been rotated
 - [ ] Repository has been reviewed by at least one other team member
+
+## Step 8 — Verify Vercel Webhook After Visibility Change
+
+After any repo visibility change (private→public or public→private→public):
+
+1. Clone the repo locally
+2. `vercel link --yes --project <project-name>`
+3. `vercel git connect`
+4. Push a small test commit
+5. Verify Vercel auto-deploy triggers within 30 seconds
+6. If it doesn't trigger, the webhook disconnected — `vercel git connect` reconnects it
+
+**Why:** Vercel's GitHub integration disconnects when a repo goes private on the Hobby plan. Making it public again does NOT automatically reconnect the webhook.
