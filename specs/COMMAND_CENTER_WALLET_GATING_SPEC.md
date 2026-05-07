@@ -266,3 +266,19 @@ Programmatic verification of the wallet-gating flow after the SameSite fix (comm
 | 6. Dashboard without auth (sensitive data) | 0 matches | 20 matches | FLAG |
 
 **Overall:** 5/6 tests fully pass. 1 test (invalid signature) returns 500 instead of 400 -- functional but could be improved. The critical finding is that `/dashboard` serves sensitive content in raw HTML to unauthenticated requests (TEST 6). The auth API endpoints and cookie verification are working correctly after the SameSite fix.
+
+## Data Exposure Fix (April 29, 2026)
+
+**Issue:** `dashboard.html` served full sensitive HTML (VPS IPs, SSH commands, DB schema, EIN/NPI, runbooks, funding details) to unauthenticated `curl`/`wget`/view-source requests. The client-side `display:none` + JS auth check provided no server-side protection.
+
+**Fix:** Moved all sensitive content to `/api/dashboard-content` -- a JWT-gated serverless function that verifies the `fsl_auth` cookie before returning HTML content as JSON.
+
+**Dashboard shell:** Contains only CSS, loading state, agent card definitions (non-sensitive), and JS fetch logic -- zero sensitive operational data.
+
+**Verification:**
+- `curl /dashboard` returns 0 sensitive data instances (previously 20+)
+- `/api/dashboard-content` without JWT returns `401 Not authenticated`
+- `/api/dashboard-content` with expired JWT returns `401 Token expired`
+- Authenticated browser requests work as before -- content injected via `fetch()` after JWT verification
+
+**Commit:** `e334096` on `fsl-command-center` main branch.
