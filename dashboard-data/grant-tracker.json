@@ -1,0 +1,9 @@
+{
+  "lastUpdated": "2026-05-07",
+  "grants": [
+    {"name": "XRPL Foundation Grant", "status": "drafting", "amount": "$25-50K", "deadline": "Rolling", "notes": "Application drafted, HOLD per governance until post-ASU acceptance"},
+    {"name": "ASU DEng Research", "status": "planned", "amount": "$15K", "deadline": "Post-enrollment (Jan 2027)", "notes": "Available after ASU admission"},
+    {"name": "NIH NCCIH R21", "status": "drafting", "amount": "$50-100K", "deadline": "Post-IRB approval", "notes": "Requires IRB protocol, post-admission"},
+    {"name": "Brave Browser Partnership", "status": "planned", "amount": "TBD", "deadline": "HOLD per governance", "notes": "Brave-exclusive platform positioning"}
+  ]
+}
