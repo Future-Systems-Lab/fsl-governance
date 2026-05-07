@@ -1,0 +1,21 @@
+{
+  "lastUpdated": "2026-05-07",
+  "milestones": [
+    "v2 contracts deployed to Sepolia (Apr 21)",
+    "Privy removed, pure EIP-1193 wallet auth (Apr 10-11)",
+    "17-agent autonomous pipeline live",
+    "JWT silent refresh + Sovereign Guide gateway (Apr 11)",
+    "NPI 1497696264 confirmed (Naturopath, 175F00000X)",
+    "EIN 42-2050630 confirmed",
+    "8 OSS PRs live (ethereum/EIPs, OpenZeppelin, Uniswap, etc.)",
+    "Privacy Policy rollout complete",
+    "ASU DEng LOI + CV finalized",
+    "IPFS migrated to Pinata (AES-256 backup)",
+    "XRPL mainnet wallet activated (Apr 11)",
+    "hypnoneuro.crypto IPFS live (Apr 11)",
+    "Brand Guide complete",
+    "Command Center wallet-gated (May 7)",
+    "Security sweep nightly automation (May 5)",
+    "45 wellness games deployed (May 5)"
+  ]
+}

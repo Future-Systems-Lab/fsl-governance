@@ -1,0 +1,23 @@
+{
+  "lastUpdated": "2026-05-07",
+  "totalCount": 17,
+  "agents": [
+    { "key": "orchestrator", "name": "Orchestrator", "icon": "🧠", "role": "Central coordination, task routing, agent lifecycle management.", "approval": "auto" },
+    { "key": "frontend", "name": "Frontend Build", "icon": "🎨", "role": "React/Next.js components, Tailwind styling, responsive layouts, game UI.", "approval": "auto" },
+    { "key": "backend", "name": "Backend Build", "icon": "⚙️", "role": "Node.js/Express API routes, middleware, PM2 processes.", "approval": "auto" },
+    { "key": "blockchain", "name": "Blockchain", "icon": "⛓️", "role": "Solidity contracts, Hardhat deployment, Etherscan verification, XRPL integration.", "approval": "auto" },
+    { "key": "security", "name": "Security", "icon": "🔒", "role": "Auth flows, wallet security, API security, access controls.", "approval": "manual", "note": "Security changes require Dr. Meg approval before deployment." },
+    { "key": "database", "name": "Database", "icon": "🗄️", "role": "PostgreSQL schema, migrations, query optimization, backup verification.", "approval": "auto" },
+    { "key": "testing", "name": "Testing", "icon": "🧪", "role": "End-to-end test design, integration testing, contract test suites.", "approval": "auto" },
+    { "key": "devops", "name": "DevOps", "icon": "🚀", "role": "VPS management, PM2, Cloudflare tunnel, DNS, Vercel deployments.", "approval": "auto" },
+    { "key": "documentation", "name": "Documentation", "icon": "📝", "role": "Technical docs, API references, architecture diagrams, session summaries.", "approval": "auto" },
+    { "key": "governance", "name": "Governance", "icon": "⚖️", "role": "Compliance docs, consent framework, regulatory analysis, ToS/Privacy.", "approval": "manual", "note": "Legal/compliance changes require Dr. Meg review." },
+    { "key": "content", "name": "Content Engine", "icon": "📡", "role": "Multi-platform content generation and distribution (Discord, Telegram, Bluesky, Mastodon, Dev.to).", "approval": "auto" },
+    { "key": "analytics", "name": "Analytics", "icon": "📊", "role": "On-chain analytics, engagement metrics, dashboard data feeds.", "approval": "auto" },
+    { "key": "approval_gate", "name": "Approval Gate", "icon": "🚪", "role": "Governance and approval router for the agent council.", "approval": "auto" },
+    { "key": "academic", "name": "Academic", "icon": "🎓", "role": "Research documentation, LOI/CV maintenance, faculty engagement, publication prep.", "approval": "auto" },
+    { "key": "web3_wallet", "name": "Web3 Wallet", "icon": "🔗", "role": "Monitors wallet activity, token balances, and on-chain session attestations.", "approval": "auto", "note": "NEW — onboarded April 9, 2026" },
+    { "key": "web3_marketing", "name": "Web3 Marketing", "icon": "📣", "role": "Community growth, partnership outreach, ecosystem positioning.", "approval": "auto" },
+    { "key": "ipfs", "name": "IPFS", "icon": "🌐", "role": "Content pinning, CID management, off-chain storage integrity.", "approval": "auto" }
+  ]
+}

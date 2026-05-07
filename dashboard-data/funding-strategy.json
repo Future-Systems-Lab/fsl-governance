@@ -1,0 +1,22 @@
+{
+  "lastUpdated": "2026-05-07",
+  "totalDecentralization": "$11K–15K (Phase 3: ~$8K–10K · Phase 4: ~$3K–5K)",
+  "sources": [
+    "XRPL Foundation grants ($25–50K)",
+    "Brave partnership/grant (Brave-exclusive platform)",
+    "ASU DEng research ($15K)",
+    "NIH NCCIH R21 ($50–100K)",
+    "College licensing",
+    "Session revenue (post-mainnet)"
+  ],
+  "grantApplicationsReady": ["XRPL", "ASU", "NIH"],
+  "note": "All core platform functionality operates on Sepolia testnet at zero cost. Funding accelerates mainnet migration and full decentralization — not core development.",
+  "costBreakdown": [
+    { "item": "Security audit + ToS legal review", "cost": "~$5K–8K" },
+    { "item": "XRPL mainnet wallet activation (10 XRP)", "cost": "DONE", "done": true },
+    { "item": "Mainnet contract deployment (~$500 ETH for full v2)", "cost": "~$500" },
+    { "item": ".crypto domains x4", "cost": "~$60–120" },
+    { "item": "Flux/Akash compute tokens", "cost": "~$100" },
+    { "item": "Formal security audit (Trail of Bits / Consensys)", "cost": "~$3K–5K" }
+  ]
+}

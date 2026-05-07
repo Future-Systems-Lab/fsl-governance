@@ -1,0 +1,59 @@
+{
+  "lastUpdated": "2026-05-07",
+  "items": [
+    {
+      "name": "EIN 42-2050630 (Future Systems Lab LLC)",
+      "status": "resolved",
+      "statusLabel": "Confirmed",
+      "eta": "Confirmed Apr 2026"
+    },
+    {
+      "name": "GitHub account flag resolution",
+      "status": "resolved",
+      "statusLabel": "Resolved",
+      "eta": "Resolved Apr 2026"
+    },
+    {
+      "name": "NPI 1497696264",
+      "status": "resolved",
+      "statusLabel": "Active",
+      "eta": "Active"
+    },
+    {
+      "name": "ASU DEng enrollment",
+      "status": "pending",
+      "statusLabel": "Pending BS MIS conferment",
+      "eta": "January 2027"
+    },
+    {
+      "name": "Onramper production API key",
+      "status": "pending",
+      "statusLabel": "Post-funding",
+      "eta": "~$2K"
+    },
+    {
+      "name": "Mainnet contract deployment",
+      "status": "pending",
+      "statusLabel": "Pending funding",
+      "eta": "Post-funding (~$500 ETH for full v2 redeployment)"
+    },
+    {
+      "name": ".crypto domains x4",
+      "status": "pending",
+      "statusLabel": "Post-funding",
+      "eta": "~$60–120"
+    },
+    {
+      "name": "4EVERLAND IPFS frontend deployment",
+      "status": "active-todo",
+      "statusLabel": "Active TODO",
+      "eta": "GitHub flag resolved — ready to proceed"
+    },
+    {
+      "name": "ORCID / Google Scholar / ResearchGate",
+      "status": "pending",
+      "statusLabel": "Post-ASU email",
+      "eta": "After enrollment"
+    }
+  ]
+}

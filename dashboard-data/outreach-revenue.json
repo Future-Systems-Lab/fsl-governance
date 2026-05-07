@@ -1,0 +1,60 @@
+{
+  "lastUpdated": "2026-05-07",
+  "items": [
+    {
+      "name": "NPI 1497696264 — Active (Naturopath, Taxonomy 175F00000X)",
+      "status": "active",
+      "statusLabel": "Active"
+    },
+    {
+      "name": "Christina Veselak outreach",
+      "status": "pending",
+      "statusLabel": "Pending"
+    },
+    {
+      "name": "Dr. Henry Ealy outreach",
+      "status": "pending",
+      "statusLabel": "Pending"
+    },
+    {
+      "name": "America Out Loud",
+      "status": "active",
+      "statusLabel": "Active",
+      "link": "https://www.americaoutloud.news/author/meg-montanez-davenport/",
+      "detail": "Weekly contributor (2+ years, 100+ articles)"
+    },
+    {
+      "name": "XRPL grants — after MRR validated",
+      "status": "pre-revenue",
+      "statusLabel": "Pre-revenue"
+    },
+    {
+      "name": "USPTO trademark Future Systems Lab (Serial 99533250)",
+      "status": "in-progress",
+      "statusLabel": "Under Review",
+      "detail": "Office Action response filed 2026-04-20, SYSTEMS LAB disclaimer submitted, awaiting examiner review (1-2 months)"
+    },
+    {
+      "name": "USPTO Class 35 — FSL marketplace/directory",
+      "status": "pending",
+      "statusLabel": "Pending",
+      "detail": "File post-Class 42 clearance"
+    },
+    {
+      "name": "USPTO Class 44 — Naturopathic Psychology and Hypnosis Center",
+      "status": "pending",
+      "statusLabel": "Pending",
+      "detail": "File before practitioner onboarding"
+    },
+    {
+      "name": "ASU DEng enrollment — January 2027 (spring, pending BS MIS conferment)",
+      "status": "scheduled",
+      "statusLabel": "Scheduled"
+    },
+    {
+      "name": "First paying users + MRR",
+      "status": "pre-revenue",
+      "statusLabel": "Pre-revenue"
+    }
+  ]
+}
