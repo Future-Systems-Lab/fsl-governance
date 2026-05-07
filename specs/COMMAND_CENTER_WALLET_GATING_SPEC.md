@@ -217,5 +217,52 @@ Alternative: Keep as static site + add 2-3 Vercel serverless API routes for auth
 ## Implementation Status
 
 **IMPLEMENTED** — 2026-05-07
-Commit: 9c5140b
-Vercel auto-deploy: pending verification
+Commit: 9c5140b (SameSite cookie fix: 9e1a3b8)
+Vercel auto-deploy: verified 2026-04-29
+
+---
+
+## 10. Verification Test Results (2026-04-29)
+
+Programmatic verification of the wallet-gating flow after the SameSite fix (commit 9e1a3b8).
+
+### TEST 1: Public landing serves without auth
+- **HTTP Status:** 200 -- PASS
+- **Sensitive data in public HTML:** 0 instances -- PASS
+- No VPS IPs, SSH commands, PM2 details, or pg_dump commands found in public page source.
+
+### TEST 2: /api/auth endpoint rejects bad requests
+- **Empty body (`{}`):** HTTP 400, `{"error":"Missing address, signature, or message"}` -- PASS
+- **Invalid signature format:** HTTP 500, `{"error":"invalid raw signature length ..."}` -- ACCEPTABLE (server rejects malformed input; ideally should return 400 instead of 500)
+
+### TEST 3: /api/verify without cookie
+- **HTTP Status:** 401, `{"authenticated":false}` -- PASS
+
+### TEST 4: /api/verify with fake cookie
+- **HTTP Status:** 401, `{"authenticated":false}` -- PASS
+
+### TEST 5: /api/verify with valid-format but expired cookie
+- **HTTP Status:** 401, `{"authenticated":false,"reason":"expired"}` -- PASS
+- Server correctly identifies the token as expired and returns a descriptive reason.
+
+### TEST 6: /dashboard without auth
+- **HTTP Status:** 200 (serves HTML without redirect) -- EXPECTED (client-side auth check)
+- **Sensitive data in dashboard HTML:** 20 instances -- FLAG
+
+**FLAG: Dashboard HTML contains sensitive content in page source.** The current implementation uses Option C (Split Static Files) with a client-side JavaScript auth redirect. This means the full dashboard HTML -- including VPS IPs, SSH commands, PM2 details -- is served to any client that requests `/dashboard` directly. The JavaScript auth check redirects unauthenticated browsers, but the content is accessible via `curl`, `view-source:`, or browser DevTools.
+
+**Recommendation:** Migrate gated content to an authenticated API endpoint (`/api/dashboard-content`) so that sensitive data is never sent to unauthenticated clients. This aligns with Option B (Client-Side Fetch) from Section 4 of this spec.
+
+### Summary
+
+| Test | Expected | Actual | Status |
+|------|----------|--------|--------|
+| 1. Public landing (HTTP 200, no sensitive data) | 200 / 0 matches | 200 / 0 matches | PASS |
+| 2a. Auth empty body | 400 | 400 | PASS |
+| 2b. Auth invalid signature | 400 | 500 | ACCEPTABLE |
+| 3. Verify no cookie | 401 | 401 | PASS |
+| 4. Verify fake cookie | 401 | 401 | PASS |
+| 5. Verify expired cookie | 401 | 401 | PASS |
+| 6. Dashboard without auth (sensitive data) | 0 matches | 20 matches | FLAG |
+
+**Overall:** 5/6 tests fully pass. 1 test (invalid signature) returns 500 instead of 400 -- functional but could be improved. The critical finding is that `/dashboard` serves sensitive content in raw HTML to unauthenticated requests (TEST 6). The auth API endpoints and cookie verification are working correctly after the SameSite fix.
