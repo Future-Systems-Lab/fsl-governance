@@ -12,7 +12,7 @@ All 8 smart contracts deployed on Ethereum Sepolia:
 |----------|---------|---------|
 | SovereignLedger | 0xf329...F78e | On-chain health records, session attestation |
 | BenevolenceFund | 0xbe71...8271 | Community wellness treasury |
-| HNT Token | Deployed | Sovereign Wellness Token |
+| HNT Token | Deployed | Sovereign Governance Token |
 | EHT Token | Deployed | EncryptHealth utility token |
 | MindMasteryNFT | Deployed | Frequency achievement NFTs |
 | AlchemistForge | Deployed | Shadow work document anchoring |

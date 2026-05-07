@@ -51,7 +51,7 @@
 
 ## 4. Participant Population
 
-**Target population:** Adults (18+) who voluntarily create accounts on the FSL sovereign wellness platform
+**Target population:** Adults (18+) who voluntarily create accounts on the FSL sovereign data governance platform
 
 **Inclusion criteria:**
 - Age 18 or older

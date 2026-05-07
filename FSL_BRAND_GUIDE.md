@@ -1,6 +1,6 @@
 # FSL Brand Guide
 
-## Sovereign Wellness Lexicon
+## Sovereign Data Governance Lexicon
 
 ### Required Language
 

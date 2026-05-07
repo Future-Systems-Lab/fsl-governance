@@ -3,7 +3,7 @@
 
 **Last Updated:** May 5, 2026
 
-This document describes the engagement tracking methodology for FSL's sovereign wellness ecosystem. It contains the analytical framework and research design only — no user activity data, wallet addresses, or transaction hashes.
+This document describes the engagement tracking methodology for FSL's decentralized infrastructure ecosystem. It contains the analytical framework and research design only — no user activity data, wallet addresses, or transaction hashes.
 
 ---
 

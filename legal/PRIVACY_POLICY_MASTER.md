@@ -9,7 +9,7 @@
 
 ## 1. Overview
 
-Future Systems Lab ("FSL," "we," "us") operates a sovereign wellness platform ecosystem including EncryptHealth, HypnoNeuro, SovereignLedger, AlchemistForge, and NeuroBalance (collectively, "the Platforms"). This Privacy Policy describes how we collect, use, and protect information when you use our Platforms.
+Future Systems Lab ("FSL," "we," "us") operates a decentralized infrastructure framework for sovereign data governance, including EncryptHealth, HypnoNeuro, SovereignLedger, AlchemistForge, and NeuroBalance (collectively, "the Platforms"). This Privacy Policy describes how we collect, use, and protect information when you use our Platforms.
 
 FSL is designed around the principle of data sovereignty: you own your data, you control who accesses it, and you can revoke access at any time.
 
@@ -57,7 +57,7 @@ We do **not** log IP addresses, device fingerprints, or tracking cookies.
 
 We use collected information solely for:
 - Authenticating your wallet connection and maintaining your session
-- Delivering wellness platform features you request
+- Delivering platform features you request
 - Recording session attestations on-chain (with your explicit consent)
 - Generating aggregate analytics (no individual identification)
 - Maintaining platform security and preventing abuse

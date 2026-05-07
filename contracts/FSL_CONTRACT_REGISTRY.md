@@ -10,7 +10,7 @@
 | SovereignLedger v2 | 0x4afA577fA914068451e0Aa97b61F23960f02aCc4 | Session governance — claim registration, verification, pause | Sprint 016 |
 | BenevolenceFund v2 | 0x96E8006a1fBB693B55fFf6254B8BF19EC605251B | 3% session fee community fund — annual 50/30/20 distribution | Sprint 016 |
 | SovereignAchievement (ERC-1155) | 0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D | Unified soulbound NFTs — 10 participant + 10 guide tiers | Sprint 016 |
-| HNT v2 (ERC-20) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | Sovereign wellness token — earned by participants | Pre-Sprint |
+| HNT v2 (ERC-20) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | Sovereign governance token — earned by participants | Pre-Sprint |
 | MindMasteryNFT (ERC-1155) | 0xCb9EcB00574DB29976c7C54045d443666D5C7771 | L1/L2/L3 level gating NFT — soulbound | Pre-Sprint |
 | AlchemistForge | 0xE092336F8f5082e57CcBb341A110C20ad186A324 | Shadow integration — permissionless on-chain recording | Pre-Sprint |
 

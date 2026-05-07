@@ -14,7 +14,7 @@
 
 ## Abstract
 
-Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents the architecture and implementation of Future Systems Lab (FSL), a five-platform sovereign wellness ecosystem that replaces traditional click-through consent with EIP-191 cryptographic signatures as the sole mechanism for identity verification, data access authorization, and session governance. We describe the full authentication flow from wallet connection through JSON Web Token issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present AlchemistForge, a purpose-built smart contract for recording voluntary behavioral health engagement (shadow integration) on-chain, as a proof-of-concept demonstrating that meaningful wellness participation data can be captured with full cryptographic consent and zero personally identifiable information. The system has been deployed on Sepolia testnet with five interconnected platforms, eight smart contracts, and a functioning multi-role consent architecture. We discuss the architectural tradeoffs between decentralization and usability, the limitations of testnet deployment, and the path toward a production system suitable for formal evaluation.
+Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents the architecture and implementation of Future Systems Lab (FSL), a five-platform decentralized infrastructure ecosystem with behavioral health as the applied domain, that replaces traditional click-through consent with EIP-191 cryptographic signatures as the sole mechanism for identity verification, data access authorization, and session governance. We describe the full authentication flow from wallet connection through JSON Web Token issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present AlchemistForge, a purpose-built smart contract for recording voluntary behavioral health engagement (shadow integration) on-chain, as a proof-of-concept demonstrating that meaningful wellness participation data can be captured with full cryptographic consent and zero personally identifiable information. The system has been deployed on Sepolia testnet with five interconnected platforms, eight smart contracts, and a functioning multi-role consent architecture. We discuss the architectural tradeoffs between decentralization and usability, the limitations of testnet deployment, and the path toward a production system suitable for formal evaluation.
 
 ---
 
@@ -24,7 +24,7 @@ Behavioral health data occupies a uniquely sensitive position in the health info
 
 The consent mechanisms governing these systems are equally centralized. A typical behavioral health application presents a Terms of Service agreement as a prerequisite to account creation. The participant clicks "I agree" — a legally binding but cryptographically meaningless act. The platform then stores their data in a database it controls, shares it according to policies the participant did not write, and may change those policies unilaterally. The participant's consent is a one-time event with no ongoing enforcement mechanism and no auditable trail [2].
 
-This paper presents an alternative architecture. Future Systems Lab (FSL) is a sovereign wellness ecosystem comprising five interconnected platforms that use Ethereum wallet signatures (EIP-191) as the sole mechanism for identity, consent, and access control. In this system:
+This paper presents an alternative architecture. Future Systems Lab (FSL) is a decentralized infrastructure ecosystem comprising five interconnected platforms that use Ethereum wallet signatures (EIP-191) as the sole mechanism for identity, consent, and access control. In this system:
 
 - **Identity** is a wallet address, not a username and password.
 - **Consent** is a cryptographic signature, not a checkbox.
@@ -67,7 +67,7 @@ FSL addresses this gap by unifying these four functions into a single cryptograp
 
 ### 3.1 Platform Overview
 
-FSL comprises five interconnected platforms, each serving a distinct function in the sovereign wellness ecosystem:
+FSL comprises five interconnected platforms, each serving a distinct function in the decentralized infrastructure ecosystem:
 
 1. **EncryptHealth** — The primary health data platform. Manages participant records, session booking, provider directories, and consent-gated data access. Deployed as a modern web application with a relational database backend.
 

@@ -118,7 +118,7 @@ Articles already drafted and ready:
 
 **Target:** Publish one chapter of the DEng thesis as a preprint on arXiv or SSRN.
 
-**Suggested title:** "Decentralized Infrastructure for Sovereign Wellness: Architecture and Evaluation of a Blockchain-Based Mental Wellness Ecosystem"
+**Suggested title:** "Decentralized Infrastructure for Sovereign Data Governance: Architecture and Evaluation of a Blockchain-Based Behavioral Health Proving Ground"
 
 **Sections to include:**
 - Problem statement (centralized wellness platforms, data sovereignty gap)

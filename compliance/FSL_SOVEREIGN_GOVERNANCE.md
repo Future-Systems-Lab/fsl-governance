@@ -9,7 +9,7 @@ Future Systems Lab inverts the traditional Electronic Health Record (EHR) model.
 - **The participant revokes access** at any time, with no questions asked and no intermediary required.
 - **The record follows the participant**, across practitioners, platforms, and time.
 
-This is sovereign wellness governance.
+This is sovereign data governance.
 
 ---
 

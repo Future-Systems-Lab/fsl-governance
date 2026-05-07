@@ -13,7 +13,7 @@ Wyoming
 
 ## 1. PLATFORM IDENTITY
 
-Future Systems Lab ("FSL," "the Platform," "Where Mental Wellness Meets Metaverse") operates a sovereign wellness infrastructure. FSL is an educational wellness platform, not a medical practice or clinical service provider.
+Future Systems Lab ("FSL") operates decentralized infrastructure for sovereign data governance. Its behavioral health vertical provides educational wellness tools — FSL is not a medical practice or clinical service provider.
 
 - FSL does not employ practitioners. Independent wellness practitioners and educators list their services on the platform.
 - FSL does not provide medical advice, diagnosis, or treatment.

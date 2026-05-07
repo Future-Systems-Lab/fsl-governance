@@ -1,4 +1,4 @@
-# FSL Wellness Lexicon Guide
+# FSL Sovereign Governance Lexicon Guide
 
 **Official Language Standards for Future Systems Lab Platforms**
 
@@ -28,7 +28,7 @@ The following terms and phrases form the foundation of FSL brand language. Use t
 | Anchor on-chain | The act of storing wellness data to the participant's sovereign record |
 | Resonance tracking | Monitoring vibrational and energetic patterns over time |
 | Sacred geometry | Geometric patterns used in frequency-based healing modalities |
-| "Where Mental Wellness Meets Metaverse" | Official FSL tagline -- use in headers, footers, and marketing |
+| "Sovereignty by Design" | Official FSL tagline -- use in headers, footers, and marketing |
 
 ---
 
@@ -121,7 +121,7 @@ All AI agents operating within the FSL ecosystem must adhere to the following ru
 
 2. **Flag violations** -- If a participant or practitioner uses banned language in input, the agent should gently reframe using approved terminology. Example: "It sounds like you're describing a resonance pattern -- let's explore that."
 
-3. **Use power phrases** -- Agents must proactively incorporate Power Phrases (Section 1) into responses. Every agent interaction should reinforce sovereign wellness language.
+3. **Use power phrases** -- Agents must proactively incorporate Power Phrases (Section 1) into responses. Every agent interaction should reinforce sovereign governance language.
 
 4. **Never claim clinical authority** -- Agents must never imply they are providing medical advice, diagnosis, or treatment.
 
@@ -162,6 +162,6 @@ All AI agents operating within the FSL ecosystem must adhere to the following ru
 
 ---
 
-*"Where Mental Wellness Meets Metaverse"*
+*"Sovereignty by Design"*
 
 *Future Systems Lab -- All rights reserved.*

@@ -34,7 +34,7 @@ Web3 marketing, public relations, community building, and brand voice enforcemen
 ### Always
 
 - **Sovereignty-first framing** — Every piece of content leads with participant sovereignty
-- **Educational platform** — FSL is an educational platform for sovereign wellness exploration
+- **Educational platform** — FSL is a decentralized infrastructure framework. Its behavioral health vertical provides educational wellness tools
 - **"Sovereign Guides"** — Never "providers" or "practitioners" in user-facing content
 - **"Participants"** — Never "patients" or "users" in wellness context
 - **"Wellness sessions"** — Never "treatments" or "appointments"
@@ -56,7 +56,7 @@ Web3 marketing, public relations, community building, and brand voice enforcemen
 
 ### Disclaimer — End of Every Piece
 
-"This content is for educational purposes only and does not constitute medical advice. Future Systems Lab is an educational platform for sovereign wellness exploration. Not medical advice."
+"This content is for educational purposes only and does not constitute medical advice. Future Systems Lab is a decentralized infrastructure framework. Its behavioral health vertical provides educational wellness tools. Not medical advice."
 
 ## Primary Publication
 

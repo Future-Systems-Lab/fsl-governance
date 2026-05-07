@@ -36,11 +36,11 @@ Future Systems Lab (FSL) is the first operational ecosystem that combines all of
 
 5. **31 browser-based wellness games** — HypnoNeuro contains 31 interactive wellness games organized across three neurotransmitter-based levels (GABA, Dopamine, Serotonin), each with educational disclaimers and on-chain session tracking.
 
-6. **Five integrated platforms** — EncryptHealth (clinical dashboard), HypnoNeuro (wellness games), SovereignLedger (on-chain records), AlchemistForge (shadow work), and NeuroBalance (wearable prototype) — all operating under a unified sovereign wellness architecture.
+6. **Five integrated platforms** — EncryptHealth (clinical dashboard), HypnoNeuro (wellness games), SovereignLedger (on-chain records), AlchemistForge (shadow work), and NeuroBalance (wearable prototype) — all operating under a unified sovereign data governance architecture.
 
 7. **Decentralized governance documents** — Platform governance documents (including DATA_RETENTION.md) are pinned to IPFS via Pinata, producing immutable content-addressed hashes.
 
-8. **HSA-to-crypto sovereign wellness pathway** — First platform offering a guided pathway from conventional HDHP insurance enrollment through HSA funding, crypto conversion, to sovereign on-chain wellness records.
+8. **HSA-to-crypto sovereign session pathway** — First platform offering a guided pathway from conventional HDHP insurance enrollment through HSA funding, crypto conversion, to sovereign on-chain session records.
 
 9. **Sovereignty-first lexicon** — The entire platform operates without clinical or diagnostic language. "Participants" not "patients." "Sovereign Guides" not "providers." "Wellness sessions" not "treatments." "Educational platform" not "healthcare platform."
 
