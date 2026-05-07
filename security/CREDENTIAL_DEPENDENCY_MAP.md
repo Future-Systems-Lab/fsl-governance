@@ -78,14 +78,19 @@ Use this map when rotating any credential. Update every dependent, restart every
   | EncryptHealth API | `/opt/encrypthealth/backend/.env` → DB_PASSWORD | Yes |
   | Monitor | `/opt/encrypthealth/.env` → DB_PASSWORD | No — cron sources fresh |
   | Monitor | `/opt/encrypthealth/monitor.js` → pool config | If hardcoded, update |
+  | Backup script | `/opt/encrypthealth/backup.sh` → sources from .env | No restart — cron sources fresh |
+  | Subscription middleware | `/opt/encrypthealth/backend/middleware/subscription.js` → process.env.DB_PASSWORD | Yes — `pm2 restart encrypthealth-api --update-env` |
+  | Achievements service | `/opt/encrypthealth/backend/services/achievements.js` → process.env.DB_PASSWORD | Yes |
 - **Propagation steps:**
   1. `sudo -u postgres psql -c "ALTER USER encrypthealth_api PASSWORD '<new>'"`
   2. Update `/opt/encrypthealth/backend/ecosystem.config.js`
   3. Update `/opt/encrypthealth/backend/index.js` (if hardcoded fallback)
   4. Update `/opt/encrypthealth/backend/.env`
   5. Update `/opt/encrypthealth/.env`
-  6. `pm2 restart encrypthealth-api`
-  7. Save new password to `/root/.db_password_encrypthealth` (chmod 600)
+  6. `pm2 restart encrypthealth-api --update-env`
+  7. `pm2 save`
+  8. Save new password to `/root/.db_password_encrypthealth` (chmod 600)
+- **Note:** Backup script now sources from .env (fixed May 7). No more hardcoded fallbacks in consent module (fixed May 7).
 - **Test:** `curl -s http://localhost:4001/api/health` → should return `{"status":"ok"}`
 
 ---
