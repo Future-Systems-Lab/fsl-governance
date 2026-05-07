@@ -212,3 +212,10 @@ Alternative: Keep as static site + add 2-3 Vercel serverless API routes for auth
 - Cloudflare tunnel access restrictions
 - Database credential rotation
 - These are infrastructure security items, not Command Center UI gating
+
+
+## Implementation Status
+
+**IMPLEMENTED** — 2026-05-07
+Commit: 9c5140b
+Vercel auto-deploy: pending verification
