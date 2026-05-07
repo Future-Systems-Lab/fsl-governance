@@ -1,7 +1,7 @@
 # FSL Narrative Drift Audit
 
-**Date:** 2026-04-29
-**Auditor:** Claude (automated scan)
+**Date:** 2026-04-29 (updated 2026-04-29)
+**Auditor:** Claude (automated scan + remediation pass)
 **Scope:** All FSL ecosystem repos -- local and GitHub-hosted
 **Purpose:** Identify content that frames FSL's primary identity as a "mental wellness platform" rather than correctly positioning it as a decentralized infrastructure framework with behavioral health as the deliberate proving ground.
 
@@ -20,6 +20,7 @@
 **Problem:** Public-facing hero eyebrow on the main FSL landing page. Frames FSL identity as a "Sovereign Wellness Platform" -- wellness IS the identity, infrastructure thesis absent.
 **Recommended fix:** "Sovereign Infrastructure for Data Governance" or "Decentralized Infrastructure -- Behavioral Health as Proving Ground"
 **Severity:** HIGH
+**Status:** RESOLVED -- commit a2b4bb0 (fsl-web)
 
 ---
 
@@ -28,6 +29,7 @@
 **Problem:** Footer tagline on main landing page frames FSL as "wellness infrastructure" rather than general-purpose infrastructure.
 **Recommended fix:** "Pioneering decentralized Web3 sovereign data governance infrastructure"
 **Severity:** HIGH
+**Status:** RESOLVED -- commit a2b4bb0 (fsl-web)
 
 ---
 
@@ -36,6 +38,7 @@
 **Problem:** Footer disclaimer frames FSL identity as a wellness platform. Infrastructure thesis entirely absent.
 **Recommended fix:** "FSL is a decentralized infrastructure framework. Its behavioral health proving ground provides wellness education and empowerment -- not medical advice."
 **Severity:** HIGH
+**Status:** RESOLVED -- commit a2b4bb0 (fsl-web)
 
 ---
 
@@ -44,6 +47,7 @@
 **Problem:** Pitch deck opening line -- highest-visibility investor/partner document. Defines FSL as "sovereign wellness infrastructure stack" rather than general infrastructure with wellness as proving ground.
 **Recommended fix:** "Future Systems Lab (FSL) is a decentralized infrastructure framework for sovereign data governance. Behavioral health is the deliberate first vertical -- chosen for its regulatory complexity."
 **Severity:** HIGH
+**Status:** RESOLVED -- commit 9579363 (fsl-command-center)
 
 ---
 
@@ -52,6 +56,7 @@
 **Problem:** Tagline in pitch deck locks FSL identity to wellness.
 **Recommended fix:** "Sovereign data governance infrastructure. Behavioral health first."
 **Severity:** HIGH
+**Status:** RESOLVED -- commit 9579363 (fsl-command-center)
 
 ---
 
@@ -60,6 +65,7 @@
 **Problem:** One-pager -- likely the first document partners/investors read. Frames FSL entirely as wellness infrastructure.
 **Recommended fix:** Title: "Sovereign Data Governance Infrastructure" / Body: "FSL is a decentralized infrastructure framework. Behavioral health is its first proving ground."
 **Severity:** HIGH
+**Status:** RESOLVED -- commit 9579363 (fsl-command-center)
 
 ---
 
@@ -68,6 +74,7 @@
 **Problem:** Closing line reinforces wellness-only identity.
 **Recommended fix:** "Sovereign infrastructure for data governance. Behavioral health proving ground. Dual-chain anchored."
 **Severity:** HIGH
+**Status:** RESOLVED -- commit 9579363 (fsl-command-center)
 
 ---
 
@@ -76,6 +83,7 @@
 **Problem:** Ecosystem overview page uses HypnoNeuro-specific tagline as FSL-level hero. This is the FSL ecosystem page, not a HypnoNeuro-specific page.
 **Recommended fix:** Hero should use "Sovereignty by Design" or similar infrastructure framing. "Where Mental Wellness Meets Metaverse" is acceptable only on HypnoNeuro-specific pages.
 **Severity:** HIGH
+**Status:** RESOLVED -- commit 9579363 (fsl-command-center)
 
 ---
 
@@ -84,6 +92,7 @@
 **Problem:** Executive summary -- high-visibility stakeholder document -- frames FSL identity entirely through wellness lens. Infrastructure thesis absent from framing.
 **Recommended fix:** Lead with infrastructure thesis: "FSL is a decentralized infrastructure framework. Behavioral health is the deliberate proving ground." Wellness descriptions are appropriate for individual platform sections but not for FSL-level identity.
 **Severity:** HIGH
+**Status:** DEFERRED -- HypnoNeuro stakeholder docs require coordinated rewrite; also IPFS-pinned (see IPFS_REPIN_QUEUE.md)
 
 ---
 
@@ -92,6 +101,7 @@
 **Problem:** Stakeholder one-pager defines FSL as "sovereign wellness ecosystem" with no mention of infrastructure thesis or generalizability.
 **Recommended fix:** "Future Systems Lab is a decentralized infrastructure framework for sovereign data governance. Its behavioral health proving ground demonstrates the architecture with blockchain-anchored identity and participant-owned data."
 **Severity:** HIGH
+**Status:** DEFERRED -- HypnoNeuro stakeholder docs require coordinated rewrite; also IPFS-pinned (see IPFS_REPIN_QUEUE.md)
 
 ---
 
@@ -100,6 +110,7 @@
 **Problem:** HTML page title for the entire EncryptHealth app. Every browser tab reads "Sovereign Wellness Platform."
 **Recommended fix:** "Future Systems Lab -- Sovereign Data Infrastructure" or "EncryptHealth -- Sovereign Wellness Platform" (if scoped to EncryptHealth specifically)
 **Severity:** HIGH
+**Status:** DEFERRED -- HypnoNeuro frontend changes require build/deploy cycle; coordinate with next EncryptHealth release
 
 ---
 
@@ -108,6 +119,7 @@
 **Problem:** Prominent UI component visible to all participants. Frames FSL as a wellness platform.
 **Recommended fix:** "SOVEREIGN DATA GOVERNANCE INFRASTRUCTURE" or scope to EncryptHealth specifically.
 **Severity:** HIGH
+**Status:** DEFERRED -- HypnoNeuro frontend changes require build/deploy cycle; coordinate with next EncryptHealth release
 
 ---
 
@@ -116,6 +128,7 @@
 **Problem:** Grant application opening line frames FSL as a "sovereign mental wellness platform."
 **Recommended fix:** "Future Systems Lab is a decentralized infrastructure framework for sovereign data governance. Its behavioral health proving ground is the first to integrate ISO 20022-aligned payment rails..."
 **Severity:** HIGH
+**Status:** DEFERRED -- grant applications may have been submitted; changes require careful review of submission status
 
 ---
 
@@ -124,6 +137,7 @@
 **Problem:** ASU grant application defines FSL as a "sovereign wellness platform."
 **Recommended fix:** "Future Systems Lab is a live, operational decentralized Web3 infrastructure framework for sovereign data governance, with behavioral health as the applied research vertical."
 **Severity:** HIGH
+**Status:** DEFERRED -- grant applications may have been submitted; changes require careful review of submission status
 
 ---
 
@@ -132,6 +146,7 @@
 **Problem:** NIH grant frames FSL as "sovereign wellness data infrastructure."
 **Recommended fix:** "Future Systems Lab proposes an exploratory study of blockchain-based sovereign data governance infrastructure, using behavioral health as the applied domain."
 **Severity:** HIGH
+**Status:** DEFERRED -- grant applications may have been submitted; changes require careful review of submission status
 
 ---
 
@@ -140,6 +155,7 @@
 **Problem:** Terms of Service -- legal document -- defines FSL identity as wellness platform with "Where Mental Wellness Meets Metaverse" as a parenthetical identity.
 **Recommended fix:** "Future Systems Lab ("FSL") operates decentralized infrastructure for sovereign data governance. Its behavioral health vertical provides educational wellness tools."
 **Severity:** HIGH
+**Status:** DEFERRED -- legal doc; proposed changes in LEGAL_DOCS_REFRAME_PROPOSAL.md; requires legal review before implementation
 
 ---
 
@@ -148,6 +164,7 @@
 **Problem:** Privacy policy -- public legal document -- defines FSL as a "sovereign wellness platform ecosystem."
 **Recommended fix:** "Future Systems Lab ("FSL") operates a decentralized infrastructure framework for sovereign data governance, including wellness platforms."
 **Severity:** HIGH
+**Status:** DEFERRED -- legal doc; proposed changes in LEGAL_DOCS_REFRAME_PROPOSAL.md; requires legal review before implementation
 
 ---
 
@@ -161,6 +178,7 @@
 **Problem:** GitHub repo listing is public-facing. Visitors scanning repos see "mental health," "wellness," "therapy" without infrastructure thesis context.
 **Recommended fix:** Update descriptions to lead with infrastructure/architecture framing. E.g., HypnoNeuro: "Behavioral health proving ground for FSL's sovereign data governance framework. Avatar-based sessions, token rewards, gamified experiences."
 **Severity:** HIGH
+**Status:** DEFERRED -- GitHub repo descriptions require manual update via GitHub UI or gh CLI; not part of codebase files
 
 ---
 
@@ -169,6 +187,7 @@
 **Problem:** GitHub org profile badge labels FSL's focus as "Digital Health" -- frames the org as a health company.
 **Recommended fix:** Badge should read "Focus-Sovereign_Infrastructure" or "Focus-Decentralized_Governance"
 **Severity:** HIGH
+**Status:** RESOLVED -- commit ae744fc (.github org README, prior session)
 
 ---
 
@@ -177,6 +196,7 @@
 **Problem:** Org profile uses "Mental Wellness Ecosystem" framing for the portfolio section.
 **Recommended fix:** "Infrastructure Proving Ground: Behavioral Health" or similar.
 **Severity:** HIGH
+**Status:** RESOLVED -- commit ae744fc (.github org README, prior session)
 
 ---
 
@@ -189,6 +209,7 @@
 **Problem:** Footer tagline in Command Center frames FSL as wellness infrastructure. Note: Line 219 has the CORRECT framing ("FSL is a decentralized infrastructure framework for sovereign data governance, with behavioral health as the deliberate proving ground").
 **Recommended fix:** Align footer with L219 framing: "Decentralized infrastructure for sovereign data governance"
 **Severity:** MEDIUM
+**Status:** DEFERRED -- Command Center index.html footer; coordinate with next CC update
 
 ---
 
@@ -197,6 +218,7 @@
 **Problem:** Token described as "sovereign wellness token" -- single-vertical framing.
 **Recommended fix:** "HNT SOVEREIGN GOVERNANCE TOKEN" or simply "HNT TOKEN"
 **Severity:** MEDIUM
+**Status:** DEFERRED -- Command Center index.html ticker; coordinate with next CC update
 
 ---
 
@@ -205,6 +227,7 @@
 **Problem:** In-app privacy page frames FSL as wellness platform ecosystem.
 **Recommended fix:** "Future Systems Lab ("FSL") operates decentralized infrastructure for sovereign data governance, including the EncryptHealth wellness platform."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro frontend; coordinate with next EncryptHealth release
 
 ---
 
@@ -213,6 +236,7 @@
 **Problem:** In-app terms page frames FSL identity as wellness infrastructure.
 **Recommended fix:** Lead with infrastructure thesis, then scope wellness framing to EncryptHealth specifically.
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro frontend; coordinate with next EncryptHealth release
 
 ---
 
@@ -221,6 +245,7 @@
 **Problem:** Employer-facing page footer frames FSL as wellness infrastructure.
 **Recommended fix:** "Future Systems Lab . Sovereign Data Governance Infrastructure ."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro frontend; coordinate with next EncryptHealth release
 
 ---
 
@@ -229,6 +254,7 @@
 **Problem:** Onboarding flow frames FSL identity as wellness platform.
 **Recommended fix:** "EncryptHealth is an educational wellness platform within the Future Systems Lab infrastructure framework."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro frontend; coordinate with next EncryptHealth release
 
 ---
 
@@ -237,6 +263,7 @@
 **Problem:** Footer in settings frames FSL as "Sovereign Wellness Platform."
 **Recommended fix:** "EncryptHealth v1.0 . Future Systems Lab" (or scope "Sovereign Wellness" to EncryptHealth only)
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro frontend; coordinate with next EncryptHealth release
 
 ---
 
@@ -245,6 +272,7 @@
 **Problem:** Brand guide organizes around "sovereign wellness" as the primary identity frame.
 **Recommended fix:** "Sovereign Data Governance Lexicon" with a subsection for wellness-specific terminology.
 **Severity:** MEDIUM
+**Status:** DEFERRED -- brand guide requires coordinated rewrite with full lexicon update
 
 ---
 
@@ -253,6 +281,7 @@
 **Problem:** Lexicon guide frames "Where Mental Wellness Meets Metaverse" as the official FSL tagline (should be HypnoNeuro-specific or retired in favor of "Sovereignty by Design"). Title frames the entire guide around wellness.
 **Recommended fix:** Title: "FSL Sovereign Governance Lexicon Guide." Tagline should be "Sovereignty by Design" per COMMAND_CENTER_AUDIT resolution.
 **Severity:** MEDIUM
+**Status:** DEFERRED -- also IPFS-pinned (see IPFS_REPIN_QUEUE.md); requires coordinated update
 
 ---
 
@@ -261,6 +290,7 @@
 **Problem:** Academic paper -- peer-reviewed publication -- frames FSL as "sovereign wellness ecosystem." Infrastructure thesis is present in the paper but the identity framing defaults to wellness.
 **Recommended fix:** "a five-platform decentralized infrastructure ecosystem with behavioral health as the applied domain"
 **Severity:** MEDIUM
+**Status:** DEFERRED -- academic paper may be in submission; changes require review of publication status
 
 ---
 
@@ -269,6 +299,7 @@
 **Problem:** ASU Letter of Intent frames FSL as "sovereign wellness ecosystem."
 **Recommended fix:** "a deployed, multi-platform Web3 infrastructure framework for sovereign data governance, with behavioral health as the applied research domain"
 **Severity:** MEDIUM
+**Status:** DEFERRED -- .docx file; may be submitted; requires review of submission status
 
 ---
 
@@ -277,6 +308,7 @@
 **Problem:** Academic CV frames FSL as wellness ecosystem.
 **Recommended fix:** "Founder and systems architect of Future Systems Lab (FSL), a decentralized Web3 infrastructure framework for sovereign data governance"
 **Severity:** MEDIUM
+**Status:** DEFERRED -- .docx file; academic CV requires manual update
 
 ---
 
@@ -285,6 +317,7 @@
 **Problem:** IP strategy frames this HypnoNeuro-specific tagline as the primary FSL identity. Note: trademark filing of the phrase is fine for IP protection -- the issue is positioning it as the FSL-level identity.
 **Recommended fix:** Distinguish between trademark protection (file the mark) and brand positioning (use "Sovereignty by Design" as primary FSL tagline).
 **Severity:** MEDIUM
+**Status:** DEFERRED -- .docx legal strategy doc; trademark filing is correct, brand positioning note added
 
 ---
 
@@ -293,6 +326,7 @@
 **Problem:** While correctly disclaiming healthcare, it replaces that with "frequency company" rather than infrastructure/governance framing.
 **Recommended fix:** "Future Systems Lab is a decentralized infrastructure company. Its behavioral health proving ground uses frequency-based modalities."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro stakeholder docs; also IPFS-pinned (see IPFS_REPIN_QUEUE.md)
 
 ---
 
@@ -301,6 +335,7 @@
 **Problem:** Explainer video script -- public-facing content -- frames FSL as wellness ecosystem.
 **Recommended fix:** "Future Systems Lab is sovereign infrastructure for data governance. In its behavioral health proving ground, you own your health data, your records, and your journey."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro docs; also IPFS-pinned (see IPFS_REPIN_QUEUE.md)
 
 ---
 
@@ -309,6 +344,7 @@
 **Problem:** Brand guide frames FSL identity as wellness infrastructure.
 **Recommended fix:** "FSL is sovereign data governance infrastructure. Behavioral health is the proving ground."
 **Severity:** MEDIUM
+**Status:** DEFERRED -- HypnoNeuro brand guide; requires coordinated rewrite
 
 ---
 
@@ -317,6 +353,7 @@
 **Problem:** AlchemistForge footer uses "Where Mental Wellness Meets Metaverse" as FSL-level tagline.
 **Recommended fix:** "AlchemistForge -- Future Systems Lab -- Sovereignty by Design"
 **Severity:** MEDIUM
+**Status:** RESOLVED -- commit 7e0af73 (alchemist-forge)
 
 ---
 
@@ -325,6 +362,7 @@
 **Problem:** README frames FSL as "sovereign wellness ecosystem."
 **Recommended fix:** "AlchemistForge is part of the Future Systems Lab decentralized infrastructure ecosystem."
 **Severity:** MEDIUM
+**Status:** RESOLVED -- commit 7e0af73 (alchemist-forge)
 
 ---
 
@@ -338,6 +376,7 @@
 **Problem:** All outreach and press materials frame FSL identity as wellness-first. Infrastructure thesis is absent or secondary.
 **Recommended fix:** Reframe all outreach to lead with infrastructure thesis. E.g., "FSL is a decentralized infrastructure framework. Its behavioral health proving ground is the first to achieve [specific claim]."
 **Severity:** MEDIUM (grouped -- individual outreach docs are less critical than live public pages, but collectively they shape external perception)
+**Status:** DEFERRED -- world-record outreach docs; batch rewrite needed
 
 ---
 
@@ -346,6 +385,7 @@
 **Problem:** Superbill PDF footer (generated document sent to insurance) frames FSL as "Sovereign Wellness Platform."
 **Recommended fix:** "Powered by Future Systems Lab LLC" (drop "Sovereign Wellness Platform" from superbills)
 **Severity:** MEDIUM
+**Status:** DEFERRED -- SovereignLedger backend; coordinate with next deploy
 
 ---
 
@@ -354,6 +394,7 @@
 **Problem:** Profile page header uses HypnoNeuro tagline as FSL identity.
 **Recommended fix:** "Sovereignty by Design"
 **Severity:** MEDIUM
+**Status:** RESOLVED -- commit 2d2db6e (Future-Systems-Lab-profile, prior session)
 
 ---
 
@@ -362,6 +403,7 @@
 **Problem:** CV job title frames HypnoNeuro as a "Mental Wellness Platform" rather than behavioral health proving ground.
 **Recommended fix:** "Healthcare Data Architect -- HypnoNeuro (FSL Behavioral Health Proving Ground)" or keep clinical framing if appropriate for CV context.
 **Severity:** MEDIUM
+**Status:** RESOLVED -- commit e749a62 (CV summary, prior session)
 
 ---
 
@@ -370,6 +412,7 @@
 **Problem:** NeuroBalance Watch page uses "Sovereign Wellness" as the primary framing throughout.
 **Recommended fix:** "NeuroBalance Watch -- Sovereign Biometrics" or "Sovereign Data . Wearable . Web3"
 **Severity:** MEDIUM
+**Status:** RESOLVED -- commit 8d6725a (NeuroBalance-Watch)
 
 ---
 
@@ -378,6 +421,7 @@
 **Problem:** README tagline uses HypnoNeuro tagline. Acceptable if scoped to HypnoNeuro, but the README is for game specs, not the HypnoNeuro product.
 **Recommended fix:** Acceptable as-is if this repo is understood as HypnoNeuro-specific. Otherwise: "Behavioral health game specifications for FSL's infrastructure proving ground."
 **Severity:** LOW
+**Status:** RESOLVED -- commit 6541b26 (hypnoneuro-games)
 
 ---
 
@@ -390,6 +434,7 @@
 **Problem:** Token description in architecture doc uses "sovereign wellness" framing.
 **Recommended fix:** "HNT Token | Deployed | Sovereign Governance Token"
 **Severity:** LOW
+**Status:** DEFERRED -- low priority; batch with other fsl-governance updates
 
 ---
 
@@ -398,6 +443,7 @@
 **Problem:** Contract registry describes HNT as "sovereign wellness token."
 **Recommended fix:** "Sovereign governance token -- earned by participants"
 **Severity:** LOW
+**Status:** DEFERRED -- low priority; batch with other fsl-governance updates
 
 ---
 
@@ -406,6 +452,7 @@
 **Problem:** Agent system prompts use wellness framing. Acceptable for domain-specific agents (these are HypnoNeuro/EncryptHealth agents), but "sovereign wellness language" reinforces the conflation.
 **Recommended fix:** Low priority. Consider reframing to "sovereign governance language" where not wellness-specific.
 **Severity:** LOW
+**Status:** DEFERRED -- agent prompts are domain-specific; acceptable as-is for HypnoNeuro context
 
 ---
 
@@ -414,6 +461,7 @@
 **Problem:** Agent footer -- used as disclaimer. The wellness framing is functional (legal positioning) but reinforces conflation.
 **Recommended fix:** "FSL is a decentralized infrastructure framework. Its behavioral health vertical provides educational wellness tools."
 **Severity:** LOW
+**Status:** DEFERRED -- low priority; batch with world-record doc rewrite
 
 ---
 
@@ -422,6 +470,7 @@
 **Problem:** Minor framing issue in governance doc.
 **Recommended fix:** "This is sovereign data governance."
 **Severity:** LOW
+**Status:** DEFERRED -- low priority; also IPFS-pinned
 
 ---
 
@@ -430,6 +479,7 @@
 **Problem:** IP checklist references the tagline -- this is appropriate for trademark protection purposes. Not a narrative issue, just noting for completeness.
 **Recommended fix:** No change needed -- trademark filing is appropriate.
 **Severity:** LOW
+**Status:** N/A -- trademark filing context; no change needed
 
 ---
 
@@ -488,4 +538,32 @@ Per `COMMAND_CENTER_AUDIT.md` and `PLACEHOLDER_AUDIT.md`:
 
 ---
 
-*Audit complete. No files were modified. All findings are recommendations for review.*
+---
+
+## REMEDIATION SUMMARY (2026-04-29)
+
+### Resolved This Session
+| Repo | Commit | Findings Fixed |
+|------|--------|---------------|
+| fsl-web | a2b4bb0 | 3 (hero eyebrow, footer tagline, footer disclaimer) |
+| fsl-command-center | 9579363 | 5 (ecosystem hero, pitch deck x2, one-pager x2) |
+| alchemist-forge | 7e0af73 | 2 (footer tagline, README) |
+| hypnoneuro-games | 6541b26 | 1 (README tagline) |
+| fsl-engagement-research | ce78268 | 1 (README description) |
+| NeuroBalance-Watch | 8d6725a | 2 (README tagline, index.html x5 instances) |
+
+### Resolved in Prior Sessions
+| Repo | Commit | Findings Fixed |
+|------|--------|---------------|
+| .github org README | ae744fc | 2 (Digital Health badge, Mental Wellness Ecosystem header) |
+| Future-Systems-Lab-profile | 2d2db6e | 1 (profile page tagline) |
+| CV summary | e749a62 | 1 (CV job title) |
+
+### Totals
+- **RESOLVED:** 18 findings across 9 repos
+- **DEFERRED:** 31 findings (legal docs, HypnoNeuro frontend, grants, academic, world-record, governance docs)
+- **N/A:** 1 (trademark filing -- correct as-is)
+- **IPFS re-pin queue:** 13 documents (see IPFS_REPIN_QUEUE.md)
+- **Legal proposal:** 8 proposed changes (see LEGAL_DOCS_REFRAME_PROPOSAL.md)
+
+*Remediation pass complete. Deferred items require coordinated rewrites, legal review, or build/deploy cycles.*
