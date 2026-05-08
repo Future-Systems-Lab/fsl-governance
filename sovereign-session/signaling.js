@@ -54,7 +54,7 @@ const server = http.createServer((req, res) => {
   // Health check
   if (pathname === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 3, turn: !!env.TURN_SECRET }));
+    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 4, turn: !!env.TURN_SECRET }));
     return;
   }
 

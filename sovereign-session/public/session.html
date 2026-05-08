@@ -97,6 +97,33 @@ body{font-family:'Chakra Petch',sans-serif;background:var(--bg);color:var(--text
 .dapp-prompt{display:none;flex-direction:column;gap:8px;margin:16px 0;width:100%;max-width:320px}
 .dapp-link{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--text);transition:all 0.2s}
 .dapp-link:hover{border-color:var(--aqua)}
+
+/* Modal overlay */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;max-width:400px;width:90%;text-align:center}
+.modal h3{color:var(--aqua);margin-bottom:12px;font-size:1.1rem}
+.modal p{color:var(--muted);font-size:0.8rem;line-height:1.6;margin-bottom:16px}
+.modal .btn-row{display:flex;gap:10px;justify-content:center}
+
+/* Proof card */
+.proof-card{background:linear-gradient(135deg,var(--surface) 0%,rgba(0,217,255,0.04) 100%);border:1px solid rgba(0,217,255,0.2);border-radius:12px;padding:24px;max-width:440px;width:100%;text-align:left;margin:16px 0}
+.proof-card h3{color:var(--gold);font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.proof-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.7rem}
+.proof-row .label{color:var(--muted)}
+.proof-row .value{color:var(--text);font-family:'DM Mono',monospace;font-size:0.65rem;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.proof-row a{color:var(--aqua);text-decoration:none}
+.proof-row a:hover{text-decoration:underline}
+
+/* Attestation status */
+.attest-status{font-size:0.65rem;padding:3px 8px;border-radius:4px;font-family:'DM Mono',monospace}
+.attest-status.pending{color:var(--gold);background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2)}
+.attest-status.confirmed{color:var(--green);background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2)}
+.attest-status.failed{color:var(--red);background:rgba(255,68,68,0.1);border:1px solid rgba(255,68,68,0.2)}
+
+/* Focus styles for accessibility */
+.btn:focus-visible,.ctrl-btn:focus-visible,.wallet-opt:focus-visible{outline:2px solid var(--aqua);outline-offset:2px}
+*:focus-visible{outline:2px solid var(--aqua);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -205,13 +232,51 @@ body{font-family:'Chakra Petch',sans-serif;background:var(--bg);color:var(--text
       </div>
     </div>
     <div class="controls">
-      <button class="ctrl-btn" id="btn-mic" onclick="toggleMic()" title="Toggle microphone">&#x1F3A4;</button>
-      <button class="ctrl-btn" id="btn-cam" onclick="toggleCam()" title="Toggle camera">&#x1F4F7;</button>
-      <button class="ctrl-btn end-call" onclick="endSession()" title="End session">&#x1F4DE;</button>
+      <button class="ctrl-btn" id="btn-mic" onclick="toggleMic()" title="Toggle microphone" aria-label="Toggle microphone">&#x1F3A4;</button>
+      <button class="ctrl-btn" id="btn-cam" onclick="toggleCam()" title="Toggle camera" aria-label="Toggle camera">&#x1F4F7;</button>
+      <button class="ctrl-btn end-call" onclick="confirmEndSession()" title="End session" aria-label="End session">&#x1F4DE;</button>
+    </div>
+    <div style="display:flex;justify-content:center;padding:4px;background:var(--surface)">
+      <span class="attest-status" id="attest-status" style="display:none"></span>
     </div>
   </div>
 </div>
 
+<!-- Screen 5: Post-Session Proof -->
+<div class="screen" id="screen-proof">
+  <h2>Session Complete</h2>
+  <p>Your session has been attested on-chain.</p>
+  <div class="proof-card" id="proof-card">
+    <h3>&#x26D3; Session Attestation Proof</h3>
+    <div class="proof-row"><span class="label">Session ID</span><span class="value" id="proof-session-id"></span></div>
+    <div class="proof-row"><span class="label">Sovereign Guide</span><span class="value" id="proof-guide"></span></div>
+    <div class="proof-row"><span class="label">Participant</span><span class="value" id="proof-participant"></span></div>
+    <div class="proof-row"><span class="label">Duration</span><span class="value" id="proof-duration"></span></div>
+    <div class="proof-row"><span class="label">Start Tx</span><span class="value"><a id="proof-start-tx" href="#" target="_blank">View on Blockscout</a></span></div>
+    <div class="proof-row"><span class="label">End Tx</span><span class="value"><a id="proof-end-tx" href="#" target="_blank">View on Blockscout</a></span></div>
+    <div class="proof-row"><span class="label">Contract</span><span class="value"><a href="https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1" target="_blank">SovereignSession.sol</a></span></div>
+    <div class="proof-row"><span class="label">Network</span><span class="value">Sepolia Testnet</span></div>
+  </div>
+  <div style="display:flex;gap:10px;margin-top:8px">
+    <button class="btn" onclick="downloadProof()">Download Proof</button>
+    <button class="btn secondary" onclick="showScreen('screen-room')">New Session</button>
+  </div>
+</div>
+
+<!-- End Call Confirmation Modal -->
+<div class="modal-overlay" id="end-modal" role="dialog" aria-modal="true" aria-label="End session confirmation">
+  <div class="modal">
+    <h3>End Session?</h3>
+    <p>This will end the video session and record the attestation on-chain. Both parties will receive proof of the session.</p>
+    <p style="font-size:0.7rem;color:var(--dim)">Duration: <span id="modal-duration"></span></p>
+    <div class="btn-row">
+      <button class="btn secondary" onclick="closeEndModal()">Cancel</button>
+      <button class="btn" style="border-color:var(--red);color:var(--red)" onclick="executeEndSession()">End &amp; Attest</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
 <script>
 // ==================== CONFIG ====================
 const SIGNALING_URL = location.protocol === 'https:'
@@ -225,6 +290,16 @@ let ICE_SERVERS = [
 ];
 
 const CONTRACT_ADDRESS = '0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1';
+const SEPOLIA_CHAIN_ID = '0xaa36a7';
+const BLOCKSCOUT_BASE = 'https://eth-sepolia.blockscout.com';
+
+const CONTRACT_ABI = [
+  { inputs: [{ name: '_participant', type: 'address' }, { name: '_sessionId', type: 'bytes32' }], name: 'startSession', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+  { inputs: [{ name: '_sessionId', type: 'bytes32' }], name: 'endSession', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+  { inputs: [{ name: '', type: 'bytes32' }], name: 'sessions', outputs: [{ name: 'guide', type: 'address' }, { name: 'participant', type: 'address' }, { name: 'startTime', type: 'uint256' }, { name: 'endTime', type: 'uint256' }, { name: 'sessionId', type: 'bytes32' }, { name: 'active', type: 'bool' }], stateMutability: 'view', type: 'function' },
+  { anonymous: false, inputs: [{ indexed: true, name: 'sessionId', type: 'bytes32' }, { indexed: true, name: 'guide', type: 'address' }, { indexed: true, name: 'participant', type: 'address' }, { indexed: false, name: 'timestamp', type: 'uint256' }], name: 'SessionStarted', type: 'event' },
+  { anonymous: false, inputs: [{ indexed: true, name: 'sessionId', type: 'bytes32' }, { indexed: true, name: 'guide', type: 'address' }, { indexed: true, name: 'participant', type: 'address' }, { indexed: false, name: 'startTime', type: 'uint256' }, { indexed: false, name: 'endTime', type: 'uint256' }, { indexed: false, name: 'duration', type: 'uint256' }], name: 'SessionEnded', type: 'event' }
+];
 
 // ==================== STATE ====================
 let walletAddress = null;
@@ -240,6 +315,11 @@ let micEnabled = true;
 let camEnabled = true;
 let reconnectAttempts = 0;
 const MAX_RECONNECT = 5;
+let sessionIdBytes32 = null;
+let peerAddress = null;
+let startTxHash = null;
+let endTxHash = null;
+let attestationStarted = false;
 
 // ==================== SCREENS ====================
 function showScreen(id) {
@@ -438,6 +518,7 @@ function connectSignaling(roomId, role, address, signature, message) {
 
     switch (msg.type) {
       case 'peer-joined':
+        peerAddress = msg.address;
         toast(`${msg.role === 'guide' ? 'Sovereign Guide' : 'Participant'} joined`);
         await startWebRTC(msg.role === 'guide');
         break;
@@ -461,6 +542,16 @@ function connectSignaling(roomId, role, address, signature, message) {
       case 'mic-status':
         const remoteMuted = document.getElementById('remote-muted');
         remoteMuted.style.display = msg.muted ? 'block' : 'none';
+        break;
+
+      case 'attestation':
+        if (msg.status === 'started') {
+          startTxHash = msg.txHash;
+          sessionIdBytes32 = msg.sessionId;
+          attestationStarted = true;
+          updateAttestStatus('confirmed', 'Session attested');
+          toast('Session attested on-chain by Sovereign Guide');
+        }
         break;
     }
   };
@@ -607,6 +698,11 @@ function transitionToSession() {
   sessionStartTime = Date.now();
   timerInterval = setInterval(updateTimer, 1000);
   startStatsMonitoring();
+
+  // Guide initiates on-chain attestation after short delay (let video stabilize)
+  if (currentRole === 'guide') {
+    setTimeout(() => initiateAttestation(), 3000);
+  }
 }
 
 function updateTimer() {
@@ -657,10 +753,153 @@ function toggleCam() {
   btn.innerHTML = camEnabled ? '&#x1F4F7;' : '&#x1F6AB;';
 }
 
-function endSession() {
+function confirmEndSession() {
+  const elapsed = sessionStartTime ? Math.floor((Date.now() - sessionStartTime) / 1000) : 0;
+  const min = String(Math.floor(elapsed / 60)).padStart(2, '0');
+  const sec = String(elapsed % 60).padStart(2, '0');
+  document.getElementById('modal-duration').textContent = `${min}:${sec}`;
+  document.getElementById('end-modal').classList.add('show');
+}
+
+function closeEndModal() {
+  document.getElementById('end-modal').classList.remove('show');
+}
+
+async function executeEndSession() {
+  closeEndModal();
+  const duration = sessionStartTime ? Math.floor((Date.now() - sessionStartTime) / 1000) : 0;
+
+  // Attempt on-chain endSession attestation (guide only)
+  if (currentRole === 'guide' && sessionIdBytes32 && attestationStarted) {
+    updateAttestStatus('pending', 'Recording end attestation...');
+    try {
+      const tx = await callEndSession(sessionIdBytes32);
+      endTxHash = tx.hash;
+      toast('End attestation recorded on-chain');
+      updateAttestStatus('confirmed', 'Attested on-chain');
+    } catch (err) {
+      toast('End attestation failed: ' + (err.reason || err.message));
+      updateAttestStatus('failed', 'Attestation failed');
+    }
+  }
+
+  // Show proof screen
+  showProofScreen(duration);
   cleanup();
-  toast('Session ended');
-  showScreen('screen-room');
+}
+
+function showProofScreen(duration) {
+  const min = String(Math.floor(duration / 60)).padStart(2, '0');
+  const sec = String(duration % 60).padStart(2, '0');
+
+  document.getElementById('proof-session-id').textContent = currentRoom ? currentRoom.slice(0, 16) + '...' : 'N/A';
+  document.getElementById('proof-guide').textContent = currentRole === 'guide' ? truncAddr(walletAddress) : truncAddr(peerAddress);
+  document.getElementById('proof-participant').textContent = currentRole === 'participant' ? truncAddr(walletAddress) : truncAddr(peerAddress);
+  document.getElementById('proof-duration').textContent = `${min}:${sec}`;
+
+  const startLink = document.getElementById('proof-start-tx');
+  const endLink = document.getElementById('proof-end-tx');
+  if (startTxHash) {
+    startLink.href = `${BLOCKSCOUT_BASE}/tx/${startTxHash}`;
+    startLink.textContent = startTxHash.slice(0, 10) + '...';
+  } else {
+    startLink.textContent = 'Not recorded';
+    startLink.removeAttribute('href');
+  }
+  if (endTxHash) {
+    endLink.href = `${BLOCKSCOUT_BASE}/tx/${endTxHash}`;
+    endLink.textContent = endTxHash.slice(0, 10) + '...';
+  } else {
+    endLink.textContent = 'Not recorded';
+    endLink.removeAttribute('href');
+  }
+
+  showScreen('screen-proof');
+}
+
+// ==================== ON-CHAIN ATTESTATION ====================
+function updateAttestStatus(state, text) {
+  const el = document.getElementById('attest-status');
+  el.style.display = 'inline-block';
+  el.className = `attest-status ${state}`;
+  el.textContent = text;
+}
+
+async function getEthersProvider() {
+  const eth = window.ethereum.isBraveWallet ? window.ethereum
+    : (window.ethereum.providers && window.ethereum.providers.find(p => p.isBraveWallet)) || window.ethereum;
+  return new ethers.BrowserProvider(eth);
+}
+
+async function callStartSession(participantAddr, sessionId) {
+  const provider = await getEthersProvider();
+  const signer = await provider.getSigner();
+  const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+  const tx = await contract.startSession(participantAddr, sessionId);
+  await tx.wait();
+  return tx;
+}
+
+async function callEndSession(sessionId) {
+  const provider = await getEthersProvider();
+  const signer = await provider.getSigner();
+  const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+  const tx = await contract.endSession(sessionId);
+  await tx.wait();
+  return tx;
+}
+
+async function initiateAttestation() {
+  if (currentRole !== 'guide' || !peerAddress || attestationStarted) return;
+
+  // Generate sessionId from room + timestamp
+  sessionIdBytes32 = ethers.keccak256(ethers.toUtf8Bytes(currentRoom + ':' + Date.now()));
+
+  updateAttestStatus('pending', 'Recording start attestation...');
+  try {
+    const tx = await callStartSession(peerAddress, sessionIdBytes32);
+    startTxHash = tx.hash;
+    attestationStarted = true;
+    toast('Session start attested on-chain');
+    updateAttestStatus('confirmed', 'Session attested');
+
+    // Notify peer of the attestation
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: 'attestation',
+        txHash: tx.hash,
+        sessionId: sessionIdBytes32,
+        status: 'started'
+      }));
+    }
+  } catch (err) {
+    toast('Start attestation failed: ' + (err.reason || err.message));
+    updateAttestStatus('failed', 'Attestation failed — session continues');
+    // Session continues even if attestation fails
+  }
+}
+
+function downloadProof() {
+  const proof = {
+    type: 'SovereignSession Attestation Proof',
+    contract: CONTRACT_ADDRESS,
+    network: 'Sepolia Testnet (chainId 11155111)',
+    sessionId: currentRoom,
+    guide: currentRole === 'guide' ? walletAddress : peerAddress,
+    participant: currentRole === 'participant' ? walletAddress : peerAddress,
+    startTx: startTxHash || null,
+    endTx: endTxHash || null,
+    duration: document.getElementById('proof-duration')?.textContent || 'N/A',
+    timestamp: new Date().toISOString(),
+    blockscout: `${BLOCKSCOUT_BASE}/address/${CONTRACT_ADDRESS}`
+  };
+  const blob = new Blob([JSON.stringify(proof, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `sovereign-session-proof-${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 function handlePeerLeft() {
@@ -700,6 +939,11 @@ function cleanup() {
   statsInterval = null;
   currentRoom = null;
   sessionStartTime = null;
+  sessionIdBytes32 = null;
+  peerAddress = null;
+  startTxHash = null;
+  endTxHash = null;
+  attestationStarted = false;
   micEnabled = true;
   camEnabled = true;
 }
@@ -776,6 +1020,25 @@ function startStatsMonitoring() {
     } catch (e) {}
   }, 3000);
 }
+
+// ==================== KEYBOARD NAV ====================
+document.addEventListener('keydown', (e) => {
+  // Escape closes modal
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('end-modal');
+    if (modal.classList.contains('show')) {
+      closeEndModal();
+    }
+  }
+  // M toggles mic during session
+  if (e.key === 'm' && document.getElementById('screen-session').classList.contains('active')) {
+    toggleMic();
+  }
+  // V toggles camera during session
+  if (e.key === 'v' && document.getElementById('screen-session').classList.contains('active')) {
+    toggleCam();
+  }
+});
 
 // ==================== INIT ====================
 detectWalletSetup();
