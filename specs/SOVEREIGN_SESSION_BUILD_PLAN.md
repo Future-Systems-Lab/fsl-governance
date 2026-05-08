@@ -102,6 +102,23 @@ Participant (Brave Wallet)          Sovereign Guide (Brave Wallet)
 - Mobile testing
 - **Gate:** Full production flow end-to-end on 3+ browsers?
 
+#### Phase 5 UX Constraint: "A Kid Could Navigate It" (BINDING)
+
+Recording UX must be radically simple. No settings pages, no multi-step consent flows, no legal copy in the interaction flow.
+
+| Principle | Requirement |
+|-----------|-------------|
+| **Default state** | OFF — recording never starts automatically |
+| **Activation** | Single toggle, both parties must independently enable (mutual consent) |
+| **Language** | Plain language only — no legalese in the toggle flow |
+| **Revocation** | Either party can turn off at any time, zero friction, immediate stop |
+| **Post-session** | One download button + one key to save — nothing else |
+| **Visual state** | Always unambiguous: red = off, green = on. No intermediate states. |
+| **Mobile** | Thumb-reachable toggle placement. Works on smallest supported viewport. |
+| **No hidden flows** | No "are you sure?" modals, no settings buried in menus, no consent checkboxes |
+
+This constraint is binding for Phase 5 implementation. If a design decision conflicts with "a kid could navigate it," the design loses.
+
 ---
 
 ## Risk Areas
