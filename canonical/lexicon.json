@@ -1,0 +1,33 @@
+{
+  "canonical": {
+    "participant": {"replaces": "patient", "context": "all display/prose contexts"},
+    "participants": {"replaces": "patients", "context": "all display/prose contexts"},
+    "sovereign_guide": {"replaces": "provider", "context": "display contexts referring to practitioners"},
+    "sovereign_guides": {"replaces": "providers", "context": "display contexts referring to practitioners"},
+    "session": {"replaces": "treatment", "context": "all contexts"},
+    "sovereign_ledger": {"replaces": "ClaimChain", "context": "all contexts"},
+    "sovereign_billing": {"replaces": "insurance (as payment label)", "context": "UI labels"},
+    "decentralized_health_architecture": {"replaces": "Healthcare & Informatics", "context": "skills sections"},
+    "applied_project": {"replaces": "Capstone", "context": "DEng program references"},
+    "blockscout": {"replaces": "Etherscan", "context": "block explorer links and copy"},
+    "sovereignty_by_design": {"replaces": "Where Mental Wellness Meets Metaverse", "context": "tagline"}
+  },
+  "retired": [
+    "ClaimChain", "patient", "patients", "provider", "providers",
+    "treatment", "diagnosis", "disorder",
+    "MetaMask", "Coinbase Wallet", "Privy", "Stripe", "Calendly",
+    "doxy.me", "Doxy.me", "daily.co", "Daily.co",
+    "etherscan", "Etherscan", "sepolia.etherscan.io",
+    "compliance-aware", "wellness platform",
+    "FHIR-aligned", "HL7", "OMOP",
+    "Capstone", "celebrateEgregiously",
+    "Where Mental Wellness Meets Metaverse",
+    "Pioneering decentralized Web3"
+  ],
+  "anonymity_messaging": {
+    "primary": "Your wallet is your anonymous identity. No email. No password. No personal data collected. When you connect a wallet, you appear as a pseudonymous address. You control what you reveal. FSL never sees your name, email, or location. No funds are required to participate.",
+    "short": "Anonymous by default \u2014 your wallet is a pseudonymous identity, not a payment method. No funds needed.",
+    "tooltip": "Connecting a wallet creates a pseudonymous identity. No personal information is collected or stored. No funds are required."
+  },
+  "last_updated": "2026-05-09T00:00:00Z"
+}

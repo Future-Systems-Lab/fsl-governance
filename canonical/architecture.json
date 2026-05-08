@@ -1,0 +1,22 @@
+{
+  "thesis": "Decentralized infrastructure for sovereign data governance \u2014 using regulated behavioral health as the deliberate proving ground for architectures that scale across complex domains.",
+  "tagline": "Sovereignty by Design",
+  "footer_descriptor": "Decentralized infrastructure for sovereign data governance",
+  "layers": [
+    {"id": "financial", "name": "Financial", "color": "#D4AF37", "description": "Live market integration, ISO 20022 cohort (XRP, XLM, HBAR, ALGO, ADA), XRPL payment rails, HNT participation tokenomics"},
+    {"id": "identity", "name": "Identity", "color": "#00D9FF", "description": "EIP-191 wallet-gated authentication, Brave Wallet primary, SovereignSession wallet-native video, no PHI held by design"},
+    {"id": "governance", "name": "Governance", "color": "#7B2FBE", "description": "SovereignLedger session attestation, 17-agent autonomous pipeline, on-chain provenance"},
+    {"id": "compliance", "name": "Compliance", "color": "#22CC66", "description": "Operates outside HIPAA scope by holding no PHI \u2014 the regulation does not apply when the system never holds the protected data"},
+    {"id": "therapeutic", "name": "Therapeutic", "color": "#FFB400", "description": "45 games, SovereignSession peer-to-peer video, AlchemistForge shadow integration, Sovereign Guide framework"},
+    {"id": "research", "name": "Research", "color": "#FFFFFF", "description": "DEng Applied Project for ASU \u2014 the deployed system IS the research contribution"}
+  ],
+  "boscovic_alignment": "Independent architecture arriving at convergent framing through different cryptographic primitives (public Ethereum + EIP-191 vs. permissioned Hyperledger Fabric + proxy re-encryption). Designed by a credentialed practitioner who lived both sides of the system failure.",
+  "deng": {
+    "program": "Doctor of Engineering (Engineering Management)",
+    "school": "Arizona State University, Ira A. Fulton Schools of Engineering",
+    "target_enrollment": "Spring 2027",
+    "priority_deadline": "October 1, 2026",
+    "prerequisite": "BS MIS from CSU Global confers July 2026 (GPA 3.94)"
+  },
+  "last_updated": "2026-05-09T00:00:00Z"
+}

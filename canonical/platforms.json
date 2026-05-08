@@ -1,0 +1,30 @@
+{
+  "platforms": [
+    {"name": "FSL Command Center", "url": "https://fsl-command-center.vercel.app", "status": "live", "description": "Wallet-gated admin dashboard + public reviewer surface"},
+    {"name": "EncryptHealth", "url": "https://encrypthealth.io", "status": "live", "description": "Sovereign health records — wallet-gated consent architecture"},
+    {"name": "HypnoNeuro", "url": "https://hypnoneuro.io", "status": "live", "description": "45 therapeutic games across 3 progressive levels"},
+    {"name": "SovereignLedger", "url": "https://sovereignledger.io", "status": "live", "description": "Session attestation — immutable proof between consenting wallets"},
+    {"name": "AlchemistForge", "url": "https://alchemistforge.io", "status": "live", "description": "Jungian shadow integration on-chain"},
+    {"name": "SovereignSession", "url": "https://session.futuresystemslab.io", "status": "live", "description": "Wallet-native peer-to-peer video sessions", "phases_deployed": [1, 2, 3, 4]}
+  ],
+  "session_tooling": {
+    "primary": "SovereignSession",
+    "url": "https://session.futuresystemslab.io",
+    "contract": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1",
+    "retired": ["doxy.me", "daily.co", "calendly"]
+  },
+  "block_explorer": {
+    "primary": "Blockscout",
+    "sepolia_url": "https://eth-sepolia.blockscout.com",
+    "tx_pattern": "https://eth-sepolia.blockscout.com/tx/{hash}",
+    "address_pattern": "https://eth-sepolia.blockscout.com/address/{address}",
+    "retired": ["etherscan.io", "sepolia.etherscan.io"]
+  },
+  "wallets": {
+    "primary": "Brave Wallet",
+    "secondary": "Rainbow",
+    "fallback": "WalletConnect",
+    "retired": ["MetaMask", "Coinbase Wallet"]
+  },
+  "last_updated": "2026-05-09T00:00:00Z"
+}

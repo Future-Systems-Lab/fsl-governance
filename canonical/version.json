@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-05-09T00:00:00Z",
+  "updated_by": "Meg Montañez-Davenport",
+  "consumers": {
+    "fsl-command-center": {"status": "pilot", "integration": "fetch-at-render"},
+    "encrypthealth": {"status": "planned", "integration": "build-time"},
+    "hypnoneuro": {"status": "planned", "integration": "build-time"},
+    "alchemist-forge": {"status": "planned", "integration": "fetch-at-render"},
+    "sovereign-session": {"status": "planned", "integration": "startup-read"},
+    "github-org-readme": {"status": "planned", "integration": "manual-sync"}
+  }
+}
