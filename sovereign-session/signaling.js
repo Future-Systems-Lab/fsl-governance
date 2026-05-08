@@ -1,0 +1,204 @@
+const WebSocket = require("ws");
+const http = require("http");
+const { ethers } = require("ethers");
+const fs = require("fs");
+const path = require("path");
+const url = require("url");
+
+// Load env
+const env = {};
+const envPath = "/opt/encrypthealth/.env";
+if (fs.existsSync(envPath)) {
+  fs.readFileSync(envPath, "utf8").split("\n").forEach(l => {
+    if (l && !l.startsWith("#")) { const [k,...v] = l.split("="); if (k && v.length) env[k.trim()] = v.join("=").trim(); }
+  });
+}
+
+const PORT = 4050;
+const PUBLIC_DIR = path.join(__dirname, "public");
+const CONTRACT = (() => {
+  const addrPath = path.join(__dirname, "SovereignSession_address.txt");
+  return fs.existsSync(addrPath) ? fs.readFileSync(addrPath, "utf8").trim() : "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1";
+})();
+
+// MIME types
+const MIME = {
+  ".html": "text/html",
+  ".css": "text/css",
+  ".js": "application/javascript",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".ico": "image/x-icon"
+};
+
+// Room management
+const rooms = new Map(); // roomId -> { guide: ws, participant: ws, guideAddr, participantAddr }
+
+const server = http.createServer((req, res) => {
+  const parsed = url.parse(req.url, true);
+  let pathname = parsed.pathname;
+
+  // CORS headers for all responses
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
+  // Health check
+  if (pathname === "/health") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 2 }));
+    return;
+  }
+
+  // API: list active rooms (no PII — just room count and IDs)
+  if (pathname === "/api/rooms") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    const roomList = [];
+    rooms.forEach((room, id) => {
+      roomList.push({
+        id: id.slice(0, 8) + "...",
+        hasGuide: !!room.guide,
+        hasParticipant: !!room.participant
+      });
+    });
+    res.end(JSON.stringify({ rooms: roomList }));
+    return;
+  }
+
+  // Static file serving
+  if (pathname === "/" || pathname === "/index.html") {
+    pathname = "/session.html";
+  }
+
+  const filePath = path.join(PUBLIC_DIR, pathname);
+
+  // Security: prevent directory traversal
+  if (!filePath.startsWith(PUBLIC_DIR)) {
+    res.writeHead(403);
+    res.end("Forbidden");
+    return;
+  }
+
+  const ext = path.extname(filePath);
+  const contentType = MIME[ext] || "application/octet-stream";
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      if (err.code === "ENOENT") {
+        // SPA fallback — serve session.html for any unmatched route
+        fs.readFile(path.join(PUBLIC_DIR, "session.html"), (err2, data2) => {
+          if (err2) { res.writeHead(404); res.end("Not found"); return; }
+          res.writeHead(200, { "Content-Type": "text/html" });
+          res.end(data2);
+        });
+      } else {
+        res.writeHead(500);
+        res.end("Server error");
+      }
+      return;
+    }
+    res.writeHead(200, { "Content-Type": contentType });
+    res.end(data);
+  });
+});
+
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", (ws, req) => {
+  const params = new URL(req.url, "http://localhost").searchParams;
+  const roomId = params.get("room");
+  const role = params.get("role"); // "guide" or "participant"
+  const address = params.get("address");
+  const signature = params.get("signature");
+  const message = params.get("message");
+
+  if (!roomId || !role || !address || !signature || !message) {
+    ws.close(4001, "Missing params: room, role, address, signature, message");
+    return;
+  }
+
+  // Verify EIP-191 signature
+  try {
+    const recovered = ethers.verifyMessage(decodeURIComponent(message), decodeURIComponent(signature));
+    if (recovered.toLowerCase() !== address.toLowerCase()) {
+      ws.close(4002, "Signature mismatch");
+      return;
+    }
+  } catch (e) {
+    ws.close(4003, "Invalid signature: " + e.message);
+    return;
+  }
+
+  // Join or create room
+  if (!rooms.has(roomId)) {
+    rooms.set(roomId, { guide: null, participant: null, guideAddr: null, participantAddr: null });
+  }
+  const room = rooms.get(roomId);
+
+  if (role === "guide") {
+    if (room.guide) { ws.close(4004, "Guide already in room"); return; }
+    room.guide = ws;
+    room.guideAddr = address;
+  } else if (role === "participant") {
+    if (room.participant) { ws.close(4004, "Participant already in room"); return; }
+    room.participant = ws;
+    room.participantAddr = address;
+  } else {
+    ws.close(4005, "Invalid role");
+    return;
+  }
+
+  console.log(`[${new Date().toISOString()}] ${role} joined room ${roomId.slice(0,8)}... (${address.slice(0,8)}...)`);
+
+  // Notify peer if both present
+  if (room.guide && room.participant) {
+    room.guide.send(JSON.stringify({ type: "peer-joined", role: "participant", address: room.participantAddr }));
+    room.participant.send(JSON.stringify({ type: "peer-joined", role: "guide", address: room.guideAddr }));
+  }
+
+  // Relay signaling messages
+  ws.on("message", (data) => {
+    try {
+      const msg = JSON.parse(data);
+      const peer = role === "guide" ? room.participant : room.guide;
+      if (peer && peer.readyState === WebSocket.OPEN) {
+        peer.send(JSON.stringify(msg));
+      }
+    } catch {}
+  });
+
+  // Handle disconnect
+  ws.on("close", () => {
+    if (role === "guide") { room.guide = null; room.guideAddr = null; }
+    else { room.participant = null; room.participantAddr = null; }
+
+    // Notify peer
+    const peer = role === "guide" ? room.participant : room.guide;
+    if (peer && peer.readyState === WebSocket.OPEN) {
+      peer.send(JSON.stringify({ type: "peer-left", role }));
+    }
+
+    // Clean up empty rooms
+    if (!room.guide && !room.participant) {
+      rooms.delete(roomId);
+    }
+
+    console.log(`[${new Date().toISOString()}] ${role} left room ${roomId.slice(0,8)}...`);
+  });
+
+  ws.on("error", () => {});
+});
+
+server.listen(PORT, "127.0.0.1", () => {
+  console.log(`SovereignSession signaling server on 127.0.0.1:${PORT}`);
+  console.log(`Contract: ${CONTRACT}`);
+  console.log(`Serving static files from: ${PUBLIC_DIR}`);
+  console.log(`Phase 2: WebRTC peer video enabled`);
+});
