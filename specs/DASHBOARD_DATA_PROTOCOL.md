@@ -1,7 +1,7 @@
 # Dashboard Data Protocol
 ## Single Source of Truth for Command Center
 **Status:** Active
-**Last updated:** May 7, 2026
+**Last updated:** April 29, 2026
 
 ---
 
@@ -17,6 +17,7 @@ Dashboard content is driven by JSON data files in `fsl-governance/dashboard-data
 | `external-blockers.json` | External dependencies and their resolution status | When resolved/updated |
 | `completed-milestones.json` | Shipped work (append-only) | On each milestone completion |
 | `funding-strategy.json` | Funding sources, cost breakdown, grant status | When strategy changes |
+| `grant-tracker.json` | Grant applications: status, amounts, deadlines | When grant status changes |
 | `agent-roster.json` | 17-agent council composition and roles | When agents are added/modified |
 | `reviewer-data.json` | Academic reviewer portfolio: contracts, OSS PRs, credentials, faculty, platforms | When evidence changes |
 | `infrastructure-status.json` | (Future) Static infra config | Rarely |
@@ -51,12 +52,16 @@ Examples:
 4. Commit with message: `"Update dashboard data: [what changed]"`
 5. Push to fsl-governance
 
-### Rendering
+### Rendering (IMPLEMENTED)
 
-The `/api/dashboard-content` serverless function:
-1. Fetches each JSON from GitHub raw content API (or bundled at build time)
-2. Renders the data into HTML table rows using consistent status badge patterns
-3. Returns the complete HTML to the authenticated client
+The `/api/dashboard-content` serverless function (Vercel):
+1. Fetches each JSON from `https://raw.githubusercontent.com/Future-Systems-Lab/fsl-governance/main/dashboard-data/[file].json`
+2. Caches responses in memory with a **5-minute TTL** (per-file, per serverless instance)
+3. Renders JSON data into HTML table rows using render helper functions (`renderOutreachRows`, `renderBlockerRows`, `renderMilestoneText`, `renderFundingCostRows`, `renderGrantRows`)
+4. Concatenates rendered sections with static HTML segments (`STATIC_BEFORE_BLOCKERS`, `STATIC_OUTREACH_TAIL`, `STATIC_TAIL`)
+5. Returns the complete HTML to the authenticated client
+
+**Latency note:** First request after cold start or cache expiry fetches 5 JSONs in parallel from GitHub. Subsequent requests within the 5-minute window serve from cache with zero fetch overhead.
 
 ### Status Badge Mapping
 
@@ -92,21 +97,25 @@ The rendering logic in `/api/dashboard-content` is frozen after implementation. 
 
 ---
 
-## Migration from Hardcoded Content
+## Migration from Hardcoded Content (COMPLETE)
 
-The `/api/dashboard-content.js` currently has all content hardcoded as HTML strings. Migration path:
+Completed April 29, 2026. The `/api/dashboard-content.js` was refactored from a monolithic hardcoded HTML template to a data-driven architecture.
 
-1. JSON files created with current accurate state (DONE)
-2. Refactor `/api/dashboard-content.js` to read JSONs and render (next step)
-3. Remove hardcoded HTML for sections backed by JSON data
-4. Keep hardcoded HTML for structural sections (nav, CSS, layout) that don't change with data
-
-Sections to migrate:
+### Migrated sections (JSON-driven):
 - [x] Outreach & Revenue table → `outreach-revenue.json`
 - [x] External Blockers table → `external-blockers.json`
 - [x] Completed milestones line → `completed-milestones.json`
-- [x] Funding strategy → `funding-strategy.json`
-- [x] Agent roster → `agent-roster.json`
-- [ ] Infrastructure status → live API (already dynamic)
-- [ ] Smart contracts table → could be JSON but addresses rarely change
-- [ ] Platform listing → could be JSON
+- [x] Funding strategy (Phase 3 cost rows, sources, totals, note) → `funding-strategy.json`
+- [x] Grant Tracker table → `grant-tracker.json`
+
+### Remaining static (intentional):
+- Agent roster → rendered client-side from JS array in `dashboard.html` (not server-rendered)
+- Infrastructure status → live API polling (`/api/infra`, `/api/fsl-status`)
+- Architecture, runbooks, academic timeline → structural content that rarely changes
+- Phase 4 cost rows → hardcoded (not in `funding-strategy.json` yet; add if needed)
+
+### How to update dashboard data without a code commit:
+1. Edit the relevant JSON file in `fsl-governance/dashboard-data/`
+2. Commit and push to `main`
+3. Wait up to 5 minutes for cache expiry
+4. Dashboard automatically reflects the new data
