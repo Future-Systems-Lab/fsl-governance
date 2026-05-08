@@ -1,0 +1,47 @@
+{
+  "title": "What Gets Built Next",
+  "subtitle": "The deployed system is the research foundation. Each phase extends the architecture toward its full thesis.",
+  "phases": [
+    {
+      "id": "phase-1-4",
+      "name": "Phases 1\u20134 \u2014 SovereignSession Core Infrastructure",
+      "status": "complete",
+      "badge": "COMPLETE",
+      "description": "Wallet-native video sessions, on-chain attestation, booking verification, privacy spec, browser matrix verified.",
+      "contract": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1",
+      "explorer_url": "https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1"
+    },
+    {
+      "id": "phase-5",
+      "name": "Phase 5 \u2014 Encrypted Session Recording",
+      "status": "planned",
+      "badge": "PLANNED",
+      "description": "Client-side AES-256 encryption, IPFS pinning, participant-controlled decryption keys, on-chain hash. No server ever touches session content."
+    },
+    {
+      "id": "phase-6",
+      "name": "Phase 6 \u2014 Avatar Layer",
+      "status": "planned",
+      "badge": "PLANNED",
+      "tag": "SPECIALIST TALENT",
+      "description": "3D wallet-bound soulbound avatars replace raw video feeds. Zero biometric data transmitted. Futuristic FSL aesthetic. Three.js + Web Audio lip sync. HNT/achievement unlock system. Serious game designer collaboration required."
+    },
+    {
+      "id": "phase-7",
+      "name": "Phase 7 \u2014 Therapeutic Content Upgrade",
+      "status": "planned",
+      "badge": "PLANNED",
+      "tag": "DR. GHASEMZADEH",
+      "description": "EMDR, EFT/tapping, somatic visualization, brainwave entrainment, ECS/orthomolecular protocols, AI-adaptive wearable integration. Current 45 sessions are functional scaffolds \u2014 this phase adds clinical depth designed with faculty expertise."
+    },
+    {
+      "id": "phase-8",
+      "name": "Phase 8 \u2014 Support Circles",
+      "status": "planned",
+      "badge": "PLANNED",
+      "description": "Multi-party sovereign wellness spaces. Group sessions as wallet-bound avatars \u2014 no faces, no names, pure pseudonymous group therapeutic experience. Multi-wallet HNT attribution. The FSL origin use case deployed at scale."
+    }
+  ],
+  "convergence": "Individual therapeutic sessions (HypnoNeuro) \u2192 1:1 sovereign video sessions (SovereignSession) \u2192 group sovereign wellness spaces (Support Circles) \u2014 all wallet-native, pseudonymous, on-chain attested, and avatar-mediated. The deployed system IS the research contribution.",
+  "last_updated": "2026-05-09T00:00:00Z"
+}
