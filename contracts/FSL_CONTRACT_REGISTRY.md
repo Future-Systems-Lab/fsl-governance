@@ -50,3 +50,11 @@ When ready for mainnet:
 5. Disable Sepolia contracts after migration
 
 *This registry is anchored to IPFS and AlchemistForge contract.*
+
+## SovereignSession (Phase 1 — May 2026)
+- **Address:** 0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1
+- **Network:** Sepolia (11155111)
+- **Purpose:** Wallet-native video session attestation — records timestamps + wallet addresses only, no PHI
+- **Deployer:** 0xd9C092fc32B2d71Db6AF1b92300B6a741a6476c1 (refill wallet)
+- **Verified:** Sourcify (partial match)
+- **Status:** Phase 1 deployed — signaling server + contract live, video pending Phase 2
