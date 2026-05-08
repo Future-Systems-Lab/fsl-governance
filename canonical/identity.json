@@ -1,0 +1,21 @@
+{
+  "name_display": "Dr. Meg Monta\u00f1ez-Davenport",
+  "credentials_short": "D.N.Psy., BCHN, CBHP",
+  "credentials": [
+    {"abbrev": "D.N.Psy.", "full": "Doctor of Naturopathic Psychology"},
+    {"abbrev": "BCHN", "full": "Board Certified Holistic Nutritionist"},
+    {"abbrev": "CBHP", "full": "Certified Blockchain Healthcare Professional", "issuer": "Blockchain Council", "date": "Apr 2025"}
+  ],
+  "npi": "1497696264",
+  "npi_taxonomy": "175F00000X",
+  "ein": "42-2050630",
+  "entity": "Future Systems Lab LLC (Wyoming)",
+  "trademark": {"serial": "99533250", "class": 42, "status": "Under Review"},
+  "email": "future.systems.lab@proton.me",
+  "github_org": "https://github.com/Future-Systems-Lab",
+  "linkedin": "https://www.linkedin.com/in/meg-monta%C3%B1ez-davenport-680652226/",
+  "america_out_loud": "https://www.americaoutloud.news/author/meg-montanez-davenport/",
+  "xrpl_mainnet_wallet": "rwR3etLJVxtQXYs2d9jgBQxzHBivtCMdPd",
+  "admin_wallet": "0x739414BC271521Bea000A9aB2FbF79182124BCC3",
+  "last_updated": "2026-05-09T00:00:00Z"
+}
