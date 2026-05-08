@@ -9,7 +9,7 @@
     {"name": "SovereignAchievement", "address": "0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D", "purpose": "ERC-1155 soulbound tier credentials", "blockscout": "https://sepolia.etherscan.io/address/0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D"},
     {"name": "MindMasteryNFT", "address": "0xCb9EcB00574DB29976c7C54045d443666D5C7771", "purpose": "NFT credentialing", "blockscout": "https://sepolia.etherscan.io/address/0xCb9EcB00574DB29976c7C54045d443666D5C7771"},
     {"name": "NeuroBalanceConsent", "address": "0x21571805e57f792b66604b140a45D8C1b2E196b8", "purpose": "Biosensor consent (scaffolded shell)", "blockscout": "https://sepolia.etherscan.io/address/0x21571805e57f792b66604b140a45D8C1b2E196b8"},
-    {"name": "SovereignSession", "address": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1", "purpose": "Wallet-native session attestation infrastructure", "blockscout": "https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1"}
+    {"name": "SovereignSession", "address": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1", "purpose": "Wallet-native session attestation (Phases 1-4 deployed)", "blockscout": "https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1", "deployUrl": "https://session.futuresystemslab.io"}
   ],
   "ossContributions": [
     {"repo": "decentralized-identity/presentation-exchange", "pr": 486, "title": "Add OIDC4VP consent example", "status": "Open", "url": "https://github.com/decentralized-identity/presentation-exchange/pull/486"},
