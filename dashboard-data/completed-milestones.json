@@ -1,7 +1,16 @@
 {
-  "lastUpdated": "2026-05-07",
+  "lastUpdated": "2026-05-08",
   "milestones": [
-    "v2 contracts deployed to Sepolia (Apr 21)",
+    "SovereignSession Phases 1-4 deployed + gate closed (May 8)",
+    "SovereignSession E2E walkthrough 15/15 PASS with real Sepolia attestation (May 8)",
+    "EncryptHealth landing cleanup — single CTA, sovereignty-first (May 8)",
+    "Blockscout canonical explorer migration (May 8)",
+    "Privacy spec + security audit + incident response protocol (May 8)",
+    "Browser matrix: Chromium 12/12 + Firefox 12/12 automated nightly (May 8)",
+    "Telegram routing fixed — all ops via @FSL_Agent_Gateway_Bot (May 8)",
+    "GitHub org README synced — six-layer thesis, 9 contracts (May 8)",
+    "CV updated with SovereignSession + Decentralized Health Architecture skills (May 8)",
+    "v2 contracts deployed to Sepolia — 9 total (Apr 21 + May 8)",
     "Privy removed, pure EIP-1193 wallet auth (Apr 10-11)",
     "17-agent autonomous pipeline live",
     "JWT silent refresh + Sovereign Guide gateway (Apr 11)",
