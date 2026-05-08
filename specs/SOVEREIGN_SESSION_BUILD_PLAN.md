@@ -157,6 +157,8 @@ Replace raw video feeds with persistent 3D wallet-bound avatars. No camera requi
 
 **Timeline:** Builds after Phase 5 (encrypted recording) ships, with dedicated design talent. Not a solo CC build.
 
+**HypnoNeuro convergence:** Once avatar layer ships, HypnoNeuro therapeutic sessions transition from 2D browser games to avatar-mediated 3D environments. L1/L2/L3 protocol layers become immersive spatial experiences. The game layer and the SovereignSession layer converge into a single sovereign wellness metaverse.
+
 ---
 
 ## Risk Areas
