@@ -6,7 +6,7 @@
 - **Deployer:** 0xd9C092fc32B2d71Db6AF1b92300B6a741a6476c1 (refill wallet)
 - **Date:** May 8, 2026
 - **Network:** Sepolia (chainId 11155111)
-- **Verify:** https://sepolia.etherscan.io/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1
+- **Verify:** https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1
 
 ## Signaling Server
 
