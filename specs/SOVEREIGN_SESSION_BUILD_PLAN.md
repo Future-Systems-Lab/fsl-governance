@@ -119,6 +119,44 @@ Recording UX must be radically simple. No settings pages, no multi-step consent 
 
 This constraint is binding for Phase 5 implementation. If a design decision conflicts with "a kid could navigate it," the design loses.
 
+#### Phase 5+: SovereignSession Avatar Layer (Post-Acceptance)
+
+Replace raw video feeds with persistent 3D wallet-bound avatars. No camera required. No biometric data transmitted. Pure pseudonymity maintained during live sessions.
+
+**Design Requirements (binding constraints):**
+
+| Constraint | Requirement |
+|------------|-------------|
+| **Aesthetic** | Futuristic, architectural, detailed — NOT cartoon or generic VR. Matches FSL dark/aqua/gold visual language. Quality level of serious game design. |
+| **Persistence** | Avatar tied to wallet address, persistent across sessions |
+| **Soulbound** | Non-transferable identity — avatar is a credential, not a collectible |
+| **Audio-driven** | Lip sync from mic input, idle animations, expression states. NO camera required for base experience. |
+| **Optional camera** | Camera-to-avatar expression mapping available — camera data never leaves device, raw video never transmitted |
+| **Environment** | Designed session space, not a blank grid |
+| **Mobile** | WebGL/Three.js rendering on mobile browsers |
+
+**Technical approach:**
+- Three.js / WebGL for browser-native 3D rendering
+- Avatar NFT: new ERC-1155 soulbound collection (one per wallet, non-transferable, upgradeable in place)
+- Default avatar for new participants (FSL-designed, no personalization required to start)
+- Customization: base appearance + unlockable elements (aura, sigil, color palette)
+- Lip sync: Web Audio API + phoneme detection (audio-driven, no camera)
+- Expression states: Calm, Energized, Grounded, Reflective, Tired, Excited (mirrors EncryptHealth mood pills)
+
+**Privacy upgrade:**
+- Zero biometric data transmitted (no raw video, no facial data)
+- Audio processed locally for lip sync — never sent to FSL servers
+- Strongest pseudonymity claim: "You attend sessions as your sovereign identity, not your face"
+
+**NFT/Token integration:**
+- Default avatar: free, wallet-bound
+- Upgrades unlocked via HNT spend or SovereignAchievement tier progression (Tier 1 = basic, Tier 10 = full sovereign aesthetic)
+- New ERC-1155 soulbound avatar collection contract
+
+**Talent required:** Serious 3D game designer / metaverse artist. Not a commodity dev task. Dr. Meg to identify candidates post-acceptance. Budget line item in grant applications (XRPL, ASU, NIH, Brave).
+
+**Timeline:** Builds after Phase 5 (encrypted recording) ships, with dedicated design talent. Not a solo CC build.
+
 ---
 
 ## Risk Areas

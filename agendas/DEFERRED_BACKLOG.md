@@ -44,7 +44,8 @@ Move sensitive dashboard content from static HTML to API endpoint:
 ## Post-Acceptance Items (Dr. Meg decides timing)
 **Added:** May 8, 2026
 
-- **SovereignSession Phase 5:** Encrypted client-side recording with IPFS pinning, participant-only decryption keys
+- **SovereignSession Phase 5:** Encrypted client-side recording with IPFS pinning, participant-only decryption keys. UX constraint: "a kid could navigate it" (single toggle, mutual consent, one download button)
+- **SovereignSession Avatar Layer (post-Phase 5):** Futuristic 3D wallet-bound avatars replacing raw video feeds. Serious gaming designer talent required (not CC-buildable). Zero biometric data transmitted — audio-driven lip sync, no camera needed. NFT/HNT unlock system (SovereignAchievement tier progression). Three.js/WebGL browser-native. Budget line item for dedicated design talent in grant applications.
 - **USPTO Class 35 + 44 filings:** Post-Class 42 clearance (verify Serial 99533250 examiner action)
 - **WebKit Playwright:** Requires Ubuntu container or macOS CI runner (AlmaLinux GLIBC mismatch)
 - **Mobile in-app dApp browser testing:** Real device verification (Brave Mobile, Rainbow Mobile)
