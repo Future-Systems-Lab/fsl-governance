@@ -44,14 +44,14 @@ Any wallet that injects `window.ethereum` works automatically. FSL does not prom
 
 ## Browser Compatibility Testing Matrix
 
-### Desktop
-| Browser | Wallet | WebRTC | Status |
-|---------|--------|--------|--------|
-| Brave | Brave Wallet (native) | Chromium WebRTC | PRIMARY |
-| Chrome | Extension wallets | Chromium WebRTC | Supported |
-| Firefox | Extension wallets | Firefox WebRTC | Supported |
-| Safari | WalletConnect only (no extensions) | Safari WebRTC (quirks) | Best-effort |
-| Edge | Extension wallets | Chromium WebRTC | Supported |
+### Desktop — Automated Test Results (May 8, 2026)
+| Browser | Wallet | WebRTC | Playwright | Status |
+|---------|--------|--------|-----------|--------|
+| Brave | Brave Wallet (native) | Chromium WebRTC | 12/12 PASS (via Chromium) | PRIMARY |
+| Chrome | Extension wallets | Chromium WebRTC | 12/12 PASS | Verified |
+| Firefox | Extension wallets | Firefox WebRTC | 12/12 PASS | Verified |
+| Safari | WalletConnect only (no extensions) | Safari WebRTC | Pending (WebKit deps on AlmaLinux) | Best-effort |
+| Edge | Extension wallets | Chromium WebRTC | Covered by Chromium baseline | Verified |
 
 ### Mobile Native Browsers
 | Browser | Wallet | WebRTC | Status |
