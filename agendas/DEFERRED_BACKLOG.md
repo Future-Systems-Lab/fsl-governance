@@ -41,6 +41,26 @@ Move sensitive dashboard content from static HTML to API endpoint:
 
 ---
 
+## Post-Acceptance Items (Dr. Meg decides timing)
+**Added:** May 8, 2026
+
+- **SovereignSession Phase 5:** Encrypted client-side recording with IPFS pinning, participant-only decryption keys
+- **USPTO Class 35 + 44 filings:** Post-Class 42 clearance (verify Serial 99533250 examiner action)
+- **WebKit Playwright:** Requires Ubuntu container or macOS CI runner (AlmaLinux GLIBC mismatch)
+- **Mobile in-app dApp browser testing:** Real device verification (Brave Mobile, Rainbow Mobile)
+- **Curated public mirror repos:** HypnoNeuro/EncryptHealth/SovereignLedger with redacted README + architecture docs
+- **Vercel Pro upgrade:** Deferred until users beyond Dr. Meg
+- **EncryptHealth reviewer-mode preview (option c):** Public landing page for reviewers if tooltip approach insufficient
+
+## Manual Items Waiting on Dr. Meg
+- **Pin 8 repos** via GitHub web UI at github.com/orgs/Future-Systems-Lab/repositories
+- **fsl-governance visibility decision:** Make private or split per PUBLIC_SURFACE_AUDIT
+- **9 unnecessary public repos:** Archive/privatize (anonymous-therapy-prototype, CBD-Continuum, etc.)
+- **9 duplicate forks:** Delete -1/-2 suffix repos
+- **sovereignledger.io source investigation:** Locate hosting origin for MetaMask language audit
+
+---
+
 ## hypnosispsych.com Full POC Deployment
 **Severity:** LOW
 **Identified:** May 8, 2026
