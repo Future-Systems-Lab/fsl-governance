@@ -8,7 +8,8 @@
     {"name": "BenevolenceFund v2", "address": "0x96E8006a1fBB693B55fFf6254B8BF19EC605251B", "purpose": "Session fee redistribution (50/30/20)", "blockscout": "https://sepolia.etherscan.io/address/0x96E8006a1fBB693B55fFf6254B8BF19EC605251B"},
     {"name": "SovereignAchievement", "address": "0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D", "purpose": "ERC-1155 soulbound tier credentials", "blockscout": "https://sepolia.etherscan.io/address/0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D"},
     {"name": "MindMasteryNFT", "address": "0xCb9EcB00574DB29976c7C54045d443666D5C7771", "purpose": "NFT credentialing", "blockscout": "https://sepolia.etherscan.io/address/0xCb9EcB00574DB29976c7C54045d443666D5C7771"},
-    {"name": "NeuroBalanceConsent", "address": "0x21571805e57f792b66604b140a45D8C1b2E196b8", "purpose": "Biosensor consent (scaffolded shell)", "blockscout": "https://sepolia.etherscan.io/address/0x21571805e57f792b66604b140a45D8C1b2E196b8"}
+    {"name": "NeuroBalanceConsent", "address": "0x21571805e57f792b66604b140a45D8C1b2E196b8", "purpose": "Biosensor consent (scaffolded shell)", "blockscout": "https://sepolia.etherscan.io/address/0x21571805e57f792b66604b140a45D8C1b2E196b8"},
+    {"name": "SovereignSession", "address": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1", "purpose": "Wallet-native session attestation infrastructure", "blockscout": "https://eth-sepolia.blockscout.com/address/0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1"}
   ],
   "ossContributions": [
     {"repo": "decentralized-identity/presentation-exchange", "pr": 486, "title": "Add OIDC4VP consent example", "status": "Open", "url": "https://github.com/decentralized-identity/presentation-exchange/pull/486"},
@@ -22,7 +23,7 @@
   ],
   "credentials": {
     "degrees": ["D.N.Psy. (Naturopathic Psychology, orthomolecular focus)", "BS MIS (Colorado State University Global — confers July 2026, GPA 3.94)"],
-    "certifications": ["BCHN (Board Certified Holistic Nutritionist)", "CBHP (Certified Behavioral Health Practitioner)"],
+    "certifications": ["BCHN (Board Certified Holistic Nutritionist)", "CBHP (Certified Blockchain Healthcare Professional) -- Blockchain Council"],
     "licenses": ["NPI 1497696264 (Naturopath, Taxonomy 175F00000X)"],
     "entity": "Future Systems Lab LLC (Wyoming, EIN 42-2050630)",
     "trademark": "USPTO Serial 99533250 (Class 42, Under Review)",

@@ -38,3 +38,28 @@ Move sensitive dashboard content from static HTML to API endpoint:
 - Make repo private without first resolving Vercel deploy chain
 - Migrate to Next.js without dedicated planning session
 - Change anything that breaks the working browser flow
+
+---
+
+## hypnosispsych.com Full POC Deployment
+**Severity:** LOW
+**Identified:** May 8, 2026
+**Status:** ON HOLD — scheduled for post-mainnet, post-USPTO
+
+### Purpose
+Practitioner-side proof of concept showing FSL infrastructure in production clinical context. Demonstrates real-world deployment for ASU DEng applied research, grant applications, and practitioner network expansion.
+
+### Scope
+- Fix invalid nameservers (point to Cloudflare)
+- Deploy placeholder page with FSL aesthetic
+- Full Sovereign Guide integration: booking, session attestation, decentralized records via FSL infrastructure
+
+### When to Address
+- Post-mainnet deployment
+- Post-USPTO trademark finalization
+- When practitioner network expansion begins
+
+### Current State
+- Domain registered, nameservers invalid
+- No live content
+- DNS fix + placeholder page approved as immediate prerequisite (separate task)
