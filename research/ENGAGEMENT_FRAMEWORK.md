@@ -106,7 +106,7 @@ This creates a publishable research pipeline: "Behavioral Health User Acquisitio
 
 ## FSL Contract Address Reference
 
-All contracts deployed on Ethereum Sepolia testnet. Verifiable on [Sepolia Etherscan](https://sepolia.etherscan.io).
+All contracts deployed on Ethereum Sepolia testnet. Verifiable on [Sepolia Blockscout](https://eth-sepolia.blockscout.com).
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
