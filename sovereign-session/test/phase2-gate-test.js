@@ -85,7 +85,7 @@ function httpGet(url) {
 
 async function runTests() {
   console.log("\n╔══════════════════════════════════════════════════╗");
-  console.log("║   SovereignSession — Phase 2 Gate Test           ║");
+  console.log("║   SovereignSession — Phase 4 Gate Test           ║");
   console.log("╚══════════════════════════════════════════════════╝\n");
   console.log(`  Host: ${HOST}`);
   console.log(`  Room: ${roomId}`);
@@ -228,6 +228,43 @@ async function runTests() {
     log("Rooms API", rooms.status === 200 && Array.isArray(data.rooms));
   } catch (e) {
     log("Rooms API", false, e.message);
+  }
+
+  // Test 13: Health check shows booking verification status
+  try {
+    const health = await httpGet(`${HTTP_HOST}/health`);
+    const data = JSON.parse(health.body);
+    log("Booking verification flag in health", data.bookingVerification !== undefined, `enabled=${data.bookingVerification}`);
+  } catch (e) {
+    log("Booking verification flag in health", false, e.message);
+  }
+
+  // Test 14: Booking room ID endpoint
+  try {
+    const roomResp = await httpGet(`${HTTP_HOST}/api/booking-room?bookingId=123&guide=${guideWallet.address}&participant=${participantWallet.address}`);
+    const data = JSON.parse(roomResp.body);
+    log("Booking room ID endpoint", roomResp.status === 200 && data.roomId && data.roomId.startsWith("0x"), `roomId=${data.roomId.slice(0,10)}...`);
+  } catch (e) {
+    log("Booking room ID endpoint", false, e.message);
+  }
+
+  // Test 15: Booking room ID is deterministic
+  try {
+    const r1 = await httpGet(`${HTTP_HOST}/api/booking-room?bookingId=42&guide=0xAABB&participant=0xCCDD`);
+    const r2 = await httpGet(`${HTTP_HOST}/api/booking-room?bookingId=42&guide=0xAABB&participant=0xCCDD`);
+    const d1 = JSON.parse(r1.body);
+    const d2 = JSON.parse(r2.body);
+    log("Booking room ID deterministic", d1.roomId === d2.roomId);
+  } catch (e) {
+    log("Booking room ID deterministic", false, e.message);
+  }
+
+  // Test 16: Booking room ID missing params returns 400
+  try {
+    const bad = await httpGet(`${HTTP_HOST}/api/booking-room?bookingId=1`);
+    log("Booking room ID missing params → 400", bad.status === 400);
+  } catch (e) {
+    log("Booking room ID missing params → 400", false, e.message);
   }
 
   // Cleanup

@@ -2,6 +2,7 @@ const WebSocket = require("ws");
 const http = require("http");
 const crypto = require("crypto");
 const { ethers } = require("ethers");
+const { Pool } = require("pg");
 const fs = require("fs");
 const path = require("path");
 const url = require("url");
@@ -21,6 +22,49 @@ const CONTRACT = (() => {
   const addrPath = path.join(__dirname, "SovereignSession_address.txt");
   return fs.existsSync(addrPath) ? fs.readFileSync(addrPath, "utf8").trim() : "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1";
 })();
+
+// ==================== DATABASE (read-only, 6-column whitelist) ====================
+const db = new Pool({
+  host: "localhost",
+  database: "encrypthealth",
+  user: env.DB_USER || "encrypthealth_api",
+  password: env.DB_PASSWORD,
+  max: 3,
+  idleTimeoutMillis: 30000,
+});
+
+// PRIVACY SPEC §5.3: ONLY these 6 columns, NEVER select *
+const BOOKING_QUERY = `
+  SELECT id, provider_wallet, user_wallet, scheduled_at, duration_minutes, status
+  FROM session_bookings
+  WHERE LOWER(provider_wallet) = LOWER($1)
+    AND LOWER(user_wallet) = LOWER($2)
+    AND status = 'confirmed'
+    AND scheduled_at BETWEEN NOW() - INTERVAL '15 minutes' AND NOW() + INTERVAL '15 minutes'
+  LIMIT 1
+`;
+
+// Verify booking exists for this guide+participant pair
+async function verifyBooking(guideWallet, participantWallet) {
+  try {
+    const result = await db.query(BOOKING_QUERY, [guideWallet, participantWallet]);
+    if (result.rows.length === 0) return { ok: false, code: 4010, reason: "No active booking found" };
+    return { ok: true, booking: result.rows[0] };
+  } catch (e) {
+    console.error(`[${new Date().toISOString()}] DB error:`, e.message);
+    // Fail open on DB errors so sessions aren't blocked by DB issues
+    // Log the error but allow connection
+    return { ok: true, booking: null, dbError: true };
+  }
+}
+
+// Deterministic room ID from booking
+function bookingRoomId(bookingId, guideWallet, participantWallet) {
+  return ethers.keccak256(ethers.toUtf8Bytes(`${bookingId}:${guideWallet.toLowerCase()}:${participantWallet.toLowerCase()}`));
+}
+
+// Booking verification enabled flag (allows graceful rollout)
+const BOOKING_VERIFICATION_ENABLED = env.BOOKING_VERIFICATION === "true";
 
 // MIME types
 const MIME = {
@@ -54,7 +98,27 @@ const server = http.createServer((req, res) => {
   // Health check
   if (pathname === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 4, turn: !!env.TURN_SECRET }));
+    res.end(JSON.stringify({
+      status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 4,
+      turn: !!env.TURN_SECRET, bookingVerification: BOOKING_VERIFICATION_ENABLED
+    }));
+    return;
+  }
+
+  // Booking room ID computation
+  if (pathname === "/api/booking-room" && req.method === "GET") {
+    const qparams = new URL(req.url, "http://localhost").searchParams;
+    const bookingId = qparams.get("bookingId");
+    const guide = qparams.get("guide");
+    const participant = qparams.get("participant");
+    if (!bookingId || !guide || !participant) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "Missing bookingId, guide, or participant" }));
+      return;
+    }
+    const roomId = bookingRoomId(bookingId, guide, participant);
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ roomId, bookingId }));
     return;
   }
 
@@ -143,7 +207,7 @@ const server = http.createServer((req, res) => {
 
 const wss = new WebSocket.Server({ server });
 
-wss.on("connection", (ws, req) => {
+wss.on("connection", async (ws, req) => {
   const params = new URL(req.url, "http://localhost").searchParams;
   const roomId = params.get("room");
   const role = params.get("role"); // "guide" or "participant"
@@ -175,6 +239,39 @@ wss.on("connection", (ws, req) => {
     return;
   }
 
+  // Booking verification (when enabled)
+  if (BOOKING_VERIFICATION_ENABLED) {
+    // Determine which wallet is guide vs participant based on role
+    const guideAddr = role === "guide" ? address : null;
+    const participantAddr = role === "participant" ? address : null;
+
+    // Check if room already has one party — use their address for verification
+    const existingRoom = rooms.get(roomId);
+    let verifyGuide, verifyParticipant;
+
+    if (role === "guide") {
+      verifyGuide = address;
+      verifyParticipant = existingRoom?.participantAddr || params.get("peerAddress");
+    } else {
+      verifyParticipant = address;
+      verifyGuide = existingRoom?.guideAddr || params.get("peerAddress");
+    }
+
+    // If both wallets known, verify booking
+    if (verifyGuide && verifyParticipant) {
+      const check = await verifyBooking(verifyGuide, verifyParticipant);
+      if (!check.ok) {
+        console.log(`[${new Date().toISOString()}] Booking rejected: ${check.reason} (${address.slice(0,8)}...)`);
+        ws.close(check.code, check.reason);
+        return;
+      }
+      if (check.booking) {
+        console.log(`[${new Date().toISOString()}] Booking verified: #${check.booking.id} (${address.slice(0,8)}...)`);
+      }
+    }
+    // If only one party joined, allow connection — verification happens when second joins
+  }
+
   // Join or create room
   if (!rooms.has(roomId)) {
     rooms.set(roomId, { guide: null, participant: null, guideAddr: null, participantAddr: null });
@@ -182,15 +279,15 @@ wss.on("connection", (ws, req) => {
   const room = rooms.get(roomId);
 
   if (role === "guide") {
-    if (room.guide) { ws.close(4004, "Guide already in room"); return; }
+    if (room.guide) { ws.close(4008, "Guide already in room"); return; }
     room.guide = ws;
     room.guideAddr = address;
   } else if (role === "participant") {
-    if (room.participant) { ws.close(4004, "Participant already in room"); return; }
+    if (room.participant) { ws.close(4008, "Participant already in room"); return; }
     room.participant = ws;
     room.participantAddr = address;
   } else {
-    ws.close(4005, "Invalid role");
+    ws.close(4009, "Invalid role");
     return;
   }
 
@@ -239,5 +336,5 @@ server.listen(PORT, "127.0.0.1", () => {
   console.log(`SovereignSession signaling server on 127.0.0.1:${PORT}`);
   console.log(`Contract: ${CONTRACT}`);
   console.log(`Serving static files from: ${PUBLIC_DIR}`);
-  console.log(`Phase 2: WebRTC peer video enabled`);
+  console.log(`Phase 4: WebRTC + attestation + booking verification${BOOKING_VERIFICATION_ENABLED ? " (ENABLED)" : " (DISABLED — set BOOKING_VERIFICATION=true to enable)"}`);
 });
