@@ -74,3 +74,19 @@
 | **Total** | **17** | **9** | **9** | **3** |
 
 PDFs regenerated via LibreOffice. Copies placed in ~/Desktop/ASU/.
+
+
+---
+
+## Resolution Log (May 8, 2026)
+
+### Item 1: LOI para 91 — HIPAA test case
+**RESOLVED.** Added: "though FSL itself holds no Protected Health Information by architectural design"
+
+### Item 2: LOI para 73 — "five interconnected applications"
+**RESOLVED.** Changed to: "five infrastructure components"
+
+### Item 3: CV para 130 — "(formerly ClaimChain)"
+**RESOLVED.** Parenthetical removed. Just says "SovereignLedger" now.
+
+All 3 items applied, PDFs regenerated, copies on Desktop/ASU/.
