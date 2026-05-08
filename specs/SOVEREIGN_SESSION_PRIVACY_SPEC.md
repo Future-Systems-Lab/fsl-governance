@@ -142,6 +142,22 @@ The following fields do NOT exist in the booking schema and must never be added:
 - **30-day auto-purge:** Booking records are automatically deleted 30 days after `scheduledStartTime`
 - No backups retain booking data beyond the 30-day window
 
+### 5.3 SQL Query Whitelist (BINDING CONSTRAINT)
+
+The `session_bookings` table in the production database contains additional columns (`notes`, `session_type`, `provider_display_name`) that may contain PHI or identifying information. SovereignSession code MUST use an explicit column whitelist:
+
+```sql
+-- ONLY these 6 columns may be selected by SovereignSession
+SELECT id, provider_wallet, user_wallet, scheduled_at, duration_minutes, status
+FROM session_bookings
+WHERE provider_wallet = $1 AND user_wallet = $2 AND status = 'confirmed'
+  AND scheduled_at BETWEEN NOW() - INTERVAL '15 minutes' AND NOW() + INTERVAL '15 minutes'
+```
+
+**Prohibited:** `SELECT *`, or any query that reads `notes`, `session_type`, `provider_display_name`, `meeting_link`, `confirmed_at`, or `tx_hash` from `session_bookings`. These columns exist for the booking system, not for SovereignSession.
+
+**Enforcement:** Every database query in `signaling.js` or any SovereignSession server code must be reviewed against this whitelist. New columns require Dr. Meg approval and a privacy spec amendment.
+
 ---
 
 ## 6. UI Copy Guardrails
