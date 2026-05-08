@@ -159,6 +159,35 @@ Replace raw video feeds with persistent 3D wallet-bound avatars. No camera requi
 
 **HypnoNeuro convergence:** Once avatar layer ships, HypnoNeuro therapeutic sessions transition from 2D browser games to avatar-mediated 3D environments. L1/L2/L3 protocol layers become immersive spatial experiences. The game layer and the SovereignSession layer converge into a single sovereign wellness metaverse.
 
+#### Phase 5++: Support Circles — Group Sovereign Wellness Spaces
+
+Extends SovereignSession from two-party to multi-party avatar-mediated group sessions. Prerequisite: avatar layer must ship first.
+
+**Current state:** Support Circles scaffolded in EncryptHealth dashboard ("Group healing rooms, Provider-facilitated, Multi-wallet HNT attribution") but not built. SovereignSession contract currently supports two-party sessions only.
+
+**Architecture extensions:**
+
+| Component | Extension |
+|-----------|-----------|
+| **SovereignSession.sol** | `startGroupSession(address[] participants, address guide, bytes32 sessionId)` — multi-party room support. Each participant's SessionCompleted event emitted individually (preserves individual on-chain record). |
+| **HNT attribution** | Multi-wallet — each attending wallet earns HNT independently on group session completion |
+| **Avatar rendering** | Multiple Three.js avatar instances in shared session space. Spatial audio (voice proximity). Facilitator avatar visually distinct. |
+| **Encrypted recording** | Per-participant encrypted copies with individual decryption keys. No shared recording that exposes group members. Facilitator recording separately keyed, requires all participants' explicit consent. |
+
+**Group session types (post-Dr. Ghasemzadeh collaboration):**
+- EMDR group protocols (bilateral stimulation designed for group delivery)
+- EFT/Tapping group sessions (guided tapping with avatar gesture sync)
+- Orthomolecular education circles (nutrient protocol education)
+- Inner child healing groups (L3 protocol layer)
+- Grief support circles
+- Somatic group sessions
+
+**Privacy in group settings (binding constraints):**
+- No participant can see another's wallet address without explicit consent
+- Avatar display names are self-set pseudonyms only
+- Group attestation records that N wallets attended, not which specific wallets (aggregate privacy)
+- Facilitator sees only what participants choose to share
+
 ---
 
 ## Risk Areas
