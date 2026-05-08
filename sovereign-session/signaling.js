@@ -126,7 +126,14 @@ wss.on("connection", (ws, req) => {
 
   // Verify EIP-191 signature
   try {
-    const recovered = ethers.verifyMessage(decodeURIComponent(message), decodeURIComponent(signature));
+    const decodedSig = decodeURIComponent(signature);
+    const decodedMsg = decodeURIComponent(message);
+    // Validate signature format: must be 132 chars (0x + 130 hex) and not all zeros
+    if (!decodedSig || decodedSig.length !== 132 || !decodedSig.startsWith("0x") || /^0x0+$/.test(decodedSig)) {
+      ws.close(4003, "Invalid signature format");
+      return;
+    }
+    const recovered = ethers.verifyMessage(decodedMsg, decodedSig);
     if (recovered.toLowerCase() !== address.toLowerCase()) {
       ws.close(4002, "Signature mismatch");
       return;
