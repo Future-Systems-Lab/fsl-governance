@@ -1,6 +1,6 @@
 # FSL Decentralization Roadmap
 ## Current State + Migration Path to Full Sovereignty
-### April 7, 2026
+### May 7, 2026
 
 ---
 
@@ -8,9 +8,9 @@
 
 | Component | Implementation |
 |-----------|---------------|
-| Wallet authentication | MetaMask / GemWallet / Crossmark / WalletConnect |
+| Wallet authentication | Brave Wallet, Rainbow, WalletConnect |
 | Payment rails | ETH / USDC / XRP / XLM / HBAR / ALGO / ADA |
-| Smart contracts | 8 contracts on Ethereum Sepolia |
+| Smart contracts | 9 v2 contracts on Ethereum Sepolia (including SovereignSession) |
 | IPFS storage | Pinata (active) + Lighthouse (API recovering) |
 | DNS | Unstoppable Domains backup layer (.888, .crypto) |
 | HNT token | Sovereign contract, no central issuer, earned-only |
@@ -45,9 +45,20 @@
 | 3 | Self-hosted Gitea on VPS as backup | Q2 2026 |
 | 4 | IPFS snapshot of each release | Q3 2026 |
 
+## SOVEREIGNSESSION STATUS (May 2026)
+
+SovereignSession (0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1) — wallet-native session attestation contract.
+
+| Phase | Description | Status |
+|-------|-------------|--------|
+| Phase 1 | Contract deployment and verification | Complete |
+| Phase 2 | Guide + Participant co-signing flow | Complete |
+| Phase 3 | Integration with EncryptHealth session booking | Complete |
+| Phase 4 | On-chain attestation linked to superbill generation | Complete |
+
 ## MAINNET READINESS GATES
 
-See `PRE_MAINNET_GATES.md` for full checklist. Key blockers:
+See `PRE_MAINNET_GATES.md` for full checklist. Per ecosystem audit, **5 of 13 pre-mainnet gates are closed**. Key remaining blockers:
 - [ ] Smart contract audit (third party)
 - [ ] ToS attorney review
 - [ ] NC A&H license confirmed
@@ -76,9 +87,9 @@ See `PRE_MAINNET_GATES.md` for full checklist. Key blockers:
 
 ## ACADEMIC NOTE
 
-This roadmap is part of Dr. Meg Montanez-Davenport's Doctor of Engineering (Engineering Management) applied project at ASU (target Oct 2026).
+This roadmap is part of Dr. Meg Montanez-Davenport's Doctor of Engineering (Engineering Management) Applied Project at ASU (target Oct 2026).
 
-The tension between pragmatic centralization and sovereignty-first architecture is a core research theme — documented here transparently as an engineering management decision log. Every centralized dependency is acknowledged, mitigated, and scheduled for migration.
+The tension between pragmatic centralization and sovereignty-first architecture is a core research theme — documented here transparently as an engineering management decision log. Every centralized dependency is acknowledged, mitigated, and scheduled for migration. The ecosystem is framed by the six-layer thesis (Financial, Identity, Governance, Compliance, Therapeutic, Research) as the canonical architectural model.
 
 ---
 

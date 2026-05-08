@@ -14,13 +14,13 @@
 
 ## Abstract
 
-Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents the architecture and implementation of Future Systems Lab (FSL), a five-platform decentralized infrastructure ecosystem with behavioral health as the applied domain, that replaces traditional click-through consent with EIP-191 cryptographic signatures as the sole mechanism for identity verification, data access authorization, and session governance. We describe the full authentication flow from wallet connection through JSON Web Token issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present AlchemistForge, a purpose-built smart contract for recording voluntary behavioral health engagement (shadow integration) on-chain, as a proof-of-concept demonstrating that meaningful wellness participation data can be captured with full cryptographic consent and zero personally identifiable information. The system has been deployed on Sepolia testnet with five interconnected platforms, eight smart contracts, and a functioning multi-role consent architecture. We discuss the architectural tradeoffs between decentralization and usability, the limitations of testnet deployment, and the path toward a production system suitable for formal evaluation.
+Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents the architecture and implementation of Future Systems Lab (FSL), a five-platform decentralized infrastructure ecosystem with behavioral health as the applied domain, that replaces traditional click-through consent with EIP-191 cryptographic signatures as the sole mechanism for identity verification, data access authorization, and session governance. We describe the full authentication flow from wallet connection through JSON Web Token issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present AlchemistForge, a purpose-built smart contract for recording voluntary behavioral health engagement (shadow integration) on-chain, as a proof-of-concept demonstrating that meaningful wellness participation data can be captured with full cryptographic consent and zero personally identifiable information. The system has been deployed on Sepolia testnet with five interconnected platforms, nine smart contracts (including SovereignSession for wallet-native session attestation), and a functioning multi-role consent architecture. We discuss the architectural tradeoffs between decentralization and usability, the limitations of testnet deployment, and the path toward a production system suitable for formal evaluation.
 
 ---
 
 ## 1. Introduction
 
-Behavioral health data occupies a uniquely sensitive position in the health informatics landscape. Unlike laboratory results or imaging data, behavioral health records often contain subjective self-disclosures, therapeutic narratives, and psychological assessments that participants may not want shared even with other healthcare providers [1]. Yet the systems that store this data — electronic health records, therapy platforms, and wellness applications — operate on centralized architectures where the platform operator, not the participant, controls access.
+Behavioral health data occupies a uniquely sensitive position in the health informatics landscape. Unlike laboratory results or imaging data, behavioral health records often contain subjective self-disclosures, therapeutic narratives, and psychological assessments that participants may not want shared even with other healthcare practitioners [1]. Yet the systems that store this data — electronic health records, therapy platforms, and wellness applications — operate on centralized architectures where the platform operator, not the participant, controls access.
 
 The consent mechanisms governing these systems are equally centralized. A typical behavioral health application presents a Terms of Service agreement as a prerequisite to account creation. The participant clicks "I agree" — a legally binding but cryptographically meaningless act. The platform then stores their data in a database it controls, shares it according to policies the participant did not write, and may change those policies unilaterally. The participant's consent is a one-time event with no ongoing enforcement mechanism and no auditable trail [2].
 
@@ -39,7 +39,7 @@ We describe the complete system architecture, the cryptographic consent flow, an
 
 ### 2.1 Self-Sovereign Identity in Healthcare
 
-Self-sovereign identity (SSI) proposes that individuals should own and control their digital identities without relying on centralized authorities [3]. In healthcare contexts, SSI has been explored through verifiable credentials for vaccination records [4], decentralized identifiers (DIDs) for cross-institutional patient identification [5], and blockchain-based consent management for clinical trial data [6].
+Self-sovereign identity (SSI) proposes that individuals should own and control their digital identities without relying on centralized authorities [3]. In healthcare contexts, SSI has been explored through verifiable credentials for vaccination records [4], decentralized identifiers (DIDs) for cross-institutional participant identification [5], and blockchain-based consent management for clinical trial data [6].
 
 However, most SSI implementations in healthcare introduce significant infrastructure complexity — DID registries, verifiable credential issuers, and holder wallets that require specialized software. These systems often replicate the complexity they seek to eliminate, trading one set of intermediaries for another.
 
@@ -69,7 +69,7 @@ FSL addresses this gap by unifying these four functions into a single cryptograp
 
 FSL comprises five interconnected platforms, each serving a distinct function in the decentralized infrastructure ecosystem:
 
-1. **EncryptHealth** — The primary health data platform. Manages participant records, session booking, provider directories, and consent-gated data access. Deployed as a modern web application with a relational database backend.
+1. **EncryptHealth** — The primary health data platform. Manages participant records, session booking, Sovereign Guide directories, and consent-gated data access. Deployed as a modern web application with a relational database backend.
 
 2. **HypnoNeuro** — A collection of a suite of browser-based wellness engagement activities with wallet-gated access and token-based engagement incentives.
 
@@ -80,6 +80,8 @@ FSL comprises five interconnected platforms, each serving a distinct function in
 5. **NeuroBalance** — A wearable wellness dashboard integrating biometric data with on-chain consent management.
 
 All five platforms share a single authentication architecture: EIP-191 wallet signature → JWT cookie → middleware-verified access.
+
+The ecosystem is organized according to a six-layer thesis that provides the canonical architectural framing: Financial, Identity, Governance, Compliance, Therapeutic, and Research. Each layer addresses a distinct dimension of sovereign data governance, and the five platforms collectively implement functionality across all six layers.
 
 ### 3.2 Authentication Flow
 
@@ -141,7 +143,7 @@ To prevent session interruption during active use, the system implements a silen
 
 ### 4.1 Smart Contracts
 
-FSL has deployed eight smart contracts on the Ethereum Sepolia testnet:
+FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:
 
 | Contract | Purpose | Access Control |
 |----------|---------|---------------|
@@ -153,6 +155,7 @@ FSL has deployed eight smart contracts on the Ethereum Sepolia testnet:
 | BenevolenceFund | Community wellness treasury | Owner-distributed annually |
 | PractitionerAchievement | ERC-1155 soulbound guide credentials | Owner-minted |
 | ParticipantAchievement | ERC-1155 soulbound participant credentials | Owner-minted |
+| SovereignSession | Wallet-native session attestation (0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1) | Guide + Participant co-signed |
 
 The contracts range from fully permissionless (AlchemistForge — anyone can call `alchemize()`) to owner-controlled (token minting, achievement awards). This spectrum reflects a deliberate architectural choice: participation data is sovereign (the participant controls when and what they record), while credential issuance is governed (the platform verifies achievements before minting).
 
@@ -215,7 +218,7 @@ The FSL consent message is designed to function simultaneously as a legal inform
 The consent message contains a sovereignty declaration, educational disclaimers, the participant's wallet address, a server-generated nonce, and an ISO 8601 timestamp. The exact message structure is proprietary to the FSL implementation.
 
 This message contains four categories of information:
-- **Consent scope:** What the user is agreeing to (educational wellness platform access)
+- **Consent scope:** What the user is agreeing to (educational decentralized infrastructure for sovereign data governance access)
 - **Disclaimers:** What FSL is not (not a medical facility, not clinical)
 - **Rights declaration:** The user's sovereignty over their own data
 - **Cryptographic binding:** The wallet address, nonce, and timestamp that prevent replay and ensure attribution
@@ -244,7 +247,11 @@ AlchemistForge demonstrates that meaningful behavioral health engagement data ca
 - The data is publicly verifiable but not attributable to a real-world identity without external information
 - The participant chooses when, whether, and what to disclose
 
-### 6.3 Deployment Results
+### 6.3 SovereignSession: Wallet-Native Session Attestation
+
+SovereignSession (deployed at `0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1`) extends the consent architecture from platform access to individual session governance. The contract enables both the participant and Sovereign Guide to co-sign a session attestation on-chain, creating cryptographic proof that both parties consented to the session occurring. This wallet-native session attestation architecture eliminates the need for centralized scheduling systems to serve as the authoritative record of session occurrence, placing that authority in the hands of the participants themselves.
+
+### 6.4 Deployment Results
 
 As of the writing of this paper, AlchemistForge has been deployed on Sepolia testnet at address `0xE092336F8f5082e57CcBb341A110C20ad186A324`. The contract has recorded transmutation events from unique wallet addresses, with corresponding celebration events. A public analytics dashboard at `alchemistforge.io/analytics` reads directly from the blockchain to display participation metrics without any centralized data store.
 
@@ -282,7 +289,7 @@ The FSL architecture makes explicit tradeoffs between decentralization and usabi
 
 3. **XRPL payment integration.** Extension of the consent architecture to support XRP Ledger payment channels for session billing.
 
-4. **Cross-platform consent federation.** Enabling participants to use a single wallet signature to authorize data sharing across multiple independent wellness platforms.
+4. **Cross-platform consent federation.** Enabling participants to use a single wallet signature to authorize data sharing across multiple independent decentralized infrastructure platforms.
 
 5. **Formal verification.** Mathematical proof that the consent architecture satisfies the properties of verifiability, attributability, revocability, and portability claimed in Section 5.
 
@@ -292,7 +299,7 @@ The FSL architecture makes explicit tradeoffs between decentralization and usabi
 
 This paper presented the architecture and implementation of a wallet-based consent system for behavioral health data governance. By using EIP-191 cryptographic signatures as the unified mechanism for authentication, consent, and access control, the system eliminates the architectural separation between identity and authorization that characterizes centralized health platforms. The consent event becomes the authentication event — a single cryptographic act that is verifiable, attributable, revocable, and portable.
 
-The AlchemistForge case study demonstrates that meaningful behavioral health engagement data can be captured on a public blockchain with full participant sovereignty and zero personally identifiable information. The five-platform FSL ecosystem demonstrates that this consent architecture can scale to a multi-service environment with role-based access control, session-scoped provider access, and on-chain attestation.
+The AlchemistForge case study demonstrates that meaningful behavioral health engagement data can be captured on a public blockchain with full participant sovereignty and zero personally identifiable information. The five-platform FSL ecosystem demonstrates that this consent architecture can scale to a multi-service environment with role-based access control, session-scoped Sovereign Guide access, and on-chain attestation.
 
 The system is not without limitations — testnet deployment, single-practitioner scope, and browser wallet dependency constrain its current applicability. However, the architectural pattern of unifying consent and authentication through cryptographic signatures is generalizable beyond the FSL context and may inform the design of future health informatics systems where participant data sovereignty is a first-class requirement.
 

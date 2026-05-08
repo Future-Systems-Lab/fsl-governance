@@ -10,7 +10,7 @@
 
 **Principal Investigator:** Dr. Meg Montanez-Davenport, D.N.Psy., CBHP, BCHN
 
-**Affiliation:** Future Systems Lab (FSL) — Applied doctoral engineering research project
+**Affiliation:** Future Systems Lab (FSL) — Applied Project for Doctor of Engineering (Engineering Management)
 
 **Expected IRB Submission:** Spring 2027 (upon ASU DEng enrollment)
 
@@ -113,7 +113,7 @@
 ### Research-Specific Protections
 6. **Aggregate reporting only:** All research findings will be reported in aggregate. No individual wallet addresses will be published.
 
-7. **Opt-out mechanism:** Participants can revoke consent at any time via the platform's "Revoke All Access" function, which clears all provider access grants.
+7. **Opt-out mechanism:** Participants can revoke consent at any time via the platform's "Revoke All Access" function, which clears all Sovereign Guide access grants.
 
 8. **Data minimization:** Only the minimum data necessary to answer the research questions is collected.
 
@@ -220,7 +220,7 @@ Dr. Meg Montanez-Davenport holds:
 - Certified Smart Contract Auditor — Blockchain Council
 - Member: IEEE, INCOSE, ISC2, AMIA, HIMSS, PDMA, ISOM, NANP
 
-Professional experience includes designing and building the FSL sovereign wellness ecosystem — 8 smart contracts, 5 platforms, 16 autonomous AI agents — as an applied doctoral engineering research project.
+Professional experience includes designing and building the FSL sovereign wellness ecosystem — 9 smart contracts (including SovereignSession), 5 platforms, 16 autonomous AI agents — as an Applied Project for the Doctor of Engineering program.
 
 ---
 
