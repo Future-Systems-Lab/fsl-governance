@@ -1,5 +1,6 @@
 const WebSocket = require("ws");
 const http = require("http");
+const crypto = require("crypto");
 const { ethers } = require("ethers");
 const fs = require("fs");
 const path = require("path");
@@ -53,7 +54,38 @@ const server = http.createServer((req, res) => {
   // Health check
   if (pathname === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 2 }));
+    res.end(JSON.stringify({ status: "ok", rooms: rooms.size, contract: CONTRACT, phase: 3, turn: !!env.TURN_SECRET }));
+    return;
+  }
+
+  // TURN credentials — time-limited HMAC for coturn use-auth-secret
+  if (pathname === "/api/turn-credentials") {
+    if (!env.TURN_SECRET) {
+      res.writeHead(503, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "TURN not configured" }));
+      return;
+    }
+    const ttl = 86400; // 24h credential lifetime
+    const timestamp = Math.floor(Date.now() / 1000) + ttl;
+    const username = `${timestamp}:sovereignsession`;
+    const hmac = crypto.createHmac("sha1", env.TURN_SECRET);
+    hmac.update(username);
+    const credential = hmac.digest("base64");
+
+    const turnHost = "74.208.202.239";
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({
+      iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        { urls: "stun:stun1.l.google.com:19302" },
+        {
+          urls: [`turn:${turnHost}:3478?transport=udp`, `turn:${turnHost}:3478?transport=tcp`],
+          username: username,
+          credential: credential
+        }
+      ],
+      ttl: ttl
+    }));
     return;
   }
 

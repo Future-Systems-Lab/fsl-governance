@@ -218,7 +218,8 @@ const SIGNALING_URL = location.protocol === 'https:'
   ? `wss://${location.host}`
   : `ws://${location.host}`;
 
-const ICE_SERVERS = [
+// ICE servers — fetched from /api/turn-credentials at join time
+let ICE_SERVERS = [
   { urls: 'stun:stun.l.google.com:19302' },
   { urls: 'stun:stun1.l.google.com:19302' }
 ];
@@ -362,6 +363,19 @@ async function joinRoom() {
 
   currentRoom = roomId;
   currentRole = role;
+
+  // Fetch TURN credentials (time-limited HMAC)
+  try {
+    const turnResp = await fetch('/api/turn-credentials');
+    if (turnResp.ok) {
+      const turnData = await turnResp.json();
+      ICE_SERVERS = turnData.iceServers;
+      toast('TURN relay available');
+    }
+  } catch (e) {
+    // STUN-only fallback — works for ~85% of connections
+    toast('TURN unavailable — using STUN only');
+  }
 
   // Request camera/mic access
   try {
@@ -589,9 +603,10 @@ function transitionToSession() {
   document.getElementById('remote-label').textContent = peerRole;
   document.getElementById('peer-addr').textContent = peerRole;
 
-  // Start timer
+  // Start timer and stats monitoring
   sessionStartTime = Date.now();
   timerInterval = setInterval(updateTimer, 1000);
+  startStatsMonitoring();
 }
 
 function updateTimer() {
@@ -681,6 +696,8 @@ function cleanup() {
     remoteStream = null;
   }
   clearInterval(timerInterval);
+  clearInterval(statsInterval);
+  statsInterval = null;
   currentRoom = null;
   sessionStartTime = null;
   micEnabled = true;
@@ -691,6 +708,73 @@ function cleanup() {
 function truncAddr(addr) {
   if (!addr) return '';
   return addr.slice(0, 6) + '...' + addr.slice(-4);
+}
+
+// ==================== NETWORK CHANGE DETECTION ====================
+// Detect WiFi→cellular, VPN toggle, or other network changes
+if ('connection' in navigator) {
+  navigator.connection.addEventListener('change', () => {
+    if (pc && pc.connectionState === 'connected') {
+      toast('Network changed — maintaining connection...');
+      // ICE restart handles network transitions
+      restartICE();
+    }
+  });
+}
+
+// Online/offline detection
+window.addEventListener('online', () => {
+  if (pc && pc.connectionState !== 'connected') {
+    toast('Network restored — reconnecting...');
+    restartICE();
+  }
+});
+
+window.addEventListener('offline', () => {
+  if (pc) {
+    toast('Network lost — will reconnect when available');
+    updateQuality('disconnected');
+  }
+});
+
+// ==================== CONNECTION STATS ====================
+let statsInterval = null;
+
+function startStatsMonitoring() {
+  if (statsInterval) clearInterval(statsInterval);
+  statsInterval = setInterval(async () => {
+    if (!pc) return;
+    try {
+      const stats = await pc.getStats();
+      let candidatePairFound = false;
+      stats.forEach(report => {
+        if (report.type === 'candidate-pair' && report.state === 'succeeded') {
+          candidatePairFound = true;
+          const rtt = report.currentRoundTripTime;
+          const el = document.getElementById('conn-quality');
+          if (rtt !== undefined) {
+            if (rtt < 0.15) {
+              el.textContent = `${Math.round(rtt * 1000)}ms`;
+              el.className = 'quality good';
+            } else if (rtt < 0.4) {
+              el.textContent = `${Math.round(rtt * 1000)}ms`;
+              el.className = 'quality fair';
+            } else {
+              el.textContent = `${Math.round(rtt * 1000)}ms`;
+              el.className = 'quality poor';
+            }
+          }
+          // Detect relay vs direct
+          const localType = report.localCandidateId;
+          stats.forEach(c => {
+            if (c.id === localType && c.candidateType === 'relay') {
+              el.textContent += ' (relay)';
+            }
+          });
+        }
+      });
+    } catch (e) {}
+  }, 3000);
 }
 
 // ==================== INIT ====================

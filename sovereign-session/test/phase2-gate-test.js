@@ -110,6 +110,20 @@ async function runTests() {
     log("Session page serves", false, e.message);
   }
 
+  // Test 2b: TURN credentials endpoint
+  try {
+    const turn = await httpGet(`${HTTP_HOST}/api/turn-credentials`);
+    const data = JSON.parse(turn.body);
+    const hasTurn = data.iceServers && data.iceServers.some(s => {
+      const urls = Array.isArray(s.urls) ? s.urls : [s.urls];
+      return urls.some(u => u.startsWith("turn:"));
+    });
+    const hasCred = data.iceServers && data.iceServers.some(s => s.credential);
+    log("TURN credentials endpoint", turn.status === 200 && hasTurn && hasCred, `${data.iceServers.length} servers, ttl=${data.ttl}`);
+  } catch (e) {
+    log("TURN credentials endpoint", false, e.message);
+  }
+
   // Test 3: Guide connects with EIP-191 auth
   let guideWs, participantWs;
   try {
