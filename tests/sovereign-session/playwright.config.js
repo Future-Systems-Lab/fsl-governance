@@ -13,6 +13,8 @@ module.exports = defineConfig({
     video: 'off',
     trace: 'on-first-retry',
   },
+  // WebKit excluded: VPS runs AlmaLinux 9 (GLIBC 2.34), Playwright WebKit needs Ubuntu 24.04 (GLIBC 2.38).
+  // Safari coverage: manual pre-launch verification. See SOVEREIGN_SESSION_WALLET_SUPPORT.md.
   projects: [
     {
       name: 'Chromium Desktop',

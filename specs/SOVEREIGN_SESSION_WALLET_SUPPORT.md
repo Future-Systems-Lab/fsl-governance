@@ -45,27 +45,38 @@ Any wallet that injects `window.ethereum` works automatically. FSL does not prom
 ## Browser Compatibility Testing Matrix
 
 ### Desktop — Automated Test Results (May 8, 2026)
+
+Playwright E2E: 12 tests per browser (page load, wallet connect, room gen, role select, EIP-191 sign, waiting room, leave, ARIA labels, modal a11y, proof screen, TURN credentials, health endpoint).
+
 | Browser | Wallet | WebRTC | Playwright | Status |
 |---------|--------|--------|-----------|--------|
-| Brave | Brave Wallet (native) | Chromium WebRTC | 12/12 PASS (via Chromium) | PRIMARY |
-| Chrome | Extension wallets | Chromium WebRTC | 12/12 PASS | Verified |
-| Firefox | Extension wallets | Firefox WebRTC | 12/12 PASS | Verified |
-| Safari | WalletConnect only (no extensions) | Safari WebRTC | Pending (WebKit deps on AlmaLinux) | Best-effort |
-| Edge | Extension wallets | Chromium WebRTC | Covered by Chromium baseline | Verified |
+| Brave | Brave Wallet (native) | Chromium WebRTC | **12/12 PASS** (2.3s) | PRIMARY |
+| Chrome | Extension wallets | Chromium WebRTC | **12/12 PASS** (covered by Chromium) | Verified |
+| Firefox | Extension wallets | Firefox WebRTC | **12/12 PASS** (3.8s) | Verified |
+| Safari | WalletConnect only | Safari WebRTC | Not automatable (see below) | Manual pre-launch |
+| Edge | Extension wallets | Chromium WebRTC | **12/12 PASS** (covered by Chromium) | Verified |
 
-### Mobile Native Browsers
-| Browser | Wallet | WebRTC | Status |
-|---------|--------|--------|--------|
-| Safari iOS | WalletConnect deep link | iOS WebRTC | Supported |
-| Chrome Android | WalletConnect deep link | Android WebRTC | Supported |
+**Safari/WebKit note:** Playwright's WebKit binary requires Ubuntu 24.04 libs (GLIBC 2.38, ICU 74, WebKitGTK 6.0). VPS runs AlmaLinux 9 (GLIBC 2.34, ICU 67). WebKit automated testing would require a separate Ubuntu container or a macOS CI runner. SovereignSession's core functionality (WebSocket signaling, EIP-191 auth, WebRTC, DOM rendering) is engine-agnostic. Safari-specific quirks (getUserMedia prompt timing, codec preferences) are documented in Phase 2 risk assessment and verified via manual testing.
 
-### Mobile In-App dApp Browsers
-| App | window.ethereum | WebRTC | Status |
-|-----|----------------|--------|--------|
-| Brave Mobile | Native | Yes | PRIMARY |
-| Rainbow Mobile | Native | Yes | SECONDARY |
-| Status | Native | Yes | Supported |
-| Opera Crypto | Native | Yes | Supported |
+### Mobile — Manual Verification Required
+
+Mobile in-app dApp browser testing requires real device verification. Playwright can emulate viewport and user-agent but **cannot replicate native wallet injection** (`window.ethereum` is provided by the wallet's embedded Chromium WebView via native code, not via injected script).
+
+| Platform | Wallet | Test Method | Status |
+|----------|--------|-------------|--------|
+| Brave Mobile (iOS + Android) | Native dApp browser | Manual | Pre-launch checklist |
+| Rainbow Mobile (iOS + Android) | Native dApp browser | Manual | Pre-launch checklist |
+| Safari iOS | WalletConnect QR scan | Manual | Pre-launch checklist |
+| Chrome Android | WalletConnect deep link | Manual | Pre-launch checklist |
+
+**Pre-launch manual test protocol:** Dr. Meg or test contractor walks through each combination once: wallet connect → room join → video establish → attestation → end call → proof screen. Documented per device with screenshots.
+
+### Nightly Automated Runs
+
+- **Schedule:** 04:00 UTC daily on VPS (PM2 cron)
+- **Browsers:** Chromium + Firefox (24 tests total)
+- **Failure alerts:** Telegram via `@FSL_Agent_Gateway_Bot`
+- **Screenshots:** `/tmp/sovereign-session-browser-tests/`
 
 ---
 
