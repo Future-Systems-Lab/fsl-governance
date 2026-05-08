@@ -30,7 +30,7 @@
     "mathPrereqs": ["Calculus I (Study.com)", "Calculus II (Study.com)", "Linear Algebra (Study.com)", "Statistics (Study.com)", "Python (Study.com)"]
   },
   "faculty": {
-    "primary": {"name": "Dr. Dragan Boscovic", "role": "Primary Advisor", "lab": "ASU Blockchain Research Laboratory", "alignment": "Independent build, deeper sovereignty model, completion of the academic lifecycle his lab started"},
+    "primary": {"name": "Dr. Dragan Boscovic", "role": "Primary Advisor", "lab": "ASU Blockchain Research Laboratory", "alignment": "Independent architecture arriving at convergent framing through different cryptographic primitives (public Ethereum + EIP-191 vs. permissioned Hyperledger Fabric + proxy re-encryption)"},
     "coAdvisors": [
       {"name": "Dr. Gail-Joon Ahn", "role": "Co-Advisor", "lab": "SEFCOM / CTF", "alignment": "Zero Trust security architecture, identity management"},
       {"name": "Dr. Hassan Ghasemzadeh", "role": "Co-Advisor", "lab": "EMIL Lab", "alignment": "AI-powered wearable sensors, behavioral health intervention"}
