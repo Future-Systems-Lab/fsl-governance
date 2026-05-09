@@ -128,3 +128,53 @@ Practitioner-side proof of concept showing FSL infrastructure in production clin
 - Domain registered, nameservers invalid
 - No live content
 - DNS fix + placeholder page approved as immediate prerequisite (separate task)
+
+---
+
+## Economic Model Feature Builds (70/27/3 Locked)
+
+These items require the locked 70/27/3 economic model to be implemented in smart contracts and UI.
+
+| # | Item | Est. | Dependencies |
+|---|------|------|-------------|
+| 12 | Command Center treasury dashboard | ~8h | Live Sepolia reads (BenevolenceFund balance, FSL ops wallet), HNT discount tracking |
+| 13 | SovereignLedger v2 settlement function (70/27/3) | ~6h | PROTECTED MODE — contract change. Guide payout from full value, FSL absorbs discount, 3% BenevolenceFund. Emits SessionSettled event |
+| 14 | Guide dashboard payout tab (/provider/dashboard/payouts) | ~12h | Earnings table, USDC payout history, Transak off-ramp, tax estimator widget, HNT bonus tracking, 1099 threshold tracker |
+| 15 | Guide leaderboard widget on /provider/dashboard | ~6h | "Your Standing" rank card, participant HNT generated YTD, distance to next tier, live BenevolenceFund balance, top 3 preview, April 1 countdown |
+| 16 | Guide HNT wallet section | ~4h | Current HNT balance, monthly bonus earned, redemption options (NFTs, governance staking, co-op scholarship pool) |
+
+### Treasury Dashboard (Item 12 detail)
+
+Displays on /command-center (admin + reviewer only):
+- FSL Operations wallet balance (live Sepolia read)
+- BenevolenceFund contract balance (live)
+- Total HNT discount absorbed YTD
+- Projected April 1 distribution amounts per place
+- Live leaderboard: top 3 Guides + top 1 participant
+- Year-to-date split totals (gross sessions, Guide payouts, FSL ops, BenevolenceFund accrued)
+
+### Guide Leaderboard (Item 15 detail)
+
+"Your Standing" widget at top of /provider/dashboard:
+- Current rank: "You are #X of Y active Guides"
+- Participant HNT generated YTD (ranking metric)
+- Sessions this month + bonus tier reached
+- Distance to next tier: "X more sessions → 10% HNT bonus"
+- Distance to top 3: "Y more participant HNT → BenevolenceFund eligible"
+- Live BenevolenceFund balance + projected April 1 payout at current rank
+- Top 3 leaderboard preview (names + participant HNT)
+- Countdown to April 1
+
+Sub-section "Your HNT Wallet":
+- Current HNT balance
+- HNT earned this month from session bonuses
+- Redemption options: Achievement NFTs, governance staking, co-op scholarship pool
+
+### Tax Estimator (Item 14 detail)
+
+Widget in /provider/dashboard/payouts:
+- State + federal bracket inputs
+- Estimated quarterly tax owed
+- 1099 threshold tracker ($600+ YTD)
+- Crypto-vs-fiat conversion event log
+- Disclaimer: "Estimates only. Consult a CPA familiar with cryptocurrency taxation. FSL is not a tax advisor."
