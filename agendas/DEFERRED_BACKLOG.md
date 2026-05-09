@@ -56,7 +56,25 @@ Move sensitive dashboard content from static HTML to API endpoint:
 | 8 | Walsh biotype connection to mood data | ~1h | Cross-reference lab uploads with mood patterns |
 | 9 | futuresystemslab.io full audit + remaining fixes | ~1h | SovereignSession mention, /reviewer link, tagline already fixed |
 | 10 | Support Circles full calendar build | ~16h | Full page, filters, roster management, .ics export, auto-create cron |
-| 11 | Fullscript API integration | ~4h | Dynamic supplement recommendations from mood/biotype data. Requires API credentials from api@fullscript.com (Dr. Meg action). |
+| 11 | Fullscript Embed integration | ~6h | See FULLSCRIPT_INTEGRATION below. Requires API key from fullscript.dev/applications (Dr. Meg action). |
+
+### Fullscript Integration Plan (Item 11 detail)
+
+**Method: FULLSCRIPT EMBED** (not Redirect)
+- JavaScript library embeds Fullscript UI directly inside EncryptHealth — participants never leave the platform
+- Dr. Meg creates supplement recommendations inline
+- Webhooks notify FSL when orders placed
+
+**Steps when API credentials arrive:**
+1. Sign up at fullscript.dev/applications for API key
+2. Configure OAuth scopes in Fullscript API Dashboard
+3. Install Fullscript Embed JS library in EncryptHealth
+4. Embed in `/participant/orthomolecular/supplement-protocols` page (removes Coming Soon state)
+5. Wire Wellness Tip of the Day supplement links to Fullscript catalog search
+6. Wire mood pattern analysis → supplement suggestions with Embed ordering
+7. Webhooks: order placed → log to FSL for correlation data (no PHI — just supplement category + timestamp)
+
+**Dual-auth note:** Fullscript Embed requires OAuth per participant (each participant authorizes FSL to access their Fullscript account). This is separate from FSL's EIP-191 wallet auth. Council assessment: dual-auth adds friction but keeps Fullscript's HIPAA-compliant ordering pipeline intact. Alternative (Redirect) avoids OAuth but sends participants off-platform. **Recommendation: start with Redirect (simpler, already working via dispensary link), upgrade to Embed when participant volume justifies the OAuth friction.**
 
 ---
 
