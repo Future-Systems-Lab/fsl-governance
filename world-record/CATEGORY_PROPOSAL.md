@@ -104,7 +104,7 @@ The 10-function checklist provides a standardized framework that:
 | 4 | Governance Documents | IPFS via Pinata | 1 |
 | 5 | User Identity | Wallet address only, no PII | 1 |
 | 6 | Consent Mechanism | personal_sign + ethers.verifyMessage | 1 |
-| 7 | Revenue Distribution | 70/30/3 split (smart contract planned) | 0.5* |
+| 7 | Revenue Distribution | 70/27/3 split (smart contract planned) | 0.5* |
 | 8 | Wellness Content Delivery | Vercel (centralized CDN) | 0** |
 | 9 | Token/Reward System | HNT on Sepolia (ERC-20) | 1 |
 | 10 | Open Source | 8 PRs to major repos | 1 |

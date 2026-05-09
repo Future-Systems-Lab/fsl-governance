@@ -1,7 +1,8 @@
 # HNT Token Economics
 ## Sovereign Wellness Cooperative Economy
 **Date:** May 9, 2026
-**Status:** Model documented — awaiting Dr. Meg session rate confirmation before implementation
+**Status:** Economic model locked — council ratified
+**Last Updated:** May 9, 2026
 
 ---
 
@@ -33,141 +34,150 @@ All HNT minted on-chain via HNT contract `0x1ae1e10929f008d1f9883ce574a318abd860
 - HNT is **burned** on use (removed from circulation)
 - Participants can **stack** — save for Tier 3 instead of spending Tier 1 multiple times
 - Discount applied at booking confirmation, verified on-chain
+- **FSL treasury absorbs the discount** — Guides are paid from FULL session value
 
 ---
 
-## 3. Session Pricing Adjustment
+## 3. Session Revenue Split (Locked)
 
-### Methodology
+### The 70/27/3 Model
 
-Session prices are adjusted so that Sovereign Guides receive at minimum their target income at maximum discount:
+Every session payment splits:
 
 ```
-Adjusted Price = Target Guide Income ÷ (0.97 × 0.78)
+Participant pays session fee
+├── 70% → Sovereign Guide (paid in USDC by default)
+├── 27% → FSL Operations (infrastructure, development, support)
+└──  3% → BenevolenceFund smart contract
 ```
 
-Where:
-- 0.97 = Guide's 97% share (3% to BenevolenceFund)
-- 0.78 = worst-case scenario (22% max discount applied)
+### HNT Discount Absorption
 
-### Awaiting Dr. Meg Confirmation
+When a participant redeems HNT for a discount, **FSL treasury absorbs the difference**:
 
-| Rate Type | Current Rate | Adjusted (at max discount) |
-|-----------|-------------|---------------------------|
-| Initial consult (60 min) | **$___** | = rate ÷ 0.7566 |
-| Follow-up (30 min) | **$___** | = rate ÷ 0.7566 |
-| Follow-up (60 min) | **$___** | = rate ÷ 0.7566 |
-| Circle session (per participant) | **$___** | = rate ÷ 0.7566 |
+```
+Example: $200 session, participant redeems 22% HNT discount
 
-**Example:** If Dr. Meg's target take-home for a 60-min session is $150:
-- Adjusted price = $150 ÷ 0.7566 = **$198**
-- At 0% discount: Guide receives $198 × 0.97 = **$192.06** (above target)
-- At 7% discount: Guide receives $198 × 0.93 × 0.97 = **$178.62**
-- At 22% discount: Guide receives $198 × 0.78 × 0.97 = **$149.79** (hits target floor)
+Participant pays: $156 (after 22% discount)
+Guide receives:   $140 (70% of FULL $200 — not discounted)
+FSL ops receives:  $10 (27% of $200 = $54, minus $44 discount absorbed)
+BenevolenceFund:    $6 (3% of $200 — always from full value)
+```
+
+**Guide payout protection:** Guides are ALWAYS paid from the full session value. The discount comes out of FSL's 27% operations share. If the discount exceeds FSL's share (extreme edge case at 22% discount on low-margin sessions), FSL subsidizes the difference.
+
+### Session Pricing
+
+| Rate Type | Rate | Notes |
+|-----------|------|-------|
+| Initial consult (60 min) | **$___** | Awaiting Dr. Meg confirmation |
+| Follow-up (30 min) | **$___** | |
+| Follow-up (60 min) | **$___** | |
+| Circle session (per participant) | **$___** | |
+
+### Guide Payout Method
+
+- **Default:** USDC (stablecoin) to Guide's wallet
+- **Optional:** ETH or XRP (config in provider settings)
+- **Frequency:** Automatic settlement after each session
 
 ---
 
-## 4. BenevolenceFund Flywheel
+## 4. BenevolenceFund Distribution
 
-### Per-Session Flow
-```
-Participant pays $198
-├── 97% ($192.06) → Sovereign Guide
-└── 3% ($5.94) → BenevolenceFund
-```
+### Annual Distribution — April 1
 
-### Annual Fund Distribution (December 31)
+The BenevolenceFund smart contract (`0x96E8006a1fBB693B55fFf6254B8BF19EC605251B`) distributes its accumulated balance on April 1 each year.
 
-| Recipient | Share | Purpose |
-|-----------|-------|---------|
-| Top Sovereign Guides | 50% | Engagement-based distribution (ranked by participant HNT earned) |
-| Participants in need | 30% | Sponsored sessions for participants without resources |
-| Ecosystem development | 20% | Infrastructure, research, community |
+| Recipient | Share | Ranking Method |
+|-----------|-------|----------------|
+| 1st Place Guide | 44% | Ranked by total participant HNT earned under their care |
+| 2nd Place Guide | 33% | Same metric |
+| 3rd Place Guide | 22% | Same metric |
+| Top Participant | 1% (in crypto) | Highest HNT earned that year |
 
-### The Flywheel
-
-1. Guide serves participants → participants earn HNT
-2. Participants redeem HNT for discounts → per-session guide take decreases slightly
-3. But: discounts attract more participants → volume increases
-4. Higher volume → more 3% contributions → larger BenevolenceFund
-5. Top guides (by volume + impact) receive 50% of annual fund
-6. Annual distribution exceeds the per-session discount differential
-7. Guide is net positive: **lower per-session × higher volume + annual distribution > baseline**
+**Ranking metric:** Total HNT earned by a guide's participants — not raw session count. This incentivizes engagement quality (participants who log mood, attend circles, upload labs) over volume alone.
 
 ---
 
-## 5. Economic Projections
+## 5. Guide HNT Bonus Tiers
 
-### Assumptions
-- Base session price: $198 (adjusted)
-- Average discount applied: 10% (mix of tiers, not all participants use discounts)
-- BenevolenceFund annual pool calculated from all guides collectively
-- Solo guide scenario (Dr. Meg only) shown first, multi-guide scaling below
+Guides earn HNT bonuses based on monthly session volume:
 
-### Solo Guide (Dr. Meg)
+| Tier | Sessions/Month | HNT Bonus | Additional |
+|------|---------------|-----------|------------|
+| Standard | 1–10 | — | Base 70% payout |
+| Growth | 11–25 | 5% HNT bonus | On top of USDC payout |
+| Sovereign | 26+ | 10% HNT bonus | On top of USDC payout |
+| Featured | Top 3 quarterly | 15% HNT bonus | + Featured Guide badge in directory |
 
-| Scenario | Sessions/yr | Gross Revenue | Guide Take (97%) | BenevolenceFund (3%) | Avg Discount Impact | Net Guide Income | BenevolenceFund Return (50%) |
-|----------|------------|--------------|-------------------|---------------------|--------------------|-----------------|-----------------------------|
-| Light | 50 | $9,900 | $9,603 | $297 | -$990 | $8,613 | +$149 |
-| Moderate | 100 | $19,800 | $19,206 | $594 | -$1,980 | $17,226 | +$297 |
-| Active | 200 | $39,600 | $38,412 | $1,188 | -$3,960 | $34,452 | +$594 |
+### HNT Utility for Guides
 
-**Note:** At solo guide, the BenevolenceFund return is modest (50% of own contributions = 50% × 3% = 1.5% return). The model strengthens significantly with multiple guides.
+Guide-earned HNT unlocks:
+- **Achievement NFT redemption** — mint SovereignGuide NFTs as credential proof
+- **Tier unlocks** — starter → growth → sovereign tier progression
+- **Co-op grants** — stake HNT to fund participant scholarships
+- **Governance staking** — weight in FSL governance decisions (future)
 
-### Multi-Guide Economy (5 guides, each 100 sessions/yr)
+---
+
+## 6. Economic Projections
+
+### Solo Guide (Dr. Meg) — $200 Session
+
+| Scenario | Sessions/yr | Gross Revenue | Guide (70%) | FSL Ops (27%) | BenevolenceFund (3%) | Avg Discount Impact on FSL |
+|----------|------------|--------------|-------------|--------------|---------------------|---------------------------|
+| Light | 50 | $10,000 | $7,000 | $2,700 | $300 | -$1,000 |
+| Moderate | 100 | $20,000 | $14,000 | $5,400 | $600 | -$2,000 |
+| Active | 200 | $40,000 | $28,000 | $10,800 | $1,200 | -$4,000 |
+
+**Note:** Discount impact assumes 10% average discount across sessions. FSL absorbs this from its 27% share.
+
+### Multi-Guide Economy (5 guides, each 100 sessions/yr at $200)
 
 | Metric | Value |
 |--------|-------|
 | Total sessions | 500 |
-| Total gross | $99,000 |
-| BenevolenceFund pool | $2,970 |
-| Top guide share (50% ÷ ranked) | ~$890 (1st), ~$595 (2nd), ~$297 (3rd) |
-| Discount impact per guide | -$1,980 |
-| Net benefit for top guide | $890 - $0 = **+$890 net above discount loss** |
-
-**The model works when:**
-- Multiple guides contribute to the fund (diversified pool)
-- Top guides are ranked by participant outcomes (HNT earned by their participants), not just volume
-- Annual distribution exceeds the per-session discount differential for engaged guides
-
-**The model is marginal when:**
-- Solo guide (returning own contributions minus 50%)
-- Very low session volume (< 25/year)
-
-### Council Assessment
-
-The economics are sound for a multi-guide cooperative economy. At solo-guide scale (current state), the BenevolenceFund return is modest. The discount tiers create participant engagement incentive regardless.
-
-**Recommendation:** Launch discount tiers + BenevolenceFund with current 97/3 split. The economics strengthen as the guide network grows. At solo scale, Dr. Meg's annual BenevolenceFund return is ~$150-600 depending on volume — modest but the participant engagement value of HNT discounts justifies the model.
+| Total gross | $100,000 |
+| Total Guide payouts | $70,000 |
+| FSL Operations | $27,000 |
+| BenevolenceFund pool | $3,000 |
+| April 1 distribution: 1st place | $1,320 (44%) |
+| April 1 distribution: 2nd place | $990 (33%) |
+| April 1 distribution: 3rd place | $660 (22%) |
+| Top participant (crypto) | $30 (1%) |
 
 ---
 
-## 6. Participant Narrative
+## 7. Participant Narrative
 
-> By engaging with FSL, you earn HNT through participation — sessions, circles, mood logging, lab uploads. HNT becomes session discounts AND contributes to a community fund that helps participants without resources access sovereign wellness care. Every session you complete adds to a fund that helps someone else. Your wellness journey creates wellness for others.
-
----
-
-## 7. Sovereign Guide Narrative
-
-> The discount tiers reduce your per-session take slightly when participants redeem HNT, but the BenevolenceFund returns more than that to high-engagement guides annually. You're never extracted from — you're part of a cooperative wellness economy where serving more participants creates more abundance for everyone. The more lives you transform, the higher your annual distribution.
+> By engaging with FSL, you earn HNT through participation — sessions, circles, mood logging, lab uploads. HNT becomes session discounts AND contributes to a community fund that distributes annually to the guides who serve you best and the participant who engages most deeply. Your wellness journey creates wellness for others.
 
 ---
 
-## 8. ASU Reviewer Framing
+## 8. Sovereign Guide Narrative
+
+> You receive 70% of every session fee in USDC — calculated from the FULL session price, never reduced by participant discounts. FSL absorbs discounts from its operations share. As your practice grows, HNT bonuses stack on top (5%/10%/15% by volume). The annual BenevolenceFund distribution rewards the guides whose participants thrive most. Top 3 guides share 99% of the fund.
+
+---
+
+## 9. ASU Reviewer Framing
 
 This economic model is a deployed implementation of cooperative health economics on-chain:
 - **Problem:** Practitioner income preservation in discount-driven wellness markets
-- **Solution:** Token-mediated participation rewards + cooperative redistribution fund
+- **Solution:** Token-mediated participation rewards + FSL-absorbed discounts + cooperative redistribution fund
 - **Mechanism:** BenevolenceFund smart contract (`0x96E8006a1fBB693B55fFf6254B8BF19EC605251B`) enforces transparent, on-chain distribution
+- **Innovation:** Guide payout calculated from full session value — discounts are an FSL treasury cost, not a guide income reduction
 - **Research contribution:** Demonstrates that blockchain governance can solve practitioner economics problems that traditional platforms (BetterHelp, Talkspace) solve through extraction
 
 ---
 
-## Implementation Prerequisites
+## 10. Implementation Prerequisites
 
-1. Dr. Meg confirms session rates (fills in the table in Section 3)
+1. Dr. Meg confirms session rates (fills in table in Section 3)
 2. PROTECTED MODE approval for deployer key usage (HNT minting)
 3. HNT burn function on discount redemption (contract may need update)
 4. BenevolenceFund distribution function (already in contract — `distribute()`)
 5. Guide ranking algorithm (by participant HNT earned, not raw session count)
+6. USDC settlement integration (Transak or direct transfer)
+7. SovereignLedger v2 settlement function (70/27/3 split with discount absorption)

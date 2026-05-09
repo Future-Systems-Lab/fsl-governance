@@ -30,7 +30,7 @@
 ### Secondary
 3. What is the adoption curve for wallet-native identity in a behavioral health context among participants unfamiliar with Web3?
 
-4. Does the 70/30/3 sovereign revenue split model (Guide/Platform/Benevolence Fund) produce sustainable practitioner retention compared to traditional platform commission structures?
+4. Does the 70/27/3 sovereign revenue split model (Guide/FSL ops/Benevolence Fund) produce sustainable practitioner retention compared to traditional platform commission structures?
 
 ---
 

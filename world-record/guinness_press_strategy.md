@@ -87,7 +87,7 @@ Articles already drafted and ready:
 |--------|-------|
 | NaturalNews | "Naturopathic doctor puts wellness records on blockchain — patients own their data for the first time" |
 | Epoch Health | "The end of insurance-dependent practice: how one doctor built a sovereign alternative" |
-| Integrative Practitioner | "Sovereign Guides model: 70/30 split, no prior authorizations, crypto payments" |
+| Integrative Practitioner | "Sovereign Guides model: 70/27/3 split, no prior authorizations, crypto payments" |
 | NDNR (Naturopathic Doctor News & Review) | "Blockchain for naturopathic practice: session records, shadow work, and the sovereignty model" |
 
 ### 1.5 LinkedIn — Dr. Meg Personal Brand

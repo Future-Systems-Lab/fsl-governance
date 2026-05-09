@@ -36,13 +36,15 @@ All contracts deployed on Ethereum Sepolia.
 ## Revenue Split (on-chain)
 
 Every session payment:
-- 97% → Sovereign Guide
-- 3% → Sovereign Wellness Benevolence Fund
+- 70% → Sovereign Guide (USDC)
+- 27% → FSL Operations
+- 3% → BenevolenceFund
 
-## Benevolence Fund Distribution (annual, Dec 31)
+## Benevolence Fund Distribution (annual, April 1)
 
-- 1st Place: 50% of annual fund
-- 2nd Place: 30% of annual fund
-- 3rd Place: 20% of annual fund
+- 1st Place Guide: 44% of annual fund
+- 2nd Place Guide: 33% of annual fund
+- 3rd Place Guide: 22% of annual fund
+- Top Participant: 1% (in crypto)
 
-Ranked by total HNT earned by practitioner's participants.
+Ranked by total HNT earned by guide's participants.

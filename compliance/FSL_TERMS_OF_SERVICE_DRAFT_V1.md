@@ -58,12 +58,12 @@ Provider agrees to honor MindMasteryNFT discount tiers:
 - L2 MindMasteryNFT: 20% session discount
 - L3 MindMasteryNFT: 30% session discount
 
-### 3.4 Revenue Split — 67/30/3
+### 3.4 Revenue Split — 70/27/3
 
 Every session payment splits atomically on-chain:
 
-- 67% to practitioner
-- 30% to platform (Future Systems Lab LLC)
+- 70% to Sovereign Guide (USDC)
+- 27% to FSL Operations
 - 3% to Sovereign Wellness Benevolence Fund
 
 All three transfers execute in a single transaction. If any fails, the entire transaction reverts.

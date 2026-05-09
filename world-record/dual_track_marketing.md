@@ -88,7 +88,7 @@ America Out Loud is a **health tech / health freedom / medical sovereignty publi
 - ISO 20022 as the global financial messaging standard
 - How wellness payments align with institutional rails
 - XRPL payment channels for session fees
-- The 70/30/3 split model
+- The 70/27/3 split model
 - Target: XRPL Blog (community submission) + BeInCrypto
 
 **T2-5: "FSL: A Doctor of Engineering Thesis That Became a Live Platform"**

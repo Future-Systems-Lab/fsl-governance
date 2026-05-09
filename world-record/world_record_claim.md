@@ -31,7 +31,7 @@ Claimant holds dual doctoral credentials (D.N.Psy. + D.Eng. in progress) — bel
 - [x] **XRPL mainnet wallet activated** — Apr 11, 2026 (TX: 36A916...2E4C91). FSL live on XRPL, ready to receive ISO 20022 payments
 - [x] **Onramper fiat onramp** — Card payments convert to crypto via Onramper aggregator (MoonPay, Transak, Banxa — best rate auto-selected), not custodial
 - [x] **Coinbase Pay secondary** — Alternative fiat onramp via Coinbase, no business signup needed
-- [x] **70/30/3 split model** — 70% Sovereign Guide, 30% FSL, 3% Benevolence Fund
+- [x] **70/27/3 split model** — 70% Sovereign Guide, 27% FSL ops, 3% Benevolence Fund
 - [x] **HSA-compatible crypto payment pathway** — First wellness platform enabling HSA funds via crypto conversion for sovereign wellness sessions
 - [x] **Complete HDHP→HSA→Crypto→Sovereign Wellness pathway** — Full guided journey from insurance enrollment to on-chain records (pending A&H license)
 - [x] **Licensed insurance producer on team** — Dr. Meg, NC A&H license (~2 weeks)
@@ -86,7 +86,7 @@ First platform offering a complete guided pathway from conventional insurance en
 - HDHP enrollment support and education
 - HSA education and funding strategy
 - Onramper HSA→crypto conversion (ETH, XRP, and more)
-- Wallet-linked sovereign wellness sessions (70/30/3 split)
+- Wallet-linked sovereign wellness sessions (70/27/3 split)
 - On-chain session records via SovereignLedger
 - HNT loyalty tokens earned per session
 - Participant owns all data and records — no centralized EHR, no insurance gatekeeping

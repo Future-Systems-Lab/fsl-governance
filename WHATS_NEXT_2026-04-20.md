@@ -45,7 +45,7 @@
 | 2 | Onramper fiat payment integration testing | 2 hrs | Widget configured but not end-to-end tested with real payment |
 | 3 | Session booking → payment → superbill flow | 4 hrs | Individual components exist but full flow untested |
 | 4 | Trial → paid tier upgrade mechanism | 2 hrs | Trial exists, upgrade payment flow incomplete |
-| 5 | Provider payout mechanism (70/30/3 split) | 4 hrs | Smart contract written (BenevolenceFund v2), not deployed |
+| 5 | Provider payout mechanism (70/27/3 split) | 4 hrs | Smart contract written (BenevolenceFund v2), not deployed |
 | 6 | First sovereign guide onboarded (not Dr. Meg) | Dr. Meg | Christina Veselak and Dr. Henry Ealy pending outreach |
 | 7 | Stripe/Onramper production credentials | Dr. Meg | Test keys only currently |
 | 8 | Terms of Service finalized | 2 hrs | Draft in fsl-governance/compliance/ |

@@ -40,7 +40,7 @@
 | 09 | IPFS Manifest | 657–704 | Three sub-sections: Platform CIDs (3), Document CIDs (17), Database Backups (1). Redundant pinning note. | Technical | B |
 | 10 | Outstanding Items | 706–725 | 9 outstanding items with priority (High/Medium/Low): XRPL verify, mint auth, missing contracts, EHT cap, deploy fixes, CORS, Twitter/Reddit creds, HypnoNeuro deep-link, hypnosispsych.com. | Operational | E |
 | 11 | Outreach & Revenue | 727–747 | 10 items: NC licensing, NPI, outreach contacts, America Out Loud, XRPL grants, USPTO trademarks (2), ASU enrollment, first paying users. | Operational | E |
-| 12 | Licensing & IP | 749–758 | 4 cards: Platform Licensing ($150K + 12%), Sovereign Guide Tiers ($49/$149/$497), Subscriptions ($19/$49), Revenue Model (67/30/3 split). | Academic/Operational | C |
+| 12 | Licensing & IP | 749–758 | 4 cards: Platform Licensing ($150K + 12%), Sovereign Guide Tiers ($49/$149/$497), Subscriptions ($19/$49), Revenue Model (70/27/3 split). | Academic/Operational | C |
 
 ### Sections Outside Container (Lines 758–1010)
 

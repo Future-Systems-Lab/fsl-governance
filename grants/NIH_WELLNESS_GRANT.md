@@ -33,7 +33,7 @@ Complementary and integrative health practitioners face unique challenges with c
 
 FSL provides a blockchain-based alternative where:
 - **Participants own their records** via wallet-linked on-chain storage (no PII on-chain)
-- **Practitioners are not insurance-dependent** — direct crypto payments with 70/30/3 split
+- **Practitioners are not insurance-dependent** — direct crypto payments with 70/27/3 split
 - **Session records are immutable and portable** — participants carry records between Sovereign Guides
 - **No centralized data custodian** — the blockchain is the record keeper
 - **31 wellness games** provide structured neuroplasticity-focused wellness engagement
