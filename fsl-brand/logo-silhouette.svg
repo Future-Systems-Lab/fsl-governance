@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Woman at laptop silhouette - FSL brand icon -->
+  <!-- Solid aqua silhouette on transparent background -->
+
+  <!-- Hair + Head + Shoulders + Torso as single unified path -->
+  <path fill="#00D9FF" d="
+    M26 4
+    C22 4 19 7 18 11
+    C17 15 17.5 20 18 24
+    C18.3 26 19 28 19.5 30
+    C15 31 12 34 10 38
+    C8.5 41 8 44 8 47
+    L8 48 L56 48 L56 47
+    C56 44 55.5 41 54 38
+    C52 34 49 31 44.5 30
+    C45 28 45.7 26 46 24
+    C46.5 20 47 15 46 11
+    C45 7 42 4 38 4
+    Z
+  "/>
+
+  <!-- Face cutout (skin tone = transparent) -->
+  <ellipse cx="32" cy="15" rx="6.5" ry="8" fill="#030B0F"/>
+
+  <!-- Hair framing face -->
+  <path fill="#00D9FF" d="
+    M25.5 8
+    C23.5 8 22 10 21.5 13
+    C21 16 21.5 19 22 21
+    L22.5 18
+    C23 15 24 12 26 10
+    Z
+  "/>
+  <path fill="#00D9FF" d="
+    M38.5 8
+    C40.5 8 42 10 42.5 13
+    C43 16 42.5 19 42 21
+    L41.5 18
+    C41 15 40 12 38 10
+    Z
+  "/>
+
+  <!-- Lab coat collar (V-notch in the torso) -->
+  <path fill="#030B0F" d="
+    M28 32 L32 40 L36 32 L33.5 30 L32 34 L30.5 30 Z
+  "/>
+
+  <!-- Laptop screen -->
+  <rect x="19" y="44" width="26" height="7" rx="1" fill="#030B0F"/>
+  <rect x="20" y="45" width="24" height="5" rx="0.5" fill="none" stroke="#00D9FF" stroke-width="1"/>
+
+  <!-- Laptop base -->
+  <rect x="16" y="51" width="32" height="2" rx="1" fill="#00D9FF"/>
+
+  <!-- Screen glow -->
+  <rect x="22" y="46.5" width="20" height="2" rx="0.5" fill="#00D9FF" opacity="0.25"/>
+
+  <!-- Arms reaching to laptop -->
+  <path fill="#00D9FF" d="
+    M14 40 C16 43 18 44 20 44.5 L20 42 C18 41.5 16 40.5 15 39 Z
+  "/>
+  <path fill="#00D9FF" d="
+    M50 40 C48 43 46 44 44 44.5 L44 42 C46 41.5 48 40.5 49 39 Z
+  "/>
+</svg>
