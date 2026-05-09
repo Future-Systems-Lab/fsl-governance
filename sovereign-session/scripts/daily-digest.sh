@@ -21,14 +21,19 @@ CHAT_ID="${TELEGRAM_CHAT_ID}"
 
 # PM2 service health
 PM2_STATUS=$(pm2 jlist 2>/dev/null | python3 -c "
-import sys,json
+import sys,json,time
 try:
     procs = json.load(sys.stdin)
     online = sum(1 for p in procs if p.get('pm2_env',{}).get('status') == 'online')
     errored = sum(1 for p in procs if p.get('pm2_env',{}).get('status') != 'online')
-    high = [p['name'] for p in procs if p.get('pm2_env',{}).get('restart_time',0) > 5]
+    # Flag services with < 1h uptime (recently crashed, not just deployed)
+    now_ms = time.time() * 1000
+    unstable = [p['name'] for p in procs if p.get('pm2_env',{}).get('status') == 'online' and (now_ms - p.get('pm2_env',{}).get('pm_uptime',now_ms)) < 3600000 and p.get('pm2_env',{}).get('restart_time',0) > 0]
+    # Flag errored services
+    down = [p['name'] for p in procs if p.get('pm2_env',{}).get('status') != 'online']
     msg = f'{online} online, {errored} errored'
-    if high: msg += ' | ⚠️ ' + ', '.join(high)
+    if down: msg += ' | DOWN: ' + ', '.join(down)
+    elif unstable: msg += ' | recently restarted: ' + ', '.join(unstable)
     print(msg)
 except: print('check failed')
 " 2>/dev/null || echo "PM2 unavailable")
