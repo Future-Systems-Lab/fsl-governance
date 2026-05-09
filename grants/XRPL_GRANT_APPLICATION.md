@@ -31,7 +31,7 @@ FSL's payment architecture places XRP first in the payment selector across all p
 3. **Fiat — Onramper** (converts USD to crypto including XRP)
 4. **Sovereign Navigation** (HSA/insurance education)
 
-The 70/30/3 revenue split (70% Sovereign Guide, 30% FSL, 3% Benevolence Fund) is designed for XRPL payment channel execution with sub-second settlement.
+The 97/3 revenue split (97% Sovereign Guide, 3% Sovereign Wellness Benevolence Fund) is designed for XRPL payment channel execution with sub-second settlement. FSL takes no platform fee — the 3% Benevolence Fund is distributed annually to top Sovereign Guides (50%), participants in need (30%), and ecosystem development (20%).
 
 ## Technical Specifications
 
