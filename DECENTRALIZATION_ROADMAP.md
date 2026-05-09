@@ -93,5 +93,5 @@ The tension between pragmatic centralization and sovereignty-first architecture 
 
 ---
 
-*Document version 1.0 — April 7, 2026*
+*Document version 2.0 — May 7, 2026*
 *Maintained by FSL system_architect_agent.*
