@@ -76,6 +76,8 @@ Move sensitive dashboard content from static HTML to API endpoint:
 
 **Account note:** Fullscript dispensary is registered under Dr. Meg's Naturopathic Psychology and Hypnosis Center (hypnosispsych.com) practice account — not under Future Systems Lab. API credentials come from her practice account. FSL integrates as the technology layer; the dispensary relationship is practitioner-to-participant, not platform-to-participant.
 
+**Developer account:** hello@hypnosispsych.com — status: under review, awaiting approval. When approved: credentials arrive at hello@hypnosispsych.com. Next step: Dr. Meg shares credentials with CC to begin ~4h integration build.
+
 **Dual-auth note:** Fullscript Embed requires OAuth per participant (each participant authorizes FSL to access their Fullscript account). This is separate from FSL's EIP-191 wallet auth. Council assessment: dual-auth adds friction but keeps Fullscript's HIPAA-compliant ordering pipeline intact. Alternative (Redirect) avoids OAuth but sends participants off-platform. **Recommendation: start with Redirect (simpler, already working via dispensary link), upgrade to Embed when participant volume justifies the OAuth friction.**
 
 ---
