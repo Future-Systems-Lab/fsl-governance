@@ -56,6 +56,7 @@ Move sensitive dashboard content from static HTML to API endpoint:
 | 8 | Walsh biotype connection to mood data | ~1h | Cross-reference lab uploads with mood patterns |
 | 9 | futuresystemslab.io full audit + remaining fixes | ~1h | SovereignSession mention, /reviewer link, tagline already fixed |
 | 10 | Support Circles full calendar build | ~16h | Full page, filters, roster management, .ics export, auto-create cron |
+| 11 | Fullscript API integration | ~4h | Dynamic supplement recommendations from mood/biotype data. Requires API credentials from api@fullscript.com (Dr. Meg action). |
 
 ---
 
