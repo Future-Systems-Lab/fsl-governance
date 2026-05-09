@@ -33,4 +33,4 @@ FSL integrates with Fullscript, the leading professional supplement dispensary p
 
 Planned: Full Fullscript API integration (REST API with Granular Search + Professional Catalog) to dynamically surface supplement recommendations based on participant mood patterns, Walsh biotype results, and neurotransmitter frequency data. This closes the loop between FSL's orthomolecular intelligence layer and actionable supplement protocols — without FSL ever handling transactions or storing purchase data. Participants order directly through Fullscript's HIPAA-compliant platform.
 
-Dr. Meg has an active Fullscript practitioner dispensary. API access request to api@fullscript.com is pending.
+Dr. Meg has an active Fullscript practitioner dispensary under Naturopathic Psychology and Hypnosis Center (hypnosispsych.com) — the dispensary relationship is practitioner-to-participant, not platform-to-participant. FSL integrates as the technology layer. API access request to fullscript.dev is pending.
