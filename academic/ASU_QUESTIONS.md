@@ -34,3 +34,15 @@ FSL integrates with Fullscript, the leading professional supplement dispensary p
 Planned: Full Fullscript API integration (REST API with Granular Search + Professional Catalog) to dynamically surface supplement recommendations based on participant mood patterns, Walsh biotype results, and neurotransmitter frequency data. This closes the loop between FSL's orthomolecular intelligence layer and actionable supplement protocols — without FSL ever handling transactions or storing purchase data. Participants order directly through Fullscript's HIPAA-compliant platform.
 
 Dr. Meg has an active Fullscript practitioner dispensary under Naturopathic Psychology and Hypnosis Center (hypnosispsych.com) — the dispensary relationship is practitioner-to-participant, not platform-to-participant. FSL integrates as the technology layer. API access request to fullscript.dev is pending.
+
+---
+
+## Q: How does the HNT token economic model work?
+
+HNT (Healing Neurotransmitter Token) is a participation token on Sepolia testnet. Participants earn HNT through therapeutic engagement — sessions, circles, mood logging, lab uploads. HNT converts to session discounts (7/11/22% tiers, burned on use).
+
+The economic model is a cooperative flywheel: 3% of every session fee goes to the BenevolenceFund smart contract. The fund distributes annually — 50% to top Sovereign Guides (ranked by participant outcomes), 30% to participants in need (sponsored sessions), 20% to ecosystem development.
+
+Session prices are adjusted so Sovereign Guides receive at minimum their target income even at maximum discount (22%). The adjustment formula: Target Income ÷ (0.97 × 0.78). At solo-guide scale, the BenevolenceFund return is modest (~$150-600/year). At multi-guide scale, top guides recover the discount differential and more through annual distribution.
+
+This is a deployed implementation of cooperative health economics — solving the practitioner income preservation problem that centralized platforms solve through extraction. The BenevolenceFund contract enforces transparent, on-chain distribution without intermediary discretion.
