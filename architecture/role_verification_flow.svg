@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Chakra Petch, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00D9FF"/>
+    </marker>
+    <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFD700"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22C55E"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" fill="#030B0F" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" fill="#00D9FF" font-size="18" font-weight="700">FSL Role Verification Architecture</text>
+
+  <!-- Wallet Connect entry -->
+  <rect x="340" y="55" width="220" height="44" rx="8" fill="#0A1419" stroke="#00D9FF" stroke-width="1.5"/>
+  <text x="450" y="82" text-anchor="middle" fill="#E2E8F0" font-size="13" font-weight="600">Wallet Connect (EIP-191)</text>
+
+  <!-- Arrow down to JWT Mint -->
+  <line x1="450" y1="99" x2="450" y2="125" stroke="#00D9FF" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- JWT Mint chokepoint -->
+  <rect x="310" y="125" width="280" height="44" rx="8" fill="#0A1419" stroke="#FFD700" stroke-width="1.5"/>
+  <text x="450" y="152" text-anchor="middle" fill="#FFD700" font-size="13" font-weight="600">mintToken() — single JWT chokepoint</text>
+
+  <!-- Three branches -->
+  <!-- Participant -->
+  <line x1="370" y1="169" x2="140" y2="220" stroke="#00D9FF" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <rect x="30" y="220" width="220" height="80" rx="8" fill="#0A1419" stroke="#00D9FF" stroke-width="1.2"/>
+  <text x="140" y="244" text-anchor="middle" fill="#00D9FF" font-size="12" font-weight="600">PARTICIPANT</text>
+  <text x="140" y="262" text-anchor="middle" fill="#64748B" font-size="10">role: "participant"</text>
+  <text x="140" y="278" text-anchor="middle" fill="#64748B" font-size="10">Dashboard + modules access</text>
+  <text x="140" y="292" text-anchor="middle" fill="#64748B" font-size="10">No Command Center</text>
+
+  <!-- Guide -->
+  <line x1="450" y1="169" x2="450" y2="220" stroke="#22C55E" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+  <rect x="340" y="220" width="220" height="80" rx="8" fill="#0A1419" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="450" y="244" text-anchor="middle" fill="#22C55E" font-size="12" font-weight="600">SOVEREIGN GUIDE</text>
+  <text x="450" y="262" text-anchor="middle" fill="#64748B" font-size="10">role: "guide" | tier: starter→sovereign</text>
+  <text x="450" y="278" text-anchor="middle" fill="#64748B" font-size="10">Provider dashboard + participant view</text>
+  <text x="450" y="292" text-anchor="middle" fill="#64748B" font-size="10">No Command Center</text>
+
+  <!-- Admin/Reviewer -->
+  <line x1="530" y1="169" x2="760" y2="220" stroke="#FFD700" stroke-width="1.2" marker-end="url(#arrow-gold)"/>
+  <rect x="650" y="220" width="220" height="80" rx="8" fill="#0A1419" stroke="#FFD700" stroke-width="1.2"/>
+  <text x="760" y="244" text-anchor="middle" fill="#FFD700" font-size="12" font-weight="600">ADMIN / REVIEWER</text>
+  <text x="760" y="262" text-anchor="middle" fill="#64748B" font-size="10">role: "admin" | "reviewer"</text>
+  <text x="760" y="278" text-anchor="middle" fill="#64748B" font-size="10">Full Command Center access</text>
+  <text x="760" y="292" text-anchor="middle" fill="#64748B" font-size="10">GitHub scoped repos (reviewer)</text>
+
+  <!-- Guide verification flow -->
+  <line x1="450" y1="300" x2="450" y2="340" stroke="#22C55E" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+  <rect x="310" y="340" width="280" height="60" rx="8" fill="#0A1419" stroke="#22C55E" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="450" y="364" text-anchor="middle" fill="#22C55E" font-size="11" font-weight="600">Sprint B: Credential Verification</text>
+  <text x="450" y="382" text-anchor="middle" fill="#64748B" font-size="9">NPI lookup → consent gate → tier upgrade</text>
+  <text x="450" y="394" text-anchor="middle" fill="#64748B" font-size="9">guide_verifications table</text>
+
+  <!-- Reviewer flow -->
+  <line x1="760" y1="300" x2="760" y2="340" stroke="#FFD700" stroke-width="1.2" marker-end="url(#arrow-gold)"/>
+  <rect x="620" y="340" width="280" height="60" rx="8" fill="#0A1419" stroke="#FFD700" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="760" y="364" text-anchor="middle" fill="#FFD700" font-size="11" font-weight="600">Sprint C: Reviewer Provisioning</text>
+  <text x="760" y="382" text-anchor="middle" fill="#64748B" font-size="9">Access code → GitHub invite → TTL session</text>
+  <text x="760" y="394" text-anchor="middle" fill="#64748B" font-size="9">reviewer_access_codes + reviewer_sessions</text>
+
+  <!-- JWT Claims box -->
+  <rect x="30" y="430" width="400" height="170" rx="8" fill="#0A1419" stroke="#00D9FF" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="230" y="454" text-anchor="middle" fill="#00D9FF" font-size="12" font-weight="600">FSLClaims JWT Schema</text>
+  <text x="45" y="476" fill="#E2E8F0" font-size="10" font-family="monospace">wallet: string (lowercase)</text>
+  <text x="45" y="492" fill="#E2E8F0" font-size="10" font-family="monospace">role: participant|guide|reviewer|admin</text>
+  <text x="45" y="508" fill="#E2E8F0" font-size="10" font-family="monospace">tier: starter|growth|sovereign|null</text>
+  <text x="45" y="524" fill="#E2E8F0" font-size="10" font-family="monospace">verified_at: number|null</text>
+  <text x="45" y="540" fill="#E2E8F0" font-size="10" font-family="monospace">consents_signed_at: number|null</text>
+  <text x="45" y="556" fill="#E2E8F0" font-size="10" font-family="monospace">consents_ipfs_hash: string|null</text>
+  <text x="45" y="572" fill="#E2E8F0" font-size="10" font-family="monospace">github_access: string[]|null</text>
+  <text x="45" y="588" fill="#E2E8F0" font-size="10" font-family="monospace">expires_at: number (unix seconds)</text>
+
+  <!-- Middleware box -->
+  <rect x="470" y="430" width="400" height="170" rx="8" fill="#0A1419" stroke="#FFD700" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="670" y="454" text-anchor="middle" fill="#FFD700" font-size="12" font-weight="600">Middleware Guards</text>
+  <text x="485" y="478" fill="#E2E8F0" font-size="10">/participant/*  → any authenticated</text>
+  <text x="485" y="496" fill="#E2E8F0" font-size="10">/provider/*     → role: guide | admin</text>
+  <text x="485" y="514" fill="#E2E8F0" font-size="10">/command-center → role: admin | reviewer</text>
+  <text x="485" y="540" fill="#22C55E" font-size="10">Admin wallet override: always role=admin</text>
+  <text x="485" y="558" fill="#64748B" font-size="10">0xf22cbF25...eF248 (canonical deployer)</text>
+  <text x="485" y="580" fill="#64748B" font-size="9">+ NEXT_PUBLIC_ADMIN_WALLETS env (comma-separated)</text>
+</svg>
