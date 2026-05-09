@@ -36,9 +36,8 @@ All contracts deployed on Ethereum Sepolia.
 ## Revenue Split (on-chain)
 
 Every session payment:
-- 67% → Practitioner
-- 30% → Platform (Future Systems Lab)
-- 3% → Benevolence Fund
+- 97% → Sovereign Guide
+- 3% → Sovereign Wellness Benevolence Fund
 
 ## Benevolence Fund Distribution (annual, Dec 31)
 
