@@ -66,7 +66,7 @@ Each card displays:
 
 Positioned below the 2x2 grid. Each tip card includes:
 - Tip text (orthomolecular education)
-- Category badge (GABA, Serotonin, Dopamine, Walsh Protocol, etc.)
+- Category badge (GABA, Serotonin, Dopamine, Orthomolecular Protocol, etc.)
 - "Order via Fullscript →" link to Dr. Meg's static dispensary
 
 ### Current State
@@ -79,7 +79,7 @@ Pending: email to `api@fullscript.com` + sandbox credentials at `fullscript.dev/
 Integration build (~4h):
 1. Each Wellness Tip auto-links to relevant supplement via Granular Search API
 2. Mood pattern analysis → supplement suggestions with Fullscript Embed
-3. Walsh biotype results → matching protocol auto-linked
+3. Orthomolecular biotype results → matching protocol auto-linked
 4. One-click order via Fullscript Embed (inline, no context switching)
 5. Order webhook → log to FSL for correlation data
 

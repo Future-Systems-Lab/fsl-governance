@@ -53,7 +53,7 @@ Move sensitive dashboard content from static HTML to API endpoint:
 | 5 | Full `/participant/avatar-sessions` calendar page | ~4h | Session cards, filters, .ics export, join/register flow |
 | 6 | Mood & Nutrition Tracking page with pattern correlation | ~6h | 30-day calendar, frequency distribution, neurotransmitter correlation |
 | 7 | Nutrition journal (DB table, API, UI) | ~3h | `nutrition_logs` table, supplement checkboxes, water intake |
-| 8 | Walsh biotype connection to mood data | ~1h | Cross-reference lab uploads with mood patterns |
+| 8 | Orthomolecular biotype connection to mood data | ~1h | Cross-reference lab uploads with mood patterns |
 | 9 | futuresystemslab.io full audit + remaining fixes | ~1h | SovereignSession mention, /reviewer link, tagline already fixed |
 | 10 | Support Circles full calendar build | ~16h | Full page, filters, roster management, .ics export, auto-create cron |
 | 11 | Fullscript Embed integration | ~6h | See FULLSCRIPT_INTEGRATION below. Requires API key from fullscript.dev/applications (Dr. Meg action). |

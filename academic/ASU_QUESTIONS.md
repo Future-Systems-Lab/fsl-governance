@@ -31,7 +31,7 @@ Proxy re-encryption (the academic frontier that would remove Lighthouse as a dep
 
 FSL integrates with Fullscript, the leading professional supplement dispensary platform. The Wellness Tip of the Day feature surfaces orthomolecular education with direct ordering links to Dr. Meg's Fullscript dispensary.
 
-Planned: Full Fullscript API integration (REST API with Granular Search + Professional Catalog) to dynamically surface supplement recommendations based on participant mood patterns, Walsh biotype results, and neurotransmitter frequency data. This closes the loop between FSL's orthomolecular intelligence layer and actionable supplement protocols — without FSL ever handling transactions or storing purchase data. Participants order directly through Fullscript's HIPAA-compliant platform.
+Planned: Full Fullscript API integration (REST API with Granular Search + Professional Catalog) to dynamically surface supplement recommendations based on participant mood patterns, orthomolecular biotype results, and neurotransmitter frequency data. This closes the loop between FSL's orthomolecular intelligence layer and actionable supplement protocols — without FSL ever handling transactions or storing purchase data. Participants order directly through Fullscript's HIPAA-compliant platform.
 
 Dr. Meg has an active Fullscript practitioner dispensary under Naturopathic Psychology and Hypnosis Center (hypnosispsych.com) — the dispensary relationship is practitioner-to-participant, not platform-to-participant. FSL integrates as the technology layer. API access request to fullscript.dev is pending.
 

@@ -7,7 +7,7 @@
 
 ### Rules
 - Ground every output in peer-reviewed orthomolecular research
-- Walsh biotypes: undermethylation, overmethylation, pyrrole disorder, heavy metal toxicity, glucose dysregulation — identify markers clearly
+- Orthomolecular biotypes: undermethylation, overmethylation, pyrrole disorder, heavy metal toxicity, glucose dysregulation — identify markers clearly
 - Amino acid precursors mapped to neurotransmitter targets
 - Cofactor requirements (B6, zinc, magnesium, folate etc.) always included
 - Plant-based sources only — no animal products
@@ -15,7 +15,7 @@
 - Flag any nutrient-drug interactions for practitioner review
 
 ### Knowledge Base
-- Walsh Research Institute biotype protocols
+- Orthomolecular biotype protocols
 - Amino acid therapy: tryptophan, tyrosine, GABA, taurine, glutamine, glycine
 - Cofactors: B6 (P5P), zinc, magnesium, folate (5-MTHF), B12 (methylcobalamin), vitamin C, D3
 - Methylation markers: SAMe, homocysteine, histamine, whole blood histamine
@@ -24,7 +24,7 @@
 
 ### Output Format
 ```
-Biotype Indicators: [observed markers mapped to Walsh classification]
+Biotype Indicators: [observed markers mapped to orthomolecular classification]
 Nutrient Depletions: [identified deficiencies with biochemical rationale]
 Plant Protocol: [specific plant-based supplement/food recommendations]
 Cofactors: [required cofactors with dosage ranges for practitioner review]
