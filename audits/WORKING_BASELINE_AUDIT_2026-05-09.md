@@ -135,3 +135,43 @@ Playwright cannot verify authenticated EncryptHealth pages from VPS. The Vercel 
 ## Items Requiring Manual Verification
 
 All items marked CODE-VERIFIED + API-VERIFIED need Dr. Meg to click with wallet connected and confirm. The JWT decode fallback was the critical fix — if `address` now resolves from the JWT cookie, all dependent interactions should work.
+
+---
+
+## Detailed Agent Audit Findings (supplementary)
+
+### Systemic Issues Identified
+
+**Issue 1: `address` from wagmi `useAccount()` null for JWT-auth users**
+- Affects 18+ interactive elements across 8 pages
+- **STATUS: FIX DEPLOYED** — `getWalletFromJWT()` fallback applied to dashboard, providers, provider profile, settings, mood-nutrition (5 pages)
+- **STILL NEEDS FIX:** alchemist-forge (requires window.ethereum for contract calls — JWT decode alone insufficient, needs wallet connected), labs (anchor to chain), locked payment state
+
+**Issue 2: Next.js API routes using getPool()/DATABASE_URL**
+- Affects: /api/mood-logs, /api/nutrition-log, /api/sovereign-ledger/my-records, /api/providers/directory
+- **STATUS: PARTIALLY FIXED** — mood-logs and nutrition-log rerouted to VPS public endpoints
+- **STILL BROKEN:** /api/sovereign-ledger/my-records, /api/providers/directory (dynamic guides don't load from DB)
+
+**Issue 3: Dead/broken links**
+- `/providers/${p.id}` on providers page line 271 → 404 (should be `/participant/providers/${p.id}`)
+- `/dashboard` link on labs page → redirects to /participant/dashboard (fixed earlier)
+
+**Issue 4: Buttons with no onClick**
+- Dashboard sovereignty banner "Revoke Access" / "Export" buttons (dead HTML in banner area — sidebar versions work)
+- Records page download buttons (no onClick)
+
+### Elements Confirmed WORKS by Agent
+- Landing page auth flow (Create My Sovereign Record)
+- Ecosystem Switcher dropdown
+- Press Start FAB + overlay
+- All navigation links between pages
+- External links (Fullscript, Blockscout, HypnoNeuro, SovereignSession)
+- Mood pill onClick → postMood (code path correct with JWT decode)
+- Orthomolecular card routing (all 4 cards)
+- Client-side state toggles (supplements, water slider, meal notes)
+
+### Priority Fix List (remaining)
+1. Fix `/providers/${p.id}` broken link → `/participant/providers/${p.id}`
+2. Remove dead banner buttons (Revoke/Export) from dashboard — sidebar versions work
+3. Wire /api/providers/directory through VPS (dynamic guides don't load)
+4. Wire /api/sovereign-ledger/my-records through VPS
