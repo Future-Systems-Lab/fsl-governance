@@ -215,7 +215,7 @@ All publications will use aggregate data only. No individual wallet addresses or
 Dr. Meg Montanez-Davenport holds:
 - Doctor of Naturopathic Psychology (D.N.Psy.)
 - Certified Blockchain Healthcare Professional (CBHP) — Blockchain Council
-- Board Certified Holistic Nutritionist (BCHN)
+- Board Certified in Holistic Nutrition (BCHN)
 - ISOM Certified (International Society for Orthomolecular Medicine)
 - Certified Smart Contract Auditor — Blockchain Council
 - Member: IEEE, INCOSE, ISC2, AMIA, HIMSS, PDMA, ISOM, NANP

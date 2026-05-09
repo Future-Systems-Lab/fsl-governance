@@ -91,7 +91,7 @@ FSL provides a blockchain-based alternative where:
 
 ## Team Credentials
 
-- **Dr. Meg Montanez-Davenport, D.N.Psy., BCHN, CBHP** — Doctor of Naturopathic Psychology, Board Certified Holistic Nutritionist, Certified Blockchain Healthcare Professional (Blockchain Council). ASU DEng candidate (January 2027). Founded and built entire FSL platform.
+- **Dr. Meg Montanez-Davenport, D.N.Psy., BCHN, CBHP** — Doctor of Naturopathic Psychology, Board Certified in Holistic Nutrition, Certified Blockchain Healthcare Professional (Blockchain Council). ASU DEng candidate (January 2027). Founded and built entire FSL platform.
 - **Dr. Henry Ealy, NMD** — Founding Sovereign Guide. Naturopathic Medical Doctor, educator.
 - **Christina Veselak, MS, LMFT, CN** — Founding Sovereign Guide. Licensed counselor, certified nutritionist.
 

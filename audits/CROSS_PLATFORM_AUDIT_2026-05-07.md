@@ -32,11 +32,11 @@
 - `/Users/futuresystemslab/fsl-governance/dashboard-data/reviewer-data.json` line 25
 **Current:**
 ```json
-"certifications": ["BCHN (Board Certified Holistic Nutritionist)", "CBHP (Certified Behavioral Health Practitioner)"]
+"certifications": ["BCHN (Board Certified in Holistic Nutrition)", "CBHP (Certified Behavioral Health Practitioner)"]
 ```
 **Proposed fix:**
 ```json
-"certifications": ["BCHN (Board Certified Holistic Nutritionist)", "CBHP (Certified Blockchain Healthcare Professional) -- Blockchain Council"]
+"certifications": ["BCHN (Board Certified in Holistic Nutrition)", "CBHP (Certified Blockchain Healthcare Professional) -- Blockchain Council"]
 ```
 **Notes:** The CV HTML (`Future-Systems-Lab-profile/CV_MegMontanezDavenport.html` line 186) correctly says "Certified Blockchain Healthcare Professional (CBHP) -- Blockchain Council". The EncryptHealth frontend uses "CBHP" as an abbreviation only (no expansion) across ~10 files, which is fine. The only surface with the WRONG expansion is reviewer-data.json.
 **Complexity:** LOW

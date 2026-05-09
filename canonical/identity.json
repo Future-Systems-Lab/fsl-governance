@@ -3,7 +3,7 @@
   "credentials_short": "D.N.Psy., BCHN, CBHP",
   "credentials": [
     {"abbrev": "D.N.Psy.", "full": "Doctor of Naturopathic Psychology"},
-    {"abbrev": "BCHN", "full": "Board Certified Holistic Nutritionist"},
+    {"abbrev": "BCHN", "full": "Board Certified in Holistic Nutrition"},
     {"abbrev": "CBHP", "full": "Certified Blockchain Healthcare Professional", "issuer": "Blockchain Council", "date": "Apr 2025"}
   ],
   "npi": "1497696264",
