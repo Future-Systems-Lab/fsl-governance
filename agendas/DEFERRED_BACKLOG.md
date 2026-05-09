@@ -41,6 +41,24 @@ Move sensitive dashboard content from static HTML to API endpoint:
 
 ---
 
+## Next Sprint Priorities (~37h queued)
+**Added:** May 9, 2026 — sprint closed, features queued in priority order.
+
+| # | Item | Effort | Notes |
+|---|------|--------|-------|
+| 1 | Provider profile pages `/participant/providers/[wallet]` | ~3h | Dynamic route, credentials, bio, booking, circles, access toggle |
+| 2 | Provider card toggles for all guides | ~1h | Christina Veselak + Dr. Henry Ealy missing toggles, wire consent API |
+| 3 | Mood pills verified working with wallet connected | ~1h | Next.js API route created, needs authenticated browser verification |
+| 4 | Press Start circles visible in State 2 bottom sheet | ~1h | Code deployed, needs authenticated verification |
+| 5 | Full `/participant/avatar-sessions` calendar page | ~4h | Session cards, filters, .ics export, join/register flow |
+| 6 | Mood & Nutrition Tracking page with pattern correlation | ~6h | 30-day calendar, frequency distribution, neurotransmitter correlation |
+| 7 | Nutrition journal (DB table, API, UI) | ~3h | `nutrition_logs` table, supplement checkboxes, water intake |
+| 8 | Walsh biotype connection to mood data | ~1h | Cross-reference lab uploads with mood patterns |
+| 9 | futuresystemslab.io full audit + remaining fixes | ~1h | SovereignSession mention, /reviewer link, tagline already fixed |
+| 10 | Support Circles full calendar build | ~16h | Full page, filters, roster management, .ics export, auto-create cron |
+
+---
+
 ## Post-Acceptance Items (Dr. Meg decides timing)
 **Added:** May 8, 2026
 
