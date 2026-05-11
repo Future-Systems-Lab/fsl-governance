@@ -1,6 +1,6 @@
 # Provisional Patent Application — Abstract
 
-**Title:** System and Method for Sovereign Behavioral Health Data Governance via EIP-191 Wallet-Signed Consent Attestation in a Zero-PHI Architecture
+**Title:** System and Method for Sovereign Data Governance via Wallet-Signed Consent Attestation in a Zero-PHI Behavioral Health Architecture
 
 **Abstract (150 words):**
 

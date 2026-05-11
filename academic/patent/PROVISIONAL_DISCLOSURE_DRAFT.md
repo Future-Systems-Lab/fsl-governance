@@ -1,4 +1,4 @@
-# System and Method for Sovereign Behavioral Health Data Governance via EIP-191 Wallet-Signed Consent Attestation in a Zero-PHI Architecture
+# System and Method for Sovereign Data Governance via Wallet-Signed Consent Attestation in a Zero-PHI Behavioral Health Architecture
 
 ## PROVISIONAL PATENT APPLICATION
 
@@ -50,6 +50,12 @@ It is therefore an object of the present invention to provide a system that unif
 It is a further object to provide a system architecturally constrained to hold zero PHI, such that health information privacy regulations applicable to covered entities do not apply.
 
 It is a still further object to provide a consent-gated practitioner access model wherein credentialed wellness practitioners access participant records only through cryptographically verifiable consent grants that participants can revoke immediately.
+
+### Differentiation from Prior Art
+
+Recent conceptual frameworks (e.g., Welzel et al., npj Digital Medicine 8:560, 2025, DOI 10.1038/s41746-025-01945-z) have proposed consortium-blockchain plus SSI/DID architectures for GDPR-oriented consent tracking of personally-generated health data, with the actual personally-generated health data stored off-chain and linked via blockchain records. The present invention differs from such conceptual frameworks in jurisdictional scope (United States, outside HIPAA regulatory scope by architectural design), blockchain type (public Ethereum), consent primitive (EIP-191 wallet-signed attestation as unified authentication and consent), data model (zero protected health information held by the system by architectural design), actor model (Sovereign Guide and Participant two-party attestation in regulated behavioral health context), and implementation status (deployed implementation with verified smart contracts on Ethereum Sepolia testnet rather than early-stage conceptual framework).
+
+Additionally, US Patent No. 12,235,984 describes email-bound hierarchical deterministic wallets for storing personally identifiable health information. The present invention differs fundamentally in that: (a) wallets are non-custodial — the participant holds their own private key, and the system never has access to it; (b) the system holds zero PHI by architectural design, rather than storing PHI in a wallet structure; and (c) the consent mechanism is a cryptographic signature event that serves simultaneously as authentication, consent, and authorization, rather than a storage mechanism for health records.
 
 ---
 
