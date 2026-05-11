@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- Rights Reserved, Unlicensed -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Meg Montañez Davenport — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D1117;--muted:#566078;--rule:#D8DEE9;
+  --teal:#00BFFF;--teal-light:#E6F4F2;
+  --side:#0D1F35;--side-text:rgba(255,255,255,0.82);--side-muted:rgba(255,255,255,0.45);
+  --w:280px;
+}
+html{font-size:13px}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;display:flex;min-height:100vh;line-height:1.55}
+@media screen{body{max-width:1080px;margin:0 auto;box-shadow:0 4px 40px rgba(0,0,0,.12)}}
+
+/* SIDEBAR */
+aside{
+  width:var(--w);min-width:var(--w);
+  background:var(--side);
+  padding:40px 26px 40px;
+  position:relative;overflow:hidden;
+}
+aside::after{
+  content:'';position:absolute;
+  bottom:-60px;right:-60px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,158,140,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.s-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;font-weight:700;line-height:1.12;
+  color:#fff;margin-bottom:8px;
+}
+.s-title{
+  font-family:'DM Mono',monospace;
+  font-size:.6rem;font-weight:500;
+  color:var(--teal);letter-spacing:.1em;text-transform:uppercase;
+  line-height:1.7;margin-bottom:24px;
+}
+.s-rule{width:32px;height:2px;background:var(--teal);margin-bottom:24px}
+
+.s-sec{margin-bottom:22px;position:relative;z-index:1}
+.s-label{
+  font-family:'DM Mono',monospace;font-size:.58rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--teal);
+  margin-bottom:9px;display:flex;align-items:center;gap:6px;
+}
+.s-label::after{content:'';flex:1;height:1px;background:rgba(0,158,140,.2)}
+
+.s-line{
+  font-size:.7rem;color:var(--side-text);
+  margin-bottom:4px;display:flex;gap:5px;align-items:flex-start;line-height:1.45;
+}
+.s-line::before{content:'›';color:var(--teal);flex-shrink:0;font-size:.75rem;margin-top:0px}
+
+.s-tag{
+  display:inline-block;
+  background:rgba(0,158,140,.12);border:1px solid rgba(0,158,140,.22);
+  color:rgba(255,255,255,.8);font-size:.6rem;
+  padding:2px 6px;border-radius:2px;margin:2px 2px 2px 0;
+  font-family:'DM Mono',monospace;letter-spacing:.02em;
+}
+.cert{
+  font-size:.67rem;color:var(--side-text);
+  margin-bottom:7px;padding-left:9px;
+  border-left:2px solid rgba(0,158,140,.3);line-height:1.45;
+}
+.cert strong{color:#fff;font-size:.69rem}
+
+/* MAIN */
+main{flex:1;padding:40px 42px 40px 38px;background:#fff}
+
+.m-sec{margin-bottom:26px}
+.m-head{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.m-head h2{
+  font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;
+}
+.m-head::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+.summary{
+  font-size:.8rem;line-height:1.8;color:var(--ink);font-weight:300;
+  border-left:3px solid var(--teal);padding-left:14px;
+}
+
+.job{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.job:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.jh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:2px;flex-wrap:wrap}
+.jtitle{
+  font-family:'Cormorant Garamond',serif;font-size:.98rem;font-weight:700;
+  color:var(--ink);line-height:1.25;
+}
+.jdate{
+  font-family:'DM Mono',monospace;font-size:.6rem;color:var(--teal);
+  white-space:nowrap;font-weight:500;margin-top:2px;
+}
+.jorg{font-size:.7rem;color:var(--muted);font-style:italic;margin-bottom:8px}
+.job ul{list-style:none;padding:0}
+.job li{
+  font-size:.75rem;line-height:1.68;color:var(--ink);
+  padding-left:13px;position:relative;margin-bottom:3px;
+}
+.job li::before{content:'›';position:absolute;left:0;color:var(--teal);font-size:.8rem;top:1px}
+
+.pub{margin-bottom:11px;padding-left:12px;border-left:2px solid var(--teal)}
+.pub-t{font-family:'Cormorant Garamond',serif;font-size:.88rem;font-weight:700;color:var(--ink)}
+.pub-m{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);margin-bottom:2px}
+.pub-d{font-size:.73rem;color:var(--ink);line-height:1.55}
+
+.edu-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.edu-d{font-size:.76rem;font-weight:500;color:var(--ink)}
+.edu-i{font-size:.7rem;color:var(--muted)}
+.edu-dt{font-family:'DM Mono',monospace;font-size:.61rem;color:var(--teal);white-space:nowrap;font-weight:500}
+
+.proj-box{background:#F8FAFB;border-left:3px solid var(--teal);padding:13px 16px;border-radius:0 3px 3px 0}
+.proj-box p{font-size:.76rem;line-height:1.72;color:var(--ink)}
+
+@media print{
+  body{font-size:11px}
+  aside{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .s-tag{background:#e8f5f3!important;border-color:#aaa!important;color:#333!important}
+  @page{margin:0;size:letter}
+}
+</style>
+</head>
+<body>
+<aside>
+  <div class="s-name">Meg Montañez<br>Davenport</div>
+  <div class="s-title">Blockchain Health Systems Engineer<br>Web3 Architect · Applied Researcher</div>
+  <div class="s-rule"></div>
+
+  <div class="s-sec">
+    <div class="s-label">Contact</div>
+    <div class="s-line"><a href="mailto:future.systems.lab@proton.me" style="color:inherit;text-decoration:none">future.systems.lab@proton.me</a></div>
+    <div class="s-line"><a href="mailto:sovereigncoverage@futuresystemslab.io" style="color:inherit;text-decoration:none">sovereigncoverage@futuresystemslab.io</a></div>
+    <div class="s-line">NC, USA — Remote</div>
+    <div class="s-line"><a href="https://www.linkedin.com/in/meg-monta%C3%B1ez-davenport-680652226/" target="_blank" style="color:inherit;text-decoration:none">linkedin.com/in/dr-meg-montanez-davenport</a></div>
+    <div class="s-line"><a href="https://github.com/Future-Systems-Lab/Future-Systems-Lab-profile" target="_blank" style="color:inherit;text-decoration:none">github.com/Future-Systems-Lab/Future-Systems-Lab-profile</a></div>
+    <div class="s-line"><a href="https://www.americaoutloud.news/author/meg-montanez-davenport/" target="_blank" style="color:inherit;text-decoration:none">americaoutloud.news/author/<br>meg-montanez-davenport</a></div>
+  </div>
+
+  <div class="s-sec">
+    <div class="s-label">Blockchain & Web3</div>
+    <span class="s-tag">Solidity</span><span class="s-tag">Hardhat</span><span class="s-tag">Remix IDE</span>
+    <span class="s-tag">ERC-20/721</span><span class="s-tag">Brave Wallet</span><span class="s-tag">EIP-6963</span>
+    <span class="s-tag">window.ethereum</span><span class="s-tag">DIDs / SSI</span>
+    <span class="s-tag">IPFS</span><span class="s-tag">Filecoin</span><span class="s-tag">Merkle DAGs</span>
+    <span class="s-tag">ZK Proofs</span><span class="s-tag">libp2p</span><span class="s-tag">Blockscout</span>
+  </div>
+
+  <div class="s-sec">
+    <div class="s-label">Engineering & Data</div>
+    <span class="s-tag">Next.js</span><span class="s-tag">PostgreSQL 17</span><span class="s-tag">Python</span>
+    <span class="s-tag">Flask</span><span class="s-tag">Streamlit</span><span class="s-tag">systemd</span>
+    <span class="s-tag">REST APIs</span><span class="s-tag">Vercel</span><span class="s-tag">SSH Ed25519</span>
+    <span class="s-tag">Git CI/CD</span><span class="s-tag">Agile/Scrum</span><span class="s-tag">Tableau</span>
+  </div>
+
+  <div class="s-sec">
+    <div class="s-label">Healthcare & Informatics</div>
+    <span class="s-tag">HL7</span><span class="s-tag">FHIR</span><span class="s-tag">OMOP</span>
+    <span class="s-tag">HIPAA</span><span class="s-tag">EHR Mapping</span>
+    <span class="s-tag">Clinical Data Models</span><span class="s-tag">Orthomolecular</span>
+  </div>
+
+  <div class="s-sec">
+    <div class="s-label">Organizations</div>
+    <div class="s-line">INCOSE — Systems Engineering</div>
+    <div class="s-line">AMIA — Medical Informatics</div>
+    <div class="s-line">HIMSS — Health IT</div>
+    <div class="s-line">ISC² — Cybersecurity</div>
+    <div class="s-line">PDMA — Product Management</div>
+    <div class="s-line">ISOM — Orthomolecular Medicine</div>
+    <div class="s-line">NANP — Nutrition Professionals</div>
+  </div>
+
+  <div class="s-sec">
+    <div class="s-label">Certifications</div>
+    <div class="cert"><strong>Certified Blockchain Healthcare Professional (CBHP) — Blockchain Council</strong><span style="white-space:nowrap"> · Apr 2025</span></div>
+    <div class="cert"><strong>Certified Smart Contract Auditor</strong>Blockchain Council · Jan 2026</div>
+    <div class="cert"><strong>Health Informatics — Johns Hopkins</strong>May 2025</div>
+    <div class="cert"><strong>Web3 & Blockchain — INSEAD</strong>Apr 2025</div>
+    <div class="cert"><strong>CISA — Packt</strong>Aug 2025</div>
+    <div class="cert"><strong>SSI Master — DizmeID</strong>Mar 2025</div>
+    <div class="cert"><strong>Medical Neuroscience — Duke SOM</strong>Apr 2025</div>
+    <div class="cert"><strong>Health Informatics on FHIR — Georgia Tech</strong>Mar 2025</div>
+    <div class="cert"><strong>Business Analyst — IBM</strong>Jun 2025</div>
+    <div class="cert"><strong>Data Analytics · UX Design · PM — Google</strong>Jun 2025</div>
+    <div class="cert"><strong>IPFS · Filecoin · libp2p · Merkle DAGs</strong>IPFS / Filecoin Foundation / ProtoSchool · 2025</div>
+    <div class="cert"><strong>NC Accident & Health Insurance Producer</strong>Pre-licensing completed Apr 2026, exam scheduled</div>
+    <div class="cert"><strong>National Provider Identifier (NPI): 1497696264</strong>Naturopath (175F00000X), NPPES, 2026</div>
+  </div>
+</aside>
+
+<main>
+  <div class="m-sec">
+    <div class="m-head"><h2>Summary</h2></div>
+    <p class="summary">I design and deploy decentralized infrastructure for sovereign data governance — using regulated behavioral health as a deliberate proving ground for architectures that scale across complex domains. As a long-term healthcare practitioner with experience operating within HIPAA regulatory frameworks as a licensed clinical provider, I built within compliance frameworks before architecting beyond them — and FSL's infrastructure operates outside HIPAA scope by architectural design, holding no PHI. As founder of Future Systems Lab, I move from concept to production: on-chain deployments, EIP-191 wallet-gated consent architecture, and infrastructure designed to operate outside HIPAA scope by holding no PHI — a stronger architectural position than compliance, because the regulation doesn't apply when the system never holds the protected data. I think in systems, across disciplines, at the intersection of governance and user experience. Eight Ethereum smart contracts deployed and verified on Sepolia — every FSL system is in production. Pursuing a Doctor of Engineering to formalize applied research methodology and advance systems leadership at the intersection of blockchain, AI, and decentralized governance.</p>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Engineering Experience</h2></div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Lead Engineer — SovereignLedger Sovereign Health Governance Infrastructure</div><div class="jdate">2026 — Present</div></div>
+      <div class="jorg">Sepolia: <a href="https://eth-sepolia.blockscout.com/address/0x4afA577fA914068451e0Aa97b61F23960f02aCc4" target="_blank" style="color:#009E8C">0x4afA577fA914068451e0Aa97b61F23960f02aCc4</a></div>
+      <ul>
+        <li>Engineered a full PostgreSQL session governance schema spanning participants, sovereign guides, sessions, attestations, documents, audit logs, consent grants, and compliance log tables.</li>
+        <li>Built Phase 3 SMS-based approval-gated automation with case-insensitive approve/deny/defer, 4-hour timeout, and max-defer logic — deployed to production VPS via systemd.</li>
+        <li>Architected SovereignLedger as a standalone blockchain governance layer for session governance, attestation, and participant-controlled record verification — integrates with any payment pipeline (Crypto → XRP → Sovereign Navigation) and deployable independently of any single platform.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Practice Operations Lead — Riccobene Associates</div><div class="jdate">2019 — 2025</div></div>
+      <div class="jorg">70+ office practice network, North Carolina</div>
+      <ul>
+        <li>Led operational scaling across 70+ office practice network, producing 64% per-provider production growth ($380,710 → $624,640 average per provider) through team coordination, workflow optimization, and cross-location process standardization.</li>
+        <li>Designed and deployed two-tier production-share compensation model adopted company-wide — 27% standard tier (network-wide rollout) and 33% architect tier (system designer compensation).</li>
+        <li>Per-provider share of total office production grew from 30.4% to 38.1% — system redesign enhanced overall office economics rather than redistributing existing revenue.</li>
+        <li>Recruited directly by CEO for C-suite engagement; maintained multi-year engagement while concurrently founding Future Systems Lab.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Open-Source Case Study Lead — AlchemistForge / mental-health-on-chain</div><div class="jdate">2026 — Present</div></div>
+      <ul>
+        <li>Scaffolded mental-health-on-chain as a five-entry public smart contract awareness series; deployed 24/7 campaign orchestration across Dev.to, Twitter, Discord, GitHub, and Telegram.</li>
+        <li>Recorded on-chain case study as Participant #1 with Transmuted and Celebrated events confirmed at wallet <a href="https://eth-sepolia.blockscout.com/address/0xf22cbF25deEeA36FFF828BAf73CCb049345eF248" target="_blank" style="color:#009E8C">0xf22cbF25deEeA36FFF828BAf73CCb049345eF248</a>.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Founder & Systems Architect — Future Systems Lab</div><div class="jdate">2023 — Present</div></div>
+      <div class="jorg"><a href="https://github.com/Future-Systems-Lab/Future-Systems-Lab-profile" target="_blank" style="color:#009E8C">github.com/Future-Systems-Lab/Future-Systems-Lab-profile</a></div>
+      <ul>
+        <li>Deployed and verified eight Ethereum smart contracts on Sepolia testnet: <a href="https://eth-sepolia.blockscout.com/address/0x411426f8E735F7940B20491609F08817A805b198" target="_blank" style="color:#009E8C">HypnoNeuroToken</a>, <a href="https://eth-sepolia.blockscout.com/address/0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88" target="_blank" style="color:#009E8C">EHTv2</a>, <a href="https://eth-sepolia.blockscout.com/address/0xCb9EcB00574DB29976c7C54045d443666D5C7771" target="_blank" style="color:#009E8C">MindMasteryNFT</a>, <a href="https://eth-sepolia.blockscout.com/address/0x4afA577fA914068451e0Aa97b61F23960f02aCc4" target="_blank" style="color:#009E8C">SovereignLedger</a>, <a href="https://eth-sepolia.blockscout.com/address/0xE092336F8f5082e57CcBb341A110C20ad186A324" target="_blank" style="color:#009E8C">AlchemistForge</a>, <a href="https://eth-sepolia.blockscout.com/address/0x96E8006a1fBB693B55fFf6254B8BF19EC605251B" target="_blank" style="color:#009E8C">BenevolenceFund</a>, <a href="https://eth-sepolia.blockscout.com/address/0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D" target="_blank" style="color:#009E8C">SovereignAchievement</a>, and <a href="https://eth-sepolia.blockscout.com/address/0x1ae1e10929f008d1f9883ce574a318abd86084e2" target="_blank" style="color:#009E8C">HNT v2</a>.</li>
+        <li>Architected a 17-agent Master Command Center spanning Audit, Smart Contract, Backend Build, Frontend/UI, Compliance, Security, Testing/QA, and Research agents with full dropdown panel orchestration.</li>
+        <li>Deployed production VPS automation stack (clawdbot) on OpenClaw VPS: Flask approval server, Telegram bot, Streamlit analytics dashboard, and two systemd services running continuously.</li>
+        <li>Engineered EncryptAI — a 19-step canonical monorepo (frontend/, backend/, labs/, contracts/, game/) with Brave Wallet authentication via window.ethereum + EIP-191, PostgreSQL 17, and blockchain writes via viem — <a href="https://github.com/Future-Systems-Lab/secure-health-login" target="_blank" style="color:#009E8C">Step 2 deployed as Secure Health Login</a>.</li>
+        <li>Established SSH-authenticated signed commits, GitHub org governance, and Rights Reserved licensing policy across all FSL repositories.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Healthcare Data Architect — HypnoNeuro Mental Wellness Platform</div><div class="jdate">2023 — Present</div></div>
+      <div class="jorg" style="font-style:italic">HypnoNeuro · EncryptHealth · SovereignLedger · NeuroBalance Watch — modular systems engineered to operate independently or as an integrated ecosystem</div>
+      <ul>
+        <li>Architected and deployed a tier-based therapeutic game framework — currently operating with three flagship demos (one per level: L1 Theta Wave/GABA, L2 Biochemical/Serotonin, L3 Original Frequency/Endocannabinoid) demonstrating the full participant flow: wallet gating, HNT token rewards, on-chain achievement minting, and NFT-based tier access. Architecture supports expansion to full catalog and roadmap targets VR-mediated avatar circle integration.</li>
+        <li>Architected dual-chain healthcare session anchoring — every session cryptographically committed to both Ethereum Sepolia and XRPL testnet, generating a tamper-evident audit trail for sovereign health records.</li>
+        <li>Built ISOM-aligned 4-tier provider credentialing system (Platinum/Gold/Silver/Verified) with automated license verification via Verifiable.com and AI-assisted credential review using Claude Vision.</li>
+        <li>Implemented Walsh Protocol AI recommendation engine — biotype classification across 5 neurotransmitter systems (Trp, Tyr, Cortisol, Dopamine, Epi/NorEpi) with plant-based nutrient protocol generation.</li>
+        <li>Deployed avatar-based anonymous session rooms via Daily.co WebRTC — wallet-connected, provider-facilitated video sessions with sessionStorage-persisted character customization and SovereignLedger billing anchor.</li>
+        <li>Designed white-label operator licensing model with three commercial tiers (Starter $497/mo, Growth $1,497/mo, Enterprise custom) — full registration flow, Telegram-notified applications pipeline, and operator config abstraction layer.</li>
+        <li>Completed 35-step canonical build across 7 sprints — all five platforms live on Vercel and interconnected: HypnoNeuro, EncryptHealth, SovereignLedger, NeuroBalance, Provider Portal, and FSL Command Center.</li>
+        <li><strong>Sprint 1–3:</strong> Core platform buildout — therapeutic game framework, Brave Wallet + XRPL dual-wallet auth, PostgreSQL schema, FHIR R4 export, XRPL session anchoring, NFT gating, HNT token rewards, provider portal backend.</li>
+        <li><strong>Sprint 4–5:</strong> Avatar Session Rooms (Daily.co WebRTC), AlchemistForge HNT bridge, endocannabinoid baseline ML scorer, COA Lookup, Support Circles, Walsh Protocol recommendation engine, wellness scoring, XRPL wallet connect.</li>
+        <li><strong>Sprint 6:</strong> XRPL wallet polish (GemWallet/Crossmark/Xaman/manual), demo mode with watermark and seeded leaderboard, biosensor infrastructure spec (5 target hardware partners), FSL Command Center on Vercel, Telegram operator notification pipeline.</li>
+        <li><strong>Sprint 7 (current):</strong> Intake form Walsh Protocol biotype pre-screening, win screen confetti + NFT progress tracking + share flow, support circle categories and HNT bonus, ecosystem health monitoring (cron + Telegram alerts), OSS portfolio formalization.</li>
+        <li>Planned hardware integration: NeuroBalance biosensor layer targeting Nutromics (sweat biomarkers), Polar (HRV), OpenBCI (EEG), Emotiv, and Dexcom (CGM) — full API spec and device schema documented.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jh"><div class="jtitle">Founder & Product Developer — SunCodes Holistic Health</div><div class="jdate">2018 — 2024</div></div>
+      <ul>
+        <li>Developed a seed-to-shelf CBD product line in an unregulated market — managed full product lifecycle including formulation, third-party COA testing, GMP documentation, labeling, barcode integration, and retail packaging compliance.</li>
+        <li>Led full renovation and interior redesign of a historic downtown smoke shop, converting it into a branded therapeutic wellness center — managed contractor relationships, spatial design, and retail buildout from concept to opening.</li>
+        <li>Founded and operated a clinical wellness platform applying naturopathic psychology and orthomolecular frameworks to mental health and trauma recovery, with digital compliance tracking and personalized client protocol systems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Open Source Contributions</h2></div>
+    <div class="job">
+      <div class="jh"><div class="jtitle">Open Source Contributor — Healthcare & Blockchain</div><div class="jdate">Jul 2025 — Present</div></div>
+      <div class="jorg">Self-Directed / Independent</div>
+      <ul>
+        <li><strong><a href="https://github.com/decentralized-identity/presentation-exchange/pull/486" target="_blank" style="color:#009E8C">DIF / Presentation-Exchange #486</a></strong> — OIDC4VP healthcare consent flow example · Open, awaiting named review by Daniel Buchner (csuwildcat), Kim Hamilton Duffy (kimdhamilton), Brent Zundel, and rado0x54 · Foundation for SovereignLedger's consent architecture and EIP-191 wallet authentication</li>
+        <li><strong><a href="https://github.com/OpenZeppelin/openzeppelin-contracts/pull/6414" target="_blank" style="color:#009E8C">OpenZeppelin Contracts #6414</a></strong> — ReentrancyGuard documentation clarification · Open · FSL contracts inherit from OpenZeppelin audited base contracts</li>
+        <li><strong><a href="https://github.com/hyperledger/fabric/pull/5419" target="_blank" style="color:#009E8C">Hyperledger Fabric #5419</a></strong> — Build and runtime environment notes · Open · Permissioned ledger patterns for FSL provider credentialing</li>
+        <li><strong><a href="https://github.com/ethereum/EIPs/pull/11409" target="_blank" style="color:#009E8C">Ethereum / EIPs #11409</a></strong> — Markdown formatting fix to README's EIP document structure section (Abstract / Motivation / Specification / Rationale / Security Considerations) · Open, in active review · Referenced in EIP Editor Office Hours #93 (Mar 17, 2026) and #94 (Mar 24, 2026); all 9 automated checks passed · Improves rendering consistency for the constitutional document of the EIP standards process</li>
+        <li><strong><a href="https://github.com/Uniswap/v3-core/pull/1077" target="_blank" style="color:#009E8C">Uniswap v3-core #1077</a></strong> — Invariant test note for pool math · Open · Reference for future HNT/ETH liquidity pool design</li>
+        <li><strong><a href="https://github.com/balancer/balancer-v2-monorepo/pull/2648" target="_blank" style="color:#009E8C">Balancer v2 #2648</a></strong> — Pool math reference documentation · Open · HNT liquidity pool and AlchemistForge bridge architecture reference</li>
+        <li><strong><a href="https://github.com/bigchaindb/bigchaindb/pull/2763" target="_blank" style="color:#009E8C">BigchainDB #2763</a></strong> — Python quickstart documentation · Open · Immutable data patterns informing NeuroBalance biosensor anchoring</li>
+        <li><strong><a href="https://github.com/openmrs/openmrs-module-fhir2/pull/594" target="_blank" style="color:#009E8C">OpenMRS / FHIR2 #594</a></strong> — Quickstart pointer for healthcare interoperability · Closed · Same FHIR2 module stack as EncryptHealth FHIR R4 export</li>
+      </ul>
+      <div style="margin-top:10px;font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:6px">Applied projects:</div>
+      <ul>
+        <li><strong><a href="https://github.com/Future-Systems-Lab/secure-health-login" target="_blank" style="color:#009E8C">Secure Health Login</a></strong> — practitioner-facing smart wallet authentication app implementing EIP-712, DID/OIDC, and sovereignty-first access control — live on Vercel</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Publications</h2></div>
+
+    <p style="font-size:0.7rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;font-weight:600">Insurance & Claims Governance</p>
+    <div class="pub">
+      <div class="pub-t">"Ending the Insurance Verification Nightmare"</div>
+      <div class="pub-m">America Out Loud · March 1, 2026 · <a href="https://www.americaoutloud.news/ending-the-insurance-verification-nightmare/" target="_blank" style="color:#009E8C">americaoutloud.news</a></div>
+      <div class="pub-d">Proposed blockchain governance as a systemic solution to insurance fraud — duplicate claims, identity misuse, phantom billing — through decentralized eligibility verification and immutable audit trails.</div>
+    </div>
+
+    <p style="font-size:0.7rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin:12px 0 8px;font-weight:600">Mental Health & Behavioral Wellness</p>
+    <div class="pub">
+      <div class="pub-t">"Reprogram Your Limiting Beliefs on the Blockchain While Learning Web3"</div>
+      <div class="pub-m">America Out Loud · April 2026 · <a href="https://www.americaoutloud.news/reprogram-your-limiting-beliefs-on-the-blockchain-while-learning-web3/" target="_blank" style="color:#009E8C">americaoutloud.news</a></div>
+      <div class="pub-d">Introduced AlchemistForge — Jungian shadow integration permanently recorded on Ethereum. Aligns with Ghasemzadeh Lab behavioral health intervention and digital health systems research.</div>
+    </div>
+
+    <p style="font-size:0.7rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin:12px 0 8px;font-weight:600">Security, Privacy & Consent Architecture</p>
+    <div class="pub">
+      <div class="pub-t">"Blockchain Consent Transforms Patient Data Control"</div>
+      <div class="pub-m">America Out Loud · March 2026 · <a href="https://www.americaoutloud.news/blockchain-consent-transforms-patient-data-control/" target="_blank" style="color:#009E8C">americaoutloud.news</a></div>
+      <div class="pub-d">Examined how smart contract-governed consent flows resolve systemic failures of centralized health data management. Aligns with Ahn/SEFCOM identity management and access control research.</div>
+    </div>
+
+    <p style="font-size:0.7rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin:12px 0 8px;font-weight:600">Blockchain & Web3 Healthcare Infrastructure</p>
+    <div class="pub">
+      <div class="pub-t">"Stryker Cyberattack and Blockchain in Healthcare"</div>
+      <div class="pub-m">America Out Loud · March 2026 · <a href="https://www.americaoutloud.news/stryker-cyberattack-and-blockchain-in-healthcare/" target="_blank" style="color:#009E8C">americaoutloud.news</a></div>
+      <div class="pub-d">Analyzed the Stryker Corporation cybersecurity incident and proposed decentralized infrastructure as a systemic alternative to centralized healthcare IT architectures.</div>
+    </div>
+
+    <p style="font-size:0.7rem;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin:12px 0 8px;font-weight:600">Health Informatics & Data Sovereignty</p>
+    <div class="pub">
+      <div class="pub-t">"Why Your Medical Record Belongs in Your Digital Wallet"</div>
+      <div class="pub-m">America Out Loud · April 2026 · <a href="https://www.americaoutloud.news/why-your-medical-record-belongs-in-your-digital-wallet/" target="_blank" style="color:#009E8C">americaoutloud.news</a></div>
+      <div class="pub-d">Argued that sovereign wallet-based health data ownership eliminates institutional gatekeeping. Aligns with Boscovic Lab blockchain healthcare data sovereignty research.</div>
+    </div>
+
+    <p style="font-size:0.65rem;color:#999;margin:12px 0 0;font-style:italic">Full archive (weekly contributor, 2024–present): <a href="https://www.americaoutloud.news/author/meg-montanez-davenport/" target="_blank" style="color:#009E8C">americaoutloud.news/author/meg-montanez-davenport</a></p>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Research</h2></div>
+    <div class="pub">
+      <div class="pub-t">EIP-191 Consent Architecture for Sovereign Behavioral Health Data Governance — Lead Author</div>
+      <div class="pub-m">Manuscript in preparation; target journal: Blockchain in Healthcare Today (BHTY)</div>
+      <div class="pub-d">Establishes the EIP-191 wallet-signature consent pattern as a generalizable architecture for sovereign data governance, with regulated behavioral health as the deliberate stress-test domain. Documents the implementation deployed in SovereignLedger v2 (Sepolia: <a href="https://eth-sepolia.blockscout.com/address/0x4afA577fA914068451e0Aa97b61F23960f02aCc4" target="_blank" style="color:#009E8C">0x4afA577fA914068451e0Aa97b61F23960f02aCc4</a>).</div>
+    </div>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Education</h2></div>
+    <div class="edu-row"><div><div class="edu-d">BS, Management Information Systems</div><div class="edu-i">CSU Global — Regionally Accredited (HLC)</div></div><div class="edu-dt">Conferred July 2026</div></div>
+    <div class="edu-row"><div><div class="edu-d">Doctor of Naturopathic Psychology</div><div class="edu-i">Kingdom College of Natural Health</div></div><div class="edu-dt">Conferred</div></div>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Entity & Intellectual Property</h2></div>
+    <div style="font-size:0.8rem;color:#444;line-height:1.6">
+      <p style="margin:0 0 4px"><strong>Future Systems Lab LLC</strong> (Wyoming) — EIN 42-2050630</p>
+      <p style="margin:0 0 4px">USPTO Trademark "FUTURE SYSTEMS LAB" — Serial No. 99533250, Class 42 (filed Dec 2025; Office Action response filed Apr 2026, examiner review pending)</p>
+      <p style="margin:0">National Provider Identifier (NPI): 1497696264 — Naturopath (175F00000X), NPPES, 2026</p>
+    </div>
+  </div>
+
+  <div class="m-sec">
+    <div class="m-head"><h2>Proposed Applied Research</h2></div>
+    <div class="proj-box">
+      <p><strong>Decentralized Sovereign Data Governance:</strong> Engineering a privacy-first, blockchain-secured session attestation system for sovereign data governance — advancing SovereignLedger from testnet deployment into a rigorous applied research framework examining smart contract-governed consent architecture operating outside HIPAA scope by holding no PHI, with behavioral health as the deliberate proving ground for the most regulated domain. &nbsp;|&nbsp; <span style="font-family:monospace;font-size:.75em"><a href="https://eth-sepolia.blockscout.com/address/0x4afA577fA914068451e0Aa97b61F23960f02aCc4" target="_blank" style="color:#009E8C">SovereignLedger on Blockscout</a></span></p>
+    </div>
+  </div>
+</main>
+</body>
+</html>
