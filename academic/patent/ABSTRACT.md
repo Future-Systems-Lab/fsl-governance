@@ -1,0 +1,7 @@
+# Provisional Patent Application — Abstract
+
+**Title:** System and Method for Sovereign Behavioral Health Data Governance via EIP-191 Wallet-Signed Consent Attestation in a Zero-PHI Architecture
+
+**Abstract (150 words):**
+
+A computer-implemented system and method for governing access to behavioral health data through cryptographic wallet-signed consent attestation, wherein the system holds zero personally identifiable health information (PHI) by architectural design. The system unifies four traditionally separate functions — user authentication, informed consent, session authorization, and data attribution — into a single EIP-191 cryptographic signature event performed by a participant's Ethereum-compatible wallet. A middleware verification layer enforces consent-gated access using short-lived JSON Web Tokens derived from the verified signature. Session attestation events are recorded on a public blockchain through permissionless smart contracts, creating an immutable audit trail without storing protected data on-chain. The architecture implements a Sovereign Guide model wherein credentialed wellness practitioners access participant records only through consent grants that participants can revoke immediately. The system is demonstrated through deployment on Ethereum Sepolia testnet comprising a plurality of interconnected platforms and smart contracts for behavioral health engagement governance.
