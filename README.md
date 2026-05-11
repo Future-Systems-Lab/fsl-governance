@@ -2,6 +2,16 @@
 
 Sovereign governance repository for Future Systems Lab — agent specs, smart contract registry, IPFS manifest, security scans, and compliance documentation.
 
+## Intellectual Property Status
+
+U.S. Provisional Patent Application No. 64/063,037, filed May 11, 2026.
+Confirmation #6697. Patent Center #76121895.
+Title: System and Method for Sovereign Data Governance via Wallet-Signed Consent Attestation in a Zero-PHI Behavioral Health Architecture.
+Inventor: Margarita Davenport. Future assignee: Future Systems Lab LLC.
+Non-provisional conversion deadline: May 11, 2027.
+
+Full filing details and disclosure documents at `academic/patent/`.
+
 ## Structure
 
 ```

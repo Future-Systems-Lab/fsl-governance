@@ -8,6 +8,8 @@
 
 **Intellectual Property:** Future Systems Lab, USPTO Serial No. 99533250, Class 42 (pending)
 
+**Patent Pending.** U.S. Provisional Application No. 64/063,037 (filed 11 May 2026).
+
 **Keywords:** blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-based authentication, data sovereignty, decentralized health informatics
 
 ---
