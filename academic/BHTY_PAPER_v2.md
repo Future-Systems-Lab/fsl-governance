@@ -383,7 +383,7 @@ As of the writing of this paper, the FSL ecosystem has been deployed on Ethereum
 - **Consent model:** Cryptographic signature over human-readable informed consent message
 - **Data model:** Zero-PHI hybrid on-chain/off-chain architecture
 
-AlchemistForge has been deployed at address `0xE092336F8f5082e57CcBb341A110C20ad186A324` and has recorded transmutation events from unique wallet addresses. A public analytics dashboard reads directly from the blockchain to display participation metrics without any centralized data store.
+AlchemistForge has been deployed at address `0xE092336F8f5082e57CcBb341A110C20ad186A324` and has recorded demonstration transmutation events. As of paper preparation, all participation activity is architect-initiated or campaign-generated (the principal investigator's Case Study #1 plus content-engine-driven awareness campaign wallets); no external organic adoption has been measured. A public analytics dashboard reads directly from the blockchain to display participation metrics without any centralized data store. Formal user study with external participants is planned (see Section 10.3).
 
 The system has been tested with a single Sovereign Guide (the principal investigator). Multi-guide consent dynamics remain untested and are planned for formal evaluation.
 
