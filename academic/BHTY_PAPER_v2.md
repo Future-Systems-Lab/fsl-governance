@@ -591,4 +591,4 @@ AI tools (Anthropic Claude, Claude Code) were used for drafting assistance, tech
 
 *Conflicts of interest: The author is the founder, sole architect, and lead engineer of Future Systems Lab.*
 
-*Data availability: All smart contracts are publicly verifiable on Ethereum Sepolia testnet. Contract addresses are listed in Table 1. Source code is available at github.com/Future-Systems-Lab.*
+*Data availability: All smart contracts are publicly verifiable on Ethereum Sepolia testnet. Contract addresses are listed in Table 1. Source code is available at github.com/Future-Systems-Lab. This manuscript is permanently pinned to IPFS. CID: `QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu`. Accessible via https://gateway.pinata.cloud/ipfs/QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu or https://ipfs.io/ipfs/QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu.*
