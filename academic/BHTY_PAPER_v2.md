@@ -276,6 +276,14 @@ This paper explicitly does not claim HIPAA compliance, as such a claim would imp
 
 Additionally, 42 CFR Part 2 [28], which governs confidentiality of substance use disorder records, does not apply because FSL does not operate as a federally assisted program and does not maintain substance use disorder patient records. The FTC Health Breach Notification Rule [29] is acknowledged as potentially applicable to non-HIPAA health data platforms and is monitored as a compliance consideration.
 
+### 5.3 Practitioner Independence and Tax Responsibility
+
+Sovereign Guides operating through the FSL ecosystem are independent practitioners, not employees, contractors, or agents of FSL. FSL provides decentralized infrastructure — payment rails, attestation contracts, credential verification — but does not direct, supervise, or oversee the practice of any Guide.
+
+This independence has regulatory implications beyond HIPAA scope: FSL does not issue W-2s or 1099s, does not withhold or remit taxes, does not maintain employer-of-record status, and does not provide professional liability coverage. All session revenue, HNT rewards, BenevolenceFund distributions, and SovereignAchievement credentials with monetary value are reportable income to the receiving practitioner. Crypto-denominated compensation is treated as ordinary income at fair market value on the date received per IRS Notice 2014-21 [36] and subsequent guidance.
+
+This positioning is architectural rather than contractual: each session payment flows between participant wallet and practitioner wallet via the SovereignLedger contract, with the 3% BenevolenceFund and 27% FSL operations splits handled by the contract at transaction time. There is no FSL-controlled escrow account holding practitioner funds. The 70/27/3 revenue split is enforced by smart contract logic, not by FSL discretion.
+
 ---
 
 ## 6. Sovereign Guide Attestation Lifecycle
@@ -574,6 +582,8 @@ AI tools (Anthropic Claude, Claude Code) were used for drafting assistance, tech
 [34] Ethereum Foundation. (2021). ERC-4337: Account abstraction using alt mempool. *Ethereum Improvement Proposals*. Retrieved from https://eips.ethereum.org/EIPS/eip-4337
 
 [35] Sheffer, Y., Hardt, D., & Jones, M. (2020). JSON Web Token best current practices. IETF RFC 8725.
+
+[36] Internal Revenue Service. (2014). IRS Notice 2014-21: Virtual currency guidance. Retrieved from https://www.irs.gov/pub/irs-drop/n-14-21.pdf
 
 ---
 
