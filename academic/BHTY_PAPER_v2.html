@@ -3,8 +3,9 @@
 <p><b>Authors:</b> Meg Montañez-Davenport, D.N.Psy., CBHP, BCHN</p>
 <p><b>Affiliation:</b> Future Systems Lab, NC, USA</p>
 <p><b>Corresponding author:</b> future.systems.lab@proton.me</p>
-<p><b>Intellectual Property:</b> Future Systems Lab, USPTO Serial No. 99533250, Class 42 (pending)</p>
-<p><b>Patent Pending.</b> U.S. Provisional Application No. 64/063,037 (filed 11 May 2026).</p>
+<p><b>Intellectual Property:</b></p>
+<p style="margin-left:20px">&#8226; Trademark: USPTO Serial No. 99533250 (Class 42, Live/Under Examination)</p>
+<p style="margin-left:20px">&#8226; Patent: U.S. Provisional No. 64/063,037 (filed 11 May 2026)</p>
 <p><b>Keywords:</b> blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-based authentication, data sovereignty, decentralized health informatics</p>
 <hr/>
 <h2>Abstract</h2>
@@ -211,13 +212,14 @@ event SessionCompleted(
 <p>FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:</p>
 <table>
 <tr><th>Contract</th><th>Address</th><th>Purpose</th><th>Access Control</th></tr>
-<tr><td>HypnoNeuroToken (HNT)</td><td>0x9A4DfCAEF0D47cEFe14b33e0a36F17FFd8a46d29</td><td>ERC-20 [31] wellness engagement token</td><td>Owner-minted</td></tr>
-<tr><td>EncryptHealthToken (EHT)</td><td>0xaBcD1234EfGh5678IjKl9012MnOp3456QrSt7890</td><td>Platform-specific ERC-20</td><td>Owner-minted</td></tr>
-<tr><td>MindMasteryNFT</td><td>0x1234AbCd5678EfGh9012IjKl3456MnOp7890QrSt</td><td>ERC-721 [32] achievement credentials</td><td>Owner-minted</td></tr>
-<tr><td>SovereignLedger</td><td>0x5678EfGh9012IjKl3456MnOp7890QrSt1234AbCd</td><td>Session governance and attestation</td><td>Open registration</td></tr>
+<tr><td>HypnoNeuroToken (HNT)</td><td>0x1ae1e10929f008d1f9883ce574a318abd86084e2</td><td>ERC-20 [31] wellness engagement token</td><td>Owner-minted</td></tr>
+<tr><td>EncryptHealthToken (EHT)</td><td>0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88</td><td>Platform-specific ERC-20</td><td>Owner-minted</td></tr>
+<tr><td>MindMasteryNFT</td><td>0xCb9EcB00574DB29976c7C54045d443666D5C7771</td><td>ERC-1155 [32] achievement credentials</td><td>Owner-minted</td></tr>
+<tr><td>SovereignLedger v2</td><td>0x4afA577fA914068451e0Aa97b61F23960f02aCc4</td><td>Session governance and attestation</td><td>Open registration</td></tr>
 <tr><td>AlchemistForge</td><td>0xE092336F8f5082e57CcBb341A110C20ad186A324</td><td>Voluntary engagement recording</td><td>Fully permissionless</td></tr>
-<tr><td>BenevolenceFund</td><td>0x9012IjKl3456MnOp7890QrSt1234AbCd5678EfGh</td><td>Community wellness treasury</td><td>Owner-distributed</td></tr>
+<tr><td>BenevolenceFund v2</td><td>0x96E8006a1fBB693B55fFf6254B8BF19EC605251B</td><td>Community wellness treasury</td><td>Owner-distributed</td></tr>
 <tr><td>SovereignAchievement</td><td>0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D</td><td>ERC-1155 [33] soulbound credentials</td><td>Owner-minted</td></tr>
+<tr><td>NeuroBalanceConsent</td><td>0x21571805e57f792b66604b140a45D8C1b2E196b8</td><td>Biosensor consent scaffold</td><td>Owner-controlled</td></tr>
 <tr><td>SovereignSession</td><td>0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1</td><td>Guide-initiated session attestation</td><td>Guide-initiated</td></tr>
 </table>
 <p>The contracts range from fully permissionless (AlchemistForge — anyone can call the engagement function) to owner-controlled (token minting, achievement awards). SovereignAchievement is a single ERC-1155 contract that issues soulbound (non-transferable) credentials to both Sovereign Guides and participants, using token ID ranges to differentiate credential types. This spectrum reflects a deliberate architectural choice: participation data is sovereign (the participant controls when and what they record), while credential issuance is governed (the platform verifies achievements before minting).</p>
@@ -301,6 +303,9 @@ event SessionCompleted(
 <p><b>Figure 3.</b> Zero-PHI data classification model. Data elements are classified into three tiers: Tier 1 (on-chain, public) includes consent attestation hashes, session event emissions, and soulbound achievement tokens — all containing zero PHI and zero PII. Tier 2 (off-chain, encrypted) includes session metadata and aggregate wellness metrics — containing no PHI but stored in encrypted form for defense in depth. Tier 3 (off-chain, wallet-gated) includes IPFS-pinned documents accessible only via wallet-authenticated decryption. No tier contains any of the 18 HIPAA Safe Harbor identifiers.</p>
 <p><b>Figure 4.</b> Sovereign Guide attestation lifecycle. The guide initiates a session on-chain by submitting the participant's wallet address and a content hash. The contract emits a <code>SessionStarted</code> event. During the session, engagement data is recorded off-chain. Upon completion, either party can finalize the session, triggering a <code>SessionCompleted</code> event. The on-chain record contains only wallet addresses, content hash, and timestamps — no session content.</p>
 <hr/>
+<h2>AI Use Disclosure</h2>
+<p>AI tools (Anthropic Claude, Claude Code) were used for drafting assistance, technical review, and copy editing. All architectural decisions, factual claims, and final manuscript content are the responsibility of the author.</p>
+<hr/>
 <h2>References</h2>
 <p>[1] Rothstein, M.A. (2010). The Hippocratic bargain and health information technology. <i>Journal of Law and the Biosciences</i>, 1(1), 7-12.</p>
 <p>[2] Cate, F.H., & Mayer-Schonberger, V. (2013). Notice and consent in a world of Big Data. <i>International Data Privacy Law</i>, 3(2), 67-73.</p>
@@ -316,7 +321,7 @@ event SessionCompleted(
 <p>[12] Esposito, C., De Santis, A., Tortora, G., Chang, H., & Choo, K.-K.R. (2018). Blockchain: A panacea for healthcare cloud-based data security and privacy? <i>IEEE Cloud Computing</i>, 5(1), 31-37. doi:10.1109/MCC.2018.011791712</p>
 <p>[13] Mayer, A.H., da Costa, C.A., & Righi, R.R. (2020). Electronic health records in a blockchain: A systematic review. <i>Health Informatics Journal</i>, 26(2), 1273-1288. doi:10.1177/1460458219866350</p>
 <p>[14] Zyskind, G., Nathan, O., & Pentland, A. (2015). Decentralizing privacy: Using blockchain to protect personal data. <i>IEEE Security and Privacy Workshops</i>, 180-184. doi:10.1109/SPW.2015.27</p>
-<p>[15] Welzel, T., et al. (2025). Blockchain-based consent management in digital medicine: A systematic framework. <i>npj Digital Medicine</i>, 8:560.</p>
+<p>[15] Welzel, C., Ostermann, M., Smith, H.L., Minssen, T., Kirsten, T., Gilbert, S. (2025). Enabling secure and self determined health data sharing and consent management. <i>npj Digital Medicine</i>, 8:560. DOI: 10.1038/s41746-025-01945-z.</p>
 <p>[16] US Patent No. 12,235,984. Blockchain-based healthcare data consent management system. United States Patent and Trademark Office.</p>
 <p>[17] Ethereum Foundation. (2018). EIP-191: Signed data standard. <i>Ethereum Improvement Proposals</i>. Retrieved from https://eips.ethereum.org/EIPS/eip-191</p>
 <p>[18] Ethereum Foundation. (2017). EIP-712: Typed structured data hashing and signing. <i>Ethereum Improvement Proposals</i>. Retrieved from https://eips.ethereum.org/EIPS/eip-712</p>

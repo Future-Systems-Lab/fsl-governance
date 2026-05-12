@@ -6,9 +6,9 @@
 
 **Corresponding author:** future.systems.lab@proton.me
 
-**Intellectual Property:** Future Systems Lab, USPTO Serial No. 99533250, Class 42 (pending)
-
-**Patent Pending.** U.S. Provisional Application No. 64/063,037 (filed 11 May 2026).
+**Intellectual Property:**
+- Trademark: USPTO Serial No. 99533250 (Class 42, Live/Under Examination)
+- Patent: U.S. Provisional No. 64/063,037 (filed 11 May 2026)
 
 **Keywords:** blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-based authentication, data sovereignty, decentralized health informatics
 
@@ -333,13 +333,14 @@ FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:
 
 | Contract | Address | Purpose | Access Control |
 |----------|---------|---------|---------------|
-| HypnoNeuroToken (HNT) | 0x9A4DfCAEF0D47cEFe14b33e0a36F17FFd8a46d29 | ERC-20 [31] wellness engagement token | Owner-minted |
-| EncryptHealthToken (EHT) | 0xaBcD1234EfGh5678IjKl9012MnOp3456QrSt7890 | Platform-specific ERC-20 | Owner-minted |
-| MindMasteryNFT | 0x1234AbCd5678EfGh9012IjKl3456MnOp7890QrSt | ERC-721 [32] achievement credentials | Owner-minted |
-| SovereignLedger | 0x5678EfGh9012IjKl3456MnOp7890QrSt1234AbCd | Session governance and attestation | Open registration |
+| HypnoNeuroToken (HNT) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | ERC-20 [31] wellness engagement token | Owner-minted |
+| EncryptHealthToken (EHT) | 0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88 | Platform-specific ERC-20 | Owner-minted |
+| MindMasteryNFT | 0xCb9EcB00574DB29976c7C54045d443666D5C7771 | ERC-1155 [32] achievement credentials | Owner-minted |
+| SovereignLedger v2 | 0x4afA577fA914068451e0Aa97b61F23960f02aCc4 | Session governance and attestation | Open registration |
 | AlchemistForge | 0xE092336F8f5082e57CcBb341A110C20ad186A324 | Voluntary engagement recording | Fully permissionless |
-| BenevolenceFund | 0x9012IjKl3456MnOp7890QrSt1234AbCd5678EfGh | Community wellness treasury | Owner-distributed |
+| BenevolenceFund v2 | 0x96E8006a1fBB693B55fFf6254B8BF19EC605251B | Community wellness treasury | Owner-distributed |
 | SovereignAchievement | 0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D | ERC-1155 [33] soulbound credentials | Owner-minted |
+| NeuroBalanceConsent | 0x21571805e57f792b66604b140a45D8C1b2E196b8 | Biosensor consent scaffold | Owner-controlled |
 | SovereignSession | 0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1 | Guide-initiated session attestation | Guide-initiated |
 
 The contracts range from fully permissionless (AlchemistForge — anyone can call the engagement function) to owner-controlled (token minting, achievement awards). SovereignAchievement is a single ERC-1155 contract that issues soulbound (non-transferable) credentials to both Sovereign Guides and participants, using token ID ranges to differentiate credential types. This spectrum reflects a deliberate architectural choice: participation data is sovereign (the participant controls when and what they record), while credential issuance is governed (the platform verifies achievements before minting).
@@ -486,6 +487,12 @@ The system is not without limitations — testnet deployment, single-guide scope
 
 ---
 
+## AI Use Disclosure
+
+AI tools (Anthropic Claude, Claude Code) were used for drafting assistance, technical review, and copy editing. All architectural decisions, factual claims, and final manuscript content are the responsibility of the author.
+
+---
+
 ## References
 
 [1] Rothstein, M.A. (2010). The Hippocratic bargain and health information technology. *Journal of Law and the Biosciences*, 1(1), 7-12.
@@ -516,7 +523,7 @@ The system is not without limitations — testnet deployment, single-guide scope
 
 [14] Zyskind, G., Nathan, O., & Pentland, A. (2015). Decentralizing privacy: Using blockchain to protect personal data. *IEEE Security and Privacy Workshops*, 180-184. doi:10.1109/SPW.2015.27
 
-[15] Welzel, T., et al. (2025). Blockchain-based consent management in digital medicine: A systematic framework. *npj Digital Medicine*, 8:560.
+[15] Welzel, C., Ostermann, M., Smith, H.L., Minssen, T., Kirsten, T., Gilbert, S. (2025). Enabling secure and self determined health data sharing and consent management. *npj Digital Medicine*, 8:560. DOI: 10.1038/s41746-025-01945-z.
 
 [16] US Patent No. 12,235,984. Blockchain-based healthcare data consent management system. United States Patent and Trademark Office.
 
