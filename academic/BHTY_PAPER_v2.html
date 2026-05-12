@@ -1,16 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>BHTY Paper v2</title>
-<style>body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.4;margin:1in;max-width:7in;}
-h1{font-size:14pt;text-align:center;margin-bottom:6pt;}
-h2{font-size:12pt;margin-top:18pt;}h3{font-size:11pt;font-style:italic;margin-top:12pt;}
-p{text-align:justify;margin-bottom:6pt;}
-table{border-collapse:collapse;width:100%;margin:12pt 0;font-size:9pt;}
-th,td{border:1px solid #999;padding:4px 6px;text-align:left;}
-th{background:#f0f0f0;font-weight:bold;}
-code{font-family:monospace;font-size:9pt;background:#f5f5f5;padding:1px 3px;}
-pre{background:#f5f5f5;padding:8px;font-size:9pt;overflow-x:auto;border:1px solid #ddd;margin:8pt 0;}
-blockquote{margin-left:20px;padding-left:10px;border-left:2px solid #ccc;}
-hr{margin:12pt 0;border:none;border-top:1px solid #ccc;}
-</style></head><body>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>BHTY v2</title><style>body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.4;margin:1in;max-width:7in;}h1{font-size:14pt;text-align:center;}h2{font-size:12pt;margin-top:18pt;}h3{font-size:11pt;font-style:italic;}p{text-align:justify;margin-bottom:6pt;}table{border-collapse:collapse;width:100%;margin:12pt 0;font-size:9pt;}th,td{border:1px solid #999;padding:4px 6px;}th{background:#f0f0f0;}code{font-family:monospace;font-size:9pt;background:#f5f5f5;padding:1px 3px;}pre{background:#f5f5f5;padding:8px;font-size:9pt;border:1px solid #ddd;margin:8pt 0;}hr{margin:12pt 0;border:none;border-top:1px solid #ccc;}</style></head><body>
 <h1>EIP-191 Consent Architecture for Sovereign Behavioral Health Data Governance: A Decentralized Implementation</h1>
 <p><b>Authors:</b> Meg Montañez-Davenport, D.N.Psy., CBHP, BCHN</p>
 <p><b>Affiliation:</b> Future Systems Lab, NC, USA</p>
@@ -20,7 +8,7 @@ hr{margin:12pt 0;border:none;border-top:1px solid #ccc;}
 <p><b>Keywords:</b> blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-based authentication, data sovereignty, decentralized health informatics</p>
 <hr/>
 <h2>Abstract</h2>
-<p>Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents Future Systems Lab (FSL), a decentralized health data infrastructure comprising five interconnected platforms that replaces traditional click-through consent with EIP-191 cryptographic wallet signatures as the unified mechanism for identity verification, data access authorization, and session governance. The system operates outside HIPAA regulatory scope by architectural design: it holds zero protected health information (PHI), functions as neither a covered entity nor a business associate, and stores no clinical records. We describe the complete authentication flow from wallet connection through JSON Web Token (JWT) issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present the EIP-191 design rationale with explicit comparison to EIP-712 typed structured data signing, and introduce AlchemistForge, a permissionless smart contract for recording voluntary behavioral health engagement on-chain with zero personally identifiable information. The system has been deployed on Ethereum Sepolia testnet with eight smart contracts and a functioning multi-role consent architecture. A comparative evaluation against MedRec, ADvoCATE, Welzel et al. (2025), and US Patent 12,235,984 demonstrates that FSL is the first system to unify authentication, informed consent, session authorization, and behavioral health data attribution into a single cryptographic signature event. We discuss architectural tradeoffs, regulatory positioning, corrected revocability semantics, and the path toward formal evaluation.</p>
+<p>Centralized behavioral health platforms create a fundamental asymmetry: participants generate intimate wellness data, yet have no cryptographic control over who accesses it, when, or why. This paper presents Future Systems Lab (FSL), a decentralized health data infrastructure comprising five interconnected platforms that replaces traditional click-through consent with EIP-191 cryptographic wallet signatures as the unified mechanism for identity verification, data access authorization, and session governance. The system operates outside HIPAA regulatory scope by architectural design: it holds zero protected health information (PHI), functions as neither a covered entity nor a business associate, and stores no clinical records. We describe the complete authentication flow from wallet connection through JSON Web Token (JWT) issuance, the consent-gated access patterns that enforce participant sovereignty at the middleware layer, and the hybrid on-chain/off-chain data model that anchors consent events to Ethereum while maintaining operational performance. We present the EIP-191 design rationale with explicit comparison to EIP-712 typed structured data signing, and introduce AlchemistForge, a permissionless smart contract for recording voluntary behavioral health engagement on-chain with zero personally identifiable information. The system has been deployed on Ethereum Sepolia testnet with nine smart contracts and a functioning multi-role consent architecture. A comparative evaluation against MedRec, ADvoCATE, Welzel et al. (2025), and US Patent 12,235,984 demonstrates that FSL is the first system to unify authentication, informed consent, session authorization, and behavioral health data attribution into a single cryptographic signature event. We discuss architectural tradeoffs, regulatory positioning, corrected revocability semantics, and the path toward formal evaluation.</p>
 <hr/>
 <h2>1. Introduction</h2>
 <p>Behavioral health data occupies a uniquely sensitive position in the health informatics landscape. Unlike laboratory results or imaging data, behavioral health records often contain subjective self-disclosures, therapeutic narratives, and psychological assessments that participants may not want shared even with other healthcare practitioners [1]. Yet the systems that store this data — electronic health records, therapy platforms, and wellness applications — operate on centralized architectures where the platform operator, not the participant, controls access.</p>
@@ -220,7 +208,7 @@ event SessionCompleted(
 <hr/>
 <h2>7. Implementation</h2>
 <h3>7.1 Smart Contracts</h3>
-<p>FSL has deployed eight smart contracts on the Ethereum Sepolia testnet:</p>
+<p>FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:</p>
 <table>
 <tr><th>Contract</th><th>Address</th><th>Purpose</th><th>Access Control</th></tr>
 <tr><td>HypnoNeuroToken (HNT)</td><td>0x9A4DfCAEF0D47cEFe14b33e0a36F17FFd8a46d29</td><td>ERC-20 [31] wellness engagement token</td><td>Owner-minted</td></tr>
