@@ -109,6 +109,8 @@ FSL comprises five interconnected platforms, each serving a distinct function in
 
 All five platforms share a single authentication architecture: EIP-191 wallet signature, JWT cookie issuance, and middleware-verified access.
 
+![Figure 1. System architecture for sovereign behavioral health data governance.](figures/fig1_system_architecture.png)
+
 ### 3.2 Authentication Flow
 
 The authentication flow proceeds in six steps (see Figure 2):
@@ -137,6 +139,8 @@ This message serves simultaneously as informed consent and authentication challe
 - Validates the consent message contains required phrases (educational disclaimer, sovereignty acknowledgment)
 - Issues a JSON Web Token (JWT) [26] containing the verified address, role (participant or guide), and a configurable expiration (maximum 24 hours)
 - The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser cookie
+
+![Figure 2. EIP-191 wallet-signed consent attestation sequence.](figures/fig2_eip191_consent_flow.png)
 
 ### 3.3 Middleware Verification Layer
 
@@ -254,6 +258,8 @@ FSL employs a hybrid on-chain/off-chain data architecture designed to ensure tha
 
 This hybrid approach addresses the fundamental tension between blockchain immutability and healthcare data requirements: data that could become sensitive is encrypted and stored off-chain where it can be managed (and deleted if necessary), while consent events and attestations are anchored on-chain where they provide an immutable audit trail.
 
+![Figure 3. Zero-PHI data classification across system layers.](figures/fig3_zero_phi_data_classification.png)
+
 ### 5.2 Regulatory Scope: Outside HIPAA by Architectural Design
 
 FSL operates outside HIPAA regulatory scope by architectural design — the system holds zero PHI, is not a covered entity, and maintains no business associate relationships. This determination rests on three architectural properties as defined by 45 CFR Section 160.103 [3]:
@@ -285,6 +291,8 @@ SovereignSession extends the consent architecture from platform access to indivi
 3. **Session Completion.** Either the guide or participant can mark the session as complete through the contract interface.
 
 4. **Attestation Finalization.** Upon completion, the contract emits an event recording the final session state. This event serves as an immutable attestation that the session occurred, was authorized by a credentialed guide, and involved a consenting participant.
+
+![Figure 4. Sovereign Guide and Participant attestation lifecycle.](figures/fig4_attestation_lifecycle.png)
 
 ```solidity
 // Listing 2: Session Attestation Event Pattern (Solidity)
@@ -335,7 +343,7 @@ FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:
 |----------|---------|---------|---------------|
 | HypnoNeuroToken (HNT) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | ERC-20 [31] wellness engagement token | Owner-minted |
 | EncryptHealthToken (EHT) | 0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88 | Platform-specific ERC-20 | Owner-minted |
-| MindMasteryNFT | 0xCb9EcB00574DB29976c7C54045d443666D5C7771 | ERC-1155 [32] achievement credentials | Owner-minted |
+| MindMasteryNFT | 0xCb9EcB00574DB29976c7C54045d443666D5C7771 | ERC-1155 [33] achievement credentials | Owner-minted |
 | SovereignLedger v2 | 0x4afA577fA914068451e0Aa97b61F23960f02aCc4 | Session governance and attestation | Open registration |
 | AlchemistForge | 0xE092336F8f5082e57CcBb341A110C20ad186A324 | Voluntary engagement recording | Fully permissionless |
 | BenevolenceFund v2 | 0x96E8006a1fBB693B55fFf6254B8BF19EC605251B | Community wellness treasury | Owner-distributed |
@@ -370,7 +378,7 @@ As of the writing of this paper, the FSL ecosystem has been deployed on Ethereum
 
 - **Contract deployment date range:** 2025-2026
 - **Active platforms:** Five interconnected platforms sharing a single authentication architecture
-- **Smart contracts deployed:** Eight verified contracts on Sepolia
+- **Smart contracts deployed:** Nine verified contracts on Sepolia
 - **Authentication method:** EIP-191 wallet signature with JWT issuance
 - **Consent model:** Cryptographic signature over human-readable informed consent message
 - **Data model:** Zero-PHI hybrid on-chain/off-chain architecture
@@ -395,7 +403,7 @@ Table 2 presents a comparative analysis of FSL against four blockchain-based con
 | **Data Model** | Zero-PHI; pseudonymous wallet addresses only | Encrypted PHI with consent-gated access | Tokenized consent references | Pointer-based (off-chain EHR) | On-chain consent, off-chain data |
 | **Actor Model** | Participant (wallet) + Sovereign Guide (wallet) | Patient + Provider + Institution | Patient + Provider + System | Patient + Provider + Institution | Data subject + Controller + Processor |
 | **Auth-Consent Unification** | Yes — single signature event | No — separate authentication | No — separate authentication | No — separate authentication | No — separate authentication |
-| **Implementation Status** | Testnet deployment, 8 contracts, single-guide | Described architecture, no deployment reported | Patent granted, implementation not public | Prototype on private Ethereum fork | Proof-of-concept |
+| **Implementation Status** | Testnet deployment, 9 contracts, single-guide | Described architecture, no deployment reported | Patent granted, implementation not public | Prototype on private Ethereum fork | Proof-of-concept |
 
 ### 9.2 Key Differentiators
 
