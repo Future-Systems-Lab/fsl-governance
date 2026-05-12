@@ -1,21 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>BHTY v2</title>
-<style>
-body { font-family: "Times New Roman", serif; font-size: 11pt; line-height: 1.45; margin: 0.8in; max-width: 7in; color: #111; }
-h1 { font-size: 13pt; text-align: center; margin-bottom: 8pt; }
-h2 { font-size: 11.5pt; margin-top: 16pt; margin-bottom: 6pt; }
-h3 { font-size: 11pt; font-style: italic; margin-top: 10pt; margin-bottom: 4pt; }
-p { text-align: justify; margin-bottom: 5pt; }
-table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 8.5pt; page-break-inside: avoid; }
-th, td { border: 1px solid #999; padding: 3px 5px; text-align: left; vertical-align: top; }
-th { background: #f0f0f0; font-weight: bold; }
-code { font-family: "Courier New", monospace; font-size: 9pt; background: #f5f5f5; padding: 1px 2px; }
-pre { background: #f5f5f5; padding: 6px; font-size: 8.5pt; border: 1px solid #ddd; margin: 6pt 0; font-family: "Courier New", monospace; white-space: pre-wrap; word-wrap: break-word; }
-hr { margin: 10pt 0; border: none; border-top: 1px solid #ccc; }
-img { max-width: 95%; display: block; margin: 8pt auto; }
-figcaption { font-size: 9pt; font-style: italic; text-align: center; margin: 4pt 0 8pt; }
-ul { margin: 4pt 0 4pt 20px; }
-li { margin-bottom: 2pt; }
-</style></head><body>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>BHTY v2</title><style>body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.45;margin:0.8in;max-width:7in;color:#111;}h1{font-size:13pt;text-align:center;}h2{font-size:11.5pt;margin-top:16pt;}h3{font-size:11pt;font-style:italic;}p{text-align:justify;margin-bottom:5pt;}table{border-collapse:collapse;width:100%;margin:10pt 0;font-size:8.5pt;page-break-inside:avoid;}th,td{border:1px solid #999;padding:3px 5px;text-align:left;vertical-align:top;}th{background:#f0f0f0;}code{font-family:monospace;font-size:9pt;background:#f5f5f5;padding:1px 2px;}pre{background:#f5f5f5;padding:6px;font-size:8.5pt;border:1px solid #ddd;margin:6pt 0;white-space:pre-wrap;}hr{margin:10pt 0;border:none;border-top:1px solid #ccc;}img{max-width:95%;display:block;margin:8pt auto;}figcaption{font-size:9pt;font-style:italic;text-align:center;margin:4pt 0 8pt;}ul{margin:4pt 0 4pt 20px;}li{margin-bottom:2pt;}</style></head><body>
 <h1>EIP-191 Consent Architecture for Sovereign Behavioral Health Data Governance: A Decentralized Implementation</h1>
 <p><b>Authors:</b> Meg Montañez-Davenport, D.N.Psy., CBHP, BCHN</p>
 <p><b>Affiliation:</b> Future Systems Lab, NC, USA</p>
@@ -80,7 +63,7 @@ li { margin-bottom: 2pt; }
 <p>4. <b>AlchemistForge</b> — A permissionless smart contract and interface for recording voluntary behavioral health engagement (shadow integration) on-chain.</p>
 <p>5. <b>NeuroBalance</b> — A general wellness dashboard integrating biometric data with on-chain consent management. NeuroBalance is currently in pre-implementation phase and is positioned as a general wellness product under FDA guidance [22]; it does not perform clinical diagnosis or treatment.</p>
 <p>All five platforms share a single authentication architecture: EIP-191 wallet signature, JWT cookie issuance, and middleware-verified access.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig1.png" alt="Figure 1. System architecture for sovereign behavioral health data governance."/><figcaption>Figure 1. System architecture for sovereign behavioral health data governance.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig1.png"/><figcaption>Figure 1. System architecture for sovereign behavioral health data governance.</figcaption></figure>
 <h3>3.2 Authentication Flow</h3>
 <p>The authentication flow proceeds in six steps (see Figure 2):</p>
 <p><b>Step 1 — Wallet Detection.</b> The client application detects available wallet providers using the <code>window.ethereum</code> interface. FSL implements EIP-6963 multi-provider discovery [23], preferring Brave Wallet when available but supporting any injected Ethereum provider.</p>
@@ -104,7 +87,7 @@ li { margin-bottom: 2pt; }
 <li>Validates the consent message contains required phrases (educational disclaimer, sovereignty acknowledgment)</li>
 <li>Issues a JSON Web Token (JWT) [26] containing the verified address, role (participant or guide), and a configurable expiration (maximum 24 hours)</li>
 <li>The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser cookie</li>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig2.png" alt="Figure 2. EIP-191 wallet-signed consent attestation sequence."/><figcaption>Figure 2. EIP-191 wallet-signed consent attestation sequence.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig2.png"/><figcaption>Figure 2. EIP-191 wallet-signed consent attestation sequence.</figcaption></figure>
 <h3>3.3 Middleware Verification Layer</h3>
 </ul>
 <p>Every protected route passes through a server-side middleware layer that:</p>
@@ -195,7 +178,7 @@ function verifyConsentSignature(message, signature, claimedAddress) {
 <li>Encrypted documents (IPFS-pinned, wallet-gated decryption)</li>
 </ul>
 <p>This hybrid approach addresses the fundamental tension between blockchain immutability and healthcare data requirements: data that could become sensitive is encrypted and stored off-chain where it can be managed (and deleted if necessary), while consent events and attestations are anchored on-chain where they provide an immutable audit trail.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig3.png" alt="Figure 3. Zero-PHI data classification across system layers."/><figcaption>Figure 3. Zero-PHI data classification across system layers.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig3.png"/><figcaption>Figure 3. Zero-PHI data classification across system layers.</figcaption></figure>
 <h3>5.2 Regulatory Scope: Outside HIPAA by Architectural Design</h3>
 <p>FSL operates outside HIPAA regulatory scope by architectural design — the system holds zero PHI, is not a covered entity, and maintains no business associate relationships. This determination rests on three architectural properties as defined by 45 CFR Section 160.103 [3]:</p>
 <p>1. <b>No PHI storage.</b> The system stores no individually identifiable health information. Participants are identified solely by pseudonymous Ethereum wallet addresses. No names, dates of birth, Social Security numbers, medical record numbers, or any of the 18 HIPAA identifiers are collected or stored. Wellness engagement metrics are aggregate and non-clinical.</p>
@@ -212,7 +195,7 @@ function verifyConsentSignature(message, signature, claimedAddress) {
 <p>2. <b>Session Recording.</b> During the session, engagement data is recorded off-chain. No clinical notes, diagnostic codes, or treatment plans are stored. The on-chain record contains only the guide address, participant address, content hash, and timestamp.</p>
 <p>3. <b>Session Completion.</b> Either the guide or participant can mark the session as complete through the contract interface.</p>
 <p>4. <b>Attestation Finalization.</b> Upon completion, the contract emits an event recording the final session state. This event serves as an immutable attestation that the session occurred, was authorized by a credentialed guide, and involved a consenting participant.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig4.png" alt="Figure 4. Sovereign Guide and Participant attestation lifecycle."/><figcaption>Figure 4. Sovereign Guide and Participant attestation lifecycle.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig4.png"/><figcaption>Figure 4. Sovereign Guide and Participant attestation lifecycle.</figcaption></figure>
 <pre>
 // Listing 2: Session Attestation Event Pattern (Solidity)
 event SessionStarted(
@@ -328,6 +311,7 @@ event SessionCompleted(
 <p>7. <b>Cross-chain consent federation.</b> Enabling participants to use a single wallet signature to authorize data sharing across multiple independent platforms, including potential cross-chain payment integration, is identified as future work.</p>
 <p>8. <b>Formal verification.</b> Mathematical proof that the consent architecture satisfies the properties of verifiability, attributability, revocability, and portability claimed in Section 4 is planned.</p>
 <p>9. <b>IRB-approved participant study.</b> A mixed-methods evaluation comparing participant-perceived data sovereignty under wallet-based consent vs. traditional click-through consent.</p>
+<p>10. <b>SovereignSession Encrypted Recording (Phase 5 doctoral research).</b> Client-side encryption of live video streams before leaving the participant's browser, with encrypted files pinned to IPFS and only the cryptographic hash recorded on-chain. The participant holds the sole decryption key; playback requires explicit participant key input with no auto-play capability. Both parties opt in via the existing SovereignSession consent flow. No existing telehealth platform — including Doxy.me, Daily.co, and Zoom — implements client-side encryption with participant-controlled keys and on-chain proof of recording existence. This capability is identified as the primary unsolved research problem for the doctoral program and is not claimed as implemented in the current system.</p>
 <p>10. <b>Mainnet deployment.</b> Migration of contracts to Ethereum mainnet or a Layer 2 network with formal security audit.</p>
 <hr/>
 <h2>11. Conclusion</h2>

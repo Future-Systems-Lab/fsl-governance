@@ -467,6 +467,8 @@ This three-layer revocation model provides practical access termination while ho
 
 9. **IRB-approved participant study.** A mixed-methods evaluation comparing participant-perceived data sovereignty under wallet-based consent vs. traditional click-through consent.
 
+10. **SovereignSession Encrypted Recording (Phase 5 doctoral research).** Client-side encryption of live video streams before leaving the participant's browser, with encrypted files pinned to IPFS and only the cryptographic hash recorded on-chain. The participant holds the sole decryption key; playback requires explicit participant key input with no auto-play capability. Both parties opt in via the existing SovereignSession consent flow. No existing telehealth platform — including Doxy.me, Daily.co, and Zoom — implements client-side encryption with participant-controlled keys and on-chain proof of recording existence. This capability is identified as the primary unsolved research problem for the doctoral program and is not claimed as implemented in the current system.
+
 10. **Mainnet deployment.** Migration of contracts to Ethereum mainnet or a Layer 2 network with formal security audit.
 
 ---

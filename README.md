@@ -12,6 +12,12 @@ Non-provisional conversion deadline: May 11, 2027.
 
 Full filing details and disclosure documents at `academic/patent/`.
 
+## Doctoral Research
+
+**Thesis:** Decentralized Sovereign Data Governance: Behavioral Health as a Proving Ground for Wallet-Signed Consent Architectures
+
+Phases 1–4 deployed and tested. Phase 5 capstone research: **SovereignSession Encrypted Recording** — client-side encryption of live video before leaving the browser, IPFS-pinned encrypted storage, on-chain hash proof, participant-controlled decryption keys.
+
 ## Structure
 
 ```
