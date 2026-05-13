@@ -1,6 +1,6 @@
 # FSL Decentralization Roadmap
 ## Current State + Migration Path to Full Sovereignty
-### May 7, 2026
+### May 13, 2026
 
 ---
 
@@ -33,7 +33,6 @@
 | Vercel hosting | Frontend CDN, fast deploys | IPFS backup via Lighthouse | Q4 2026 |
 | IONOS VPS | Backend API + PostgreSQL | Multi-region VPS, then decentralized DB | Q3 2026 |
 | Daily.co | Video sessions | Migrate to Huddle01 (Web3-native) | Post-revenue |
-| CryptoCompare | Ticker prices | Public market data — acceptable | N/A |
 
 ## CODE HOSTING MIGRATION PLAN
 
@@ -60,7 +59,6 @@ SovereignSession (0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1) — wallet-native 
 See `PRE_MAINNET_GATES.md` for full checklist. Per ecosystem audit, **5 of 13 pre-mainnet gates are closed**. Key remaining blockers:
 - [ ] Smart contract audit (third party)
 - [ ] ToS attorney review
-- [ ] NC A&H license confirmed
 - [ ] First paying user + MRR validated
 
 ## RADICLE SETUP PLAN
@@ -86,11 +84,13 @@ See `PRE_MAINNET_GATES.md` for full checklist. Per ecosystem audit, **5 of 13 pr
 
 ## ACADEMIC NOTE
 
-This roadmap is part of Dr. Meg Montanez-Davenport's Doctor of Engineering (Engineering Management) Applied Project at ASU (target Oct 2026).
+This roadmap is part of Dr. Meg Montañez-Davenport's Doctor of Engineering (DEng) Applied Project at Arizona State University (application deadline October 1, 2026; target enrollment Spring 2027).
+
+**Thesis:** "Decentralized Sovereign Data Governance: Behavioral Health as a Proving Ground for Wallet-Signed Consent Architectures"
 
 The tension between pragmatic centralization and sovereignty-first architecture is a core research theme — documented here transparently as an engineering management decision log. Every centralized dependency is acknowledged, mitigated, and scheduled for migration. The ecosystem is framed by the six-layer thesis (Financial, Identity, Governance, Compliance, Therapeutic, Research) as the canonical architectural model.
 
 ---
 
-*Document version 2.0 — May 7, 2026*
+*Document version 2.1 — May 13, 2026*
 *Maintained by FSL system_architect_agent.*
