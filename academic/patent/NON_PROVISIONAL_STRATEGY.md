@@ -17,14 +17,14 @@ The provisional focuses on the specific FSL implementation. The non-provisional 
 5. **Sovereign Guide model:** Claimed broadly as consent-gated practitioner access
 
 ### Phase 5 as Continuation Patent Candidate
-**SovereignSession Encrypted Recording** may warrant a separate continuation or continuation-in-part:
-- Client-side encryption of live video before leaving browser
+**Two-Party Wallet-Signed Mutual Authentication with Client-Side Encrypted Session Recording** may warrant a separate continuation or continuation-in-part:
+- Two-party mutual authentication: both Sovereign Guide and Participant submit EIP-191 signatures before session start, verified on-chain — immutable proof of bilateral consent
+- Client-side AES-256-GCM encryption of live video before leaving the browser
 - IPFS-pinned encrypted storage with on-chain hash proof
-- Participant-controlled decryption keys
-- Two-party opt-in via consent flow
-- Novel: no competitor implements this combination
+- Participant-controlled decryption keys with no auto-play capability
+- Novel: no competitor implements two-party wallet-signed mutual consent with client-side encrypted recording and on-chain attestation
 
-This would be filed as a continuation-in-part (CIP) referencing 64/063,037 for priority date on the base architecture, with new matter covering the encrypted recording method.
+This would be filed as a continuation-in-part (CIP) referencing 64/063,037 for priority date on the base architecture, with new matter covering the bilateral consent verification method and encrypted recording pipeline.
 
 ### Alignment with Doctoral Thesis
 **Thesis:** "Decentralized Sovereign Data Governance: Behavioral Health as a Proving Ground for Wallet-Signed Consent Architectures"
@@ -32,7 +32,7 @@ This would be filed as a continuation-in-part (CIP) referencing 64/063,037 for p
 The non-provisional claim scope should mirror the thesis framing:
 - Architecture is general-purpose (not healthcare-specific)
 - Behavioral health is the stress-test domain demonstrating viability
-- Phase 5 encrypted recording is the novel research contribution
+- Phase 5 two-party mutual auth + encrypted recording is the novel research contribution
 
 ### Timeline
 | Date | Action |

@@ -16,7 +16,7 @@ Full filing details and disclosure documents at `academic/patent/`.
 
 **Thesis:** Decentralized Sovereign Data Governance: Behavioral Health as a Proving Ground for Wallet-Signed Consent Architectures
 
-Phases 1–4 deployed and tested. Phase 5 capstone research: **SovereignSession Encrypted Recording** — client-side encryption of live video before leaving the browser, IPFS-pinned encrypted storage, on-chain hash proof, participant-controlled decryption keys.
+Phases 1–4 deployed and tested. Phase 5 capstone research: **Two-Party Wallet-Signed Mutual Authentication with Client-Side Encrypted Session Recording** — advances SovereignSession from single-party attestation to bilateral cryptographic consent (both Guide and Participant EIP-191 verified on-chain), with client-side AES-256-GCM encrypted video, IPFS-pinned storage, on-chain hash proof, and participant-controlled decryption keys.
 
 ## Structure
 
