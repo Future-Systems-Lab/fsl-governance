@@ -7,8 +7,9 @@
 **Corresponding author:** future.systems.lab@proton.me
 
 **Intellectual Property:**
-- Trademark: USPTO Serial No. 99533250 (Class 42, Live/Under Examination)
-- Patent: U.S. Provisional No. 64/063,037 (filed 11 May 2026)
+- Trademark: USPTO Serial No. 99533250 — "Future Systems Lab," Class 42 (Software/Tech Platform) — Publishing May 19, 2026
+- Trademark: USPTO Serial No. 99821948 — "Future Systems Lab," Class 35 (Online Marketplace/Directory) — Filed May 13, 2026
+- Patent: U.S. Provisional Application No. 64/063,037 — Filed May 11, 2026 — Assigned to Future Systems Lab LLC
 
 **Keywords:** blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-based authentication, data sovereignty, decentralized health informatics
 
