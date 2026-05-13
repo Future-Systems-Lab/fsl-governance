@@ -2,145 +2,118 @@
   <defs>
     <style>
       text { fill: #1E293B; }
-      .title { font-size: 18px; font-weight: 700; }
-      .lane-header { font-size: 12px; font-weight: 700; fill: #FFFFFF; }
-      .step-num { font-size: 14px; font-weight: 700; }
-      .step-label { font-size: 11px; font-weight: 600; }
-      .step-desc { font-size: 9.5px; fill: #64748B; }
-      .code { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 9px; fill: #475569; }
+      .title { font-size: 24px; font-weight: 700; }
+      .subtitle { font-size: 15px; fill: #475569; }
+      .lane { font-size: 14px; font-weight: 700; fill: #FFFFFF; }
+      .step-num { font-size: 18px; font-weight: 700; }
+      .step-label { font-size: 15px; font-weight: 600; }
+      .step-desc { font-size: 12px; fill: #475569; }
+      .code { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; fill: #475569; }
+      .code-sm { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; fill: #475569; }
+      .annot { font-size: 13px; fill: #475569; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
-    </marker>
-    <marker id="arrow-gold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#F59E0B"/>
-    </marker>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#FFD700"/></marker>
   </defs>
 
-  <!-- Background -->
   <rect width="1600" height="1000" fill="#FFFFFF"/>
 
   <!-- Title -->
   <text x="800" y="35" text-anchor="middle" class="title">Figure 2. EIP-191 Wallet-Signed Consent Attestation Flow</text>
-  <text x="800" y="52" text-anchor="middle" font-size="11" fill="#64748B">The consent event IS the authentication event — a single cryptographic act</text>
+  <text x="800" y="56" text-anchor="middle" class="subtitle">The consent event IS the authentication event — a single cryptographic act</text>
 
   <!-- Swimlane headers -->
-  <rect x="60" y="70" width="200" height="32" rx="6" fill="#475569"/>
-  <text x="160" y="91" text-anchor="middle" class="lane-header">PARTICIPANT</text>
+  <rect x="40" y="75" width="220" height="34" rx="6" fill="#475569"/>
+  <text x="150" y="97" text-anchor="middle" class="lane">PARTICIPANT</text>
+  <rect x="290" y="75" width="300" height="34" rx="6" fill="#475569"/>
+  <text x="440" y="97" text-anchor="middle" class="lane">BROWSER / BRAVE WALLET</text>
+  <rect x="620" y="75" width="300" height="34" rx="6" fill="#475569"/>
+  <text x="770" y="97" text-anchor="middle" class="lane">VERCEL SERVERLESS API</text>
+  <rect x="950" y="75" width="220" height="34" rx="6" fill="#00D9FF"/>
+  <text x="1060" y="97" text-anchor="middle" class="lane">ETHEREUM (SEPOLIA)</text>
 
-  <rect x="310" y="70" width="280" height="32" rx="6" fill="#475569"/>
-  <text x="450" y="91" text-anchor="middle" class="lane-header">BROWSER / BRAVE WALLET</text>
+  <!-- Lane lines -->
+  <line x1="150" y1="115" x2="150" y2="880" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="440" y1="115" x2="440" y2="880" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="770" y1="115" x2="770" y2="880" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="1060" y1="115" x2="1060" y2="880" stroke="#00D9FF" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
 
-  <rect x="640" y="70" width="280" height="32" rx="6" fill="#475569"/>
-  <text x="780" y="91" text-anchor="middle" class="lane-header">VERCEL SERVERLESS API</text>
+  <!-- STEP 1 -->
+  <rect x="30" y="130" width="44" height="28" rx="5" fill="#475569"/>
+  <text x="52" y="150" text-anchor="middle" class="step-num" fill="#FFFFFF">1</text>
+  <text x="84" y="150" class="step-label">Wallet Detection (EIP-6963)</text>
+  <line x1="150" y1="165" x2="430" y2="165" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="290" y="183" text-anchor="middle" class="code-sm">window.ethereum via EIP-6963</text>
+  <rect x="310" y="190" width="260" height="26" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="440" y="208" text-anchor="middle" class="annot">Brave Wallet, Rainbow, Rabby, any EIP-1193</text>
 
-  <rect x="970" y="70" width="200" height="32" rx="6" fill="#00B4D8"/>
-  <text x="1070" y="91" text-anchor="middle" class="lane-header">ETHEREUM (SEPOLIA)</text>
+  <!-- STEP 2 -->
+  <rect x="30" y="235" width="44" height="28" rx="5" fill="#475569"/>
+  <text x="52" y="255" text-anchor="middle" class="step-num" fill="#FFFFFF">2</text>
+  <text x="84" y="255" class="step-label">Account Request</text>
+  <rect x="310" y="270" width="260" height="28" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
+  <text x="440" y="290" text-anchor="middle" class="code-sm">eth_requestAccounts → [address]</text>
+  <text x="1200" y="285" text-anchor="middle" class="annot" fill="#DC2626">No name, email, or PII transmitted</text>
 
-  <rect x="1220" y="70" width="320" height="32" rx="6" fill="#475569"/>
-  <text x="1380" y="91" text-anchor="middle" class="lane-header">RESULTING STATE</text>
+  <!-- STEP 3 -->
+  <rect x="30" y="315" width="44" height="28" rx="5" fill="#475569"/>
+  <text x="52" y="335" text-anchor="middle" class="step-num" fill="#FFFFFF">3</text>
+  <text x="84" y="335" class="step-label">Nonce Generation</text>
+  <line x1="440" y1="350" x2="760" y2="350" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="600" y="368" text-anchor="middle" class="code-sm">128-bit nonce (NIST SP 800-63B)</text>
+  <line x1="760" y1="378" x2="440" y2="378" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="600" y="396" text-anchor="middle" class="code-sm">Nonce bound to wallet + TTL</text>
 
-  <!-- Swimlane lines -->
-  <line x1="160" y1="106" x2="160" y2="940" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="450" y1="106" x2="450" y2="940" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="780" y1="106" x2="780" y2="940" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="1070" y1="106" x2="1070" y2="940" stroke="#00B4D8" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+  <!-- STEP 4 -->
+  <rect x="30" y="415" width="44" height="28" rx="5" fill="#475569"/>
+  <text x="52" y="435" text-anchor="middle" class="step-num" fill="#FFFFFF">4</text>
+  <text x="84" y="435" class="step-label">Consent Message Construction</text>
+  <rect x="330" y="450" width="420" height="55" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
+  <text x="540" y="470" text-anchor="middle" class="code">"FSL Auth | Wallet: 0xf22c...F248"</text>
+  <text x="540" y="490" text-anchor="middle" class="code">"Nonce: a7b3.. | Timestamp | Disclaimer"</text>
+  <text x="1200" y="475" text-anchor="middle" class="annot">Contains ONLY wallet address + nonce</text>
+  <text x="1200" y="493" text-anchor="middle" class="annot" fill="#DC2626">Zero PHI / Zero PII</text>
 
-  <!-- ═══ STEP 1: Wallet Detection ═══ -->
-  <rect x="40" y="125" width="40" height="24" rx="4" fill="#475569"/>
-  <text x="60" y="142" text-anchor="middle" class="step-num" fill="#FFFFFF">1</text>
-  <text x="90" y="142" class="step-label">Wallet Detection (EIP-6963)</text>
+  <!-- STEP 5 — GOLD HERO -->
+  <rect x="20" y="525" width="1145" height="130" rx="8" fill="#FFFBEB" stroke="#FFD700" stroke-width="3"/>
 
-  <line x1="160" y1="155" x2="440" y2="155" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="300" y="170" text-anchor="middle" class="code">window.ethereum detected via EIP-6963 multi-provider</text>
+  <rect x="30" y="535" width="44" height="28" rx="5" fill="#FFD700"/>
+  <text x="52" y="555" text-anchor="middle" class="step-num" fill="#FFFFFF">5</text>
+  <text x="84" y="555" font-size="17" font-weight="700" fill="#92400E">CRYPTOGRAPHIC CONSENT — personal_sign (EIP-191)</text>
 
-  <rect x="330" y="180" width="240" height="30" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="450" y="200" text-anchor="middle" class="step-desc">Brave Wallet, Rainbow, Rabby, or any EIP-1193</text>
+  <line x1="150" y1="575" x2="430" y2="575" stroke="#FFD700" stroke-width="2.5" marker-end="url(#arr-g)"/>
+  <text x="290" y="593" text-anchor="middle" font-size="13" font-weight="600" fill="#92400E">Participant signs consent message</text>
 
-  <!-- ═══ STEP 2: Account Request ═══ -->
-  <rect x="40" y="225" width="40" height="24" rx="4" fill="#475569"/>
-  <text x="60" y="242" text-anchor="middle" class="step-num" fill="#FFFFFF">2</text>
-  <text x="90" y="242" class="step-label">Account Request</text>
+  <rect x="310" y="600" width="280" height="28" rx="4" fill="#FEF3C7" stroke="#FFD700" stroke-width="1"/>
+  <text x="450" y="619" text-anchor="middle" class="code" fill="#92400E">personal_sign(msg, addr) → sig</text>
 
-  <rect x="320" y="255" width="260" height="28" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
-  <text x="450" y="274" text-anchor="middle" class="code">eth_requestAccounts → [0xf22c...F248]</text>
+  <text x="84" y="643" font-size="12" fill="#92400E">→ POST /api/auth { address, signature, message }</text>
 
-  <text x="1240" y="265" class="step-desc">Participant approves address sharing</text>
-  <text x="1240" y="279" class="step-desc" fill="#DC2626">No name, email, or PII transmitted</text>
+  <!-- Three-in-one callout -->
+  <rect x="1190" y="530" width="380" height="120" rx="8" fill="#FEF3C7" stroke="#FFD700" stroke-width="2"/>
+  <text x="1380" y="555" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">THIS SINGLE SIGNATURE IS:</text>
+  <text x="1210" y="580" font-size="14" fill="#92400E">1. Identity verification</text>
+  <text x="1410" y="580" font-size="12" fill="#B45309">(wallet owns this address)</text>
+  <text x="1210" y="602" font-size="14" fill="#92400E">2. Informed consent</text>
+  <text x="1390" y="602" font-size="12" fill="#B45309">(signed the consent text)</text>
+  <text x="1210" y="624" font-size="14" fill="#92400E">3. Session authorization</text>
+  <text x="1420" y="624" font-size="12" fill="#B45309">(JWT issued from this)</text>
+  <text x="1380" y="644" text-anchor="middle" font-size="11" font-weight="600" fill="#B45309">Patent Pending — 64/063,037</text>
 
-  <!-- ═══ STEP 3: Nonce Generation ═══ -->
-  <rect x="40" y="305" width="40" height="24" rx="4" fill="#475569"/>
-  <text x="60" y="322" text-anchor="middle" class="step-num" fill="#FFFFFF">3</text>
-  <text x="90" y="322" class="step-label">Nonce Generation</text>
+  <!-- STEP 6 -->
+  <rect x="30" y="675" width="44" height="28" rx="5" fill="#475569"/>
+  <text x="52" y="695" text-anchor="middle" class="step-num" fill="#FFFFFF">6</text>
+  <text x="84" y="695" class="step-label">Server Verification and JWT Issuance</text>
 
-  <line x1="450" y1="335" x2="770" y2="335" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="610" y="350" text-anchor="middle" class="code">Server generates 128-bit nonce (NIST SP 800-63B)</text>
-  <line x1="770" y1="360" x2="450" y2="360" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="610" y="375" text-anchor="middle" class="code">Nonce returned, bound to wallet address + TTL</text>
+  <rect x="610" y="715" width="380" height="70" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
+  <text x="800" y="735" text-anchor="middle" class="code-sm">ethers.verifyMessage(message, signature)</text>
+  <text x="800" y="753" text-anchor="middle" class="code-sm">→ recovered address === claimed address</text>
+  <text x="800" y="771" text-anchor="middle" class="code-sm">→ issue JWT (HS256, httpOnly, SameSite=Strict)</text>
 
-  <!-- ═══ STEP 4: Consent Message Construction ═══ -->
-  <rect x="40" y="395" width="40" height="24" rx="4" fill="#475569"/>
-  <text x="60" y="412" text-anchor="middle" class="step-num" fill="#FFFFFF">4</text>
-  <text x="90" y="412" class="step-label">Consent Message Construction</text>
+  <!-- Result -->
+  <rect x="80" y="805" width="1080" height="38" rx="6" fill="#D1FAE5" stroke="#22CC66" stroke-width="2"/>
+  <text x="620" y="830" text-anchor="middle" font-size="14" font-weight="700" fill="#065F46">AUTHENTICATED — JWT cookie set, wallet-gated content unlocked, consent cryptographically recorded</text>
 
-  <rect x="320" y="425" width="460" height="60" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
-  <text x="550" y="443" text-anchor="middle" class="code">"FSL Command Center Admin Auth"</text>
-  <text x="550" y="457" text-anchor="middle" class="code">"Wallet: 0xf22c...F248 | Nonce: a7b3...9f2e"</text>
-  <text x="550" y="471" text-anchor="middle" class="code">"Timestamp: 2026-05-12T21:30:00.000Z"</text>
-
-  <text x="1240" y="440" class="step-desc">Message contains ONLY:</text>
-  <text x="1240" y="454" class="step-desc">• Pseudonymous wallet address + nonce</text>
-  <text x="1240" y="468" class="step-desc">• ISO timestamp + educational disclaimer</text>
-  <text x="1240" y="482" class="step-desc" fill="#DC2626">• Zero PHI / Zero PII</text>
-
-  <!-- ═══ STEP 5: CRYPTOGRAPHIC CONSENT (GOLD HIGHLIGHT) ═══ -->
-  <rect x="30" y="505" width="1540" height="145" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
-
-  <rect x="40" y="513" width="40" height="24" rx="4" fill="#F59E0B"/>
-  <text x="60" y="530" text-anchor="middle" class="step-num" fill="#FFFFFF">5</text>
-  <text x="90" y="530" font-size="13" font-weight="700" fill="#92400E">CRYPTOGRAPHIC CONSENT — personal_sign (EIP-191)</text>
-
-  <line x1="160" y1="548" x2="440" y2="548" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-gold)"/>
-  <text x="300" y="563" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">Participant signs consent message</text>
-
-  <rect x="320" y="570" width="260" height="30" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
-  <text x="450" y="590" text-anchor="middle" class="code" fill="#92400E">personal_sign(message, address) → 0x sig</text>
-
-  <!-- The three-in-one callout -->
-  <rect x="1220" y="510" width="340" height="100" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
-  <text x="1390" y="530" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">THIS SINGLE SIGNATURE IS:</text>
-  <text x="1245" y="552" font-size="11" fill="#92400E">1. Identity verification</text>
-  <text x="1383" y="552" font-size="9" fill="#B45309">(wallet owns this address)</text>
-  <text x="1245" y="570" font-size="11" fill="#92400E">2. Informed consent</text>
-  <text x="1370" y="570" font-size="9" fill="#B45309">(signed the consent text)</text>
-  <text x="1245" y="588" font-size="11" fill="#92400E">3. Session authorization</text>
-  <text x="1400" y="588" font-size="9" fill="#B45309">(JWT issued from this)</text>
-  <text x="1390" y="604" text-anchor="middle" font-size="8" font-weight="600" fill="#B45309">Patent Pending — U.S. Provisional 64/063,037</text>
-
-  <text x="90" y="635" font-size="10" fill="#92400E">Signature → POST /api/auth { address, signature, message }</text>
-
-  <!-- ═══ STEP 6: Server Verification + JWT Issuance ═══ -->
-  <rect x="40" y="670" width="40" height="24" rx="4" fill="#475569"/>
-  <text x="60" y="687" text-anchor="middle" class="step-num" fill="#FFFFFF">6</text>
-  <text x="90" y="687" class="step-label">Server Verification and JWT Issuance</text>
-
-  <rect x="620" y="700" width="360" height="70" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="0.8"/>
-  <text x="800" y="718" text-anchor="middle" class="code">ethers.verifyMessage(message, signature)</text>
-  <text x="800" y="732" text-anchor="middle" class="code">→ recovered address === claimed address</text>
-  <text x="800" y="746" text-anchor="middle" class="code">→ validate nonce (consumed, not expired)</text>
-  <text x="800" y="760" text-anchor="middle" class="code">→ issue JWT (HS256, httpOnly, SameSite=Strict)</text>
-
-  <!-- Result: Session Active -->
-  <rect x="100" y="790" width="1050" height="35" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
-  <text x="625" y="813" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">AUTHENTICATED — JWT cookie set, wallet-gated content unlocked, consent cryptographically recorded</text>
-
-  <text x="1240" y="800" class="step-desc">Session protected by:</text>
-  <text x="1240" y="814" class="step-desc">• JWT with wallet address as subject</text>
-  <text x="1240" y="828" class="step-desc">• Configurable expiry, httpOnly cookie</text>
-  <text x="1240" y="842" class="step-desc">• No username/password database</text>
-
-  <!-- Bottom summary -->
-  <rect x="40" y="900" width="1520" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="800" y="920" text-anchor="middle" font-size="11" fill="#475569">Zero PII transmitted at any step. No email, name, password, or personal identifier enters FSL infrastructure.</text>
-  <text x="800" y="938" text-anchor="middle" font-size="11" fill="#475569">Wallet addresses are pseudonymous — not linked to real-world identity by FSL. The consent signature is the only credential.</text>
+  <!-- Bottom note -->
+  <text x="800" y="880" text-anchor="middle" font-size="13" fill="#475569">Wallet addresses are pseudonymous — not linked to real-world identity by FSL. The consent signature is the only credential.</text>
 </svg>
