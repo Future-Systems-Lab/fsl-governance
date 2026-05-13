@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 920" width="1600" height="920" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs><style>
+    text { fill: #1E293B; }
+    .title { font-size: 24px; font-weight: 700; }
+    .subtitle { font-size: 14px; fill: #475569; }
+    .tier { font-size: 17px; font-weight: 700; }
+    .item { font-size: 14px; fill: #334155; }
+    .excl { font-size: 14px; fill: #FF4444; text-decoration: line-through; }
+    .excl-x { font-size: 14px; fill: #FF4444; font-weight: 700; }
+    .cat { font-size: 13px; font-weight: 700; fill: #991B1B; letter-spacing: 0.5px; }
+    .note { font-size: 13px; fill: #64748B; }
+  </style></defs>
+
+  <rect width="1600" height="920" fill="#FFFFFF"/>
+
+  <text x="800" y="35" text-anchor="middle" class="title">Figure 3. Zero-PHI Data Classification Model</text>
+  <text x="800" y="56" text-anchor="middle" class="subtitle">FSL operates outside HIPAA scope by architectural design — not a covered entity, holds no PHI</text>
+
+  <!-- LEFT PANEL — what FSL stores -->
+  <rect x="40" y="80" width="760" height="620" rx="8" fill="#E6F9FF" stroke="#00D9FF" stroke-width="2"/>
+  <rect x="40" y="80" width="760" height="42" rx="8" fill="#00D9FF"/>
+  <rect x="40" y="107" width="760" height="15" fill="#00D9FF"/>
+  <text x="420" y="108" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">WHAT FSL STORES — Engagement Metadata Only</text>
+
+  <!-- Tier 1 — equalized height 155px -->
+  <rect x="60" y="140" width="720" height="155" rx="6" fill="#FFFFFF" stroke="#00D9FF" stroke-width="1.2"/>
+  <text x="80" y="167" class="tier" fill="#0E7490">&#x1F517; TIER 1 — On-Chain (Public, Immutable)</text>
+  <rect x="540" y="147" width="130" height="22" rx="4" fill="#00D9FF"/><text x="605" y="163" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Ethereum Sepolia</text>
+  <text x="80" y="198" class="item">Consent attestation hashes (SHA-256 of signed message)</text>
+  <text x="80" y="220" class="item">Session events: wallet addresses + timestamps only</text>
+  <text x="80" y="242" class="item">Achievement tokens (soulbound ERC-1155) + HNT balances</text>
+  <text x="80" y="264" class="item">AlchemistForge: voluntary shadow aspect text hashes</text>
+  <text x="80" y="284" class="note">All publicly queryable on Blockscout. Pseudonymous wallet addresses only.</text>
+
+  <!-- Tier 2 — equalized height 155px -->
+  <rect x="60" y="310" width="720" height="155" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1.2"/>
+  <text x="80" y="337" class="tier" fill="#475569">&#x1F5C4; TIER 2 — Off-Chain (Encrypted, Server-Held)</text>
+  <rect x="540" y="317" width="130" height="22" rx="4" fill="#475569"/><text x="605" y="333" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">PostgreSQL 17</text>
+  <text x="80" y="368" class="item">Session timestamps, wallet addresses, completion rates</text>
+  <text x="80" y="390" class="item">Engagement scores, consent grant records</text>
+  <text x="80" y="412" class="item">Aggregate wellness metrics (non-clinical)</text>
+  <text x="80" y="434" class="note">Engagement-derived only. No clinical measurements, no diagnosis, no notes.</text>
+  <text x="80" y="454" class="note">No treatment plans. No provider notes. No intake forms.</text>
+
+  <!-- Tier 3 — equalized height 155px -->
+  <rect x="60" y="480" width="720" height="155" rx="6" fill="#FFFFFF" stroke="#475569" stroke-width="1"/>
+  <text x="80" y="507" class="tier" fill="#475569">&#x2601; TIER 3 — IPFS (Wallet-Gated Decryption)</text>
+  <rect x="540" y="487" width="130" height="22" rx="4" fill="#475569"/><text x="605" y="503" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Pinata / IPFS</text>
+  <text x="80" y="538" class="item">Encrypted documents — only content hash stored on-chain</text>
+  <text x="80" y="560" class="item">Participant holds sole decryption key — no auto-play</text>
+  <text x="80" y="582" class="item">Content never readable by FSL infrastructure</text>
+  <text x="80" y="604" class="note">Hash on-chain proves existence without revealing content.</text>
+  <text x="80" y="624" class="note">No server-side decryption capability.</text>
+
+  <!-- Wallet note -->
+  <rect x="60" y="650" width="720" height="40" rx="6" fill="#FFFBEB" stroke="#FFD700" stroke-width="1"/>
+  <text x="420" y="675" text-anchor="middle" font-size="13" font-weight="600" fill="#92400E">Wallet addresses are pseudonymous — not linked to real-world identity by FSL infrastructure.</text>
+
+  <!-- RIGHT PANEL — white bg, red text with strikethrough -->
+  <rect x="830" y="80" width="730" height="620" rx="8" fill="#FFFFFF" stroke="#FF4444" stroke-width="2"/>
+  <rect x="830" y="80" width="730" height="42" rx="8" fill="#FF4444"/>
+  <rect x="830" y="107" width="730" height="15" fill="#FF4444"/>
+  <text x="1195" y="108" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">EXCLUDED BY ARCHITECTURE (Not De-identification)</text>
+
+  <text x="855" y="150" font-size="14" font-weight="700" fill="#991B1B">45 CFR §164.514(b)(2) — All 18 identifiers excluded:</text>
+
+  <!-- Demographic -->
+  <text x="855" y="180" class="cat">DEMOGRAPHIC</text>
+  <text x="875" y="202" class="excl-x">✗</text><text x="895" y="202" class="excl">Names</text>
+  <text x="875" y="224" class="excl-x">✗</text><text x="895" y="224" class="excl">Geographic subdivisions smaller than state</text>
+  <text x="875" y="246" class="excl-x">✗</text><text x="895" y="246" class="excl">Dates (birth, admission, discharge, death)</text>
+
+  <!-- Contact -->
+  <text x="855" y="278" class="cat">CONTACT</text>
+  <text x="875" y="300" class="excl-x">✗</text><text x="895" y="300" class="excl">Telephone numbers</text>
+  <text x="875" y="322" class="excl-x">✗</text><text x="895" y="322" class="excl">Fax numbers</text>
+  <text x="875" y="344" class="excl-x">✗</text><text x="895" y="344" class="excl">Email addresses</text>
+
+  <!-- Identifiers -->
+  <text x="855" y="376" class="cat">IDENTIFIERS</text>
+  <text x="875" y="398" class="excl-x">✗</text><text x="895" y="398" class="excl">Social Security numbers</text>
+  <text x="875" y="420" class="excl-x">✗</text><text x="895" y="420" class="excl">Medical record numbers</text>
+  <text x="875" y="442" class="excl-x">✗</text><text x="895" y="442" class="excl">Health plan beneficiary numbers</text>
+  <text x="875" y="464" class="excl-x">✗</text><text x="895" y="464" class="excl">Account numbers</text>
+  <text x="875" y="486" class="excl-x">✗</text><text x="895" y="486" class="excl">Certificate/license numbers</text>
+
+  <!-- Device + Biometric + Web -->
+  <text x="855" y="518" class="cat">DEVICE + BIOMETRIC + WEB</text>
+  <text x="875" y="540" class="excl-x">✗</text><text x="895" y="540" class="excl">Vehicle identifiers   ✗ Device identifiers</text>
+  <text x="875" y="562" class="excl-x">✗</text><text x="895" y="562" class="excl">Web URLs   ✗ IP addresses</text>
+  <text x="875" y="584" class="excl-x">✗</text><text x="895" y="584" class="excl">Biometric identifiers   ✗ Photographs</text>
+  <text x="875" y="606" class="excl-x">✗</text><text x="895" y="606" class="excl">Any other unique identifying number</text>
+
+  <!-- Also not stored -->
+  <text x="855" y="640" class="cat">ALSO NOT STORED</text>
+  <text x="875" y="660" class="excl-x">✗</text><text x="895" y="660" class="excl">Diagnosis codes (ICD-10)   ✗ Treatment plans   ✗ Clinical notes</text>
+  <text x="875" y="680" class="excl-x">✗</text><text x="895" y="680" class="excl">Prescription data   ✗ Lab results   ✗ Insurance info</text>
+
+  <!-- FULL-WIDTH RESULT BAND (moved below both columns, enlarged) -->
+  <rect x="40" y="720" width="1520" height="60" rx="8" fill="#FEF2F2" stroke="#FF4444" stroke-width="2"/>
+  <text x="800" y="748" text-anchor="middle" font-size="24" font-weight="700" fill="#DC2626">RESULT: FSL IS NOT A COVERED ENTITY</text>
+  <text x="800" y="770" text-anchor="middle" font-size="14" fill="#991B1B">Architectural exclusion — FSL never had PHI to de-identify. HIPAA is inapplicable by design.</text>
+
+  <!-- Bottom -->
+  <rect x="40" y="800" width="1520" height="35" rx="6" fill="#E6F9FF" stroke="#00D9FF" stroke-width="1"/>
+  <text x="800" y="823" text-anchor="middle" font-size="14" font-weight="600" fill="#0E7490">The zero-PHI model: rather than "encrypt and protect PHI," FSL is designed so no sensitive data enters the system.</text>
+</svg>
