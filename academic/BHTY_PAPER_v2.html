@@ -63,7 +63,7 @@
 <p>4. <b>AlchemistForge</b> — A permissionless smart contract and interface for recording voluntary behavioral health engagement (shadow integration) on-chain.</p>
 <p>5. <b>NeuroBalance</b> — A general wellness dashboard integrating biometric data with on-chain consent management. NeuroBalance is currently in pre-implementation phase and is positioned as a general wellness product under FDA guidance [22]; it does not perform clinical diagnosis or treatment.</p>
 <p>All five platforms share a single authentication architecture: EIP-191 wallet signature, JWT cookie issuance, and middleware-verified access.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig1.png"/><figcaption>Figure 1. System architecture for sovereign behavioral health data governance.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/v2/fig1_system_architecture.png" style="width:100%;max-width:1600px"/><figcaption>Figure 1. System architecture of the FSL decentralized health data infrastructure.</figcaption></figure>
 <h3>3.2 Authentication Flow</h3>
 <p>The authentication flow proceeds in six steps (see Figure 2):</p>
 <p><b>Step 1 — Wallet Detection.</b> The client application detects available wallet providers using the <code>window.ethereum</code> interface. FSL implements EIP-6963 multi-provider discovery [23], preferring Brave Wallet when available but supporting any injected Ethereum provider.</p>
@@ -87,7 +87,7 @@
 <li>Validates the consent message contains required phrases (educational disclaimer, sovereignty acknowledgment)</li>
 <li>Issues a JSON Web Token (JWT) [26] containing the verified address, role (participant or guide), and a configurable expiration (maximum 24 hours)</li>
 <li>The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser cookie</li>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig2.png"/><figcaption>Figure 2. EIP-191 wallet-signed consent attestation sequence.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/v2/fig2_eip191_consent_flow.png" style="width:100%;max-width:1600px"/><figcaption>Figure 2. EIP-191 wallet-signed consent attestation flow.</figcaption></figure>
 <h3>3.3 Middleware Verification Layer</h3>
 </ul>
 <p>Every protected route passes through a server-side middleware layer that:</p>
@@ -178,7 +178,7 @@ function verifyConsentSignature(message, signature, claimedAddress) {
 <li>Encrypted documents (IPFS-pinned, wallet-gated decryption)</li>
 </ul>
 <p>This hybrid approach addresses the fundamental tension between blockchain immutability and healthcare data requirements: data that could become sensitive is encrypted and stored off-chain where it can be managed (and deleted if necessary), while consent events and attestations are anchored on-chain where they provide an immutable audit trail.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig3.png"/><figcaption>Figure 3. Zero-PHI data classification across system layers.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/v2/fig3_zero_phi_data_classification.png" style="width:100%;max-width:1600px"/><figcaption>Figure 3. Zero-PHI data classification model.</figcaption></figure>
 <h3>5.2 Regulatory Scope: Outside HIPAA by Architectural Design</h3>
 <p>FSL operates outside HIPAA regulatory scope by architectural design — the system holds zero PHI, is not a covered entity, and maintains no business associate relationships. This determination rests on three architectural properties as defined by 45 CFR Section 160.103 [3]:</p>
 <p>1. <b>No PHI storage.</b> The system stores no individually identifiable health information. Participants are identified solely by pseudonymous Ethereum wallet addresses. No names, dates of birth, Social Security numbers, medical record numbers, or any of the 18 HIPAA identifiers are collected or stored. Wellness engagement metrics are aggregate and non-clinical.</p>
@@ -195,7 +195,7 @@ function verifyConsentSignature(message, signature, claimedAddress) {
 <p>2. <b>Session Recording.</b> During the session, engagement data is recorded off-chain. No clinical notes, diagnostic codes, or treatment plans are stored. The on-chain record contains only the guide address, participant address, content hash, and timestamp.</p>
 <p>3. <b>Session Completion.</b> Either the guide or participant can mark the session as complete through the contract interface.</p>
 <p>4. <b>Attestation Finalization.</b> Upon completion, the contract emits an event recording the final session state. This event serves as an immutable attestation that the session occurred, was authorized by a credentialed guide, and involved a consenting participant.</p>
-<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/fig4.png"/><figcaption>Figure 4. Sovereign Guide and Participant attestation lifecycle.</figcaption></figure>
+<figure><img src="/Users/futuresystemslab/fsl-governance/academic/figures/v2/fig4_attestation_lifecycle.png" style="width:100%;max-width:1600px"/><figcaption>Figure 4. Sovereign Guide attestation lifecycle.</figcaption></figure>
 <pre>
 // Listing 2: Session Attestation Event Pattern (Solidity)
 event SessionStarted(
