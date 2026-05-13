@@ -33,7 +33,6 @@
 | Vercel hosting | Frontend CDN, fast deploys | IPFS backup via Lighthouse | Q4 2026 |
 | IONOS VPS | Backend API + PostgreSQL | Multi-region VPS, then decentralized DB | Q3 2026 |
 | Daily.co | Video sessions | Migrate to Huddle01 (Web3-native) | Post-revenue |
-| Stripe | Fiat bridge | Training wheels only — crypto primary | Remove post-traction |
 | CryptoCompare | Ticker prices | Public market data — acceptable | N/A |
 
 ## CODE HOSTING MIGRATION PLAN
