@@ -2,7 +2,7 @@
   "platforms": [
     {"name": "FSL Command Center", "url": "https://fsl-command-center.vercel.app", "status": "live", "description": "Wallet-gated admin dashboard + public reviewer surface"},
     {"name": "EncryptHealth", "url": "https://encrypthealth.io", "status": "live", "description": "Sovereign health records — wallet-gated consent architecture"},
-    {"name": "HypnoNeuro", "url": "https://hypnoneuro.io", "status": "live", "description": "45 therapeutic games across 3 progressive levels"},
+    {"name": "HypnoNeuro", "url": "https://hypnoneuro.io", "status": "live", "description": "3 flagship therapeutic game demos (L1/L2/L3) with wired framework for full build by 3D game designers"},
     {"name": "SovereignLedger", "url": "https://sovereignledger.io", "status": "live", "description": "Session attestation — immutable proof between consenting wallets"},
     {"name": "AlchemistForge", "url": "https://alchemistforge.io", "status": "live", "description": "Jungian shadow integration on-chain"},
     {"name": "SovereignSession", "url": "https://session.futuresystemslab.io", "status": "live", "description": "Wallet-native peer-to-peer video sessions", "phases_deployed": [1, 2, 3, 4]}

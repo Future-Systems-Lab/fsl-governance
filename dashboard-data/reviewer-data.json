@@ -44,7 +44,7 @@
     "framework": "Praxis-track applied engineering — the deployed system IS the research contribution"
   },
   "platforms": [
-    {"name": "HypnoNeuro", "status": "Operational", "url": "https://hypnoneuro.io", "description": "45 therapeutic games across L1 Hypnosis, L2 Orthomolecular, L3 Inner Child"},
+    {"name": "HypnoNeuro", "status": "Operational", "url": "https://hypnoneuro.io", "description": "3 flagship therapeutic game demos (L1 Hypnosis, L2 Orthomolecular, L3 Inner Child) with wired L1/L2/L3 framework"},
     {"name": "EncryptHealth", "status": "Operational", "url": "https://encrypthealth.io", "description": "Sovereign Guide portal with wallet-gated consent architecture"},
     {"name": "SovereignLedger", "status": "Operational", "url": "https://sovereignledger.io", "description": "Session attestation infrastructure on Sepolia"},
     {"name": "AlchemistForge", "status": "Operational", "url": "https://alchemistforge.io", "description": "Jungian shadow work smart contract with on-chain analytics"},
