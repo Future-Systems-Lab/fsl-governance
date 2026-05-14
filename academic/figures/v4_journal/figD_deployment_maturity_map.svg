@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 650" width="1600" height="650" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1600" height="650" fill="#FFFFFF"/>
+  <text x="800" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1E293B">Figure D. Deployment Maturity Map — Current State (May 2026)</text>
+
+  <!-- DEPLOYED column -->
+  <rect x="40" y="60" width="350" height="480" rx="8" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <rect x="40" y="60" width="350" height="36" rx="8" fill="#334155"/>
+  <rect x="40" y="83" width="350" height="13" fill="#334155"/>
+  <text x="215" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">DEPLOYED (Sepolia Testnet)</text>
+
+  <text x="60" y="120" font-size="12" font-weight="600" fill="#334155">Platforms (4 operational):</text>
+  <rect x="60" y="130" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="215" y="148" text-anchor="middle" font-size="11" fill="#334155">EncryptHealth — encrypthealth.io</text>
+  <rect x="60" y="162" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="215" y="180" text-anchor="middle" font-size="11" fill="#334155">HypnoNeuro — hypnoneuro.io</text>
+  <rect x="60" y="194" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="215" y="212" text-anchor="middle" font-size="11" fill="#334155">SovereignLedger — sovereignledger.io</text>
+  <rect x="60" y="226" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="215" y="244" text-anchor="middle" font-size="11" fill="#334155">AlchemistForge — alchemistforge.io</text>
+
+  <text x="60" y="280" font-size="12" font-weight="600" fill="#334155">Contracts (8 functional):</text>
+  <text x="60" y="300" font-size="11" fill="#64748B">HNT, EHTv2, MindMasteryNFT,</text>
+  <text x="60" y="316" font-size="11" fill="#64748B">SovereignLedger v2, AlchemistForge,</text>
+  <text x="60" y="332" font-size="11" fill="#64748B">BenevolenceFund v2, SovereignAchievement,</text>
+  <text x="60" y="348" font-size="11" fill="#64748B">SovereignSession</text>
+
+  <text x="60" y="380" font-size="12" font-weight="600" fill="#334155">Infrastructure:</text>
+  <text x="60" y="400" font-size="11" fill="#64748B">VPS (IONOS) + PM2 + PostgreSQL 17</text>
+  <text x="60" y="416" font-size="11" fill="#64748B">Cloudflare DNS + Vercel CDN</text>
+  <text x="60" y="432" font-size="11" fill="#64748B">EIP-191 auth + JWT middleware</text>
+  <text x="60" y="448" font-size="11" fill="#64748B">IPFS pinning (Pinata)</text>
+  <text x="60" y="464" font-size="11" fill="#64748B">17-agent AI governance council</text>
+
+  <rect x="60" y="480" width="310" height="24" rx="3" fill="#F8FAFC" stroke="#334155"/>
+  <text x="215" y="497" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Status: Proof-of-concept, N=1 guide</text>
+
+  <!-- SCAFFOLDED column -->
+  <rect x="430" y="60" width="350" height="480" rx="8" fill="#FAFAFA" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,3"/>
+  <rect x="430" y="60" width="350" height="36" rx="8" fill="#94A3B8"/>
+  <rect x="430" y="83" width="350" height="13" fill="#94A3B8"/>
+  <text x="605" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">SCAFFOLDED / PRE-IMPLEMENTATION</text>
+
+  <text x="450" y="120" font-size="12" font-weight="600" fill="#64748B">Platform:</text>
+  <rect x="450" y="130" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-dasharray="4,3"/>
+  <text x="605" y="148" text-anchor="middle" font-size="11" fill="#94A3B8">NeuroBalance — biosensor layer</text>
+
+  <text x="450" y="178" font-size="12" font-weight="600" fill="#64748B">Contract:</text>
+  <rect x="450" y="188" width="310" height="26" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-dasharray="4,3"/>
+  <text x="605" y="206" text-anchor="middle" font-size="11" fill="#94A3B8">NeuroBalanceConsent (empty scaffold)</text>
+
+  <text x="450" y="250" font-size="11" fill="#94A3B8">Contract deployed as infrastructure</text>
+  <text x="450" y="266" font-size="11" fill="#94A3B8">scaffolding ahead of full platform</text>
+  <text x="450" y="282" font-size="11" fill="#94A3B8">development. No UI, no API, no</text>
+  <text x="450" y="298" font-size="11" fill="#94A3B8">user-facing functionality yet.</text>
+
+  <!-- PLANNED column -->
+  <rect x="820" y="60" width="350" height="480" rx="8" fill="#FAFAFA" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <rect x="820" y="60" width="350" height="36" rx="8" fill="#CBD5E1"/>
+  <rect x="820" y="83" width="350" height="13" fill="#CBD5E1"/>
+  <text x="995" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">PLANNED (Post-Revenue)</text>
+
+  <text x="840" y="120" font-size="12" font-weight="600" fill="#64748B">Mainnet migration:</text>
+  <text x="840" y="140" font-size="11" fill="#94A3B8">Ethereum mainnet or L2 deployment</text>
+  <text x="840" y="156" font-size="11" fill="#94A3B8">Requires formal security audit</text>
+
+  <text x="840" y="186" font-size="12" font-weight="600" fill="#64748B">Decentralization upgrades:</text>
+  <text x="840" y="206" font-size="11" fill="#94A3B8">Multisig governance (single → multi-wallet)</text>
+  <text x="840" y="222" font-size="11" fill="#94A3B8">Ceramic / Tableland (replace PostgreSQL)</text>
+  <text x="840" y="238" font-size="11" fill="#94A3B8">Huddle01 (replace Daily.co video)</text>
+  <text x="840" y="254" font-size="11" fill="#94A3B8">Akash / Flux (replace centralized VPS)</text>
+
+  <text x="840" y="284" font-size="12" font-weight="600" fill="#64748B">Business milestones:</text>
+  <text x="840" y="304" font-size="11" fill="#94A3B8">First paying user / MRR validated</text>
+  <text x="840" y="320" font-size="11" fill="#94A3B8">Security audit by third party</text>
+  <text x="840" y="336" font-size="11" fill="#94A3B8">ToS attorney review</text>
+
+  <!-- RESEARCH PHASE column -->
+  <rect x="1210" y="60" width="350" height="480" rx="8" fill="#FAFAFA" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="8,4"/>
+  <rect x="1210" y="60" width="350" height="36" rx="8" fill="#E2E8F0"/>
+  <rect x="1210" y="83" width="350" height="13" fill="#E2E8F0"/>
+  <text x="1385" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#64748B">RESEARCH PHASE (Post-ASU)</text>
+
+  <text x="1230" y="120" font-size="12" font-weight="600" fill="#64748B">Phase 5 — Doctoral Capstone:</text>
+  <text x="1230" y="145" font-size="11" fill="#94A3B8">Two-party mutual EIP-191 authentication</text>
+  <text x="1230" y="161" font-size="11" fill="#94A3B8">(bilateral consent before session start)</text>
+  <text x="1230" y="185" font-size="11" fill="#94A3B8">Client-side encrypted recording</text>
+  <text x="1230" y="201" font-size="11" fill="#94A3B8">(AES-256-GCM, IPFS-pinned,</text>
+  <text x="1230" y="217" font-size="11" fill="#94A3B8">participant-held decryption key)</text>
+
+  <text x="1230" y="250" font-size="12" font-weight="600" fill="#64748B">Academic milestones:</text>
+  <text x="1230" y="270" font-size="11" fill="#94A3B8">ASU DEng application Oct 2026</text>
+  <text x="1230" y="286" font-size="11" fill="#94A3B8">Enrollment target Spring 2027</text>
+  <text x="1230" y="302" font-size="11" fill="#94A3B8">BHTY paper submission June 2026</text>
+  <text x="1230" y="318" font-size="11" fill="#94A3B8">Non-provisional patent CIP Oct 2026</text>
+  <text x="1230" y="334" font-size="11" fill="#94A3B8">IRB-approved participant study</text>
+  <text x="1230" y="350" font-size="11" fill="#94A3B8">Formal verification of consent properties</text>
+
+  <rect x="1230" y="380" width="310" height="35" rx="3" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="1385" y="402" text-anchor="middle" font-size="11" fill="#64748B">Not claimed as implemented.</text>
+
+  <!-- Bottom bar -->
+  <rect x="40" y="570" width="1520" height="36" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="800" y="593" text-anchor="middle" font-size="13" fill="#334155">Current deployment represents a functional proof of concept suitable for architectural validation, not a production-grade system.</text>
+</svg>

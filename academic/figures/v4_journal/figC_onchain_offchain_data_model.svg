@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1600" height="700" fill="#FFFFFF"/>
+  <text x="800" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1E293B">Figure C. On-Chain vs Off-Chain Data Model — Zero-PHI Hybrid Architecture</text>
+
+  <!-- ON-CHAIN column -->
+  <rect x="40" y="60" width="460" height="520" rx="8" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <rect x="40" y="60" width="460" height="38" rx="8" fill="#334155"/>
+  <rect x="40" y="83" width="460" height="15" fill="#334155"/>
+  <text x="270" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">ON-CHAIN (Ethereum Sepolia)</text>
+  <text x="270" y="120" text-anchor="middle" font-size="12" fill="#64748B">Public, immutable, pseudonymous</text>
+
+  <rect x="65" y="140" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="163" text-anchor="middle" font-size="12" fill="#334155">Consent attestation hashes (SHA-256)</text>
+  <rect x="65" y="186" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="209" text-anchor="middle" font-size="12" fill="#334155">SessionStarted / SessionEnded events</text>
+  <rect x="65" y="232" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="255" text-anchor="middle" font-size="12" fill="#334155">Soulbound achievement tokens (ERC-1155)</text>
+  <rect x="65" y="278" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="301" text-anchor="middle" font-size="12" fill="#334155">HNT / EHT token balances</text>
+  <rect x="65" y="324" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="347" text-anchor="middle" font-size="12" fill="#334155">AlchemistForge shadow aspect hashes</text>
+  <rect x="65" y="370" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="270" y="393" text-anchor="middle" font-size="12" fill="#334155">BenevolenceFund distributions</text>
+
+  <rect x="65" y="430" width="410" height="50" rx="4" fill="#F8FAFC" stroke="#334155" stroke-width="1.5"/>
+  <text x="270" y="452" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">DATA STORED: wallet addresses + timestamps</text>
+  <text x="270" y="470" text-anchor="middle" font-size="11" fill="#64748B">No names, no clinical content, no PII</text>
+
+  <rect x="65" y="500" width="410" height="30" rx="4" fill="#FFFFFF" stroke="#64748B" stroke-width="1"/>
+  <text x="270" y="520" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Queryable on Blockscout by any party</text>
+
+  <!-- OFF-CHAIN column -->
+  <rect x="570" y="60" width="460" height="520" rx="8" fill="#F8FAFC" stroke="#64748B" stroke-width="2"/>
+  <rect x="570" y="60" width="460" height="38" rx="8" fill="#64748B"/>
+  <rect x="570" y="83" width="460" height="15" fill="#64748B"/>
+  <text x="800" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">OFF-CHAIN (PostgreSQL + Server)</text>
+  <text x="800" y="120" text-anchor="middle" font-size="12" fill="#64748B">Encrypted, centralized, deletable</text>
+
+  <rect x="595" y="140" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="800" y="163" text-anchor="middle" font-size="12" fill="#334155">Session timestamps + wallet addresses</text>
+  <rect x="595" y="186" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="800" y="209" text-anchor="middle" font-size="12" fill="#334155">Engagement completion rates</text>
+  <rect x="595" y="232" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="800" y="255" text-anchor="middle" font-size="12" fill="#334155">Consent grant records</text>
+  <rect x="595" y="278" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="800" y="301" text-anchor="middle" font-size="12" fill="#334155">JWT session tokens (HS256)</text>
+  <rect x="595" y="324" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="800" y="347" text-anchor="middle" font-size="12" fill="#334155">Server-side nonce store (TTL-bound)</text>
+
+  <rect x="595" y="380" width="410" height="50" rx="4" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+  <text x="800" y="402" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">DATA STORED: engagement metadata only</text>
+  <text x="800" y="420" text-anchor="middle" font-size="11" fill="#64748B">No clinical notes, no diagnosis, no treatment</text>
+
+  <rect x="595" y="450" width="410" height="30" rx="4" fill="#FFFFFF" stroke="#64748B" stroke-width="1"/>
+  <text x="800" y="470" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Centralized — acknowledged SPOF</text>
+
+  <rect x="595" y="500" width="410" height="30" rx="4" fill="#FFFFFF" stroke="#64748B" stroke-width="1"/>
+  <text x="800" y="520" text-anchor="middle" font-size="11" fill="#64748B">Deletable upon participant request</text>
+
+  <!-- HYBRID column -->
+  <rect x="1100" y="60" width="460" height="520" rx="8" fill="#FAFAFA" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="1100" y="60" width="460" height="38" rx="8" fill="#94A3B8"/>
+  <rect x="1100" y="83" width="460" height="15" fill="#94A3B8"/>
+  <text x="1330" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">HYBRID (IPFS + On-Chain Hash)</text>
+  <text x="1330" y="120" text-anchor="middle" font-size="12" fill="#64748B">Encrypted content, hash-anchored</text>
+
+  <rect x="1125" y="140" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1330" y="163" text-anchor="middle" font-size="12" fill="#334155">Encrypted documents (wallet-gated)</text>
+  <rect x="1125" y="186" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1330" y="209" text-anchor="middle" font-size="12" fill="#334155">Content hash on-chain, file on IPFS</text>
+  <rect x="1125" y="232" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1330" y="255" text-anchor="middle" font-size="12" fill="#334155">Participant holds sole decryption key</text>
+  <rect x="1125" y="278" width="410" height="36" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1330" y="301" text-anchor="middle" font-size="12" fill="#334155">Recovery bundle (weekly, encrypted)</text>
+
+  <rect x="1125" y="340" width="410" height="50" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="1330" y="362" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">DATA STORED: encrypted artifacts</text>
+  <text x="1330" y="380" text-anchor="middle" font-size="11" fill="#64748B">Unreadable without participant key</text>
+
+  <rect x="1125" y="410" width="410" height="30" rx="4" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1"/>
+  <text x="1330" y="430" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Pinata primary pin (decentralized storage)</text>
+
+  <!-- Bottom: Zero-PHI banner -->
+  <rect x="40" y="610" width="1520" height="40" rx="6" fill="#F1F5F9" stroke="#334155" stroke-width="1.5"/>
+  <text x="800" y="636" text-anchor="middle" font-size="14" font-weight="700" fill="#334155">ZERO-PHI: No tier contains names, DOB, SSN, diagnosis, clinical notes, or any HIPAA Safe Harbor identifier</text>
+</svg>
