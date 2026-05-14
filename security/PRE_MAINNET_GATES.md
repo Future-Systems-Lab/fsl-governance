@@ -21,7 +21,6 @@ All items below must be completed and signed off before any FSL contract is depl
 
 ## Commercial
 - [ ] At least one paying user and confirmed MRR before approaching XRPH or investors
-- [ ] NC A&H insurance producer license confirmed active — update all "licensing pending" language
 
 ## Status
 Pre-mainnet. All contracts on Sepolia testnet only. This document is the governing checklist.
