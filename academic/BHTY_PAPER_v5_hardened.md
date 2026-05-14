@@ -389,24 +389,23 @@ The FSL ecosystem has been deployed as a proof-of-concept on Ethereum Sepolia te
 
 Table 3 summarizes the observable deployment characteristics. All values were queried from the Ethereum Sepolia block explorer (Blockscout) at time of paper preparation.
 
-Table 3. Deployment Metrics (Ethereum Sepolia Testnet)
+Table 3. Deployment Metrics and Operational Characteristics
 
-| Metric | Observation |
-|--------|-------------|
-| Contracts deployed | 9 (source-verified on Blockscout) |
-| Network | Ethereum Sepolia (proof-of-stake, zero-cost gas) |
-| Deployment block range | ~10,610,642 – 10,848,153 (2025–2026) |
-| Operational platforms | 4 deployed + 1 scaffolded (NeuroBalance) |
-| Wallet providers tested | Brave Wallet, MetaMask (EIP-6963) |
-| Authentication flow | EIP-191 personal_sign → ECDSA recovery → HS256 JWT |
-| Authentication latency | ~4–6 seconds (informal single-user testing) |
-| JWT configuration | HS256, HttpOnly, max 24-hour expiry |
-| Token mint gas (observed) | 37,000–54,000 gas per mint() |
-| Session registration gas (observed) | ~69,000 gas per registerClaim() |
-| Contract deployment gas | 575,000–1,769,000 gas per contract |
-| External participant adoption | None measured |
-| Guide model tested | Single guide (principal investigator) |
-| Contract verification | Source verified on Sepolia Blockscout |
+| Characteristic | Value |
+|---|---|
+| Smart contracts deployed | 9 |
+| Testnet | Ethereum Sepolia |
+| Deployment block range | 10,610,642 – 10,848,153 |
+| Contract deployment gas | 575,000 – 1,770,000 |
+| Token mint gas | 37,000 – 54,000 |
+| Session registration gas | ~69,000 |
+| Wallet providers tested | Brave Wallet, MetaMask, Coinbase Wallet |
+| Wallet authentication latency | ~4–6 seconds (measured in development testing) |
+| JWT expiration | 24 hours maximum |
+| Verification model | Server-side ECDSA recovery (EIP-191) |
+| Architecture classification | Hybrid on-chain/off-chain prototype |
+| Guide model tested | Single Sovereign Guide (principal investigator) |
+| External organic adoption | None measured; architect-initiated activity only |
 
 Gas values represent observed Sepolia testnet costs. Mainnet costs will differ based on network congestion and L1/L2 deployment choice. Authentication latency was observed during informal testing and has not been benchmarked under multi-user load.
 
