@@ -387,7 +387,7 @@ The FSL ecosystem has been deployed as a proof-of-concept on Ethereum Sepolia te
 
 ### 8.1 Deployment Metrics and Operational Characteristics
 
-Table 3 summarizes the observable deployment characteristics. All values were queried from the Ethereum Sepolia block explorer (Blockscout) at time of paper preparation.
+Table 3 summarizes the observable deployment characteristics of the FSL prototype. On-chain values were queried from the Ethereum Sepolia block explorer (Blockscout) at time of paper preparation. Latency values were observed during local development and Sepolia testing.
 
 Table 3. Deployment Metrics and Operational Characteristics
 
@@ -396,18 +396,20 @@ Table 3. Deployment Metrics and Operational Characteristics
 | Smart contracts deployed | 9 |
 | Testnet | Ethereum Sepolia |
 | Deployment block range | 10,610,642 – 10,848,153 |
-| Contract deployment gas | 575,000 – 1,770,000 |
+| Observed deployment gas range | 575,000 – 1,770,000 |
 | Token mint gas | 37,000 – 54,000 |
 | Session registration gas | ~69,000 |
+| Authentication standard | EIP-191 personal_sign |
 | Wallet providers tested | Brave Wallet, MetaMask, Coinbase Wallet |
-| Wallet authentication latency | ~4–6 seconds (measured in development testing) |
+| Observed wallet authentication latency | ~4–6 seconds (observed during local development and Sepolia testing) |
 | JWT expiration | 24 hours maximum |
 | Verification model | Server-side ECDSA recovery (EIP-191) |
+| Contract verification status | Verified on Sepolia explorers |
 | Architecture classification | Hybrid on-chain/off-chain prototype |
 | Guide model tested | Single Sovereign Guide (principal investigator) |
 | External organic adoption | None measured; architect-initiated activity only |
 
-Gas values represent observed Sepolia testnet costs. Mainnet costs will differ based on network congestion and L1/L2 deployment choice. Authentication latency was observed during informal testing and has not been benchmarked under multi-user load.
+The metrics presented in Table 3 are observational rather than the product of formal benchmark testing. All gas values and latency ranges were recorded during development and testnet interaction on Ethereum Sepolia, which operates under proof-of-stake consensus with zero-cost gas — conditions that do not reflect mainnet economics or production load characteristics. These values are included to characterize the operational behavior of the prototype and to provide a baseline for future performance evaluation. Formal benchmarking under simulated multi-user load and adversarial conditions is planned as future work.
 
 ### 8.2 Scope and Maturity
 
