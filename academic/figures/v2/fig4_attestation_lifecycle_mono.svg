@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      text { fill: #1E293B; }
+      .title { font-size: 24px; font-weight: 700; }
+      .subtitle { font-size: 14px; fill: #555555; }
+      .lane-h { font-size: 15px; font-weight: 700; fill: #FFFFFF; }
+      .phase { font-size: 13px; font-weight: 700; fill: #999999; }
+      .fn { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; font-weight: 600; }
+      .event { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; fill: #333333; }
+      .param { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; fill: #555555; }
+      .desc { font-size: 13px; fill: #555555; }
+      .data { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; fill: #555555; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#555555"/></marker>
+    <marker id="at" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#666666"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#777777"/></marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="800" y="35" text-anchor="middle" class="title">Figure 4. Sovereign Guide Attestation Lifecycle</text>
+  <text x="800" y="55" text-anchor="middle" class="subtitle">On-chain record contains only wallet addresses and timestamps — no session content</text>
+  <text x="800" y="73" text-anchor="middle" font-size="12" fill="#999999" font-family="'JetBrains Mono', monospace">0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1 (Sepolia)</text>
+
+  <!-- SWIMLANES -->
+  <rect x="40" y="90" width="340" height="36" rx="6" fill="#555555"/>
+  <text x="210" y="114" text-anchor="middle" class="lane-h">SOVEREIGN GUIDE</text>
+
+  <rect x="420" y="90" width="440" height="36" rx="6" fill="#666666"/>
+  <text x="640" y="114" text-anchor="middle" class="lane-h">ON-CHAIN (SovereignSession)</text>
+
+  <rect x="900" y="90" width="340" height="36" rx="6" fill="#555555"/>
+  <text x="1070" y="114" text-anchor="middle" class="lane-h">PARTICIPANT</text>
+
+  <!-- On-chain data sidebar -->
+  <rect x="1280" y="90" width="280" height="470" rx="8" fill="#FAFAFA" stroke="#666666" stroke-width="1" opacity="0.85"/>
+  <text x="1420" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#999999" letter-spacing="1.5">ANNOTATION</text>
+  <text x="1420" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#333333">ON-CHAIN DATA</text>
+
+  <!-- Lane backgrounds -->
+  <rect x="40" y="130" width="340" height="430" fill="#FAFAFA" stroke="#DDDDDD" stroke-width="0.5"/>
+  <rect x="420" y="130" width="440" height="430" fill="#F0FDFA" stroke="#666666" stroke-width="0.5"/>
+  <rect x="900" y="130" width="340" height="430" fill="#FAFAFA" stroke="#DDDDDD" stroke-width="0.5"/>
+
+  <!-- PRE-SESSION -->
+  <text x="55" y="155" class="phase">PRE-SESSION</text>
+
+  <rect x="55" y="165" width="310" height="58" rx="6" fill="#FFFFFF" stroke="#555555" stroke-width="1.2"/>
+  <text x="210" y="188" text-anchor="middle" class="fn" fill="#555555">startSession(participant, id)</text>
+  <text x="210" y="208" text-anchor="middle" class="desc">Guide signs tx (msg.sender verified)</text>
+
+  <line x1="365" y1="194" x2="430" y2="194" stroke="#555555" stroke-width="2" marker-end="url(#a)"/>
+  <text x="397" y="188" text-anchor="middle" font-size="10" fill="#999999">tx</text>
+
+  <rect x="435" y="165" width="410" height="58" rx="6" fill="#FFFFFF" stroke="#666666" stroke-width="1.5"/>
+  <text x="640" y="188" text-anchor="middle" class="event">emit SessionStarted(</text>
+  <text x="640" y="208" text-anchor="middle" class="param">sessionId, guide, participant, timestamp)</text>
+
+  <line x1="845" y1="194" x2="910" y2="194" stroke="#666666" stroke-width="1.5" marker-end="url(#at)"/>
+
+  <rect x="915" y="172" width="240" height="38" rx="6" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="1"/>
+  <text x="1035" y="196" text-anchor="middle" class="desc">Attestation recorded on-chain</text>
+
+  <!-- On-chain data for start -->
+  <text x="1295" y="175" class="data">guide = 0xf22c...</text>
+  <text x="1295" y="195" class="data">participant = 0x...</text>
+  <text x="1295" y="215" class="data">startTime = block.timestamp</text>
+  <text x="1295" y="235" class="data">active = true</text>
+
+  <!-- Single-party callout -->
+  <rect x="55" y="232" width="310" height="28" rx="4" fill="#F5F5F5" stroke="#999999" stroke-width="1.2"/>
+  <text x="210" y="251" text-anchor="middle" font-size="13" font-weight="700" fill="#333333">CURRENT: Guide-initiated (single-party)</text>
+
+  <!-- ACTIVE SESSION -->
+  <text x="55" y="290" class="phase">ACTIVE SESSION</text>
+
+  <rect x="55" y="300" width="1180" height="60" rx="8" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="645" y="325" text-anchor="middle" font-size="15" font-weight="700" fill="#555555">OFF-CHAIN ENGAGEMENT (video via WebRTC)</text>
+  <text x="645" y="348" text-anchor="middle" font-size="14" font-weight="700" fill="#333333">No session content on-chain. No audio, video, or clinical data touches the blockchain.</text>
+
+  <text x="1295" y="310" class="data" fill="#333333">NOTHING RECORDED</text>
+  <text x="1295" y="330" class="data" fill="#333333">during active session.</text>
+  <text x="1295" y="350" class="data" fill="#333333">On-chain = attestation only.</text>
+
+  <!-- SESSION COMPLETE -->
+  <text x="55" y="395" class="phase">SESSION COMPLETE</text>
+
+  <rect x="55" y="405" width="310" height="42" rx="6" fill="#FFFFFF" stroke="#777777" stroke-width="1.2"/>
+  <text x="210" y="425" text-anchor="middle" class="fn" fill="#333333">endSession(sessionId)</text>
+  <text x="210" y="440" text-anchor="middle" class="desc">Guide signs tx</text>
+
+  <line x1="365" y1="426" x2="430" y2="426" stroke="#777777" stroke-width="2" marker-end="url(#ag)"/>
+
+  <rect x="435" y="405" width="410" height="42" rx="6" fill="#FFFFFF" stroke="#777777" stroke-width="1.5"/>
+  <text x="640" y="425" text-anchor="middle" font-size="14" font-weight="700" fill="#333333">EITHER PARTY can call endSession()</text>
+  <text x="640" y="440" text-anchor="middle" class="param">require(msg.sender == guide || participant)</text>
+
+  <line x1="900" y1="426" x2="845" y2="426" stroke="#777777" stroke-width="2" marker-end="url(#ag)"/>
+
+  <rect x="915" y="405" width="240" height="42" rx="6" fill="#FFFFFF" stroke="#777777" stroke-width="1.2"/>
+  <text x="1035" y="425" text-anchor="middle" class="fn" fill="#333333">endSession(sessionId)</text>
+  <text x="1035" y="440" text-anchor="middle" class="desc">Participant can also end</text>
+
+  <!-- SessionEnded event -->
+  <rect x="435" y="460" width="410" height="50" rx="6" fill="#FFFFFF" stroke="#666666" stroke-width="1.2"/>
+  <text x="640" y="483" text-anchor="middle" class="event">emit SessionEnded(</text>
+  <text x="640" y="500" text-anchor="middle" class="param">sessionId, guide, participant, startTime, endTime, duration)</text>
+
+  <!-- On-chain data for end -->
+  <text x="1295" y="400" class="data">endTime = block.timestamp</text>
+  <text x="1295" y="420" class="data">active = false</text>
+  <text x="1295" y="445" class="data" fill="#333333">Immutable record:</text>
+  <text x="1295" y="465" class="data">• Two wallet addresses</text>
+  <text x="1295" y="485" class="data">• Start + end timestamps</text>
+  <text x="1295" y="505" class="data">• Duration in seconds</text>
+  <text x="1295" y="530" class="data" fill="#333333">• No session content</text>
+  <text x="1295" y="550" class="data" fill="#333333">• No clinical data / No PII</text>
+
+  <!-- PHASE 5 -->
+  <rect x="40" y="590" width="1520" height="110" rx="8" fill="#EBEBEB" stroke="#555555" stroke-width="2.5"/>
+  <text x="800" y="618" text-anchor="middle" font-size="17" font-weight="700" fill="#444444">PHASE 5 — DOCTORAL CAPSTONE (Post-ASU Acceptance)</text>
+  <text x="800" y="640" text-anchor="middle" font-size="14" fill="#555555">Advances SovereignSession from single-party attestation to bilateral cryptographic consent</text>
+
+  <!-- Arrow from Phase 5 up to startSession (upgrade path) -->
+  <line x1="210" y1="590" x2="210" y2="262" stroke="#555555" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="235" y="580" font-size="12" font-weight="700" fill="#555555">upgrades ↑</text>
+
+  <!-- Green arrow from SESSION COMPLETE down to Phase 5 -->
+  <line x1="870" y1="510" x2="870" y2="590" stroke="#777777" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ag)"/>
+  <text x="890" y="555" font-size="12" font-weight="600" fill="#777777">upgrade path</text>
+
+  <rect x="65" y="655" width="700" height="35" rx="6" fill="#FFFFFF" stroke="#555555" stroke-width="1"/>
+  <text x="415" y="678" text-anchor="middle" font-size="14" font-weight="600" fill="#444444">1. Two-Party Mutual Authentication</text>
+
+  <rect x="795" y="655" width="740" height="35" rx="6" fill="#FFFFFF" stroke="#555555" stroke-width="1"/>
+  <text x="1165" y="678" text-anchor="middle" font-size="14" font-weight="600" fill="#444444">2. Client-Side Encrypted Recording (AES-256-GCM)</text>
+
+  <!-- No competitor bar -->
+  <rect x="40" y="720" width="1520" height="34" rx="6" fill="#F2F2F2" stroke="#444444" stroke-width="1.5"/>
+  <text x="800" y="743" text-anchor="middle" font-size="14" font-weight="700" fill="#333333">No telehealth platform (Doxy.me, Daily.co, Zoom) implements two-party wallet-signed consent + encrypted recording + on-chain attestation</text>
+</svg>
