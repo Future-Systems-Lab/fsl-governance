@@ -50,9 +50,9 @@ SovereignSession (0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1) — wallet-native 
 | Phase | Description | Status |
 |-------|-------------|--------|
 | Phase 1 | Contract deployment and verification | Complete |
-| Phase 2 | Guide + Participant co-signing flow | Complete |
-| Phase 3 | Integration with EncryptHealth session booking | Complete |
-| Phase 4 | On-chain attestation linked to superbill generation | Complete |
+| Phase 2 | Guide + Participant co-signing flow | Scaffolded |
+| Phase 3 | Integration with EncryptHealth session booking | Specified |
+| Phase 4 | On-chain attestation linked to superbill generation | Specified |
 
 ## MAINNET READINESS GATES
 
