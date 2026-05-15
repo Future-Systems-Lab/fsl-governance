@@ -517,7 +517,22 @@ However, the architectural pattern itself — unifying consent and authenticatio
 
 ## AI Use Disclosure
 
-AI tools (Anthropic Claude, Claude Code) were used for drafting assistance, technical review, and copy editing. All architectural decisions, factual claims, and final manuscript content are the responsibility of the author.
+```solidity
+// SPDX-License-Identifier: Sovereign
+pragma sovereignty ^1.0.0;
+
+contract AIDisclosure {
+    address public author = MegMontanezDavenport;
+    string[] public tools = ["Claude (Anthropic)"];
+    string public intent = "Drafting assistance, structure refinement";
+    
+    function ownership() public pure returns (string memory) {
+        return "Ideas, lived experience, and framing: 100% human.";
+    }
+}
+```
+
+All architectural decisions, factual claims, and final manuscript content are the responsibility of the author.
 
 ---
 
