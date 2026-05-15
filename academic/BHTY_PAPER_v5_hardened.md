@@ -2,7 +2,7 @@
 
 **Authors:** Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP
 
-**Affiliation:** Future Systems Lab, NC, USA
+**Affiliation:** Future Systems Lab LLC, Wyoming, USA
 
 **Corresponding author:** future.systems.lab@proton.me
 
@@ -616,4 +616,4 @@ All architectural decisions, factual claims, and final manuscript content are th
 
 *Conflicts of interest: The author is the founder, sole architect, and lead engineer of Future Systems Lab. The author holds a pending provisional patent (U.S. Provisional Application No. 64/063,037) and trademark applications (USPTO Serial Nos. 99533250 and 99821948) related to the described system. The author has a financial interest in the commercialization of the technology described in this paper.*
 
-*Data availability: All smart contracts are publicly verifiable on Ethereum Sepolia testnet at [eth-sepolia.blockscout.com](https://eth-sepolia.blockscout.com). Contract addresses are listed in Table 1. Source code repositories: [github.com/Future-Systems-Lab/fsl-governance](https://github.com/Future-Systems-Lab/fsl-governance) (governance, contracts, academic outputs), [github.com/Future-Systems-Lab/fsl-command-center](https://github.com/Future-Systems-Lab/fsl-command-center) (operational dashboard), [github.com/Future-Systems-Lab/alchemist-forge](https://github.com/Future-Systems-Lab/alchemist-forge) (AlchemistForge interface). This manuscript is pinned to IPFS via Pinata. CID: `QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu`. Accessible via https://gateway.pinata.cloud/ipfs/QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu or https://ipfs.io/ipfs/QmNUhpwRPrZd5Vk6wLy4pAhFBz3fWYWntKkHC5LXMyCmXu.*
+*Data availability: All smart contracts are publicly verifiable on Ethereum Sepolia testnet at [eth-sepolia.blockscout.com](https://eth-sepolia.blockscout.com). Contract addresses are listed in Table 1. Source code repositories: [github.com/Future-Systems-Lab/fsl-governance](https://github.com/Future-Systems-Lab/fsl-governance) (governance, contracts, academic outputs), [github.com/Future-Systems-Lab/fsl-command-center](https://github.com/Future-Systems-Lab/fsl-command-center) (operational dashboard), [github.com/Future-Systems-Lab/alchemist-forge](https://github.com/Future-Systems-Lab/alchemist-forge) (AlchemistForge interface). This manuscript will be pinned to IPFS via Pinata upon final review and acceptance. The pinned CID will be appended to the published version. Smart contracts are independently verifiable on Ethereum Sepolia at the addresses listed in Table 1.*
