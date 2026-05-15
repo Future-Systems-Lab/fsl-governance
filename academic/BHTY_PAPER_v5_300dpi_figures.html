@@ -102,14 +102,17 @@ CBHP</p>
 USA</p>
 <p><strong>Corresponding author:</strong>
 future.systems.lab@proton.me</p>
-<p><strong>Intellectual Property:</strong> - Trademark: USPTO Serial
-No. 99533250 — “Future Systems Lab,” Class 42 (Software/Tech Platform) —
-Publishing May 19, 2026 - Trademark: USPTO Serial No. 99821948 — “Future
-Systems Lab,” Class 35 (Online Marketplace/Directory) — Filed May 13,
-2026 - Patent: U.S. Provisional Application No. 64/063,037 — Filed May
-11, 2026 — Assigned to Future Systems Lab LLC (Assignment ID 1803665,
+<p><strong>Intellectual Property:</strong></p>
+<ul>
+<li>Trademark: USPTO Serial No. 99533250 — “Future Systems Lab,” Class
+42 (Software/Tech Platform) — Publishing May 19, 2026</li>
+<li>Trademark: USPTO Serial No. 99821948 — “Future Systems Lab,” Class
+35 (Online Marketplace/Directory) — Filed May 13, 2026</li>
+<li>Patent: U.S. Provisional Application No. 64/063,037 — Filed May 11,
+2026 — Assigned to Future Systems Lab LLC (Assignment ID 1803665,
 recorded May 13, 2026). Patent filed prior to IPFS publication of this
-manuscript.</p>
+manuscript.</li>
+</ul>
 <p><strong>Keywords:</strong> blockchain consent, self-sovereign
 identity, behavioral health, EIP-191, wallet-based authentication, data
 sovereignty, decentralized health informatics</p>
@@ -299,10 +302,14 @@ milestones to participant wallet addresses without creating transferable
 financial instruments.</p>
 <h3 id="the-gap">2.6 The Gap</h3>
 <p>No existing systems, to our knowledge, use EIP-191 wallet signatures
-as the simultaneous mechanism for: 1. User authentication (replacing
-username/password) 2. Informed consent (replacing click-through
-agreements) 3. Session authorization (replacing OAuth tokens) 4.
-Behavioral health data attribution (replacing PII-based records)</p>
+as the simultaneous mechanism for:</p>
+<ol type="1">
+<li>User authentication (replacing username/password)</li>
+<li>Informed consent (replacing click-through agreements)</li>
+<li>Session authorization (replacing OAuth tokens)</li>
+<li>Behavioral health data attribution (replacing PII-based
+records)</li>
+</ol>
 <p>FSL addresses this gap by unifying these four functions into a single
 cryptographic event. While individual components (wallet authentication,
 blockchain consent, soulbound credentials) have been explored
@@ -366,11 +373,15 @@ nonce is bound to the requesting wallet address, stored server-side with
 a time-to-live (TTL), and is single-use — consumed upon successful
 verification or expiration.</p>
 <p><strong>Step 4 — Consent Message Construction.</strong> The client
-constructs a human-readable consent message containing: - A
-plain-language description of what the user is consenting to -
-Educational disclaimers (FSL is not a medical facility; data is
-educational, not clinical) - The user’s wallet address - The
-server-generated nonce - An ISO 8601 timestamp</p>
+constructs a human-readable consent message containing:</p>
+<ul>
+<li>A plain-language description of what the user is consenting to</li>
+<li>Educational disclaimers (FSL is not a medical facility; data is
+educational, not clinical)</li>
+<li>The user’s wallet address</li>
+<li>The server-generated nonce</li>
+<li>An ISO 8601 timestamp</li>
+</ul>
 <p>This message serves simultaneously as informed consent and
 authentication challenge.</p>
 <p><strong>Step 5 — Cryptographic Signature.</strong> The client calls
@@ -381,18 +392,23 @@ explicit user approval before signing. The resulting signature is a
 parameter) over the EIP-191 prefixed message hash [25].</p>
 <p><strong>Step 6 — Server Verification and JWT Issuance.</strong> The
 client sends <code>{address, signature, message}</code> to the server
-verification endpoint. The server: - Recovers the signer address from
-the signature using ECDSA public key recovery [25] - Verifies the
-recovered address matches the claimed address - Validates the nonce and
-marks it as consumed - Validates the consent message contains required
-phrases (educational disclaimer, sovereignty acknowledgment) - Issues a
-JSON Web Token (JWT) [26] signed with HMAC-SHA256 (HS256) using a
-server-held symmetric secret, containing the verified address, role
-(participant or guide), and a configurable expiration (maximum 24
+verification endpoint. The server:</p>
+<ul>
+<li>Recovers the signer address from the signature using ECDSA public
+key recovery [25]</li>
+<li>Verifies the recovered address matches the claimed address</li>
+<li>Validates the nonce and marks it as consumed</li>
+<li>Validates the consent message contains required phrases (educational
+disclaimer, sovereignty acknowledgment)</li>
+<li>Issues a JSON Web Token (JWT) [26] signed with HMAC-SHA256 (HS256)
+using a server-held symmetric secret, containing the verified address,
+role (participant or guide), and a configurable expiration (maximum 24
 hours). HS256 was selected for implementation simplicity; migration to
 ES256 (ECDSA-P256) for asymmetric non-repudiation is identified as
-future work - The JWT is delivered as an HttpOnly, Secure,
-SameSite=Strict browser cookie</p>
+future work</li>
+<li>The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser
+cookie</li>
+</ul>
 <figure>
 <img src="figures/v2/fig2_eip191_consent_flow_300dpi.png"
 alt="Figure 2. EIP-191 wallet-signed consent attestation sequence." />
@@ -402,11 +418,16 @@ attestation sequence.</figcaption>
 <h3 id="middleware-verification-layer">3.3 Middleware Verification
 Layer</h3>
 <p>Every protected route passes through a server-side middleware layer
-that: 1. Extracts the session cookie from the request 2. Verifies the
-JWT signature using the server’s signing key 3. Checks token expiration
-4. Extracts the verified wallet address and role from the payload 5.
-Injects the verified address into request headers 6. Enforces role-based
-access (guide role required for Sovereign Guide routes)</p>
+that:</p>
+<ol type="1">
+<li>Extracts the session cookie from the request</li>
+<li>Verifies the JWT signature using the server’s signing key</li>
+<li>Checks token expiration</li>
+<li>Extracts the verified wallet address and role from the payload</li>
+<li>Injects the verified address into request headers</li>
+<li>Enforces role-based access (guide role required for Sovereign Guide
+routes)</li>
+</ol>
 <p>If verification fails, page routes redirect to the landing page; API
 routes return 401. The middleware runs on every request to protected
 routes, ensuring that every page load and API call is authorized by a
@@ -551,15 +572,21 @@ Architecture</h3>
 <p>FSL employs a hybrid on-chain/off-chain data architecture designed to
 ensure that no protected health information (PHI) as defined by 45 CFR
 Section 160.103 [3] exists anywhere in the system (see Figure 3).</p>
-<p><strong>On-chain (Ethereum Sepolia):</strong> - Consent events
-(wallet signatures verified server-side; attestation hashes anchored
-on-chain) - Session attestations (content hashes anchored to
-SovereignLedger) - Achievement credentials (soulbound ERC-1155 tokens) -
-Engagement records (AlchemistForge voluntary disclosures)</p>
-<p><strong>Off-chain (PostgreSQL + IPFS):</strong> - Session metadata
-(aggregate engagement data, no clinical notes) - Wellness engagement
-metrics (aggregate, non-clinical) - Encrypted documents (IPFS-pinned,
-wallet-gated decryption)</p>
+<p><strong>On-chain (Ethereum Sepolia):</strong></p>
+<ul>
+<li>Consent events (wallet signatures verified server-side; attestation
+hashes anchored on-chain)</li>
+<li>Session attestations (content hashes anchored to
+SovereignLedger)</li>
+<li>Achievement credentials (soulbound ERC-1155 tokens)</li>
+<li>Engagement records (AlchemistForge voluntary disclosures)</li>
+</ul>
+<p><strong>Off-chain (PostgreSQL + IPFS):</strong></p>
+<ul>
+<li>Session metadata (aggregate engagement data, no clinical notes)</li>
+<li>Wellness engagement metrics (aggregate, non-clinical)</li>
+<li>Encrypted documents (IPFS-pinned, wallet-gated decryption)</li>
+</ul>
 <p>This hybrid approach addresses the fundamental tension between
 blockchain immutability and healthcare data requirements: data that
 could become sensitive is encrypted and stored off-chain where it can be
@@ -732,6 +759,7 @@ contains no health information — only engagement attestations.</p>
 <h3 id="smart-contracts">7.1 Smart Contracts</h3>
 <p>FSL has deployed nine smart contracts on the Ethereum Sepolia
 testnet:</p>
+<p>Table 1. FSL Smart Contracts Deployed on Ethereum Sepolia</p>
 <table>
 <colgroup>
 <col style="width: 23%" />
@@ -851,11 +879,11 @@ state, distinguishing between architectural properties that have been
 implemented and properties that require formal evaluation.</p>
 <h3 id="deployment-metrics-and-operational-characteristics">8.1
 Deployment Metrics and Operational Characteristics</h3>
-<p>Table 3 summarizes the observable deployment characteristics of the
+<p>Table 2 summarizes the observable deployment characteristics of the
 FSL prototype. On-chain values were queried from the Ethereum Sepolia
 block explorer (Blockscout) at time of paper preparation. Latency values
 were observed during local development and Sepolia testing.</p>
-<p>Table 3. Deployment Metrics and Operational Characteristics</p>
+<p>Table 2. Deployment Metrics and Operational Characteristics</p>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -931,7 +959,7 @@ testing)</td>
 </tr>
 </tbody>
 </table>
-<p>The metrics presented in Table 3 are observational rather than the
+<p>The metrics presented in Table 2 are observational rather than the
 product of formal benchmark testing. All gas values and latency ranges
 were recorded during development and testnet interaction on Ethereum
 Sepolia, which operates under proof-of-stake consensus with zero-cost
@@ -954,7 +982,7 @@ planned (see Section 10.3).</p>
 <h2 id="comparative-analysis">9. Comparative Analysis</h2>
 <h3 id="comparative-properties-table">9.1 Comparative Properties
 Table</h3>
-<p>Table 2 presents a comparative analysis of FSL against four
+<p>Table 3 presents a comparative analysis of FSL against four
 blockchain-based consent and health data systems: Welzel et al. (2025)
 [15], US Patent 12,235,984 [16], MedRec [9], and ADvoCATE [10].</p>
 <table>

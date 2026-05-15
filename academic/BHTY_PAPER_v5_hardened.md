@@ -7,6 +7,7 @@
 **Corresponding author:** future.systems.lab@proton.me
 
 **Intellectual Property:**
+
 - Trademark: USPTO Serial No. 99533250 — "Future Systems Lab," Class 42 (Software/Tech Platform) — Publishing May 19, 2026
 - Trademark: USPTO Serial No. 99821948 — "Future Systems Lab," Class 35 (Online Marketplace/Directory) — Filed May 13, 2026
 - Patent: U.S. Provisional Application No. 64/063,037 — Filed May 11, 2026 — Assigned to Future Systems Lab LLC (Assignment ID 1803665, recorded May 13, 2026). Patent filed prior to IPFS publication of this manuscript.
@@ -83,6 +84,7 @@ The concept of soulbound tokens (SBTs) — non-transferable tokens bound to a sp
 ### 2.6 The Gap
 
 No existing systems, to our knowledge, use EIP-191 wallet signatures as the simultaneous mechanism for:
+
 1. User authentication (replacing username/password)
 2. Informed consent (replacing click-through agreements)
 3. Session authorization (replacing OAuth tokens)
@@ -123,6 +125,7 @@ The authentication flow proceeds in six steps (see Figure 2):
 **Step 3 — Nonce Generation.** The client requests a cryptographic nonce from the server. The server generates a 128-bit random nonce using a cryptographically secure random number generator (conforming to NIST SP 800-63B [24]) and returns it to the client. The nonce is bound to the requesting wallet address, stored server-side with a time-to-live (TTL), and is single-use — consumed upon successful verification or expiration.
 
 **Step 4 — Consent Message Construction.** The client constructs a human-readable consent message containing:
+
 - A plain-language description of what the user is consenting to
 - Educational disclaimers (FSL is not a medical facility; data is educational, not clinical)
 - The user's wallet address
@@ -134,6 +137,7 @@ This message serves simultaneously as informed consent and authentication challe
 **Step 5 — Cryptographic Signature.** The client calls `personal_sign` with the consent message and the user's address. The wallet provider displays the full message text and requires explicit user approval before signing. The resulting signature is a 65-byte ECDSA signature (r: 32 bytes, s: 32 bytes, v: 1 byte recovery parameter) over the EIP-191 prefixed message hash [25].
 
 **Step 6 — Server Verification and JWT Issuance.** The client sends `{address, signature, message}` to the server verification endpoint. The server:
+
 - Recovers the signer address from the signature using ECDSA public key recovery [25]
 - Verifies the recovered address matches the claimed address
 - Validates the nonce and marks it as consumed
@@ -146,6 +150,7 @@ This message serves simultaneously as informed consent and authentication challe
 ### 3.3 Middleware Verification Layer
 
 Every protected route passes through a server-side middleware layer that:
+
 1. Extracts the session cookie from the request
 2. Verifies the JWT signature using the server's signing key
 3. Checks token expiration
@@ -247,12 +252,14 @@ The server validates that the signed message contains the required consent phras
 FSL employs a hybrid on-chain/off-chain data architecture designed to ensure that no protected health information (PHI) as defined by 45 CFR Section 160.103 [3] exists anywhere in the system (see Figure 3).
 
 **On-chain (Ethereum Sepolia):**
+
 - Consent events (wallet signatures verified server-side; attestation hashes anchored on-chain)
 - Session attestations (content hashes anchored to SovereignLedger)
 - Achievement credentials (soulbound ERC-1155 tokens)
 - Engagement records (AlchemistForge voluntary disclosures)
 
 **Off-chain (PostgreSQL + IPFS):**
+
 - Session metadata (aggregate engagement data, no clinical notes)
 - Wellness engagement metrics (aggregate, non-clinical)
 - Encrypted documents (IPFS-pinned, wallet-gated decryption)
@@ -348,6 +355,8 @@ We acknowledge that Ethereum addresses are pseudonymous, not anonymous. Address 
 
 FSL has deployed nine smart contracts on the Ethereum Sepolia testnet:
 
+Table 1. FSL Smart Contracts Deployed on Ethereum Sepolia
+
 | Contract | Address | Purpose | Access Control |
 |----------|---------|---------|---------------|
 | HypnoNeuroToken (HNT) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | ERC-20 [31] wellness engagement token | Owner-minted |
@@ -387,9 +396,9 @@ The FSL ecosystem has been deployed as a proof-of-concept on Ethereum Sepolia te
 
 ### 8.1 Deployment Metrics and Operational Characteristics
 
-Table 3 summarizes the observable deployment characteristics of the FSL prototype. On-chain values were queried from the Ethereum Sepolia block explorer (Blockscout) at time of paper preparation. Latency values were observed during local development and Sepolia testing.
+Table 2 summarizes the observable deployment characteristics of the FSL prototype. On-chain values were queried from the Ethereum Sepolia block explorer (Blockscout) at time of paper preparation. Latency values were observed during local development and Sepolia testing.
 
-Table 3. Deployment Metrics and Operational Characteristics
+Table 2. Deployment Metrics and Operational Characteristics
 
 | Characteristic | Value |
 |---|---|
@@ -409,7 +418,7 @@ Table 3. Deployment Metrics and Operational Characteristics
 | Guide model tested | Single Sovereign Guide (principal investigator) |
 | External organic adoption | None measured; architect-initiated activity only |
 
-The metrics presented in Table 3 are observational rather than the product of formal benchmark testing. All gas values and latency ranges were recorded during development and testnet interaction on Ethereum Sepolia, which operates under proof-of-stake consensus with zero-cost gas — conditions that do not reflect mainnet economics or production load characteristics. These values are included to characterize the operational behavior of the prototype and to provide a baseline for future performance evaluation. Formal benchmarking under simulated multi-user load and adversarial conditions is planned as future work.
+The metrics presented in Table 2 are observational rather than the product of formal benchmark testing. All gas values and latency ranges were recorded during development and testnet interaction on Ethereum Sepolia, which operates under proof-of-stake consensus with zero-cost gas — conditions that do not reflect mainnet economics or production load characteristics. These values are included to characterize the operational behavior of the prototype and to provide a baseline for future performance evaluation. Formal benchmarking under simulated multi-user load and adversarial conditions is planned as future work.
 
 ### 8.2 Scope and Maturity
 
@@ -421,7 +430,7 @@ This deployment represents a functional proof of concept suitable for architectu
 
 ### 9.1 Comparative Properties Table
 
-Table 2 presents a comparative analysis of FSL against four blockchain-based consent and health data systems: Welzel et al. (2025) [15], US Patent 12,235,984 [16], MedRec [9], and ADvoCATE [10].
+Table 3 presents a comparative analysis of FSL against four blockchain-based consent and health data systems: Welzel et al. (2025) [15], US Patent 12,235,984 [16], MedRec [9], and ADvoCATE [10].
 
 | Property | FSL (This Paper) | Welzel et al. 2025 [15] | US 12,235,984 [16] | MedRec [9] | ADvoCATE [10] |
 |----------|------------------|------------------------|---------------------|------------|---------------|
