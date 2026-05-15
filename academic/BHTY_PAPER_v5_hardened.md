@@ -110,7 +110,7 @@ FSL comprises five interconnected platforms, each serving a distinct function in
 
 All five platforms share a single authentication architecture: EIP-191 wallet signature, JWT cookie issuance, and middleware-verified access.
 
-![Figure 1. System architecture for sovereign behavioral health data governance.](figures/fig1_system_architecture.png)
+![Figure 1. System architecture for sovereign behavioral health data governance.](figures/v2/fig1_system_architecture_mono.svg)
 
 ### 3.2 Authentication Flow
 
@@ -141,7 +141,7 @@ This message serves simultaneously as informed consent and authentication challe
 - Issues a JSON Web Token (JWT) [26] signed with HMAC-SHA256 (HS256) using a server-held symmetric secret, containing the verified address, role (participant or guide), and a configurable expiration (maximum 24 hours). HS256 was selected for implementation simplicity; migration to ES256 (ECDSA-P256) for asymmetric non-repudiation is identified as future work
 - The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser cookie
 
-![Figure 2. EIP-191 wallet-signed consent attestation sequence.](figures/fig2_eip191_consent_flow.png)
+![Figure 2. EIP-191 wallet-signed consent attestation sequence.](figures/v2/fig2_eip191_consent_flow_mono.svg)
 
 ### 3.3 Middleware Verification Layer
 
@@ -259,7 +259,7 @@ FSL employs a hybrid on-chain/off-chain data architecture designed to ensure tha
 
 This hybrid approach addresses the fundamental tension between blockchain immutability and healthcare data requirements: data that could become sensitive is encrypted and stored off-chain where it can be managed (and deleted if necessary), while consent events and attestations are anchored on-chain where they provide an immutable audit trail.
 
-![Figure 3. Zero-PHI data classification across system layers.](figures/fig3_zero_phi_data_classification.png)
+![Figure 3. Zero-PHI data classification across system layers.](figures/v2/fig3_zero_phi_data_classification_mono.svg)
 
 ### 5.2 Regulatory Scope: Outside HIPAA by Architectural Design
 
@@ -301,7 +301,7 @@ SovereignSession extends the consent architecture from platform access to indivi
 
 4. **Attestation Finalization.** Upon completion, the contract emits an event recording the final session state. This event serves as an immutable attestation that the session occurred, was authorized by a credentialed guide, and involved a consenting participant.
 
-![Figure 4. Sovereign Guide and Participant attestation lifecycle.](figures/fig4_attestation_lifecycle.png)
+![Figure 4. Sovereign Guide and Participant attestation lifecycle.](figures/v2/fig4_attestation_lifecycle_mono.svg)
 
 ```solidity
 // Listing 2: Session Attestation Event Pattern (Solidity)
