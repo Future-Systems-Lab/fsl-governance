@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>bhty_blind_png</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="paper.css" />
+</head>
+<body>
+<h1
+id="eip-191-consent-architecture-for-sovereign-behavioral-health-data-governance-a-hybrid-on-chainoff-chain-implementation">EIP-191
+Consent Architecture for Sovereign Behavioral Health Data Governance: A
+Hybrid On-Chain/Off-Chain Implementation</h1>
+<p><strong>Keywords:</strong> blockchain consent, self-sovereign
+identity, behavioral health, EIP-191, wallet-based authentication, data
+sovereignty, decentralized health informatics</p>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p><strong>Objective:</strong> To design, implement, and evaluate a
+decentralized consent architecture that unifies authentication, informed
+consent, session authorization, and data attribution into a single
+EIP-191 cryptographic wallet signature event for behavioral health data
+governance.</p>
+<p><strong>Design:</strong> Proof-of-concept systems architecture with
+nine smart contracts deployed on Ethereum Sepolia testnet, comparative
+evaluation against four existing blockchain-based health data
+systems.</p>
+<p><strong>Methodology:</strong> Iterative architecture development with
+deployment on Ethereum Sepolia testnet. EIP-191 wallet signatures
+replace click-through consent as the unified mechanism for identity,
+consent, and access control. Comparative analysis against MedRec,
+ADvoCATE, Welzel et al. (2025), and US Patent 12,235,984 across nine
+architectural properties.</p>
+<p><strong>Setting:</strong> Ethereum Sepolia testnet (proof-of-concept;
+no real monetary value). Five interconnected platforms sharing a unified
+wallet-based authentication layer.</p>
+<p><strong>Participants:</strong> Single evaluator (principal
+investigator). No external participants have been onboarded. No formal
+user study has been conducted. [Note: identifying details removed for
+blind review; restored on acceptance.]</p>
+<p><strong>Interventions:</strong> Deployment of EIP-191 consent
+architecture replacing traditional click-through consent with
+cryptographic wallet signatures for a behavioral health engagement
+platform operating outside HIPAA scope by architectural design (zero PHI
+stored).</p>
+<p><strong>Main outcome measures:</strong> Deployment feasibility (nine
+contracts deployed and verified), architectural property comparison
+(consent unification across authentication, informed consent, session
+authorization, and data attribution), and zero-PHI compliance
+verification against 45 CFR §164.514 Safe Harbor identifiers.</p>
+<p><strong>Results:</strong> Nine smart contracts deployed on Sepolia
+testnet. The system unifies four consent functions into a single
+cryptographic event — a property not demonstrated by any of the four
+comparison systems. The AlchemistForge case study demonstrates
+behavioral health engagement capture on a public blockchain with zero
+personally identifiable information. All 18 HIPAA Safe Harbor
+identifiers are excluded by architectural design.</p>
+<p><strong>Conclusions:</strong> The architectural pattern of unifying
+consent and authentication through cryptographic signatures within a
+zero-PHI data model is feasible and generalizable. Significant
+limitations include single-evaluator testing, testnet-only deployment,
+centralized governance, and browser wallet dependency. Formal user
+study, mainnet deployment, and bilateral consent verification are
+planned as future work. AI tools (Claude, Anthropic) were used for
+drafting assistance; all architectural decisions and claims are the
+author’s responsibility.</p>
+<hr />
+<h2 id="plain-language-summary">Plain Language Summary</h2>
+<p>This study describes a new way to manage consent and data access for
+behavioral health and wellness platforms. Instead of clicking “I agree”
+on a terms of service page — which is easily forged, hard to revoke, and
+controlled by the platform — this system uses a digital wallet
+signature. This is a short cryptographic code that proves: (1) who you
+are, (2) that you read and agreed to specific terms, and (3) that you
+authorized a specific session — all in one step.</p>
+<p>The system stores no personal health information. Participants are
+identified only by their wallet address, which is not linked to their
+real name or identity by the platform. Wellness engagement data is
+recorded on a public blockchain (Ethereum Sepolia testnet) as a proof of
+concept, but the data contains no clinical details — only timestamps,
+wallet addresses, and consent attestations.</p>
+<p>Nine smart contracts were built and tested. A comparison with four
+other blockchain health data systems found that this is the first to
+combine identity verification, informed consent, session authorization,
+and data attribution into a single signature event.</p>
+<p>The system has been tested by one person (the developer) on a test
+network with no real money involved. It has not been tested with real
+participants or in a clinical setting. These are important limitations.
+Future work includes formal testing with real users, moving to a
+production blockchain network, and adding two-party consent verification
+where both the wellness guide and participant must sign before a session
+begins.</p>
+<p>This approach could be useful beyond behavioral health — anywhere
+people need to control their own data, such as real estate, education,
+or government records.</p>
+<hr />
+<h2 id="introduction">1. Introduction</h2>
+<p>Behavioral health data occupies a uniquely sensitive position in the
+health informatics landscape. Unlike laboratory results or imaging data,
+behavioral health records often contain subjective self-disclosures,
+therapeutic narratives, and psychological assessments that participants
+may not want shared even with other healthcare practitioners [1]. Yet
+the systems that store this data — electronic health records, therapy
+platforms, and wellness applications — operate on centralized
+architectures where the platform operator, not the participant, controls
+access.</p>
+<p>The consent mechanisms governing these systems are equally
+centralized. A typical behavioral health application presents a Terms of
+Service agreement as a prerequisite to account creation. The participant
+clicks “I agree” — a legally binding but cryptographically meaningless
+act. The platform then stores their data in a database it controls,
+shares it according to policies the participant did not write, and may
+change those policies unilaterally. The participant’s consent is a
+one-time event with no ongoing enforcement mechanism and no auditable
+trail [2].</p>
+<p>This paper presents an alternative architecture. Future Systems Lab
+(FSL) is a decentralized health data infrastructure comprising five
+interconnected platforms that use Ethereum wallet signatures (EIP-191)
+as the sole mechanism for identity, consent, and access control. In this
+system:</p>
+<ul>
+<li><strong>Identity</strong> is a wallet address, not a username and
+password.</li>
+<li><strong>Consent</strong> is a cryptographic signature, not a
+checkbox.</li>
+<li><strong>Access</strong> is gated by verifiable token claims, not
+session cookies with opaque identifiers.</li>
+<li><strong>Revocation</strong> is enforced through JWT expiration,
+server-side consent grant deletion, and mandatory re-authentication —
+not buried in account settings.</li>
+</ul>
+<p>We use “behavioral health” throughout this paper to denote the FSL
+domain; however, the system operates strictly in the wellness and
+educational engagement space, not as a clinical treatment platform. FSL
+is not a covered entity under HIPAA, holds no protected health
+information, and maintains no business associate relationships. This
+regulatory posture is architectural, not administrative — the system is
+designed to hold no PHI, rather than designed to protect PHI [3].</p>
+<p>We describe the complete system architecture (see Figure 1), the
+cryptographic consent flow (see Figure 2), a zero-PHI data
+classification model (see Figure 3), and a proof-of-concept deployment
+demonstrating that behavioral health engagement data can be captured
+with full participant sovereignty and zero personally identifiable
+information.</p>
+<hr />
+<h2 id="background-and-related-work">2. Background and Related Work</h2>
+<h3 id="self-sovereign-identity-in-healthcare">2.1 Self-Sovereign
+Identity in Healthcare</h3>
+<p>Self-sovereign identity (SSI) proposes that individuals should own
+and control their digital identities without relying on centralized
+authorities [4]. In healthcare contexts, SSI has been explored through
+verifiable credentials for vaccination records [5], decentralized
+identifiers (DIDs) for cross-institutional participant identification
+[6], and blockchain-based consent management for clinical trial data
+[7]. Blockchain distributed ledger technologies have been systematically
+reviewed for biomedical and healthcare applications, with consent
+management identified as a key use case [8].</p>
+<p>However, most SSI implementations in healthcare introduce significant
+infrastructure complexity — DID registries, verifiable credential
+issuers, and holder wallets that require specialized software. These
+systems often replicate the complexity they seek to eliminate, trading
+one set of intermediaries for another.</p>
+<h3 id="blockchain-based-consent-and-access-control">2.2
+Blockchain-Based Consent and Access Control</h3>
+<p>Several blockchain-based systems have been proposed for healthcare
+consent and access management. MedRec uses smart contracts to manage
+access permissions for electronic health records, providing patients
+with an immutable log of access events [9]. The ADvoCATE platform
+provides granular consent management through blockchain transactions for
+IoT personal data processing [10]. Ancile presents a privacy-preserving
+framework for access control and interoperability of electronic health
+records using blockchain [11]. Esposito et al. surveyed blockchain
+approaches to healthcare data security and privacy in cloud environments
+[12], while Mayer et al. provided a systematic review of electronic
+health records on blockchain [13].</p>
+<p>These systems typically store consent metadata on-chain while keeping
+health data off-chain — a pattern FSL follows. However, most
+implementations focus on consent for data sharing between institutions
+rather than consent as the foundational authentication mechanism.
+Zyskind et al. proposed using blockchain to decentralize privacy and
+protect personal data [14], but their approach requires a trusted
+third-party data store, preserving elements of the centralization
+problem.</p>
+<p>More recently, Welzel et al. (2025) presented a comprehensive
+analysis of blockchain-based consent management in digital medicine,
+providing a taxonomy of consent primitives and implementation patterns
+across jurisdictions [15]. Their work establishes the state of the art
+against which newer systems — including FSL — must be evaluated (see
+Section 9).</p>
+<p>US Patent 12,235,984 describes a blockchain-based system for
+healthcare data consent management using smart contracts and
+cryptographic tokens [16]. While this patent covers consent token
+issuance and validation, it operates within a traditional identity model
+(username/password authentication with blockchain-anchored consent
+tokens) rather than unifying identity and consent into a single
+cryptographic event.</p>
+<h3 id="eip-191-signed-data-standard">2.3 EIP-191: Signed Data
+Standard</h3>
+<p>Ethereum Improvement Proposal 191 defines a standard for signing
+arbitrary data with an Ethereum private key [17]. The
+<code>personal_sign</code> method, widely implemented across wallet
+providers, allows a user to sign a human-readable message that can be
+cryptographically verified by any party holding the user’s public
+address. This creates a minimal SSI primitive: the wallet IS the
+identity, the signature IS the consent, and verification requires no
+infrastructure beyond the Ethereum address itself.</p>
+<h3 id="eip-191-vs.-eip-712-design-rationale">2.4 EIP-191 vs. EIP-712:
+Design Rationale</h3>
+<p>EIP-712 defines a standard for hashing and signing typed structured
+data [18], offering several advantages over EIP-191: domain separation
+prevents cross-application signature replay, typed data structures
+enable on-chain verification via <code>ecrecover</code> over structured
+hashes, and the specification is purpose-built for application-layer
+signing.</p>
+<p>FSL selected EIP-191 <code>personal_sign</code> over EIP-712 for
+three reasons:</p>
+<p><strong>Human readability of consent text.</strong> FSL’s consent
+model requires that the participant read and approve a plain-language
+informed consent message before signing. The <code>personal_sign</code>
+interface displays the full message text in the wallet approval dialog.
+EIP-712’s structured data presentation varies across wallets and
+typically renders as a JSON-like field listing rather than a readable
+narrative — undermining the “informed” requirement of informed
+consent.</p>
+<p><strong>Broader wallet support.</strong> At the time of development,
+<code>personal_sign</code> (EIP-191) was universally supported across
+wallet providers including MetaMask, Brave Wallet, Coinbase Wallet, and
+hardware wallets via browser extensions. EIP-712
+<code>eth_signTypedData_v4</code> support, while widespread, was not
+uniform across all target wallets, particularly hardware wallet
+integrations.</p>
+<p><strong>Server-side verification by design.</strong> FSL’s
+architecture performs signature verification server-side rather than
+on-chain. The consent signature authorizes JWT issuance; it is not
+submitted to a smart contract. Because FSL does not require on-chain
+signature verification, EIP-712’s structured hashing advantages (which
+primarily benefit smart contract verification via
+<code>ecrecover</code>) are not architecturally necessary.</p>
+<p>We acknowledge that EIP-712 provides stronger cryptographic
+guarantees for applications requiring on-chain verification or
+cross-contract consent delegation. Migration to EIP-712 structured
+consent messages is identified as future work, particularly as wallet UX
+for structured data display improves. Smart contract signature
+verification via EIP-1271 [19] is also under consideration for
+multi-signature governance scenarios.</p>
+<h3 id="soulbound-tokens-and-credential-attestation">2.5 Soulbound
+Tokens and Credential Attestation</h3>
+<p>The concept of soulbound tokens (SBTs) — non-transferable tokens
+bound to a specific address — was formalized by Weyl, Ohlhaver, and
+Buterin as a mechanism for encoding social trust and reputation on-chain
+[20]. ERC-5192 provides a minimal soulbound interface [21]. FSL uses
+soulbound ERC-1155 [33] tokens rather than ERC-721 [32] for achievement
+credentials, as ERC-1155 supports multiple token types within a single
+contract — enabling both participant and Sovereign Guide credential
+tiers without separate deployments. This binds verifiable wellness
+milestones to participant wallet addresses without creating transferable
+financial instruments.</p>
+<h3 id="the-gap">2.6 The Gap</h3>
+<p>No existing systems, to our knowledge, use EIP-191 wallet signatures
+as the simultaneous mechanism for:</p>
+<ol type="1">
+<li>User authentication (replacing username/password)</li>
+<li>Informed consent (replacing click-through agreements)</li>
+<li>Session authorization (replacing OAuth tokens)</li>
+<li>Behavioral health data attribution (replacing PII-based
+records)</li>
+</ol>
+<p>FSL addresses this gap by unifying these four functions into a single
+cryptographic event. While individual components (wallet authentication,
+blockchain consent, soulbound credentials) have been explored
+independently, their integration into a unified
+consent-as-authentication architecture for behavioral health has not
+been previously demonstrated.</p>
+<hr />
+<h2 id="system-architecture">3. System Architecture</h2>
+<h3 id="platform-overview">3.1 Platform Overview</h3>
+<p>FSL comprises five interconnected platforms, each serving a distinct
+function in the decentralized infrastructure ecosystem (see Figure
+1):</p>
+<ol type="1">
+<li><p><strong>EncryptHealth™</strong> — The primary health data
+platform. Manages participant records, session booking, Sovereign Guide
+(credentialed wellness facilitator) directories, and consent-gated data
+access. Deployed as a modern web application with a relational database
+backend.</p></li>
+<li><p><strong>HypnoNeuro™</strong> — A suite of browser-based wellness
+engagement activities with wallet-gated access and token-based
+engagement incentives.</p></li>
+<li><p><strong>SovereignLedger™</strong> — On-chain session governance.
+Records session attestations, superbill generation, and billing events
+as blockchain transactions.</p></li>
+<li><p><strong>AlchemistForge™</strong> — A permissionless smart
+contract and interface for recording voluntary behavioral health
+engagement (shadow integration) on-chain.</p></li>
+<li><p><strong>NeuroBalance</strong> — A general wellness dashboard
+integrating biometric data with on-chain consent management.
+NeuroBalance is currently scaffolded (the NeuroBalanceConsent smart
+contract is deployed as infrastructure scaffolding; full platform
+development is planned) and is positioned as a general wellness product
+under FDA guidance [22]; it does not perform clinical diagnosis or
+treatment.</p></li>
+</ol>
+<p>All five platforms share a single authentication architecture:
+EIP-191 wallet signature, JWT cookie issuance, and middleware-verified
+access.</p>
+<figure>
+<img src="figures/v2/fig1_system_architecture_300dpi.png"
+alt="Figure 1. System architecture for sovereign behavioral health data governance." />
+<figcaption aria-hidden="true">Figure 1. System architecture for
+sovereign behavioral health data governance.</figcaption>
+</figure>
+<h3 id="authentication-flow">3.2 Authentication Flow</h3>
+<p>The authentication flow proceeds in six steps (see Figure 2):</p>
+<p><strong>Step 1 — Wallet Detection.</strong> The client application
+detects available wallet providers using the
+<code>window.ethereum</code> interface. FSL implements EIP-6963
+multi-provider discovery [23], preferring Brave Wallet when available
+but supporting any injected Ethereum provider.</p>
+<p><strong>Step 2 — Account Request.</strong> The application calls
+<code>eth_requestAccounts</code> on the selected provider, prompting the
+user to authorize the connection. This returns the user’s Ethereum
+address but does not yet constitute consent.</p>
+<p><strong>Step 3 — Nonce Generation.</strong> The client requests a
+cryptographic nonce from the server. The server generates a 128-bit
+random nonce using a cryptographically secure random number generator
+(conforming to NIST SP 800-63B [24]) and returns it to the client. The
+nonce is bound to the requesting wallet address, stored server-side with
+a time-to-live (TTL), and is single-use — consumed upon successful
+verification or expiration.</p>
+<p><strong>Step 4 — Consent Message Construction.</strong> The client
+constructs a human-readable consent message containing:</p>
+<ul>
+<li>A plain-language description of what the user is consenting to</li>
+<li>Educational disclaimers (FSL is not a medical facility; data is
+educational, not clinical)</li>
+<li>The user’s wallet address</li>
+<li>The server-generated nonce</li>
+<li>An ISO 8601 timestamp</li>
+</ul>
+<p>This message serves simultaneously as informed consent and
+authentication challenge.</p>
+<p><strong>Step 5 — Cryptographic Signature.</strong> The client calls
+<code>personal_sign</code> with the consent message and the user’s
+address. The wallet provider displays the full message text and requires
+explicit user approval before signing. The resulting signature is a
+65-byte ECDSA signature (r: 32 bytes, s: 32 bytes, v: 1 byte recovery
+parameter) over the EIP-191 prefixed message hash [25].</p>
+<p><strong>Step 6 — Server Verification and JWT Issuance.</strong> The
+client sends <code>{address, signature, message}</code> to the server
+verification endpoint. The server:</p>
+<ul>
+<li>Recovers the signer address from the signature using ECDSA public
+key recovery [25]</li>
+<li>Verifies the recovered address matches the claimed address</li>
+<li>Validates the nonce and marks it as consumed</li>
+<li>Validates the consent message contains required phrases (educational
+disclaimer, sovereignty acknowledgment)</li>
+<li>Issues a JSON Web Token (JWT) [26] signed with HMAC-SHA256 (HS256)
+using a server-held symmetric secret, containing the verified address,
+role (participant or guide), and a configurable expiration (maximum 24
+hours). HS256 was selected for implementation simplicity; migration to
+ES256 (ECDSA-P256) for asymmetric non-repudiation is identified as
+future work</li>
+<li>The JWT is delivered as an HttpOnly, Secure, SameSite=Strict browser
+cookie</li>
+</ul>
+<figure>
+<img src="figures/v2/fig2_eip191_consent_flow_300dpi.png"
+alt="Figure 2. EIP-191 wallet-signed consent attestation sequence." />
+<figcaption aria-hidden="true">Figure 2. EIP-191 wallet-signed consent
+attestation sequence.</figcaption>
+</figure>
+<h3 id="middleware-verification-layer">3.3 Middleware Verification
+Layer</h3>
+<p>Every protected route passes through a server-side middleware layer
+that:</p>
+<ol type="1">
+<li>Extracts the session cookie from the request</li>
+<li>Verifies the JWT signature using the server’s signing key</li>
+<li>Checks token expiration</li>
+<li>Extracts the verified wallet address and role from the payload</li>
+<li>Injects the verified address into request headers</li>
+<li>Enforces role-based access (guide role required for Sovereign Guide
+routes)</li>
+</ol>
+<p>If verification fails, page routes redirect to the landing page; API
+routes return 401. The middleware runs on every request to protected
+routes, ensuring that every page load and API call is authorized by a
+valid, unexpired token derived from a cryptographic consent
+signature.</p>
+<h3 id="consent-gated-access-patterns">3.4 Consent-Gated Access
+Patterns</h3>
+<p>The architecture implements three levels of consent gating:</p>
+<p><strong>Level 1 — Platform Access.</strong> The initial
+<code>personal_sign</code> consent grants access to the platform.
+Without this signature, the middleware blocks all protected routes.</p>
+<p><strong>Level 2 — Sovereign Guide Access.</strong> Participants can
+grant specific Sovereign Guides access to their wellness records through
+a separate consent transaction. This grant is stored in the database and
+can be revoked by the participant, which deletes the consent grant
+server-side and blocks future access.</p>
+<p><strong>Level 3 — On-Chain Attestation.</strong> Session records,
+superbills, and achievement milestones are anchored to the blockchain
+through smart contract calls, creating an immutable audit trail of
+consent-authorized interactions.</p>
+<h3 id="session-refresh-and-revocation-semantics">3.5 Session Refresh
+and Revocation Semantics</h3>
+<p>To prevent session interruption during active use, the system
+implements a JWT refresh mechanism. A client-side timer fires before JWT
+expiry. The refresh endpoint verifies the existing JWT is still valid
+and issues a fresh token with the same claims.</p>
+<p>Revocation in the FSL architecture operates through three
+complementary mechanisms: (1) JWT expiration — tokens have a maximum
+lifetime of 24 hours and cannot be renewed after expiry without a fresh
+wallet signature; (2) server-side consent grant deletion — when a
+participant revokes a Sovereign Guide’s access, the database grant is
+deleted immediately, blocking future queries regardless of JWT validity;
+and (3) re-authentication enforcement — session-critical actions (e.g.,
+initiating a new session, modifying consent grants) require a fresh
+wallet signature regardless of existing JWT validity. Wallet
+disconnection at the client level is a user-experience convenience that
+clears the local session state but does not, by itself, invalidate an
+issued JWT. The JWT remains technically valid until its expiration
+timestamp, which is why the maximum expiration is bounded.</p>
+<hr />
+<h2 id="eip-191-consent-attestation-method">4. EIP-191 Consent
+Attestation Method</h2>
+<h3 id="cryptographic-consent-vs.-click-through-consent">4.1
+Cryptographic Consent vs. Click-Through Consent</h3>
+<p>Traditional click-through consent suffers from four fundamental
+weaknesses:</p>
+<ol type="1">
+<li><strong>Non-verifiability.</strong> There is no cryptographic proof
+that the user read or understood the terms. A checkbox state is
+trivially forgeable.</li>
+<li><strong>Non-attributability.</strong> The consent event is tied to a
+session cookie or account ID, not to a cryptographic identity. Anyone
+with the credentials can “consent.”</li>
+<li><strong>Weak revocability.</strong> Revoking consent requires
+navigating account settings and trusting the platform to honor the
+revocation. There is no independent verification mechanism.</li>
+<li><strong>Non-portability.</strong> The consent exists only in the
+platform’s database. The user has no independent record of what they
+consented to.</li>
+</ol>
+<p>EIP-191 wallet signatures address these weaknesses:</p>
+<ol type="1">
+<li><strong>Verifiable.</strong> The signature is a cryptographic proof
+that the holder of the private key approved the exact message text. Any
+third party can verify this independently.</li>
+<li><strong>Attributable.</strong> The signature is bound to a specific
+Ethereum address. Only the holder of the corresponding private key could
+have produced it.</li>
+<li><strong>Revocable within defined bounds.</strong> The participant
+can revoke future access authorization through consent grant deletion
+and JWT expiration. Past data stored in the database is not deleted by
+session termination; data deletion is handled through a separate data
+lifecycle process (see Section 10.2).</li>
+<li><strong>Portable.</strong> The signed message and signature
+constitute a self-contained proof of consent that the participant can
+retain and present to any verifier.</li>
+</ol>
+<h3 id="eip-191-signature-verification-pattern">4.2 EIP-191 Signature
+Verification Pattern</h3>
+<p>The following listing illustrates the server-side EIP-191 signature
+verification pattern used to recover the signer’s Ethereum address from
+a signed consent message. This is a generalized pattern;
+implementation-specific details are omitted.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Listing 1: EIP-191 Signature Verification Pattern (JavaScript/ethers.js)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> { ethers } <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;ethers&#39;</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">verifyConsentSignature</span>(message<span class="op">,</span> signature<span class="op">,</span> claimedAddress) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// EIP-191 prefixed message hash:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &quot;\x19Ethereum Signed Message:\n&quot; + len(message) + message</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> recoveredAddress <span class="op">=</span> ethers<span class="op">.</span><span class="fu">verifyMessage</span>(message<span class="op">,</span> signature)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Verify recovered address matches claimed address</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (recoveredAddress<span class="op">.</span><span class="fu">toLowerCase</span>() <span class="op">!==</span> claimedAddress<span class="op">.</span><span class="fu">toLowerCase</span>()) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&#39;Signature verification failed: address mismatch&#39;</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Validate consent message contains required phrases</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> requiredPhrases <span class="op">=</span> [</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;educational purposes&#39;</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;not a medical facility&#39;</span><span class="op">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;sovereign data governance&#39;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> phrase <span class="kw">of</span> requiredPhrases) {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>message<span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(phrase)) {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="vs">`Missing required consent phrase: </span><span class="sc">${</span>phrase<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> { <span class="dt">verified</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">address</span><span class="op">:</span> recoveredAddress }<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The <code>ethers.verifyMessage</code> function internally prepends
+the EIP-191 prefix (<code>\x19Ethereum Signed Message:\n</code> followed
+by the message length), computes the Keccak-256 hash, and performs ECDSA
+public key recovery to derive the signer address [17]. This server-side
+verification is the architectural basis for the claim that consent and
+authentication are unified: the same cryptographic operation that proves
+identity also proves consent to the message content.</p>
+<h3 id="the-fsl-consent-message">4.3 The FSL Consent Message</h3>
+<p>The FSL consent message is designed to function simultaneously as a
+legal informed consent document and a cryptographic authentication
+challenge (see Figure 2). The consent message contains four categories
+of information:</p>
+<ul>
+<li><strong>Consent scope:</strong> What the user is agreeing to
+(educational decentralized infrastructure for sovereign data governance
+access)</li>
+<li><strong>Disclaimers:</strong> What FSL is not (not a medical
+facility, not clinical, not a covered entity under HIPAA)</li>
+<li><strong>Rights declaration:</strong> The user’s sovereignty over
+their own data</li>
+<li><strong>Cryptographic binding:</strong> The wallet address, nonce,
+and timestamp that prevent replay and ensure attribution</li>
+</ul>
+<p>The server validates that the signed message contains the required
+consent phrases before issuing a JWT. A message that omits the
+disclaimers or modifies the consent scope will be rejected.</p>
+<hr />
+<h2 id="zero-phi-data-model">5. Zero-PHI Data Model</h2>
+<h3 id="data-classification-architecture">5.1 Data Classification
+Architecture</h3>
+<p>FSL employs a hybrid on-chain/off-chain data architecture designed to
+ensure that no protected health information (PHI) as defined by 45 CFR
+Section 160.103 [3] exists anywhere in the system (see Figure 3).</p>
+<p><strong>On-chain (Ethereum Sepolia):</strong></p>
+<ul>
+<li>Consent events (wallet signatures verified server-side; attestation
+hashes anchored on-chain)</li>
+<li>Session attestations (content hashes anchored to
+SovereignLedger)</li>
+<li>Achievement credentials (soulbound ERC-1155 tokens)</li>
+<li>Engagement records (AlchemistForge voluntary disclosures)</li>
+</ul>
+<p><strong>Off-chain (PostgreSQL + IPFS):</strong></p>
+<ul>
+<li>Session metadata (aggregate engagement data, no clinical notes)</li>
+<li>Wellness engagement metrics (aggregate, non-clinical)</li>
+<li>Encrypted documents (IPFS-pinned, wallet-gated decryption)</li>
+</ul>
+<p>This hybrid approach addresses the fundamental tension between
+blockchain immutability and healthcare data requirements: data that
+could become sensitive is encrypted and stored off-chain where it can be
+managed (and deleted if necessary), while consent events and
+attestations are anchored on-chain where they provide an immutable audit
+trail.</p>
+<figure>
+<img src="figures/v2/fig3_zero_phi_data_classification_300dpi.png"
+alt="Figure 3. Zero-PHI data classification across system layers." />
+<figcaption aria-hidden="true">Figure 3. Zero-PHI data classification
+across system layers.</figcaption>
+</figure>
+<h3 id="regulatory-scope-outside-hipaa-by-architectural-design">5.2
+Regulatory Scope: Outside HIPAA by Architectural Design</h3>
+<p>FSL operates outside HIPAA regulatory scope by architectural design —
+the system holds zero PHI, is not a covered entity, and maintains no
+business associate relationships. This determination rests on three
+architectural properties as defined by 45 CFR Section 160.103 [3]:</p>
+<ol type="1">
+<li><p><strong>No PHI storage.</strong> The system stores no
+individually identifiable health information. Participants are
+identified solely by pseudonymous Ethereum wallet addresses. No names,
+dates of birth, Social Security numbers, medical record numbers, or any
+of the 18 HIPAA identifiers are collected or stored. Wellness engagement
+metrics are aggregate and non-clinical.</p></li>
+<li><p><strong>Not a covered entity.</strong> FSL does not furnish,
+bill, or receive payment for healthcare services as defined under HIPAA.
+Sovereign Guides operating through the platform are credentialed
+wellness facilitators offering educational engagement, not clinical
+treatment. The platform does not submit claims to health plans or
+clearinghouses.</p></li>
+<li><p><strong>No business associate relationships.</strong> FSL does
+not create, receive, maintain, or transmit PHI on behalf of a covered
+entity. No business associate agreements (BAAs) exist because no PHI
+flows through the system.</p></li>
+</ol>
+<p>The de-identification standard under 45 CFR Section 164.514 [27]
+provides additional support: even if any data element were arguably
+health-related, the absence of all 18 Safe Harbor identifiers and the
+use of pseudonymous wallet addresses satisfy the de-identification
+threshold.</p>
+<p>This paper explicitly does not claim HIPAA compliance, as such a
+claim would imply covered-entity status. The correct characterization is
+that the system is architecturally positioned outside the scope of HIPAA
+regulation.</p>
+<p>Additionally, 42 CFR Part 2 [28], which governs confidentiality of
+substance use disorder records, does not currently apply because FSL
+does not operate as a federally assisted program and does not maintain
+substance use disorder patient records. This exclusion is a
+current-state determination; acceptance of federal funding or Medicaid
+participants would require reassessment. The FTC Health Breach
+Notification Rule [29] is acknowledged as potentially applicable to
+non-HIPAA health data platforms and is monitored as a compliance
+consideration.</p>
+<h3 id="practitioner-independence-and-tax-responsibility">5.3
+Practitioner Independence and Tax Responsibility</h3>
+<p>Sovereign Guides operating through the FSL ecosystem are independent
+practitioners, not employees, contractors, or agents of FSL. FSL
+provides decentralized infrastructure — payment rails, attestation
+contracts, credential verification — but does not direct, supervise, or
+oversee the practice of any Guide.</p>
+<p>FSL’s architectural design facilitates practitioner independence;
+applicable tax reporting obligations are the responsibility of each
+practitioner. FSL does not withhold or remit taxes, does not maintain
+employer-of-record status, and does not provide professional liability
+coverage. Independent contractor status is a legal determination that
+varies by jurisdiction and is not an architectural certainty. All
+session revenue, HNT rewards, BenevolenceFund distributions, and
+SovereignAchievement credentials with monetary value are reportable
+income to the receiving practitioner. Crypto-denominated compensation is
+treated as ordinary income at fair market value on the date received per
+IRS Notice 2014-21 [36] and subsequent guidance.</p>
+<p>This positioning is architectural rather than contractual: each
+session payment flows between participant wallet and practitioner wallet
+via the SovereignLedger contract, with the 3% BenevolenceFund and 27%
+FSL operations splits handled by the contract at transaction time. There
+is no FSL-controlled escrow account holding practitioner funds. The
+70/27/3 revenue split is designed to be enforced by smart contract logic
+at transaction time, not by FSL discretion.</p>
+<hr />
+<h2 id="sovereign-guide-attestation-lifecycle">6. Sovereign Guide
+Attestation Lifecycle</h2>
+<h3 id="session-initiation-and-attestation">6.1 Session Initiation and
+Attestation</h3>
+<p>SovereignSession extends the consent architecture from platform
+access to individual session governance (see Figure 4). The attestation
+lifecycle proceeds as follows:</p>
+<ol type="1">
+<li><p><strong>Session Initiation.</strong> The Sovereign Guide
+initiates a session by calling the contract’s session start function,
+passing the participant’s wallet address and a content hash as
+parameters. The guide’s wallet signature authorizes the transaction. The
+participant does not co-sign on-chain; their consent is established
+through the platform-level EIP-191 authentication and the explicit
+session booking consent recorded in the off-chain database.</p></li>
+<li><p><strong>Session Recording.</strong> During the session,
+engagement data is recorded off-chain. No clinical notes, diagnostic
+codes, or treatment plans are stored. The on-chain record contains only
+the guide address, participant address, content hash, and
+timestamp.</p></li>
+<li><p><strong>Session Completion.</strong> Either the guide or
+participant can mark the session as complete through the contract
+interface.</p></li>
+<li><p><strong>Attestation Finalization.</strong> Upon completion, the
+contract emits an event recording the final session state. This event
+serves as an immutable attestation that the session occurred, was
+authorized by a credentialed guide, and involved a consenting
+participant.</p></li>
+</ol>
+<figure>
+<img src="figures/v2/fig4_attestation_lifecycle_300dpi.png"
+alt="Figure 4. Sovereign Guide and Participant attestation lifecycle." />
+<figcaption aria-hidden="true">Figure 4. Sovereign Guide and Participant
+attestation lifecycle.</figcaption>
+</figure>
+<pre class="solidity"><code>// Listing 2: Session Attestation Event Pattern (Solidity)
+event SessionStarted(
+    address indexed guide,
+    address indexed participant,
+    bytes32 contentHash,
+    uint256 timestamp
+);
+
+event SessionEnded(
+    address indexed guide,
+    address indexed participant,
+    uint256 duration,
+    uint256 timestamp
+);</code></pre>
+<p>This event-driven pattern ensures that session attestations are
+publicly queryable and independently verifiable without exposing session
+content. The <code>contentHash</code> parameter allows off-chain session
+data integrity to be verified against the on-chain anchor without
+revealing the data itself.</p>
+<h3 id="alchemistforge-permissionless-engagement-recording">6.2
+AlchemistForge: Permissionless Engagement Recording</h3>
+<p>AlchemistForge is a minimal smart contract designed to record
+voluntary behavioral health engagement — specifically, Jungian shadow
+integration [30] — on the Ethereum blockchain. The contract exposes two
+public functions: one for recording a shadow aspect (keyed to the
+caller’s address) and one for marking the integration as complete. Both
+emit events that are publicly queryable.</p>
+<p>The design is deliberately minimal: no owner, no admin functions, no
+pause mechanism, no token economics. The contract exists solely to
+record a participant’s voluntary disclosure (a shadow aspect they are
+integrating) and their subsequent celebration of that integration.</p>
+<h3 id="privacy-properties-of-on-chain-engagement-data">6.3 Privacy
+Properties of On-Chain Engagement Data</h3>
+<p>AlchemistForge demonstrates that meaningful behavioral health
+engagement data can be captured on a public blockchain with zero
+personally identifiable information:</p>
+<ul>
+<li>The participant is identified only by their Ethereum wallet address
+(pseudonymous)</li>
+<li>The shadow aspect text is voluntary and self-authored by the
+participant</li>
+<li>No diagnosis, session plan, or clinical assessment is recorded</li>
+<li>The data is publicly verifiable but not attributable to a real-world
+identity without external information</li>
+<li>The participant chooses when, whether, and what to disclose</li>
+</ul>
+<p>We acknowledge that Ethereum addresses are pseudonymous, not
+anonymous. Address clustering, exchange KYC records, and on-chain
+behavioral analysis can potentially de-anonymize wallet addresses [14].
+The zero-PHI architecture mitigates this risk by ensuring that even if
+an address is linked to a real-world identity, the on-chain data
+contains no health information — only engagement attestations.</p>
+<hr />
+<h2 id="implementation">7. Implementation</h2>
+<h3 id="smart-contracts">7.1 Smart Contracts</h3>
+<p>FSL has deployed nine smart contracts on the Ethereum Sepolia
+testnet:</p>
+<p>Table 1. FSL Smart Contracts Deployed on Ethereum Sepolia</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Contract</th>
+<th>Address</th>
+<th>Purpose</th>
+<th>Access Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HypnoNeuroToken (HNT)</td>
+<td>0x1ae1e10929f008d1f9883ce574a318abd86084e2</td>
+<td>ERC-20 [31] wellness engagement token</td>
+<td>Owner-minted</td>
+</tr>
+<tr>
+<td>EncryptHealthToken (EHT)</td>
+<td>0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88</td>
+<td>Platform-specific ERC-20</td>
+<td>Owner-minted</td>
+</tr>
+<tr>
+<td>MindMasteryNFT</td>
+<td>0xCb9EcB00574DB29976c7C54045d443666D5C7771</td>
+<td>ERC-1155 [33] achievement credentials</td>
+<td>Owner-minted</td>
+</tr>
+<tr>
+<td>SovereignLedger v2</td>
+<td>0x4afA577fA914068451e0Aa97b61F23960f02aCc4</td>
+<td>Session governance and attestation</td>
+<td>Open registration</td>
+</tr>
+<tr>
+<td>AlchemistForge</td>
+<td>0xE092336F8f5082e57CcBb341A110C20ad186A324</td>
+<td>Voluntary engagement recording</td>
+<td>Fully permissionless</td>
+</tr>
+<tr>
+<td>BenevolenceFund v2</td>
+<td>0x96E8006a1fBB693B55fFf6254B8BF19EC605251B</td>
+<td>Community wellness treasury</td>
+<td>Owner-distributed</td>
+</tr>
+<tr>
+<td>SovereignAchievement</td>
+<td>0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D</td>
+<td>ERC-1155 [33] soulbound credentials</td>
+<td>Owner-minted</td>
+</tr>
+<tr>
+<td>NeuroBalanceConsent</td>
+<td>0x21571805e57f792b66604b140a45D8C1b2E196b8</td>
+<td>Biosensor consent scaffold</td>
+<td>Owner-controlled</td>
+</tr>
+<tr>
+<td>SovereignSession</td>
+<td>0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1</td>
+<td>Guide-initiated session attestation</td>
+<td>Guide-initiated</td>
+</tr>
+</tbody>
+</table>
+<p>The contracts range from fully permissionless (AlchemistForge —
+anyone can call the engagement function) to owner-controlled (token
+minting, achievement awards). SovereignAchievement is a single ERC-1155
+contract that issues soulbound (non-transferable) credentials to both
+Sovereign Guides and participants, using token ID ranges to
+differentiate credential types. This spectrum reflects a deliberate
+architectural choice: participation data is sovereign (the participant
+controls when and what they record), while credential issuance is
+governed (the platform verifies achievements before minting).</p>
+<p>All owner-controlled contracts are currently deployed from a single
+deployer wallet. This centralization is acknowledged as a limitation;
+migration to multisig governance is planned for mainnet deployment (see
+Section 10.3).</p>
+<h3 id="wallet-integration">7.2 Wallet Integration</h3>
+<p>FSL uses a minimal wallet integration layer that communicates
+directly with <code>window.ethereum</code>, avoiding the dependency
+chain of wallet abstraction libraries. The client-side wallet
+context:</p>
+<ol type="1">
+<li>Reads the JWT cookie synchronously on mount to determine
+authentication state</li>
+<li>Exposes a connection method for initiating wallet connections</li>
+<li>Implements a refresh method for re-reading authentication state
+after token refresh</li>
+<li>Implements provider preference logic when multiple wallets are
+injected (EIP-6963)</li>
+</ol>
+<p>This approach eliminates external wallet SDK dependencies that
+introduce relay servers, WebSocket connections, and cloud-hosted session
+state — all of which contradict the sovereignty model.</p>
+<h3 id="content-security-and-api-protection">7.3 Content Security and
+API Protection</h3>
+<p>The backend API implements origin-based CORS whitelisting restricted
+to FSL platform domains. All sensitive endpoints require wallet
+signature authentication via middleware that verifies authenticated
+session headers. Rate limiting is applied per IP to prevent abuse, with
+stricter limits on the nonce generation endpoint. The API is accessible
+only through a TLS-terminating reverse proxy providing DDoS protection
+and IP obfuscation of the origin server.</p>
+<h3 id="ai-tools-disclosure">7.4 AI Tools Disclosure</h3>
+<p>This manuscript was prepared with drafting assistance from Claude
+(Anthropic). The AI tool was used for structure refinement, prose
+editing, code pattern illustration, and formatting. No AI tool was used
+to generate research results, experimental data, architectural
+decisions, or factual claims about the system’s properties. All
+architectural decisions, implementation choices, deployment
+configurations, comparative evaluations, and limitations assessments are
+the sole responsibility of the author. The AI tool’s contributions are
+limited to language assistance in expressing the author’s original
+technical work. Prompts and interaction logs are available from the
+corresponding author on request, consistent with WAME recommendations
+for AI use disclosure in scholarly publications.</p>
+<hr />
+<h2 id="deployment-status">8. Deployment Status</h2>
+<p>The FSL ecosystem has been deployed as a proof-of-concept on Ethereum
+Sepolia testnet. This section characterizes the current deployment
+state, distinguishing between architectural properties that have been
+implemented and properties that require formal evaluation.</p>
+<h3 id="deployment-metrics-and-operational-characteristics">8.1
+Deployment Metrics and Operational Characteristics</h3>
+<p>Table 2 summarizes the observable deployment characteristics of the
+FSL prototype. On-chain values were queried from the Ethereum Sepolia
+block explorer (Blockscout) at time of paper preparation. Latency values
+were observed during local development and Sepolia testing.</p>
+<p>Table 2. Deployment Metrics and Operational Characteristics</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart contracts deployed</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Testnet</td>
+<td>Ethereum Sepolia</td>
+</tr>
+<tr>
+<td>Deployment block range</td>
+<td>10,610,642 – 10,848,153</td>
+</tr>
+<tr>
+<td>Observed deployment gas range</td>
+<td>575,000 – 1,770,000</td>
+</tr>
+<tr>
+<td>Token mint gas</td>
+<td>37,000 – 54,000</td>
+</tr>
+<tr>
+<td>Session registration gas</td>
+<td>~69,000</td>
+</tr>
+<tr>
+<td>Authentication standard</td>
+<td>EIP-191 personal_sign</td>
+</tr>
+<tr>
+<td>Wallet providers tested</td>
+<td>Brave Wallet, MetaMask, Coinbase Wallet</td>
+</tr>
+<tr>
+<td>Observed wallet authentication latency</td>
+<td>~4–6 seconds (observed during local development and Sepolia
+testing)</td>
+</tr>
+<tr>
+<td>JWT expiration</td>
+<td>24 hours maximum</td>
+</tr>
+<tr>
+<td>Verification model</td>
+<td>Server-side ECDSA recovery (EIP-191)</td>
+</tr>
+<tr>
+<td>Contract verification status</td>
+<td>Verified on Sepolia explorers</td>
+</tr>
+<tr>
+<td>Architecture classification</td>
+<td>Hybrid on-chain/off-chain prototype</td>
+</tr>
+<tr>
+<td>Guide model tested</td>
+<td>Single Sovereign Guide (principal investigator)</td>
+</tr>
+<tr>
+<td>External organic adoption</td>
+<td>None measured; architect-initiated activity only</td>
+</tr>
+</tbody>
+</table>
+<p>The metrics presented in Table 2 are observational rather than the
+product of formal benchmark testing. All gas values and latency ranges
+were recorded during development and testnet interaction on Ethereum
+Sepolia, which operates under proof-of-stake consensus with zero-cost
+gas — conditions that do not reflect mainnet economics or production
+load characteristics. These values are included to characterize the
+operational behavior of the prototype and to provide a baseline for
+future performance evaluation. Formal benchmarking under simulated
+multi-user load and adversarial conditions is planned as future
+work.</p>
+<h3 id="scope-and-maturity">8.2 Scope and Maturity</h3>
+<p>This deployment represents a functional proof of concept suitable for
+architectural validation, not a production-grade system. All
+participation activity is architect-initiated or campaign-generated; no
+external organic adoption has been measured. The system has been tested
+with a single Sovereign Guide (the principal investigator). Multi-guide
+consent dynamics remain untested and are identified as a priority for
+formal evaluation. A formal user study with external participants is
+planned (see Section 10.3).</p>
+<hr />
+<h2 id="comparative-analysis">9. Comparative Analysis</h2>
+<h3 id="comparative-properties-table">9.1 Comparative Properties
+Table</h3>
+<p>Table 3 presents a comparative analysis of FSL against four
+blockchain-based consent and health data systems: Welzel et al. (2025)
+[15], US Patent 12,235,984 [16], MedRec [9], and ADvoCATE [10].</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 21%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>FSL (This Paper)</th>
+<th>Welzel et al. 2025 [15]</th>
+<th>US 12,235,984 [16]</th>
+<th>MedRec [9]</th>
+<th>ADvoCATE [10]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jurisdiction</strong></td>
+<td>US (non-HIPAA)</td>
+<td>EU (GDPR)</td>
+<td>US (HIPAA-adjacent)</td>
+<td>US (HIPAA-adjacent)</td>
+<td>EU (GDPR)</td>
+</tr>
+<tr>
+<td><strong>Blockchain Type</strong></td>
+<td>Ethereum (Sepolia testnet; public)</td>
+<td>Consortium (Hyperledger)</td>
+<td>Permissioned</td>
+<td>Ethereum (private fork)</td>
+<td>Ethereum (private)</td>
+</tr>
+<tr>
+<td><strong>Consent Primitive</strong></td>
+<td>EIP-191 wallet signature (unified auth + consent)</td>
+<td>Smart contract permission grant</td>
+<td>Cryptographic consent token</td>
+<td>Smart contract ACL</td>
+<td>Blockchain transaction</td>
+</tr>
+<tr>
+<td><strong>Data Model</strong></td>
+<td>Zero-PHI; pseudonymous wallet addresses only</td>
+<td>Encrypted PHI with consent-gated access</td>
+<td>Tokenized consent references</td>
+<td>Pointer-based (off-chain EHR)</td>
+<td>On-chain consent, off-chain data</td>
+</tr>
+<tr>
+<td><strong>Actor Model</strong></td>
+<td>Participant (wallet) + Sovereign Guide (wallet)</td>
+<td>Patient + Provider + Institution</td>
+<td>Patient + Provider + System</td>
+<td>Patient + Provider + Institution</td>
+<td>Data subject + Controller + Processor</td>
+</tr>
+<tr>
+<td><strong>Auth-Consent Unification</strong></td>
+<td>Yes — single signature event</td>
+<td>No — separate authentication</td>
+<td>No — separate authentication</td>
+<td>No — separate authentication</td>
+<td>No — separate authentication</td>
+</tr>
+<tr>
+<td><strong>Implementation Status</strong></td>
+<td>Testnet deployment, 9 contracts, single-guide</td>
+<td>Described architecture, no deployment reported</td>
+<td>Patent granted, implementation not public</td>
+<td>Prototype on private Ethereum fork</td>
+<td>Proof-of-concept</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-differentiators">9.2 Key Differentiators</h3>
+<p><strong>Consent-as-authentication.</strong> Among the systems
+evaluated, FSL is distinctive in unifying authentication and informed
+consent into a single cryptographic event. MedRec, ADvoCATE, Welzel et
+al., and US 12,235,984 all treat authentication and consent as separate
+operations, typically authenticating via traditional credentials and
+then recording consent as a subsequent blockchain transaction. FSL’s
+architecture eliminates this separation: the wallet signature that
+proves identity simultaneously constitutes informed consent, and the
+server rejects signatures over messages that lack required consent
+phrases.</p>
+<p><strong>Zero-PHI by design.</strong> While MedRec and Welzel et
+al. store encrypted PHI with consent-gated access (a “protect PHI”
+model), FSL stores no PHI at all (a “hold no PHI” model). This
+architectural distinction has regulatory implications: systems that
+store encrypted PHI must still comply with HIPAA (or GDPR) data
+protection requirements, including breach notification, access controls,
+and audit trails for the encrypted data. FSL’s zero-PHI model places the
+system outside these regulatory frameworks entirely.</p>
+<p><strong>Behavioral health focus.</strong> Among the systems surveyed,
+FSL is the only one that specifically targets behavioral health
+engagement data. MedRec focuses on general EHR access management,
+ADvoCATE on IoT personal data, and Welzel et al. on general digital
+medicine consent. The behavioral health domain introduces unique
+sensitivity requirements that FSL addresses through its voluntary
+disclosure model (AlchemistForge) and pseudonymous participation.</p>
+<h3 id="limitations-of-the-comparison">9.3 Limitations of the
+Comparison</h3>
+<p>This comparative analysis is limited by several factors. First, the
+compared systems operate at different maturity levels — MedRec and
+ADvoCATE are published prototypes, US 12,235,984 is a granted patent
+with no publicly available implementation, and Welzel et al. present an
+architectural framework. Direct performance comparison is therefore not
+possible. Second, the systems target different regulatory jurisdictions
+(US vs. EU), making consent primitive comparison context-dependent.
+Third, FSL’s testnet deployment lacks the economic security guarantees
+that would apply to a mainnet deployment. A formal user study comparing
+participant-perceived sovereignty across consent models is planned as
+future work (see Section 10.3).</p>
+<hr />
+<h2 id="discussion">10. Discussion</h2>
+<h3 id="architectural-tradeoffs">10.1 Architectural Tradeoffs</h3>
+<p>The FSL architecture makes explicit tradeoffs between
+decentralization and usability:</p>
+<p><strong>Authentication latency.</strong> The
+<code>personal_sign</code> flow requires several seconds (nonce request,
+user approval, signature verification) compared to sub-second
+username/password authentication. We mitigate this with JWT tokens that
+avoid re-signing on every page load, combined with a refresh mechanism
+for session continuity.</p>
+<p><strong>Wallet dependency.</strong> Participants must have a Web3
+wallet (Brave Browser with Brave Wallet, or a compatible alternative).
+This introduces a significant adoption barrier for non-technical users.
+Account abstraction via ERC-4337 [34] is under evaluation as a path to
+reduce this barrier while preserving the sovereignty model.</p>
+<p><strong>Testnet limitations.</strong> All contracts are deployed on
+Sepolia testnet, which operates under proof-of-stake consensus without
+the economic security guarantees of Ethereum mainnet. Transactions are
+free, and the network could theoretically be reset. Production
+deployment requires migration to a mainnet with associated gas costs and
+formal security audit.</p>
+<p><strong>Centralized components.</strong> Despite the decentralized
+authentication layer, FSL retains centralized components: the PostgreSQL
+database, the frontend hosting, and the API server. These components are
+necessary for operational performance but represent single points of
+failure. The hybrid data model ensures that consent events and critical
+attestations are anchored on-chain even if centralized components become
+unavailable. The blockchain provides auditability and tamper-evidence
+for consent events, not full decentralization of the system.</p>
+<h3 id="revocability-and-data-lifecycle">10.2 Revocability and Data
+Lifecycle</h3>
+<p>The revocability properties of EIP-191 consent signatures must be
+precisely characterized. JWT is a stateless token format [26]; once
+issued, a JWT cannot be invalidated by the server before its expiration
+timestamp. Wallet disconnection is a client-side operation that clears
+local session state but does not invalidate an outstanding JWT.</p>
+<p>Effective revocation in the FSL architecture therefore operates
+through three mechanisms:</p>
+<ol type="1">
+<li><p><strong>JWT expiration.</strong> All tokens carry a maximum
+lifetime of 24 hours. After expiration, the participant must produce a
+fresh EIP-191 consent signature to obtain a new token. This bounds the
+maximum window during which a revoked session could theoretically remain
+active.</p></li>
+<li><p><strong>Server-side consent grant deletion.</strong> When a
+participant revokes a Sovereign Guide’s access, the corresponding
+database record is deleted immediately. Subsequent API requests from the
+guide — even with a valid JWT — will fail authorization checks against
+the consent grant table.</p></li>
+<li><p><strong>Re-authentication for session-critical actions.</strong>
+Operations that modify consent state (granting or revoking guide access,
+initiating sessions) require a fresh wallet signature regardless of
+existing JWT validity, ensuring that stale sessions cannot perform
+sensitive operations.</p></li>
+</ol>
+<p>This three-layer revocation model provides practical access
+termination while honestly acknowledging the limitations of stateless
+token architectures. We note that JWT best current practices [35]
+recommend short-lived tokens and server-side revocation lists for
+high-security applications; FSL’s approach is consistent with these
+recommendations.</p>
+<h3 id="limitations-and-future-work">10.3 Limitations and Future
+Work</h3>
+<ol type="1">
+<li><p><strong>Single-evaluator deployment.</strong> The current system
+has been tested with a single Sovereign Guide (the principal
+investigator). Multi-guide consent dynamics, including cross-guide data
+sharing and consent conflict resolution, remain untested. No formal user
+study has been conducted; a mixed-methods evaluation comparing
+participant-perceived sovereignty under wallet-based vs. click-through
+consent requires IRB approval and is planned.</p></li>
+<li><p><strong>Testnet only with centralized governance.</strong> All
+contracts are deployed on Sepolia testnet with no real economic value at
+stake. Seven of nine contracts are controlled by a single deployer
+wallet, creating centralization risk. Migration to mainnet with multisig
+governance and formal security audit is planned.</p></li>
+<li><p><strong>Browser wallet dependency and key management.</strong>
+The system requires a browser with an injected Ethereum provider (e.g.,
+Brave Wallet). Wallet private key loss results in permanent loss of
+identity and on-chain credentials. Account abstraction via ERC-4337 [34]
+and social recovery mechanisms are identified as future work.</p></li>
+<li><p><strong>Formal verification and cross-chain federation.</strong>
+Mathematical proof that the consent architecture satisfies the
+properties of verifiability, attributability, revocability, and
+portability claimed in Section 4 is planned. Cross-chain consent
+federation enabling a single wallet signature to authorize data sharing
+across independent platforms is identified as future work.</p></li>
+<li><p><strong>Two-Party Wallet-Signed Mutual Authentication with
+Client-Side Encrypted Session Recording (Phase 5 doctoral
+research).</strong> The capstone research advances SovereignSession from
+single-party attestation to bilateral cryptographic consent: both Guide
+and Participant submit EIP-191 signatures before session start, verified
+on-chain. Client-side AES-256-GCM encrypted video, IPFS-pinned,
+participant-held decryption key. To our knowledge, no existing
+telehealth platform implements this combination. This is not claimed as
+implemented.</p></li>
+</ol>
+<hr />
+<h2 id="conclusion">11. Conclusion</h2>
+<p>This paper presented the architecture and proof-of-concept
+implementation of a wallet-based consent system for behavioral health
+data governance. The central contribution is the unification of
+authentication and informed consent into a single EIP-191 cryptographic
+signature event — eliminating the architectural separation between
+identity and authorization that characterizes centralized health
+platforms.</p>
+<p>Three properties distinguish this approach. First, the consent event
+is the authentication event: a single cryptographic act that is
+verifiable, attributable, revocable within defined bounds, and portable.
+Second, the system operates outside HIPAA regulatory scope by
+architectural design, storing zero protected health information — a
+stronger position than compliance, because the regulation is
+architecturally inapplicable. Third, the AlchemistForge case study
+demonstrates that behavioral health engagement data can be captured on a
+public blockchain with full participant sovereignty and zero personally
+identifiable information.</p>
+<p>A comparative evaluation against MedRec, ADvoCATE, Welzel et
+al. (2025), and US Patent 12,235,984 indicates that FSL is, to our
+knowledge, the first system among those surveyed to unify
+authentication, informed consent, session authorization, and behavioral
+health data attribution into a single cryptographic signature event.</p>
+<p>The system is not without significant limitations. The current
+deployment is a testnet proof of concept with a single evaluator,
+centralized infrastructure components, browser wallet dependency, and
+the inherent constraints of stateless JWT revocation. No formal user
+study has been conducted, and no external participants have been
+onboarded. These limitations bound the conclusions that can be drawn
+from the current work.</p>
+<p>However, the architectural pattern itself — unifying consent and
+authentication through cryptographic signatures within a zero-PHI data
+model — is generalizable beyond the FSL context. We anticipate that this
+pattern may inform the design of future health informatics systems where
+participant data sovereignty is a first-class requirement, and we plan
+formal evaluation through IRB-approved participant study, mainnet
+deployment, and bilateral consent verification as doctoral research.</p>
+<hr />
+<h2 id="figure-captions">Figure Captions</h2>
+<p><strong>Figure 1.</strong> System architecture of the FSL
+decentralized health data infrastructure. Four deployed platforms
+(EncryptHealth, HypnoNeuro, SovereignLedger, AlchemistForge) and one
+scaffolded platform (NeuroBalance) share a unified EIP-191
+authentication layer. On-chain components (Ethereum Sepolia) store
+consent attestations and achievement credentials; off-chain components
+(PostgreSQL, IPFS) store encrypted session data and engagement metrics.
+Arrows indicate data flow direction; dashed borders indicate scaffolded
+or planned components.</p>
+<p><strong>Figure 2.</strong> EIP-191 consent attestation flow. The
+six-step authentication sequence: (1) wallet detection via EIP-6963, (2)
+account request, (3) server-side nonce generation with TTL and address
+binding, (4) consent message construction with educational disclaimers,
+(5) cryptographic signature via <code>personal_sign</code>, (6)
+server-side ECDSA recovery, consent validation, and JWT issuance. The
+consent message serves simultaneously as informed consent document and
+authentication challenge.</p>
+<p><strong>Figure 3.</strong> Zero-PHI data classification model. Data
+elements are classified into three tiers: Tier 1 (on-chain, public)
+includes consent attestation hashes, session event emissions, and
+soulbound achievement tokens — all containing zero PHI and zero PII.
+Tier 2 (off-chain, encrypted) includes session metadata and aggregate
+wellness metrics — containing no PHI but stored in encrypted form for
+defense in depth. Tier 3 (off-chain, wallet-gated) includes IPFS-pinned
+documents accessible only via wallet-authenticated decryption. No tier
+contains any of the 18 HIPAA Safe Harbor identifiers.</p>
+<p><strong>Figure 4.</strong> Sovereign Guide attestation lifecycle. The
+guide initiates a session on-chain by submitting the participant’s
+wallet address and a content hash. The contract emits a
+<code>SessionStarted</code> event. During the session, engagement data
+is recorded off-chain. Upon completion, either party can finalize the
+session, triggering a <code>SessionEnded</code> event. The on-chain
+record contains only wallet addresses, content hash, and timestamps — no
+session content.</p>
+<hr />
+<h2 id="ai-use-disclosure">AI Use Disclosure</h2>
+<pre class="solidity"><code>// SPDX-License-Identifier: Sovereign
+pragma sovereignty ^1.0.0;
+
+contract AIDisclosure {
+    address public author = [AUTHOR];
+    string[] public tools = [&quot;Claude (Anthropic)&quot;];
+    string public intent = &quot;Drafting assistance, structure refinement&quot;;
+    
+    function ownership() public pure returns (string memory) {
+        return &quot;Ideas, lived experience, and framing: 100% human.&quot;;
+    }
+}</code></pre>
+<p>All architectural decisions, factual claims, and final manuscript
+content are the responsibility of the author.</p>
+<hr />
+<p><em>Conflicts of interest: [Removed for blind review. See cover
+letter.]</em></p>
+<p><em>Data availability: All smart contracts are publicly verifiable on
+Ethereum Sepolia testnet at eth-sepolia.blockscout.com. Contract
+addresses are listed in Table 1. Source code repositories are available
+at [REPOSITORY_URLs — restored on acceptance]. This manuscript will be
+pinned to IPFS via Pinata upon final review and acceptance. The pinned
+CID will be appended to the published version.</em></p>
+<hr />
+<h2 id="references">References</h2>
+<p>[1] Rothstein MA. The Hippocratic bargain and health information
+technology. J Law Biosci. 2010;1(1):7-12.</p>
+<p>[2] Cate FH, Mayer-Schonberger V. Notice and consent in a world of
+Big Data. Int Data Priv Law. 2013;3(2):67-73.</p>
+<p>[3] 45 CFR §160.103: Definitions — Protected Health Information,
+Covered Entity, Business Associate. Washington: US Department of Health
+and Human Services.</p>
+<p>[4] Allen C. The path to self-sovereign identity. Life with Alacrity.
+2016. Available from:
+http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html</p>
+<p>[5] Eisenstadt M, Ramachandran M, Chowdhury N, et al. COVID-19
+antibody test/vaccination certification: There’s an app for that. IEEE
+Open J Eng Med Biol. 2020;1:148-155.</p>
+<p>[6] Houtan B, Hafid AS, Makrakis D. A survey on blockchain-based
+self-sovereign patient identity in healthcare. IEEE Access.
+2020;8:90478-90494.</p>
+<p>[7] Maslove DM, Klein J, Barber K, Allan A. Using blockchain
+technology to manage clinical trials data: A proof-of-concept study.
+JMIR Med Inform. 2018;6(4):e11949.</p>
+<p>[8] Kuo TT, Kim HE, Ohno-Machado L. Blockchain distributed ledger
+technologies for biomedical and health care applications. J Am Med
+Inform Assoc. 2017;24(6):1211-1220. doi: 10.1093/jamia/ocx068</p>
+<p>[9] Azaria A, Ekblaw A, Vieira T, Lippman A. MedRec: Using blockchain
+for medical data access and permission management. In: Proceedings of
+the International Conference on Open and Big Data (OBD). 2016:25-30.</p>
+<p>[10] Rantos K, Drosatos G, Demertzis K, et al. ADvoCATE: A consent
+management platform for personal data processing in the IoT using
+blockchain technology. In: Proceedings of the International Conference
+on Security for Information Technology and Communications.
+2019:300-313.</p>
+<p>[11] Dagher GG, Mohler J, Milner M, Marella A, Muraleedharan N.
+Ancile: Privacy-preserving framework for access control and
+interoperability of electronic health records using blockchain
+technology. Sustain Cities Soc. 2018;39:283-297. doi:
+10.1016/j.scs.2018.02.014</p>
+<p>[12] Esposito C, De Santis A, Tortora G, Chang H, Choo KKR.
+Blockchain: A panacea for healthcare cloud-based data security and
+privacy? IEEE Cloud Comput. 2018;5(1):31-37. doi:
+10.1109/MCC.2018.011791712</p>
+<p>[13] Mayer AH, da Costa CA, Righi RR. Electronic health records in a
+blockchain: A systematic review. Health Informatics J.
+2020;26(2):1273-1288. doi: 10.1177/1460458219866350</p>
+<p>[14] Zyskind G, Nathan O, Pentland A. Decentralizing privacy: Using
+blockchain to protect personal data. In: IEEE Security and Privacy
+Workshops. 2015:180-184. doi: 10.1109/SPW.2015.27</p>
+<p>[15] Welzel C, Ostermann M, Smith HL, Minssen T, Kirsten T, Gilbert
+S. Enabling secure and self determined health data sharing and consent
+management. npj Digit Med. 2025;8:560. doi:
+10.1038/s41746-025-01945-z</p>
+<p>[16] US Patent No. 12,235,984. Blockchain-based healthcare data
+consent management system. Washington: United States Patent and
+Trademark Office.</p>
+<p>[17] Ethereum Foundation. EIP-191: Signed data standard. Ethereum
+Improvement Proposals. 2018. Available from:
+https://eips.ethereum.org/EIPS/eip-191</p>
+<p>[18] Ethereum Foundation. EIP-712: Typed structured data hashing and
+signing. Ethereum Improvement Proposals. 2017. Available from:
+https://eips.ethereum.org/EIPS/eip-712</p>
+<p>[19] Ethereum Foundation. EIP-1271: Standard signature validation
+method for contracts. Ethereum Improvement Proposals. 2018. Available
+from: https://eips.ethereum.org/EIPS/eip-1271</p>
+<p>[20] Weyl EG, Ohlhaver P, Buterin V. Decentralized Society: Finding
+Web3’s Soul. SSRN Electron J. 2022.</p>
+<p>[21] Ethereum Foundation. ERC-5192: Minimal soulbound NFTs. Ethereum
+Improvement Proposals. 2022. Available from:
+https://eips.ethereum.org/EIPS/eip-5192</p>
+<p>[22] US Food and Drug Administration. General wellness: Policy for
+low risk devices (FDA-2014-N-1039). Guidance for Industry and Food and
+Drug Administration Staff. 2019.</p>
+<p>[23] Ethereum Foundation. EIP-6963: Multi injected provider
+discovery. Ethereum Improvement Proposals. 2023. Available from:
+https://eips.ethereum.org/EIPS/eip-6963</p>
+<p>[24] National Institute of Standards and Technology. NIST Special
+Publication 800-63B: Digital identity guidelines — Authentication and
+lifecycle management. Washington: US Department of Commerce; 2017.</p>
+<p>[25] Certicom Research. SEC 1: Elliptic curve cryptography, Version
+2.0. Standards for Efficient Cryptography Group. 2009. Section 4.1.6:
+Public key recovery operation.</p>
+<p>[26] Jones M, Bradley J, Sakimura N. JSON Web Token (JWT). IETF RFC
+7519. 2015.</p>
+<p>[27] 45 CFR §164.514: Other requirements relating to uses and
+disclosures of protected health information — De-identification
+standard. Washington: US Department of Health and Human Services.</p>
+<p>[28] 42 CFR Part 2: Confidentiality of substance use disorder patient
+records. Washington: Substance Abuse and Mental Health Services
+Administration.</p>
+<p>[29] Federal Trade Commission. Health Breach Notification Rule, 16
+CFR Part 318. 2009.</p>
+<p>[30] Jung CG. The archetypes and the collective unconscious. In:
+Collected Works of C.G. Jung, Vol. 9, Part 1. Princeton: Princeton
+University Press; 1959.</p>
+<p>[31] Vogelsteller F, Buterin V. ERC-20: Token standard. Ethereum
+Improvement Proposals. 2015. Available from:
+https://eips.ethereum.org/EIPS/eip-20</p>
+<p>[32] Entriken W, Shirley D, Evans J, Sachs N. ERC-721: Non-fungible
+token standard. Ethereum Improvement Proposals. 2018. Available from:
+https://eips.ethereum.org/EIPS/eip-721</p>
+<p>[33] Radomski W, Cooke A, Castonguay P, et al. ERC-1155: Multi token
+standard. Ethereum Improvement Proposals. 2018. Available from:
+https://eips.ethereum.org/EIPS/eip-1155</p>
+<p>[34] Ethereum Foundation. ERC-4337: Account abstraction using alt
+mempool. Ethereum Improvement Proposals. 2021. Available from:
+https://eips.ethereum.org/EIPS/eip-4337</p>
+<p>[35] Sheffer Y, Hardt D, Jones M. JSON Web Token best current
+practices. IETF RFC 8725. 2020.</p>
+<p>[36] Internal Revenue Service. IRS Notice 2014-21: Virtual currency
+guidance. 2014. Available from:
+https://www.irs.gov/pub/irs-drop/n-14-21.pdf</p>
+</body>
+</html>
