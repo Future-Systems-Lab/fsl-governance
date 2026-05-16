@@ -70,11 +70,7 @@ The author is the founder, sole architect, and lead engineer of Future Systems L
 
 ## Funding Statement
 
-[FLAG: Dr. Meg to confirm one of the following:]
-- [ ] "This research received no external funding. The work was self-funded by the author."
-- [ ] Other funding source: _______________
-
-If externally funded, include: "The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript."
+This research received no external funding. The work was entirely self-funded by the author. No grants, institutional support, or third-party sponsorship were involved in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
 
 ---
 
@@ -92,11 +88,7 @@ blockchain consent, self-sovereign identity, behavioral health, EIP-191, wallet-
 
 ## Article Processing Charge (APC)
 
-[FLAG: Dr. Meg to decide:]
-- [ ] Standard APC payment
-- [ ] Request fee waiver — reason: _______________
-
-BHTY APC information: https://blockchainhealthcaretoday.com/index.php/journal/about/submissions
+The author requests a full APC waiver. As a solo independent researcher with no institutional affiliation, grant funding, or third-party financial support, self-funding this doctoral-track proof-of-concept research, the standard APC presents a significant barrier. Should a full waiver not be granted, the author requests the student rate ($850 USD), as she is currently enrolled at Colorado State University Global (B.S. Management Information Systems, conferring July 2026).
 
 ---
 
@@ -107,8 +99,8 @@ The following items require your input before this submission package is complet
 1. ~~Phone number~~ — DONE (307-429-0360)
 2. ~~ORCID iD~~ — DONE (0009-0001-4536-3070)
 3. ~~Peer review type~~ — DONE (double-blind)
-4. **Funding source** — self-funded confirmation or external source
-5. **APC decision** — standard payment or waiver request
+4. ~~Funding source~~ — DONE (self-funded, no external funding)
+5. ~~APC decision~~ — DONE (waiver request + student rate fallback)
 6. **ICMJE COI form** — download from https://www.icmje.org/downloads/coi_disclosure.docx, complete manually, upload as separate file
 7. **Final page-by-page PDF review** — before submission
 8. **IPFS re-pin decision** — after acceptance, not before

@@ -28,15 +28,15 @@
 
 ## Plain Language Summary
 
-This study describes a new way to manage consent and data access for behavioral health and wellness platforms. Instead of clicking "I agree" on a terms of service page — which is easily forged, hard to revoke, and controlled by the platform — this system uses a digital wallet signature. This is a short cryptographic code that proves: (1) who you are, (2) that you read and agreed to specific terms, and (3) that you authorized a specific session — all in one step.
+This study describes a new way to manage consent and data access for behavioral health platforms. Instead of clicking "I agree" on a terms-of-service page — easily forged, hard to revoke, and platform-controlled — this system uses a digital wallet signature: a cryptographic code that proves who you are, that you agreed to specific terms, and that you authorized a specific session, all in one step.
 
-The system stores no personal health information. Participants are identified only by their wallet address, which is not linked to their real name or identity by the platform. Wellness engagement data is recorded on a public blockchain (Ethereum Sepolia testnet) as a proof of concept, but the data contains no clinical details — only timestamps, wallet addresses, and consent attestations.
+The system stores no personal health information. Participants are identified only by wallet address, not linked to real-world identity. Wellness engagement data is recorded on a public blockchain (Ethereum Sepolia testnet) as a proof of concept, containing no clinical details — only timestamps, wallet addresses, and consent attestations.
 
-Nine smart contracts were built and tested. A comparison with four other blockchain health data systems found that this is the first to combine identity verification, informed consent, session authorization, and data attribution into a single signature event.
+Nine smart contracts were built and tested. Comparison with four other blockchain health data systems found this is the first to combine identity verification, informed consent, session authorization, and data attribution into a single signature event.
 
-The system has been tested by one person (the developer) on a test network with no real money involved. It has not been tested with real participants or in a clinical setting. These are important limitations. Future work includes formal testing with real users, moving to a production blockchain network, and adding two-party consent verification where both the wellness guide and participant must sign before a session begins.
+The system has been tested by one person on a test network with no real money. It has not been tested with external participants or in a clinical setting — important limitations. Future work includes formal user testing, production blockchain deployment, and two-party consent verification where both wellness guide and participant must sign before a session begins.
 
-This approach could be useful beyond behavioral health — anywhere people need to control their own data, such as real estate, education, or government records.
+This approach could be useful beyond behavioral health — anywhere people need to control their own data, including real estate, education, and government records.
 
 ---
 

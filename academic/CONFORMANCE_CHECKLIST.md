@@ -9,7 +9,7 @@
 |---|-----------|--------|-------|
 | 1 | Word count ≤10,000 (incl. refs) | DONE | 8,378 words |
 | 2 | Structured abstract (250-400 words) | DONE | 335 words, 9 BHTY headings |
-| 3 | Plain Language Summary (≤250 words) | DONE | 275 words (slightly over 250 — trim if strict) |
+| 3 | Plain Language Summary (≤250 words) | DONE | 236 words |
 | 4 | Vancouver/ICMJE references | DONE | 36 references reformatted |
 | 5 | Double-blind safe manuscript | DONE | Author name, affiliation, email, IP block stripped; COI anonymized; GitHub URLs anonymized |
 | 6 | Scholarly name matches credentials | DONE | "Margarita Montañez Davenport" matches NPI, transcripts, degrees |
@@ -43,9 +43,9 @@
 | 11 | Editorial suitability narrative | DONE | |
 | 12 | IP/patent/trademark disclosure | DONE | |
 | 13 | COI disclosure (narrative) | DONE | |
-| 14 | Funding statement | NEEDS DR MEG | Self-funded confirmation or external source |
+| 14 | Funding statement | DONE | Self-funded, no external funding |
 | 15 | AI use disclosure | DONE | |
-| 16 | APC decision | NEEDS DR MEG | Standard payment or waiver request |
+| 16 | APC decision | DONE | Full waiver request + student rate fallback ($850) |
 | 17 | ICMJE COI Disclosure Form (.docx) | NEEDS DR MEG | Manual upload — https://www.icmje.org/downloads/coi_disclosure.docx |
 
 ## ZIP Code Discrepancy
@@ -54,8 +54,8 @@ Dr. Meg wrote **82891** but the canonical ZIP on the NPI record (NPPES) for Sher
 
 ## Remaining [FLAG] Items
 
-1. **Funding statement** — Dr. Meg to confirm: "This research received no external funding. The work was self-funded by the author." or specify funding source
-2. **APC waiver decision** — request waiver with justification, or pay standard APC
+1. ~~Funding statement~~ — DONE (self-funded)
+2. ~~APC waiver decision~~ — DONE (waiver request + student rate fallback)
 3. **ICMJE COI Disclosure Form** — separate .docx upload Dr. Meg must complete manually at https://www.icmje.org/downloads/coi_disclosure.docx
 
 ## Follow-Up Tasks (Not This Submission)
