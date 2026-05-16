@@ -1,7 +1,8 @@
 # LOI — ASU DEng Application
 
-Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP
+Margarita Montañez Davenport, D.N.Psy., BCHN, CBHP
 Founder & CEO, Future Systems Lab | future.systems.lab@proton.me
+ORCID iD: 0009-0001-4536-3070
 January 2027
 Ira A. Fulton Schools of Engineering
 School of Computing and Augmented Intelligence
@@ -53,7 +54,7 @@ This is not a theoretical exercise. It is applied engineering research in the mo
 FSL is, at its core, an applied engineering thesis: that the centralized data architecture underlying nearly every modern institution — healthcare, finance, government, education, identity — is structurally broken in the same way, and that a consent-first, wallet-gated, decentralized governance pattern resolves all of it. Mental health is where I have stress-tested this thesis because it is the domain where centralized failure costs lives most directly. The documentation, scalability framework, and validated reference architecture this applied project produces will be applicable to any system where access, autonomy, anonymity, and trustless governance are design requirements — and the engineering management discipline of formalizing that pattern is precisely what a Doctor of Engineering is for.
 I welcome the opportunity to work with Arizona State University and am deeply grateful for the consideration. I am looking to align with people who share this vision — to help scale and bring this ecosystem to those who need it most: people like me and EJ.
 Warm regards,
-Meg Montañez-Davenport, D.N.Psy., BCHN, CBHP
+Margarita Montañez Davenport, D.N.Psy., BCHN, CBHP
 Founder & CEO, Future Systems Lab
 future.systems.lab@proton.me
 —
