@@ -11,7 +11,7 @@ All contracts deployed on Ethereum Sepolia.
 | MindMasteryNFT (ERC-1155) | `0xCb9EcB00574DB29976c7C54045d443666D5C7771` | 3-level achievement NFT — L1/L2/L3 |
 | SovereignLedger v2 | `0x4afA577fA914068451e0Aa97b61F23960f02aCc4` | Session governance — claims, verification, pause |
 | AlchemistForge | `0xE092336F8f5082e57CcBb341A110C20ad186A324` | Jungian shadow work — Identify/Transmute/Celebrate |
-| BenevolenceFund v2 | `0x96E8006a1fBB693B55fFf6254B8BF19EC605251B` | 3% session fee — annual 50/30/20 distribution |
+| BenevolenceFund v2 | `0x96E8006a1fBB693B55fFf6254B8BF19EC605251B` | 3% session fee — annual 44/33/22 + 1% distribution |
 | SovereignAchievement (ERC-1155) | `0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D` | Soulbound NFTs — 10 participant + 10 guide tiers |
 | NeuroBalanceConsent | `0x21571805e57f792b66604b140a45D8C1b2E196b8` | (empty shell — scaffolded) |
 

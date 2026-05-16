@@ -8,7 +8,7 @@
     {"name": "MindMasteryNFT", "address": "0xCb9EcB00574DB29976c7C54045d443666D5C7771", "type": "ERC-1155", "description": "Mind Mastery achievement NFTs (L1-L3)"},
     {"name": "SovereignLedger v2", "address": "0x4afA577fA914068451e0Aa97b61F23960f02aCc4", "type": "contract", "description": "Session attestation infrastructure"},
     {"name": "AlchemistForge", "address": "0xE092336F8f5082e57CcBb341A110C20ad186A324", "type": "contract", "description": "Jungian shadow integration — Identify/Transmute/Celebrate"},
-    {"name": "BenevolenceFund v2", "address": "0x96E8006a1fBB693B55fFf6254B8BF19EC605251B", "type": "contract", "description": "3% session fee — annual 50/30/20 distribution"},
+    {"name": "BenevolenceFund v2", "address": "0x96E8006a1fBB693B55fFf6254B8BF19EC605251B", "type": "contract", "description": "3% session fee — annual 44/33/22 + 1% distribution"},
     {"name": "SovereignAchievement", "address": "0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D", "type": "ERC-1155", "description": "Soulbound tier credentials — 10 participant + 10 guide tiers"},
     {"name": "NeuroBalanceConsent", "address": "0x21571805e57f792b66604b140a45D8C1b2E196b8", "type": "contract", "description": "Biosensor consent shell (scaffolded)"},
     {"name": "SovereignSession", "address": "0xbeb13A360C6F0C77Ea3af3650Ab9762a1B9965A1", "type": "contract", "description": "Wallet-native session attestation — Phases 1-4 deployed"}

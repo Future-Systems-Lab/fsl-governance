@@ -7,7 +7,7 @@ Clean rewrites of the Sprint 011 proof-of-concept contracts. These replace the S
 | Contract | File | Replaces (Sepolia) | Description |
 |----------|------|--------------------|-------------|
 | SovereignLedger | `SovereignLedger.sol` | 0xf329...A94e | On-chain session governance with claim registration, verification, and pause |
-| BenevolenceFund | `BenevolenceFund.sol` | 0xbe71...8271 | 3% session fee community fund with annual 50/30/20 distribution |
+| BenevolenceFund | `BenevolenceFund.sol` | 0xbe71...8271 | 3% session fee community fund with annual 44/33/22 + 1% distribution |
 | SovereignAchievement | `SovereignAchievement.sol` | 0xe23e...f987 + 0x406c...6fc6 | Unified ERC-1155 soulbound achievement NFTs — 10 participant tiers + 10 guide tiers |
 
 ## Changes from v1

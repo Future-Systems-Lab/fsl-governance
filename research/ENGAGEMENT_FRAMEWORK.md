@@ -114,7 +114,7 @@ All contracts deployed on Ethereum Sepolia testnet. Verifiable on [Sepolia Block
 | HypnoNeuro Token (HNT) | 0x1ae1e10929f008d1f9883ce574a318abd86084e2 | Earned engagement token |
 | EHTv2 | 0x93583a7A24e50075c79b06db0be8Cf4D45B0bd88 | Capped supply token (144K max) |
 | SovereignLedger v2 | 0x4afA577fA914068451e0Aa97b61F23960f02aCc4 | Consent governance |
-| BenevolenceFund v2 | 0x96E8006a1fBB693B55fFf6254B8BF19EC605251B | Session fee redistribution (50/30/20) |
+| BenevolenceFund v2 | 0x96E8006a1fBB693B55fFf6254B8BF19EC605251B | Session fee redistribution (44/33/22 + 1%) |
 | SovereignAchievement | 0xC3F11d2F1F12bB96b9DCF7e8f85e9704D2869B8D | ERC-1155 soulbound tier credentials |
 | MindMasteryNFT | 0xCb9EcB00574DB29976c7C54045d443666D5C7771 | NFT credentialing |
 
