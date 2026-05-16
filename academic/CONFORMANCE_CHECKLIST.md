@@ -25,6 +25,7 @@
 | 16 | Keywords (5-7) | DONE | 7 keywords |
 | 17 | Figures captioned | DONE | Figures 1-4 captioned in dedicated section |
 | 18 | Reference [4] URL verified | DONE | Allen's original URL has "soverereign" (3 e's) — canonical |
+| 19 | Multi-wallet provider validation in Section 7.2 | DONE | Brave, Coinbase, Rainbow, hardware wallets documented |
 
 ## Cover Letter Requirements
 

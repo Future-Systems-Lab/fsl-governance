@@ -885,8 +885,11 @@ Section 10.3).</p>
 <h3 id="wallet-integration">7.2 Wallet Integration</h3>
 <p>FSL uses a minimal wallet integration layer that communicates
 directly with <code>window.ethereum</code>, avoiding the dependency
-chain of wallet abstraction libraries. The client-side wallet
-context:</p>
+chain of wallet abstraction libraries. System functionality was verified
+across multiple Web3 wallet providers — Brave Wallet, Coinbase Wallet,
+Rainbow, and hardware wallets via browser extension — to ensure
+provider-agnostic EIP-1193 compatibility, with all testing performed on
+Ethereum Sepolia testnet. The client-side wallet context:</p>
 <ol type="1">
 <li>Reads the JWT cookie synchronously on mount to determine
 authentication state</li>

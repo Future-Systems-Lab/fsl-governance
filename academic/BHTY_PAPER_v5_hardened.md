@@ -375,7 +375,7 @@ All owner-controlled contracts are currently deployed from a single deployer wal
 
 ### 7.2 Wallet Integration
 
-FSL uses a minimal wallet integration layer that communicates directly with `window.ethereum`, avoiding the dependency chain of wallet abstraction libraries. The client-side wallet context:
+FSL uses a minimal wallet integration layer that communicates directly with `window.ethereum`, avoiding the dependency chain of wallet abstraction libraries. System functionality was verified across multiple Web3 wallet providers — Brave Wallet, Coinbase Wallet, Rainbow, and hardware wallets via browser extension — to ensure provider-agnostic EIP-1193 compatibility, with all testing performed on Ethereum Sepolia testnet. The client-side wallet context:
 
 1. Reads the JWT cookie synchronously on mount to determine authentication state
 2. Exposes a connection method for initiating wallet connections
